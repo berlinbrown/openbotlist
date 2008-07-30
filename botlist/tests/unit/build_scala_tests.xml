@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (c) 2006 - Berlin Brown -->
+<!-- Date: 11/1/2006 -->
+<project name="Botlist Test Framework (Unit Tests)|Scala" default="init" basedir=".">	
+	<!-- ******************************* -->
+	<!-- ** Scala Tests (helpers and no helper) -->
+	<!-- ******************************* -->
+	
+	<!-- Target: Compile Scala Test Suite -->
+	<target name="scala.compile.tests" depends="compile">
+			<!-- Build the actual botlist scala source -->
+			<!-- and then the test suite -->
+			<scalac srcdir="${scala.test_src.dir}" 
+					destdir="${build.classes.dir}" 
+			  		classpathref="classpath.scala" force="never">
+			    <include name="**/*.scala"/>
+			</scalac>
+	</target>		
+	<target name="unit.scala.tests" depends="scala.compile.tests">
+			<java classname="org.botnode.botlist.tests.CheckUnitTestSuite" >	         
+				<classpath refid="classpath.tests" />
+				<classpath refid="classpath" />				
+				<classpath refid="default.runtime.classpath" />				
+				<classpath refid="classpath.scala" />
+			</java>
+	</target>	
+	<!-- # End Tests -->
+</project>
+<!-- End of the File -->

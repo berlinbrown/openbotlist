@@ -1,0 +1,163 @@
+/**
+ * Berlin Brown
+ *
+ * 4/29/2006
+ *
+ * CSS Associated with newspirit Styles
+ * some style classes are used from scaffold and bot_general as well
+ */
+
+#body_content_center {
+	border-bottom: 1px solid #816943;
+	padding: 0px 0px 0px 0px;	
+	margin-left: 20px;
+	margin-right: 30px;
+	margin-top: 6px;
+}
+
+/**
+ * The link content group consists of a collection
+ * of links; this is a main group secondary to the content center
+ */
+#link_content_group {
+	border-bottom: 2px solid #DDD;
+	padding-bottom: 4px;
+}
+#link_content_group_botverse {
+	border-bottom: 2px solid #DDD; 
+	padding-right: 4px;	
+	padding-bottom: 4px;
+	padding-left: 10px;
+	margin-right: 8px;	
+}
+
+/**
+ * Add two column layout for main page
+ */
+#two_col_left_links {
+	float: left;
+	width: 55%;
+}
+#two_col_right_links {
+	float: right;
+	width: 45%;
+}
+
+h1.bot_titlelogo {
+	color: #666;
+	font-size: 16pt;
+	font-family: Arial, Helvetica, Sans-Serif;
+	font-weight: bold;
+	background-color: #F5F5F5;
+	padding: 8px 8px 8px 8px;
+	border-bottom: 2px solid #816943;
+	margin-bottom: 0px;
+	margin-top: 0px;
+	background-image: url(/botlist/company/images/grey_gradient_small.jpeg);
+	background-repeat: repeat-x;
+}
+
+/**
+ * Section Console Links
+ */
+#bot_console_link_group {
+	background-color: #FEFBF8;
+	width: 100%;
+	border-bottom: 1px dotted #DDD;
+}
+
+/** Link Styles */
+A.console:link {
+	color: #858B23;
+	font-size: 10pt;
+	padding: 4px 4px 4px 4px;
+	text-decoration: none;
+}
+A.console:visited {
+	color: #858B23;
+	font-size: 10pt;
+	padding: 4px 4px 4px 4px;
+	text-decoration: none;
+}
+A.console:active {
+	color: #858B23;
+	font-size: 10pt;
+	padding: 4px 4px 4px 4px;
+	text-decoration: none;
+}
+A.console:hover {
+	color: #A54702;
+	font-size: 10pt;
+	padding: 4px 4px 4px 4px;
+	text-decoration: none;
+}
+
+/**
+ * Default Footer Section with Copyright information. Also includes 
+ * grey background gradient.
+ */
+#bot_footer_group {
+	background-color: #FEFBF8;
+	width: 100%;
+	border-top: 1px solid #816943;
+	color: #666;
+	font-size: 9pt;
+	background-image: url(/botlist/company/images/grey_gradient_more.jpeg);
+	background-repeat: repeat-x; 
+}
+
+/** Link Styles */
+A.footer:link {
+	color: #075007;
+	font-size: 8pt;
+	padding: 4px 4px 4px 4px;
+	text-decoration: none;
+}
+A.footer:visited {
+	color: #075007;
+	font-size: 8pt;
+	padding: 4px 4px 4px 4px;
+	text-decoration: none;
+}
+A.footer:active {
+	color: #075007;
+	font-size: 8pt;
+	padding: 4px 4px 4px 4px;
+	text-decoration: none;
+}
+A.footer:hover {
+	color: #A54702;
+	font-size: 8pt;
+	padding: 4px 4px 4px 4px;
+	text-decoration: none;
+}
+
+/**
+ * INDEX Orange Header Data
+ */
+.index_orange_background_header {
+	background-color: #F3E08A;
+	padding: 6px 6px 6px 6px;
+	color: #5370C5;
+}
+.index_orange_background_data {
+	background-color: #FEF6D1;
+	color: #AE910A;
+	font-size: 12pt;
+}
+
+#index_column_logo_box {
+	border: 1px solid #DDD;
+	margin: 8px 8px 8px 8px;
+	width: 520;
+
+}
+
+#index_column_info_group {
+	margin-top: 16px;
+	margin-left: 10px;
+	color: #555;
+}
+
+
+/** End of the File */

@@ -1,0 +1,551 @@
+<?xml version="1.0" encoding="utf-8"?>
+<VisioDocument>
+	<DocumentProperties>
+		<Title></Title>
+		<HyperlinkBase href=""></HyperlinkBase>
+	</DocumentProperties>
+	<Pages>
+		<Page ID="0" Name="Page-1" NameU="Page-1">
+			<Layer IX="0">
+				<Name>Connector</Name>
+				<NameUniv>Connector</NameUniv>
+				<Visible>1</Visible>
+			</Layer>
+			<Layer IX="1">
+				<Name>Web Site Map Shapes</Name>
+				<NameUniv>Web Site Map Shapes</NameUniv>
+				<Visible>1</Visible>
+			</Layer>
+			<Shapes>
+				<Shape ID="4" UniqueID="{9892ACE3-0652-45A1-B5B2-717BFF9944E1}" Name="Group.4" NameU="Group.4" Master="0">
+					<XForm>
+						<PinX Unit="IN">11.450000000000003</PinX>
+						<PinY Unit="IN">7.375279232436520</PinY>
+					</XForm>
+				</Shape>
+				<Shape ID="6" UniqueID="{625F6ADA-F648-49F4-B6E9-55D11B0E5022}" Name="Sheet.6" NameU="Sheet.6">
+					<Text>System Interfaces</Text>
+					<XForm>
+						<PinX Unit="IN">11.450000000000003</PinX>
+						<PinY Unit="IN">7.844418681504990</PinY>
+					</XForm>
+				</Shape>
+				<Shape ID="30" UniqueID="{26949137-F75C-4524-9263-2696564812A7}" Name="Sheet.30" NameU="Sheet.30">
+					<XForm>
+						<PinX Unit="IN">1.425000000000000</PinX>
+						<PinY Unit="IN">7.000000000000000</PinY>
+					</XForm>
+				</Shape>
+				<Shape ID="1" UniqueID="{AD40ADD9-11AA-4D3F-90EC-1114CB90A83C}" Name="Group" NameU="Group" Master="0">
+					<XForm>
+						<PinX Unit="IN">1.425000000000000</PinX>
+						<PinY Unit="IN">7.000000000000000</PinY>
+					</XForm>
+				</Shape>
+				<Shape ID="3" UniqueID="{571DDB26-794F-4831-AD02-C81F2A56A74B}" Name="Sheet.3" NameU="Sheet.3">
+					<Text>Botlist Home Index</Text>
+					<XForm>
+						<PinX Unit="IN">1.425000000000000</PinX>
+						<PinY Unit="IN">8.119139449068502</PinY>
+					</XForm>
+				</Shape>
+				<Shape ID="22" UniqueID="{FEA6D1F4-1A5C-404E-AF8A-BCC047F54D0F}" Name="Page element" NameU="Page element" Master="4">
+					<Text>index</Text>
+					<XForm>
+						<PinX Unit="IN">1.450000000000000</PinX>
+						<PinY Unit="IN">7.450000000000000</PinY>
+					</XForm>
+				</Shape>
+				<Shape ID="23" UniqueID="{3DBF870E-F0CA-436E-87F8-CA6806DD3FA0}" Name="Page element.23" NameU="Page element.23" Master="4">
+					<Text>/spring/newstats.html</Text>
+					<XForm>
+						<PinX Unit="IN">1.450000000000000</PinX>
+						<PinY Unit="IN">6.800000000000000</PinY>
+					</XForm>
+				</Shape>
+				<Shape ID="24" UniqueID="{7B6E2269-DA21-43BF-BBA1-B16527705F81}" Name="Page element.24" NameU="Page element.24" Master="4">
+					<Text>/spring/stats.html</Text>
+					<XForm>
+						<PinX Unit="IN">1.450000000000000</PinX>
+						<PinY Unit="IN">6.200000000000000</PinY>
+					</XForm>
+				</Shape>
+				<Shape ID="35" UniqueID="{9C470138-6F99-4473-98D3-3DC793BC53D1}" Name="Yellow note" NameU="Yellow note" Master="8">
+					<Text>Botlist Home</Text>
+					<XForm>
+						<PinX Unit="IN">3.600000000000004</PinX>
+						<PinY Unit="IN">7.959999999999999</PinY>
+					</XForm>
+				</Shape>
+				<Shape ID="36" UniqueID="{A0E9DE63-ED8E-4360-8AA3-0FD6580EDB12}" Name="Yellow note.36" NameU="Yellow note.36" Master="8">
+					<Text>
+Botverse Social News</Text>
+					<XForm>
+						<PinX Unit="IN">3.600000000000004</PinX>
+						<PinY Unit="IN">6.000000000000001</PinY>
+					</XForm>
+				</Shape>
+				<Shape ID="37" UniqueID="{3C9ED3D1-A33D-479B-9DDC-8AB4E037DA2B}" Name="Dynamic connector" NameU="Dynamic connector" Master="9">
+					<XForm>
+						<PinX Unit="IN">3.325000000000002</PinX>
+						<PinY Unit="IN">5.450000000000001</PinY>
+					</XForm>
+					<LayerMem>
+						<LayerMember>0</LayerMember>
+					</LayerMem>
+				</Shape>
+				<Shape ID="38" UniqueID="{6CDCB54B-9899-4DD5-B218-A71F6E2718EB}" Name="Dynamic connector.38" NameU="Dynamic connector.38" Master="9">
+					<XForm>
+						<PinX Unit="IN">3.125000000000002</PinX>
+						<PinY Unit="IN">7.359999999999999</PinY>
+					</XForm>
+					<LayerMem>
+						<LayerMember>0</LayerMember>
+					</LayerMem>
+				</Shape>
+				<Shape ID="34" UniqueID="{0DF6A4BC-CC2B-41D9-8AB9-D40CF3E881D7}" Name="Sheet.34" NameU="Sheet.34">
+					<XForm>
+						<PinX Unit="IN">3.050000000000000</PinX>
+						<PinY Unit="IN">3.200000000000001</PinY>
+					</XForm>
+				</Shape>
+				<Shape ID="16" UniqueID="{A4CAF601-2701-4F02-946D-57E7A0747239}" Name="Group.16" NameU="Group.16" Master="0">
+					<XForm>
+						<PinX Unit="IN">3.050000000000000</PinX>
+						<PinY Unit="IN">3.200000000000001</PinY>
+					</XForm>
+				</Shape>
+				<Shape ID="18" UniqueID="{6F4EAA9F-8CF2-4741-ADA2-5E6EB5A459E7}" Name="Sheet.18" NameU="Sheet.18">
+					<Text>Botverse Social News</Text>
+					<XForm>
+						<PinX Unit="IN">3.050000000000000</PinX>
+						<PinY Unit="IN">5.144418681504991</PinY>
+					</XForm>
+				</Shape>
+				<Shape ID="26" UniqueID="{D2B7AED6-C3F6-4DE9-A8AC-A589CCECD21E}" Name="Page element.26" NameU="Page element.26" Master="4">
+					<Text>/spring/botverse/botverse.html</Text>
+					<XForm>
+						<PinX Unit="IN">1.732432432432433</PinX>
+						<PinY Unit="IN">4.550000000000001</PinY>
+					</XForm>
+				</Shape>
+				<Shape ID="27" UniqueID="{9D8B3B94-52AD-4832-9833-7BB23F068FEB}" Name="Page element.27" NameU="Page element.27" Master="4">
+					<Text>/spring/botverse/botverse_submit.html</Text>
+					<XForm>
+						<PinX Unit="IN">1.732432432432433</PinX>
+						<PinY Unit="IN">3.950000000000001</PinY>
+					</XForm>
+				</Shape>
+				<Shape ID="28" UniqueID="{E9C3C22D-6F62-436A-BF15-AD094EFB3078}" Name="Page element.28" NameU="Page element.28" Master="4">
+					<Text>/spring/botverse/calendar/botverse_calendar.html</Text>
+					<XForm>
+						<PinX Unit="IN">1.732432432432433</PinX>
+						<PinY Unit="IN">2.750000000000001</PinY>
+					</XForm>
+				</Shape>
+				<Shape ID="29" UniqueID="{A616A37C-BEB1-4043-9E3C-0518B21187C4}" Name="Page element.29" NameU="Page element.29" Master="4">
+					<Text>/spring/botverse/group/grouplinks.html?info</Text>
+					<XForm>
+						<PinX Unit="IN">1.732432432432433</PinX>
+						<PinY Unit="IN">3.350000000000001</PinY>
+					</XForm>
+				</Shape>
+				<Shape ID="25" UniqueID="{8DAD8DA0-89EE-42CE-AE2B-4DBBD9709C50}" Name="Page element.25" NameU="Page element.25" Master="4">
+					<Text>/spring/botverse/group/grouplinks.html?nsfw</Text>
+					<XForm>
+						<PinX Unit="IN">1.732432432432433</PinX>
+						<PinY Unit="IN">2.150000000000001</PinY>
+					</XForm>
+				</Shape>
+				<Shape ID="31" UniqueID="{D57EED7F-57CA-42BC-995C-A7AC60139393}" Name="Page element.31" NameU="Page element.31" Master="4">
+					<Text>/spring/botverse/group/grouplinks.html?media</Text>
+					<XForm>
+						<PinX Unit="IN">1.732432432432433</PinX>
+						<PinY Unit="IN">1.550000000000001</PinY>
+					</XForm>
+				</Shape>
+				<Shape ID="32" UniqueID="{4FF7DDF6-A84A-44D9-9E24-DF988FE82B76}" Name="Page element.32" NameU="Page element.32" Master="4">
+					<Text>/spring/botverse/text/botverse_light.html</Text>
+					<XForm>
+						<PinX Unit="IN">4.414189189189190</PinX>
+						<PinY Unit="IN">4.550000000000001</PinY>
+					</XForm>
+				</Shape>
+				<Shape ID="33" UniqueID="{8E19873D-14AD-4842-AA62-115BAA09B4F2}" Name="Page element.33" NameU="Page element.33" Master="4">
+					<Text>/spring/botverse/text/botverse_text.html</Text>
+					<XForm>
+						<PinX Unit="IN">4.414189189189190</PinX>
+						<PinY Unit="IN">3.950000000000001</PinY>
+					</XForm>
+				</Shape>
+				<Shape ID="46" UniqueID="{16BBEE90-F2CC-4FD3-98F8-B12222FFC3E2}" Name="Sheet.46" NameU="Sheet.46">
+					<XForm>
+						<PinX Unit="IN">7.100000000000001</PinX>
+						<PinY Unit="IN">6.949798952645721</PinY>
+					</XForm>
+				</Shape>
+				<Shape ID="19" UniqueID="{94A91519-AEDC-4BDC-909A-622AD7F7E56D}" Name="Group.19" NameU="Group.19" Master="0">
+					<XForm>
+						<PinX Unit="IN">7.100000000000001</PinX>
+						<PinY Unit="IN">6.949798952645721</PinY>
+					</XForm>
+				</Shape>
+				<Shape ID="21" UniqueID="{8ADC5A3C-5754-4356-864F-E7C7977371B7}" Name="Sheet.21" NameU="Sheet.21">
+					<Text>Botlist Ad Listings</Text>
+					<XForm>
+						<PinX Unit="IN">7.100000000000001</PinX>
+						<PinY Unit="IN">7.744016586796433</PinY>
+					</XForm>
+				</Shape>
+				<Shape ID="39" UniqueID="{5DBBC5A9-E809-4734-9853-695AE2817EDF}" Name="Page element.33" NameU="Page element.33" Master="4">
+					<Text>/spring/sections.html?city=1</Text>
+					<XForm>
+						<PinX Unit="IN">7.080405405405408</PinX>
+						<PinY Unit="IN">7.150000000000000</PinY>
+					</XForm>
+				</Shape>
+				<Shape ID="40" UniqueID="{AD6E06E2-8E92-499A-8B3F-DC6EA9A52672}" Name="Page element.40" NameU="Page element.40" Master="4">
+					<Text>/spring/listings.html?viewid=</Text>
+					<XForm>
+						<PinX Unit="IN">7.080405405405407</PinX>
+						<PinY Unit="IN">6.550000000000001</PinY>
+					</XForm>
+				</Shape>
+				<Shape ID="47" UniqueID="{73985DA6-07D5-49F2-A37A-E92A394F8324}" Name="Sheet.47" NameU="Sheet.47">
+					<XForm>
+						<PinX Unit="IN">8.200000000000001</PinX>
+						<PinY Unit="IN">4.800000000000000</PinY>
+					</XForm>
+				</Shape>
+				<Shape ID="13" UniqueID="{772A8A5F-BFEF-4FBD-B73C-9A1EFF2EBEFA}" Name="Group.13" NameU="Group.13" Master="0">
+					<XForm>
+						<PinX Unit="IN">8.200000000000001</PinX>
+						<PinY Unit="IN">4.800000000000000</PinY>
+					</XForm>
+				</Shape>
+				<Shape ID="15" UniqueID="{4A2ABDA8-A652-4DFE-86C2-C5DA5FDB3539}" Name="Sheet.15" NameU="Sheet.15">
+					<Text>Botlist Login and Registration</Text>
+					<XForm>
+						<PinX Unit="IN">8.200000000000001</PinX>
+						<PinY Unit="IN">5.544418681504991</PinY>
+					</XForm>
+				</Shape>
+				<Shape ID="41" UniqueID="{67DA420D-EEC6-4CEE-B7B6-935C376F7F8A}" Name="Page element.41" NameU="Page element.41" Master="4">
+					<Text>/spring/profile/login.html</Text>
+					<XForm>
+						<PinX Unit="IN">8.219594594594595</PinX>
+						<PinY Unit="IN">4.900000000000000</PinY>
+					</XForm>
+				</Shape>
+				<Shape ID="42" UniqueID="{5396B563-1E37-4711-B1D9-DF63986C0114}" Name="Page element.42" NameU="Page element.42" Master="4">
+					<Text>/spring/profile/register.html</Text>
+					<XForm>
+						<PinX Unit="IN">8.219594594594595</PinX>
+						<PinY Unit="IN">4.300000000000000</PinY>
+					</XForm>
+				</Shape>
+				<Shape ID="48" UniqueID="{53E50D25-6A13-4476-B1DD-452B32017697}" Name="Sheet.48" NameU="Sheet.48">
+					<XForm>
+						<PinX Unit="IN">7.749999999999999</PinX>
+						<PinY Unit="IN">2.400000000000000</PinY>
+					</XForm>
+				</Shape>
+				<Shape ID="10" UniqueID="{35D83594-7601-41FC-9D0C-C069FC96B5E5}" Name="Group.10" NameU="Group.10" Master="0">
+					<XForm>
+						<PinX Unit="IN">7.750000000000001</PinX>
+						<PinY Unit="IN">2.400000000000000</PinY>
+					</XForm>
+				</Shape>
+				<Shape ID="12" UniqueID="{63896C79-9E17-44F5-9279-2D6B38DB86C4}" Name="Sheet.12" NameU="Sheet.12">
+					<Text>Botlist Forums</Text>
+					<XForm>
+						<PinX Unit="IN">7.750000000000002</PinX>
+						<PinY Unit="IN">3.394418681504992</PinY>
+					</XForm>
+				</Shape>
+				<Shape ID="43" UniqueID="{13AB1A90-4EBC-4B88-9271-C4AF42E42027}" Name="Page element.43" NameU="Page element.43" Master="4">
+					<Text>/spring/forums/forums.html</Text>
+					<XForm>
+						<PinX Unit="IN">7.719594594594597</PinX>
+						<PinY Unit="IN">2.900000000000000</PinY>
+					</XForm>
+				</Shape>
+				<Shape ID="44" UniqueID="{01ADB027-5835-49E8-A0F6-61081B2B57D5}" Name="Page element.44" NameU="Page element.44" Master="4">
+					<Text>/spring/forums/viewforums.html?viewid=1</Text>
+					<XForm>
+						<PinX Unit="IN">7.719594594594597</PinX>
+						<PinY Unit="IN">2.300000000000000</PinY>
+					</XForm>
+				</Shape>
+				<Shape ID="45" UniqueID="{F472407B-B8DE-456F-B8EA-4DA4C9D3FC73}" Name="Page element.45" NameU="Page element.45" Master="4">
+					<Text>/spring/forums/forumaddtopic.html</Text>
+					<XForm>
+						<PinX Unit="IN">7.719594594594596</PinX>
+						<PinY Unit="IN">1.700000000000000</PinY>
+					</XForm>
+				</Shape>
+				<Shape ID="49" UniqueID="{84E48914-529F-498C-B054-75909CF7EB1E}" Name="Home page" NameU="Home page" Master="11">
+					<XForm>
+						<PinX Unit="IN">4.112500000000001</PinX>
+						<PinY Unit="IN">7.000000000000000</PinY>
+					</XForm>
+				</Shape>
+				<Shape ID="56" UniqueID="{F369671E-7395-47B6-A732-FEE574AE701B}" Name="Page element.43" NameU="Page element.43" Master="4">
+					<Text>/spring/botverse/rover/botverse_rover.html</Text>
+					<XForm>
+						<PinX Unit="IN">11.400000000000000</PinX>
+						<PinY Unit="IN">7.250000000000000</PinY>
+					</XForm>
+				</Shape>
+				<Shape ID="62" UniqueID="{222057D6-9EAD-4E82-AF6E-E5586CFBCEB8}" Name="Sheet.62" NameU="Sheet.62">
+					<XForm>
+						<PinX Unit="IN">11.850000000000001</PinX>
+						<PinY Unit="IN">4.500000000000001</PinY>
+					</XForm>
+				</Shape>
+				<Shape ID="7" UniqueID="{96A91EFD-A684-4067-B56E-0F959E1A88B9}" Name="Group.7" NameU="Group.7" Master="0">
+					<XForm>
+						<PinX Unit="IN">11.850000000000001</PinX>
+						<PinY Unit="IN">4.500000000000001</PinY>
+					</XForm>
+				</Shape>
+				<Shape ID="9" UniqueID="{7DBB76AF-887A-4F86-B976-71CA02132B3C}" Name="Sheet.9" NameU="Sheet.9">
+					<Text>Pipe Interfaces</Text>
+					<XForm>
+						<PinX Unit="IN">11.850000000000001</PinX>
+						<PinY Unit="IN">6.244418681504993</PinY>
+					</XForm>
+				</Shape>
+				<Shape ID="57" UniqueID="{1B800A2F-64A3-4EDC-9F82-2ABAB84FD02B}" Name="Page element.57" NameU="Page element.57" Master="4">
+					<Text>/spring/pipes/search_pipes.html?querymode=enabled&amp;query=</Text>
+					<XForm>
+						<PinX Unit="IN">11.825000000000003</PinX>
+						<PinY Unit="IN">5.074999999999999</PinY>
+					</XForm>
+				</Shape>
+				<Shape ID="58" UniqueID="{D2FDBFEF-3AEA-436A-AB33-A8051B796348}" Name="Page element.58" NameU="Page element.58" Master="4">
+					<Text>/spring/pipes/global_pipes.html?querymode=enabled&amp;query=</Text>
+					<XForm>
+						<PinX Unit="IN">11.825000000000003</PinX>
+						<PinY Unit="IN">4.300000000000000</PinY>
+					</XForm>
+				</Shape>
+				<Shape ID="59" UniqueID="{CC6B5642-4374-4546-B7A9-582ACF39AEF3}" Name="Page element.59" NameU="Page element.59" Master="4">
+					<Text>/spring/rss/listings_rss.html</Text>
+					<XForm>
+						<PinX Unit="IN">11.830405405405408</PinX>
+						<PinY Unit="IN">3.600000000000000</PinY>
+					</XForm>
+				</Shape>
+				<Shape ID="60" UniqueID="{BD5578A1-BF55-430E-BE05-6133D3701D30}" Name="Page element.60" NameU="Page element.60" Master="4">
+					<Text>/spring/pipes/botverse_pipes.html</Text>
+					<XForm>
+						<PinX Unit="IN">11.830405405405408</PinX>
+						<PinY Unit="IN">5.750000000000000</PinY>
+					</XForm>
+				</Shape>
+				<Shape ID="61" UniqueID="{0B9C2500-C71A-4577-9846-43BE14F7CE83}" Name="Page element.61" NameU="Page element.61" Master="4">
+					<Text>/spring/botverse/rss/botverse_rss.html</Text>
+					<XForm>
+						<PinX Unit="IN">11.830405405405408</PinX>
+						<PinY Unit="IN">3.050000000000000</PinY>
+					</XForm>
+				</Shape>
+				<Shape ID="63" UniqueID="{E213D1DF-FE04-4788-A588-A76BA57CD957}" Name="Title block corporate 2" NameU="Title block corporate 2" Master="15">
+					<Text>Botlist application links
+(July 2007, subject to change)</Text>
+					<XForm>
+						<PinX Unit="IN">11.539154563145681</PinX>
+						<PinY Unit="IN">0.733287402343750</PinY>
+					</XForm>
+				</Shape>
+				<Shape ID="72" UniqueID="{3E0E093D-7B7B-4F27-B05B-4C4300EF89B5}" Name="Form" NameU="Form" Master="10">
+					<XForm>
+						<PinX Unit="IN">2.775000000000000</PinX>
+						<PinY Unit="IN">4.000000000000000</PinY>
+					</XForm>
+					<LayerMem>
+						<LayerMember>1</LayerMember>
+					</LayerMem>
+					<Scratch>
+						<B>
+							<SolutionXML>
+								<HLURL:Hyperlinks xmlns:HLURL="urn:schemas-microsoft-com:office:visio:dghlinkext">
+									<HLURL:Hyperlink ID="1">
+										<HLURL:Description></HLURL:Description>
+										<HLURL:Address></HLURL:Address>
+										<HLURL:SubAddress></HLURL:SubAddress>
+										<HLURL:ExtraInfo></HLURL:ExtraInfo>
+										<HLURL:Default>0</HLURL:Default>
+										<HLURL:NewWindow>0</HLURL:NewWindow>
+										<HLURL:AbsoluteURL></HLURL:AbsoluteURL>
+									</HLURL:Hyperlink>
+								</HLURL:Hyperlinks>
+							</SolutionXML>
+						</B>
+					</Scratch>
+					<Prop ID="1" Name="Error" NameU="Error">
+						<Value Unit="STR">None</Value>
+						<Label>Error</Label>
+					</Prop>
+				</Shape>
+				<Shape ID="85" UniqueID="{86E3EFC8-0C6B-4635-AB24-48B6C23ED40E}" Name="Form.85" NameU="Form.85" Master="10">
+					<XForm>
+						<PinX Unit="IN">0.475000000000000</PinX>
+						<PinY Unit="IN">4.725000000000000</PinY>
+					</XForm>
+					<LayerMem>
+						<LayerMember>1</LayerMember>
+					</LayerMem>
+					<Scratch>
+						<B>
+							<SolutionXML>
+								<HLURL:Hyperlinks xmlns:HLURL="urn:schemas-microsoft-com:office:visio:dghlinkext">
+									<HLURL:Hyperlink ID="1">
+										<HLURL:Description></HLURL:Description>
+										<HLURL:Address></HLURL:Address>
+										<HLURL:SubAddress></HLURL:SubAddress>
+										<HLURL:ExtraInfo></HLURL:ExtraInfo>
+										<HLURL:Default>0</HLURL:Default>
+										<HLURL:NewWindow>0</HLURL:NewWindow>
+										<HLURL:AbsoluteURL></HLURL:AbsoluteURL>
+									</HLURL:Hyperlink>
+								</HLURL:Hyperlinks>
+							</SolutionXML>
+						</B>
+					</Scratch>
+					<Prop ID="1" Name="Error" NameU="Error">
+						<Value Unit="STR">None</Value>
+						<Label>Error</Label>
+					</Prop>
+				</Shape>
+				<Shape ID="98" UniqueID="{03635191-4AB7-4531-A1A6-9319A69F4565}" Name="Form.98" NameU="Form.98" Master="10">
+					<XForm>
+						<PinX Unit="IN">7.700000000000000</PinX>
+						<PinY Unit="IN">1.475000000000000</PinY>
+					</XForm>
+					<LayerMem>
+						<LayerMember>1</LayerMember>
+					</LayerMem>
+					<Scratch>
+						<B>
+							<SolutionXML>
+								<HLURL:Hyperlinks xmlns:HLURL="urn:schemas-microsoft-com:office:visio:dghlinkext">
+									<HLURL:Hyperlink ID="1">
+										<HLURL:Description></HLURL:Description>
+										<HLURL:Address></HLURL:Address>
+										<HLURL:SubAddress></HLURL:SubAddress>
+										<HLURL:ExtraInfo></HLURL:ExtraInfo>
+										<HLURL:Default>0</HLURL:Default>
+										<HLURL:NewWindow>0</HLURL:NewWindow>
+										<HLURL:AbsoluteURL></HLURL:AbsoluteURL>
+									</HLURL:Hyperlink>
+								</HLURL:Hyperlinks>
+							</SolutionXML>
+						</B>
+					</Scratch>
+					<Prop ID="1" Name="Error" NameU="Error">
+						<Value Unit="STR">None</Value>
+						<Label>Error</Label>
+					</Prop>
+				</Shape>
+				<Shape ID="111" UniqueID="{31E2832F-055F-476E-BC70-35B24CEE56D1}" Name="Form.111" NameU="Form.111" Master="10">
+					<XForm>
+						<PinX Unit="IN">9.475000000000001</PinX>
+						<PinY Unit="IN">4.300000000000000</PinY>
+					</XForm>
+					<LayerMem>
+						<LayerMember>1</LayerMember>
+					</LayerMem>
+					<Scratch>
+						<B>
+							<SolutionXML>
+								<HLURL:Hyperlinks xmlns:HLURL="urn:schemas-microsoft-com:office:visio:dghlinkext">
+									<HLURL:Hyperlink ID="1">
+										<HLURL:Description></HLURL:Description>
+										<HLURL:Address></HLURL:Address>
+										<HLURL:SubAddress></HLURL:SubAddress>
+										<HLURL:ExtraInfo></HLURL:ExtraInfo>
+										<HLURL:Default>0</HLURL:Default>
+										<HLURL:NewWindow>0</HLURL:NewWindow>
+										<HLURL:AbsoluteURL></HLURL:AbsoluteURL>
+									</HLURL:Hyperlink>
+								</HLURL:Hyperlinks>
+							</SolutionXML>
+						</B>
+					</Scratch>
+					<Prop ID="1" Name="Error" NameU="Error">
+						<Value Unit="STR">None</Value>
+						<Label>Error</Label>
+					</Prop>
+				</Shape>
+				<Shape ID="124" UniqueID="{901AC99E-C090-464A-9C35-3377B5A58CF6}" Name="Form.124" NameU="Form.124" Master="10">
+					<XForm>
+						<PinX Unit="IN">9.325000000000001</PinX>
+						<PinY Unit="IN">4.875000000000000</PinY>
+					</XForm>
+					<LayerMem>
+						<LayerMember>1</LayerMember>
+					</LayerMem>
+					<Scratch>
+						<B>
+							<SolutionXML>
+								<HLURL:Hyperlinks xmlns:HLURL="urn:schemas-microsoft-com:office:visio:dghlinkext">
+									<HLURL:Hyperlink ID="1">
+										<HLURL:Description></HLURL:Description>
+										<HLURL:Address></HLURL:Address>
+										<HLURL:SubAddress></HLURL:SubAddress>
+										<HLURL:ExtraInfo></HLURL:ExtraInfo>
+										<HLURL:Default>0</HLURL:Default>
+										<HLURL:NewWindow>0</HLURL:NewWindow>
+										<HLURL:AbsoluteURL></HLURL:AbsoluteURL>
+									</HLURL:Hyperlink>
+								</HLURL:Hyperlinks>
+							</SolutionXML>
+						</B>
+					</Scratch>
+					<Prop ID="1" Name="Error" NameU="Error">
+						<Value Unit="STR">None</Value>
+						<Label>Error</Label>
+					</Prop>
+				</Shape>
+				<Shape ID="137" UniqueID="{60084FD8-0CAD-42A9-AC40-B19451E8AC31}" Name="Form.137" NameU="Form.137" Master="10">
+					<XForm>
+						<PinX Unit="IN">12.675000000000001</PinX>
+						<PinY Unit="IN">7.225000000000001</PinY>
+					</XForm>
+					<LayerMem>
+						<LayerMember>1</LayerMember>
+					</LayerMem>
+					<Scratch>
+						<B>
+							<SolutionXML>
+								<HLURL:Hyperlinks xmlns:HLURL="urn:schemas-microsoft-com:office:visio:dghlinkext">
+									<HLURL:Hyperlink ID="1">
+										<HLURL:Description></HLURL:Description>
+										<HLURL:Address></HLURL:Address>
+										<HLURL:SubAddress></HLURL:SubAddress>
+										<HLURL:ExtraInfo></HLURL:ExtraInfo>
+										<HLURL:Default>0</HLURL:Default>
+										<HLURL:NewWindow>0</HLURL:NewWindow>
+										<HLURL:AbsoluteURL></HLURL:AbsoluteURL>
+									</HLURL:Hyperlink>
+								</HLURL:Hyperlinks>
+							</SolutionXML>
+						</B>
+					</Scratch>
+					<Prop ID="1" Name="Error" NameU="Error">
+						<Value Unit="STR">None</Value>
+						<Label>Error</Label>
+					</Prop>
+				</Shape>
+				<Shape ID="150" UniqueID="{5060F992-6CE9-4D35-8EC1-7AFC04B9EB1F}" Name="Sheet.150" NameU="Sheet.150">
+					<XForm>
+						<PinX Unit="IN">4.772211132375391</PinX>
+						<PinY Unit="IN">1.283647295609677</PinY>
+					</XForm>
+				</Shape>
+			</Shapes>
+		</Page>
+	</Pages>
+</VisioDocument>

@@ -1,0 +1,20 @@
+##
+## Berlin Brown
+## Updated: 11/10/2007
+##
+ 
+ Overview:
+ ===================
+ 
+ Development notes for the openbotlist project.
+ 
+ Most Recent Notes:
+ ===================
+  
+ The Spring configuration files can include values from your 
+ properties files. You can easily customize this so that you 
+ can take control when the key and or the value of a property 
+ is requested. 
+ 
+ 
+ 

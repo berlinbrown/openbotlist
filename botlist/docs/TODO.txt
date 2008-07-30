@@ -1,0 +1,141 @@
+##
+##
+ 
+  11/10/2007:
+  --------------
+  + Add Statistic application as a profile application;
+  	simple application to store general statistics, ajax based:
+  	
+    Description :: Value :: unit type :: source
+    Number of people in use :: 320 million :: people :: http://www.google.com
+  
+  + Build a simple search help tool for developers with lucene.
+  
+  9/4/2007:
+  --------------
+  Code cleanup, change "one-to-many" unidirectional relationships to
+  many-to-one (see groups/terms)?
+
+  8/23/2007:
+  --------------
+  
+  To finish for the 0.4.x release:
+  
+  1. Complete basics of user features (up / mods, simple profile)
+  2. Finish search
+  3. Backups
+  
+  Add analytics to more sections
+  
+  Sweep cleanups
+ 	1. Remove stop words from keywords (*)
+ 	2. Don't allow titles that are too short (?)
+ 
+  8/15/2007:
+  --------------
+  + (still for 0.4.x release) 
+ 	1. Threaded app for searching (*)
+ 	2. Threaded app with serialized object (pid type file), see 1. (*)
+ 	
+ 	3. Build help blog system (!feature) ## ?
+ 	4. Add "hot search topics" section (!feature) ## (*)
+ 	5.! automatic discussions of postings to the forum sections, like emails ??
+ 	6. New jobs:
+ 		1. Job for sending to media feeds
+ 		2. Job for sending to pics/nsfw feeds (flickr?)
+ 		3. Job for database cleanups (add updated_on field)
+ 		4. Job for ratings
+ 	7. Backup strategy  (?)
+ 	8. Upload of links (100 max rest upload) (*)
+ 	9. Search index dates (*)
+ 	10. Finish user section
+ 	
+ 	Check where logs audits are needed (eg, remote sync)
+ 	Check for zero length urls/titles
+ 	Build a system to upload url feed listings
+ 	
+ 	(very optional): IRC to botlist?
+ 	
+ 	see lucene wiki for date content:
+ 	http://wiki.apache.org/lucene-java/HowTo
+ 	http://wiki.apache.org/jakarta-lucene/LargeScaleDateRangeProcessing
+ 	http://technology.amis.nl/blog/?p=1288
+ 	
+ 	--------------
+ 	Analyzer an=new StandardAnalyzer();
+	IndexModifier im=new IndexModifier("file:///c:/temp/index",an,true);
+	Document d=new Document();
+	d.add(new Field("title","Pulp Fiction", Field.Store.YES, Field.Index.TOKENIZED));
+	d.add(new Field("date","19940923", Field.Store.YES, Field.Index.TOKENIZED));
+	d.add(new Field("director","Quentin Tarantino", Field.Store.YES, Field.Index.TOKENIZED));
+	d.add(new Field("genre","Action", Field.Store.YES, Field.Index.TOKENIZED));
+	d.add(new Field("genre","Crime", Field.Store.YES, Field.Index.TOKENIZED));
+	im.close();
+ 	--------------
+ 	
+  7/27/2007:
+  --------------
+  More changes:
+   
+  	Minor Changes:
+    1. Fix search, possibly add new thread driven webapp
+    2. Add ind search terms, and feeds
+    3. Add financial feeds (*)
+    4. Fix help
+   
+  	Three major features:
+   	1. Google Maps / Split out networks??
+   	1b. Split out websites with information
+	2. Email Utility to send out alerts.
+	3. OpenId
+	4. Comment View (*)
+	5. Add breaking section (white on red)
+
+  --------------
+  6/29/2007
+  --------------
+  SDMR, Changes blist
+  --------------
+  * move search applications (indexes) to webapp (move to botlistprojects)
+  * Add image system, image search, image random view
+  * Add "banner text" on botverse page (grey foreground)
+  * Add rdf / pipe section
+  * Change botbert code to enable read-feed mode and then upload new links mode, toggle number of uploads
+  * Revisit comments, display number on listings page.
+  * Revisit stat page (why so slow), put building image
+  * Ensure that the 'tag/botverse filters' page contains the tag word.
+  * Speed enhancements
+  * Blist pipe reader in lisp/haskell
+  * Build a search page
+  * Million pages by end of weekend
+  * Add a column onto the system_feed_items for feeds not to process (eg, feeds for botlist data mining)
+  --------------
+  * Blist Data project (section):
+  	- Count number of feeds
+  	- Count number of articles found
+  	- Analyze the particular hosts
+  --------------  
+  --------------
+  Fields to store:
+  --------------
+  * image_filename (new unique id generated)
+  * title (of original article)
+  * url (url of article)
+  * orginal_imgurl
+  * process_count (is the file ready for display or not, eg resizing)
+  * last_display_date (datetime when last active)
+  * display_active (have a job to run when to display this image)
+  * blah_blah_id (id with real data, if needed)
+  * validity (integer value with validity check 0 - 100)
+  
+--------------
+
+ --------
+ Current: Botlist 0.3.b15 r120M - Alpha Christmas Release 12.2006 
+
+ + 0.3:
+ 	- Fix the tagging system, allow the ability to see links filtered by tags
+ 	
+ + 0.4:
+ 	- Ruby code cleanups and refactoring
+ 	- Add the ability for wikipedia like articles in the info.articles section

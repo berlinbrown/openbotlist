@@ -1,0 +1,844 @@
+---------------------------------------
+ Date: 3/14/2008
+ 
+ Botlist directory structure and short description of files
+
+ Notes
+ ------------------
+ deprecated - file is not used and should be removed
+ 
+ See updates to this file at:
+  
+ http://openbotlist.googlecode.com/svn/trunk/openbotlist/docs/FILES_AND_DIRECTORY_TREE
+---------------------------------------
+
+|-- LICENSE.BOTLIST - Updated botlist license file
+|-- LICENSE.TOMCAT - Tomcat license file (deprecated)
+|-- README.txt - Quick start file and description of botlist project
+|-- WEB-INF - J2EE web-inf configuration
+|   |-- applicationContext-acegi-security.xml - acegi spring configuration 
+|   |-- botlist_config.properties - main database password spring settings and other path settings
+|   |-- botlistings-servlet.xml - main spring configuration for botlist
+|   |-- botlistutil.tld
+|   |-- classes
+|   |   |-- Botlist.hbm.xml - Main botlist hibernate configuration, bean definitions, etc
+|   |   |-- ehcache.xml - ehcache configuration
+|   |   |-- hibernate.cfg.xml - hibernate configuration (includes Botlist.hbm.xml)
+|   |   |-- hibernate.properties - other misc hibernate settings
+|   |   |-- log4j.properties - Botlist web application logging configuration
+|   |   |-- messages.properties
+|   |   `-- version.properties
+|   |-- example_botlist_config.properties
+|   |-- jsps
+|   |   |-- INIT.jsp
+|   |   |-- INIT.rb
+|   |   |-- ajax
+|   |   |   |-- vote.jsp - jsp file for up / down voting ajax code 
+|   |   |   `-- vote.rb - 
+|   |   |-- botlistadmin
+|   |   |   |-- accessDenied.jsp
+|   |   |   |-- acegilogin.jsp
+|   |   |   |-- home.jsp
+|   |   |   `-- secure
+|   |   |       |-- extreme
+|   |   |       |   |-- docwrite
+|   |   |       |   |   |-- confirm.jsp
+|   |   |       |   |   `-- index.jsp
+|   |   |       |   `-- index.jsp
+|   |   |       `-- index.jsp
+|   |   |-- bots
+|   |   |-- botverse
+|   |   |   |-- botverse.jsp - Main botverse view jsp link page, see /botlist/spring/botverse/botverse.html 
+|   |   |   |-- botverse.rb - Controller and business logic for the botvere view page
+|   |   |   |-- botverse_confirm.jsp
+|   |   |   |-- botverse_submit.jsp - Allow users to submit user links 
+|   |   |   |-- botverse_submit.rb
+|   |   |   |-- calendar
+|   |   |   |   |-- botverse_calendar.jsp
+|   |   |   |   `-- botverse_calendar.rb
+|   |   |   |-- group
+|   |   |   |-- linkaddcomment.jsp
+|   |   |   |-- linkaddcomment.rb
+|   |   |   |-- linkaddcomment_confirm.jsp
+|   |   |   |-- linkviewcomments.jsp
+|   |   |   |-- linkviewcomments.rb
+|   |   |   |-- rover - Remote/Peer api, library for remote clients to using a set of REST calls to submit new links 
+|   |   |   |   |-- botverse_rover.jsp
+|   |   |   |   |-- botverse_rover.rb
+|   |   |   |   |-- forum_rover.jsp
+|   |   |   |   |-- forum_rover.rb
+|   |   |   |   `-- rover_confirm.jsp
+|   |   |   |-- rss
+|   |   |   |   |-- botverse_rss.jsp
+|   |   |   |   `-- botverse_rss.rb
+|   |   |   `-- text
+|   |   |       |-- botverse_light.jsp
+|   |   |       |-- botverse_light.rb
+|   |   |       |-- botverse_text.jsp
+|   |   |       `-- botverse_text.rb
+|   |   |-- chart
+|   |   |   `-- daily_chart.rb
+|   |   |-- citylist.jsp
+|   |   |-- citylist.rb
+|   |   |-- contactemail.jsp
+|   |   |-- contactemail.rb
+|   |   |-- contactlisting.jsp
+|   |   |-- contactlisting.rb
+|   |   |-- create_listing.jsp
+|   |   |-- create_listing.rb
+|   |   |-- createconfirm.jsp
+|   |   |-- default_footer.jsp
+|   |   |-- errorInvalidView.jsp
+|   |   |-- forums
+|   |   |   |-- comments
+|   |   |   |   |-- topics.jsp
+|   |   |   |   `-- topics.rb
+|   |   |   |-- forumaddtopic.jsp
+|   |   |   |-- forumaddtopic.rb
+|   |   |   |-- forumaddtopic_confirm.jsp
+|   |   |   |-- forums.jsp
+|   |   |   |-- forums.rb
+|   |   |   |-- forumviewtopic.jsp
+|   |   |   |-- forumviewtopic.rb
+|   |   |   |-- viewforums.jsp
+|   |   |   `-- viewforums.rb
+|   |   |-- general - Partial include jsp files 
+|   |   |   |-- botverse_calendar.jsp
+|   |   |   |-- botverse_incl
+|   |   |   |   |-- botverse_default_meta.jsp
+|   |   |   |   |-- botverse_index_sect.jsp
+|   |   |   |   `-- botverse_index_sect_right.jsp
+|   |   |   |-- botverse_link_css.jsp
+|   |   |   |-- botverse_link_stat.jsp
+|   |   |   |-- botverse_navigation.jsp
+|   |   |   |-- botverse_profile_nav.jsp
+|   |   |   |-- command_profile_nav.jsp
+|   |   |   |-- default_doc_type.jsp
+|   |   |   |-- default_footer.jsp
+|   |   |   |-- default_includes.jsp
+|   |   |   |-- default_navigation.jsp
+|   |   |   |-- default_profile_nav.jsp
+|   |   |   |-- foaf_quick_navigation.jsp
+|   |   |   `-- forreg_profile_nav.jsp
+|   |   |-- help
+|   |   |   |-- about.jsp
+|   |   |   |-- about.rb
+|   |   |   |-- contact.jsp
+|   |   |   |-- contact.rb
+|   |   |   |-- help.jsp
+|   |   |   |-- help.rb
+|   |   |   |-- source.jsp
+|   |   |   `-- source.rb
+|   |   |-- include.jsp
+|   |   |-- index.jsp
+|   |   |-- invalid_page.jsp
+|   |   |-- listings.jsp
+|   |   |-- listings.rb
+|   |   |-- mocktestslist
+|   |   |   |-- mocktest_listings.jsp
+|   |   |   |-- mocktest_listings.rb
+|   |   |   |-- mocktest_sections.jsp
+|   |   |   `-- mocktest_sections.rb
+|   |   |-- newadmin
+|   |   |   |-- admin_confirm.jsp
+|   |   |   |-- botverse_editheadline.jsp
+|   |   |   |-- botverse_editheadline.rb
+|   |   |   `-- home.jsp
+|   |   |-- pipes - Library for the developer api that can access botlist data 
+|   |   |   |-- botverse_pipes.jsp
+|   |   |   |-- botverse_pipes.rb
+|   |   |   |-- global_pipes.jsp
+|   |   |   |-- global_pipes.rb
+|   |   |   |-- pipes.jsp
+|   |   |   |-- rdf.jsp
+|   |   |   |-- rdf_nutch.jsp
+|   |   |   |-- remotesync.jsp
+|   |   |   |-- remotesync.rb
+|   |   |   |-- remotesync_send.jsp
+|   |   |   |-- remotesync_send.rb
+|   |   |   |-- search_pipes.jsp
+|   |   |   |-- search_pipes.rb
+|   |   |   `-- sync_confirm.jsp
+|   |   |-- profile
+|   |   |   |-- login.jsp
+|   |   |   |-- login.rb
+|   |   |   |-- loginconfirm.jsp
+|   |   |   |-- loginconfirm.rb
+|   |   |   |-- logout.jsp
+|   |   |   |-- logout.rb
+|   |   |   |-- overview.jsp
+|   |   |   |-- overview.rb
+|   |   |   |-- register.jsp
+|   |   |   |-- register.rb
+|   |   |   |-- registerconfirm.jsp
+|   |   |   |-- registerconfirm.rb
+|   |   |   |-- settings.jsp
+|   |   |   `-- settings.rb
+|   |   |-- rss
+|   |   |   |-- listings_rss.jsp
+|   |   |   `-- listings_rss.rb
+|   |   |-- search
+|   |   |   |-- addtopics.jsp
+|   |   |   |-- addtopics.rb
+|   |   |   |-- global.jsp
+|   |   |   |-- global_results.jsp
+|   |   |   |-- global_search.jsp
+|   |   |   |-- global_search.rb
+|   |   |   |-- invalidsearch.jsp
+|   |   |   |-- results.jsp
+|   |   |   |-- search.jsp
+|   |   |   |-- search.rb
+|   |   |   `-- text
+|   |   |       |-- search_textview.jsp
+|   |   |       `-- search_textview.rb
+|   |   |-- sections.jsp
+|   |   |-- sections.rb
+|   |   |-- semantic
+|   |   |   `-- foaf
+|   |   |       |-- foaf.jsp
+|   |   |       `-- foaf.rb
+|   |   |-- stats.jsp
+|   |   |-- stats.rb
+|   |   |-- viewlisting.jsp
+|   |   `-- viewlisting.rb
+|   |-- lib - java and ruby libraries.  Mostly jar files.
+|   |   |-- README_FILES.txt
+|   |   |-- acegi-security-1.0.6.jar
+|   |   |-- ant-antlr.jar
+|   |   |-- antlr-2.7.6.jar
+|   |   |-- antlr-2.7.7.jar
+|   |   |-- antlr-3.0.1.jar
+|   |   |-- antlr-runtime-3.0.1.jar
+|   |   |-- asm-2.2.3.jar
+|   |   |-- asm-commons-2.2.3.jar
+|   |   |-- backport-util-concurrent.jar
+|   |   |-- bsf.jar
+|   |   |-- c3p0-0.9.1.2.jar
+|   |   |-- cglib-nodep-2.1_3.jar
+|   |   |-- commons-codec.jar
+|   |   |-- commons-collections.jar
+|   |   |-- commons-dbcp.jar
+|   |   |-- commons-fileupload.jar
+|   |   |-- commons-io.jar
+|   |   |-- commons-logging.jar
+|   |   |-- commons-pool.jar
+|   |   |-- commons-validator.jar
+|   |   |-- dom4j-1.6.1.jar
+|   |   |-- ehcache-1.3.0.jar
+|   |   |-- emma.jar
+|   |   |-- emma_ant.jar
+|   |   |-- hibernate-annotations.jar
+|   |   |-- hibernate-commons-annotations.jar
+|   |   |-- hibernate-entitymanager.jar
+|   |   |-- hibernate3.jar
+|   |   |-- jakarta-oro-2.0.8.jar
+|   |   |-- jarjar-0.7.jar
+|   |   |-- jarjar.jar
+|   |   |-- jcommon-1.0.9.jar
+|   |   |-- jfreechart-1.0.5.jar
+|   |   |-- jline-0.9.91.jar
+|   |   |-- jruby-openssl.jar
+|   |   |-- jruby.jar
+|   |   |-- jstl.jar
+|   |   |-- jta.jar
+|   |   |-- junit.jar
+|   |   |-- lift-core-0.6.jar
+|   |   |-- log4j-1.2.14.jar
+|   |   |-- lucene-core-2.1.0.jar
+|   |   |-- mysql-connector-java-5.0.8-bin.jar
+|   |   |-- plaincharset.jar
+|   |   |-- ruby
+|   |   |   |-- actions
+|   |   |   |   |-- core_users.rb
+|   |   |   |   `-- group_links.rb
+|   |   |   |-- rspec
+|   |   |   |-- util
+|   |   |   |   |-- botlist_core.rb
+|   |   |   |   `-- chart_graphics.rb
+|   |   |   `-- web
+|   |   |       |-- entity_links.rb
+|   |   |       |-- users.rb
+|   |   |       `-- web_core.rb
+|   |   |-- scala-library-2.7.0.jar
+|   |   |-- spring-beans.jar
+|   |   |-- spring-core.jar
+|   |   |-- spring-jdbc.jar
+|   |   |-- spring-test.jar
+|   |   |-- spring-web.jar
+|   |   |-- spring-webmvc.jar
+|   |   |-- spring.jar
+|   |   |-- sqlitejdbc-v037-nested.jar
+|   |   |-- standard.jar
+|   |   |-- stringtemplate-3.1b1.jar
+|   |   |-- taglibs-datetime.jar
+|   |   |-- taglibs-request.jar
+|   |   `-- taglibs-string.jar
+|   |-- spring-botlist-util.xml - Additional spring configuration
+|   |-- spring-form.tld
+|   |-- spring.tld
+|   |-- taglibs-datetime.tld
+|   |-- taglibs-request.tld
+|   |-- taglibs-string.tld
+|   |-- tools
+|   |   |-- antlr
+|   |   |   `-- remotedef
+|   |   |       |-- ExampleRemoteDef.def
+|   |   |       |-- ParseMain.java
+|   |   |       `-- RemoteDef.g
+|   |   |-- examples
+|   |   |   `-- pipes
+|   |   |       `-- pipes_sample01.py
+|   |   `-- py
+|   |       |-- beangen - python code generation library 
+|   |       |   |-- README.txt
+|   |       |   |-- beangen.py
+|   |       |   |-- beangen.pyc
+|   |       |   |-- beangen_client.py
+|   |       |   |-- clean_py.sh
+|   |       |   |-- generate.ini
+|   |       |   |-- java_template.py
+|   |       |   |-- java_template.pyc
+|   |       |   |-- output
+|   |       |   |   `-- README.txt
+|   |       |   |-- pyparsing
+|   |       |   |   |-- HowToUsePyparsing.html
+|   |       |   |   |-- README
+|   |       |   |   |-- __init__.py
+|   |       |   |   |-- __init__.pyc
+|   |       |   |   |-- pyparsing.py
+|   |       |   |   `-- pyparsing.pyc
+|   |       |   |-- rspec_codegen.py
+|   |       |   |-- rspec_test_template.py
+|   |       |   |-- rspec_test_template.pyc
+|   |       |   |-- ruby_biz_codegen.py
+|   |       |   |-- ruby_biz_template.py
+|   |       |   `-- run.sh
+|   |       |-- bin
+|   |       |   |-- build_feedlist.py
+|   |       |   `-- proc_logs.py
+|   |       |-- conf
+|   |       |   |-- log_footer.html
+|   |       |   `-- log_header.html
+|   |       |-- data
+|   |       |   |-- README.txt
+|   |       |   `-- urls.dat
+|   |       `-- output
+|   |           `-- README.txt
+|   `-- web.xml
+|-- apps_src - Scala/LiftWeb library
+|   `-- scala
+|       `-- lift
+|           |-- Boot.scala
+|           `-- agents
+|               |-- AgentUtil.scala
+|               |-- RemoteAgents.scala
+|               |-- model
+|               |   `-- AgentMessage.scala
+|               `-- util
+|                   `-- GlobalUtil.scala
+|-- build.properties
+|-- build.xml
+|-- build_classpath.properties
+|-- build_standalone_utils.xml
+|-- clean_py.sh
+|-- company
+|   |-- about.htm
+|   |-- botlist_faq.htm
+|   |-- contact.htm
+|   |-- examples
+|   |   `-- pipes_sample01.py
+|   |-- help
+|   |   |-- botlist_addimage.htm
+|   |   |-- botlist_create.htm
+|   |   |-- botlist_navigation.htm
+|   |   |-- botverse_addcomment.htm
+|   |   |-- botverse_create.htm
+|   |   |-- botverse_navigation.htm
+|   |   |-- forum_create.htm
+|   |   `-- navigation.htm
+|   |-- help.htm
+|   |-- images
+|   |-- js
+|   |   `-- jq
+|   |       |-- jquery-1.1.4.js
+|   |       `-- jquery-1.1.4.pack.js
+|   |-- spirit_user_agreement.htm
+|   |-- spirit_user_reg_agreement.htm
+|   |-- stylesheets
+|   |   |-- botlist.css
+|   |   |-- botlist_calendar.css
+|   |   |-- botlist_general2.css
+|   |   |-- botlisthelp.css
+|   |   |-- docwriteadmin.css
+|   |   |-- newspirit.css
+|   |   `-- scaffold.css
+|   `-- terms_of_use.htm
+|-- db
+|   |-- README.txt
+|   |-- create_database.sql
+|   |-- create_tables.sql
+|   |-- create_tables_doc.sql
+|   |-- drop_tables.sql
+|   |-- insert_admin_data.sql
+|   |-- insert_link_groups.sql
+|   |-- insert_sys_scan_feeds.sql
+|   |-- insert_sys_scan_feeds_more.sql
+|   |-- mock
+|   |   `-- mock_insert_feed_items.sql
+|   |-- patch
+|   |   |-- README.txt
+|   |   |-- patch_add_botchat.sql
+|   |   |-- patch_add_link_type.sql
+|   |   |-- patch_add_ratings.sql
+|   |   |-- patch_add_sess_log.sql
+|   |   |-- patch_add_types2.sql
+|   |   |-- patch_add_userlinks.sql
+|   |   |-- patch_add_usernames.sql
+|   |   |-- patch_admin_tools.sql
+|   |   |-- patch_create_created_index.sql
+|   |   |-- patch_create_foaf_type.sql
+|   |   |-- patch_create_media.sql
+|   |   |-- patch_db_clean.sql
+|   |   |-- patch_hostnames.sql
+|   |   |-- patch_insert_city_minor.sql
+|   |   |-- patch_link_analysis.sql
+|   |   |-- patch_more_feeds.sql
+|   |   |-- patch_sweep_clean.sql
+|   |   |-- patch_system_audit.sql
+|   |   `-- patch_system_feeds.sql
+|   |-- postgres
+|   |   `-- README
+|   `-- scripts
+|       |-- LOG.DATA
+|       |-- README.txt
+|       |-- backup
+|       |   `-- README.txt
+|       |-- backup_db.pl
+|       |-- backup_hotcopy.sh
+|       |-- create_db.pl
+|       |-- create_patch.pl
+|       |-- create_tables.pl
+|       `-- load_db.pl
+|-- docs
+|   |-- BUGS.txt
+|   |-- CHANGELOG.txt
+|   |-- DEVELOPER_NOTES.txt
+|   |-- DEVELOPER_TOOLS.txt
+|   |-- FILES_AND_DIRECTORY_TREE
+|   |-- FUNCTIONAL_CAPABILITIES.txt
+|   |-- LIBRARIES.txt
+|   |-- PROMOTE_LOG.txt
+|   |-- QuickStart.txt
+|   |-- TODO.txt
+|   |-- botlist_dev_localhost.xml
+|   |-- developer_tools
+|   |   `-- emacs
+|   |       |-- _emacs.linux
+|   |       `-- lib
+|   |           `-- htmlize.el
+|   |   `-- system_feeds
+|   |       |-- SystemFeedItems.png
+|   |       `-- SystemFeedItems.xmi
+|   |-- marketing
+|   |   |-- BotlistDemoAdOne.jpg
+|   |   `-- BotlistVerticalDemo002.jpg
+|   `-- media
+|       |-- content
+|       |   |-- chart_content.txt
+|       |   `-- chart_content_01.PNG
+|       |-- screenshot_botverse_1.png
+|       `-- screenshot_home2.png
+|-- getsvnversion.sh
+|-- index.jsp
+|-- lift
+|   `-- index.htm
+|-- metrics_audit.sh
+|-- prepare_system.sh
+|-- remove_svn.sh
+|-- runtime-lib
+|   |-- ScalaCheck-1.2.jar
+|   |-- Tidy.jar
+|   |-- easymock
+|   |   |-- README
+|   |   `-- easymock.jar
+|   |-- httpunit.jar
+|   |-- js.jar
+|   |-- junit-4.1.jar
+|   |-- jython.jar
+|   |-- nekohtml.jar
+|   |-- scala-compiler-2.7.0.jar
+|   |-- servlet-api.jar
+|   `-- xercesImpl.jar
+|-- servlet-lib
+|   |-- jsp-api.jar
+|   |-- jstl.jar
+|   |-- resources
+|   |   |-- botlist.xml
+|   |   |-- log4j.properties
+|   |   `-- newrad.xml
+|   `-- servlet-api.jar
+|-- src
+|   `-- org
+|       `-- spirit
+|           |-- ant
+|           |   `-- taskdef
+|           |       `-- ANTLR.java
+|           |-- apps
+|           |   `-- foaf
+|           |       |-- BotListEntityTypeFoaf.java
+|           |       |-- BotListEntityTypeFoafDAO.java
+|           |       |-- BotListEntityTypeFoafDAOImpl.java
+|           |       `-- BotListEntityTypeFoafForm.java
+|           |-- bean
+|           |   `-- impl
+|           |       |-- BotListAclControl.java
+|           |       |-- BotListAclManager.java
+|           |       |-- BotListActiveMediaFeeds.java
+|           |       |-- BotListAdminMainBanner.java
+|           |       |-- BotListCalculatorVerification.java
+|           |       |-- BotListCatGroupTerms.java
+|           |       |-- BotListCatLinkGroups.java
+|           |       |-- BotListChildListLinks.java
+|           |       |-- BotListCityListing.java
+|           |       |-- BotListCoreUsers.java
+|           |       |-- BotListDeveloperUsers.java
+|           |       |-- BotListDocFile.java
+|           |       |-- BotListDocFileMetadata.java
+|           |       |-- BotListEntityLinks.java
+|           |       |-- BotListFeedItems.java
+|           |       |-- BotListForumGroup.java
+|           |       |-- BotListGroupControl.java
+|           |       |-- BotListGroupLinks.java
+|           |       |-- BotListGroupManager.java
+|           |       |-- BotListLinkGroups.java
+|           |       |-- BotListMediaFeeds.java
+|           |       |-- BotListPostImageMetadata.java
+|           |       |-- BotListPostListing.java
+|           |       |-- BotListPostSections.java
+|           |       |-- BotListProfileSettings.java
+|           |       |-- BotListSearchQueryFilters.java
+|           |       |-- BotListSessionRequestLog.java
+|           |       |-- BotListSystemAuditLog.java
+|           |       |-- BotListUserComments.java
+|           |       |-- BotListUserLink.java
+|           |       |-- BotListUserLinks.java
+|           |       |-- BotListUserVisitLog.java
+|           |       `-- base
+|           |           |-- BotListBeanBase.java
+|           |           `-- BotListEntity.java
+|           |-- business
+|           |   `-- EntityLinkManager.java
+|           |-- cache
+|           |   |-- BotListCacheController.java
+|           |   |-- BotListCacheEntity.java
+|           |   `-- BotListCacheManager.java
+|           |-- contract
+|           |   |-- BotListContractManager.java
+|           |   `-- BotListCoreUsersContract.java
+|           |-- dao
+|           |   |-- BotListAclControlDAO.java
+|           |   |-- BotListAclManagerDAO.java
+|           |   |-- BotListActiveMediaFeedsDAO.java
+|           |   |-- BotListAdminMainBannerDAO.java
+|           |   |-- BotListCatGroupTermsDAO.java
+|           |   |-- BotListCatLinkGroupsDAO.java
+|           |   |-- BotListChildListLinksDAO.java
+|           |   |-- BotListCityListingDAO.java
+|           |   |-- BotListCoreSettings.java
+|           |   |-- BotListCoreUsersDAO.java
+|           |   |-- BotListDeveloperUsersDAO.java
+|           |   |-- BotListDocFileDAO.java
+|           |   |-- BotListDocFileMetadataDAO.java
+|           |   |-- BotListEntityLinksDAO.java
+|           |   |-- BotListForumGroupDAO.java
+|           |   |-- BotListGroupControlDAO.java
+|           |   |-- BotListGroupLinksDAO.java
+|           |   |-- BotListGroupManagerDAO.java
+|           |   |-- BotListLinkGroupsDAO.java
+|           |   |-- BotListMediaFeedsDAO.java
+|           |   |-- BotListPostImageMetadataDAO.java
+|           |   |-- BotListPostListingDAO.java
+|           |   |-- BotListPostSectionsDAO.java
+|           |   |-- BotListProfileSettingsDAO.java
+|           |   |-- BotListSearchQueryFiltersDAO.java
+|           |   |-- BotListSessionRequestLogDAO.java
+|           |   |-- BotListUserCommentsDAO.java
+|           |   |-- BotListUserLinkDAO.java
+|           |   |-- BotListUserLinksDAO.java
+|           |   |-- BotListUserSearchDAO.java
+|           |   |-- BotListUserVisitLogDAO.java
+|           |   |-- base
+|           |   |   `-- BotListDAOBase.java
+|           |   `-- impl
+|           |       |-- BotListAclControlDAOImpl.java
+|           |       |-- BotListAclManagerDAOImpl.java
+|           |       |-- BotListActiveMediaFeedsDAOImpl.java
+|           |       |-- BotListAdminMainBannerDAOImpl.java
+|           |       |-- BotListCatGroupTermsDAOImpl.java
+|           |       |-- BotListCatLinkGroupsDAOImpl.java
+|           |       |-- BotListChildListLinksDAOImpl.java
+|           |       |-- BotListCityListingDAOImpl.java
+|           |       |-- BotListCoreUsersDAOImpl.java
+|           |       |-- BotListDeveloperUsersDAOImpl.java
+|           |       |-- BotListDocFileDAOImpl.java
+|           |       |-- BotListDocFileMetadataDAOImpl.java
+|           |       |-- BotListEntityLinksDAOImpl.java
+|           |       |-- BotListForumGroupDAOImpl.java
+|           |       |-- BotListGroupControlDAOImpl.java
+|           |       |-- BotListGroupLinksDAOImpl.java
+|           |       |-- BotListGroupManagerDAOImpl.java
+|           |       |-- BotListLinkGroupsDAOImpl.java
+|           |       |-- BotListMediaFeedsDAOImpl.java
+|           |       |-- BotListPostImageMetadataDAOImpl.java
+|           |       |-- BotListPostListingDAOImpl.java
+|           |       |-- BotListPostSectionsDAOImpl.java
+|           |       |-- BotListProfileSettingsDAOImpl.java
+|           |       |-- BotListSearchQueryFiltersDAOImpl.java
+|           |       |-- BotListSessionRequestLogDAOImpl.java
+|           |       |-- BotListUserCommentsDAOImpl.java
+|           |       |-- BotListUserLinkDAOImpl.java
+|           |       |-- BotListUserLinksDAOImpl.java
+|           |       |-- BotListUserSearchDAOImpl.java
+|           |       `-- BotListUserVisitLogDAOImpl.java
+|           |-- form
+|           |   |-- BotListAclControlForm.java
+|           |   |-- BotListAclManagerForm.java
+|           |   |-- BotListActiveMediaFeedsForm.java
+|           |   |-- BotListAdminMainBannerForm.java
+|           |   |-- BotListCatGroupTermsForm.java
+|           |   |-- BotListCatLinkGroupsForm.java
+|           |   |-- BotListChildListLinksForm.java
+|           |   |-- BotListCityListingForm.java
+|           |   |-- BotListCoreUsersForm.java
+|           |   |-- BotListDeveloperUsersForm.java
+|           |   |-- BotListDocFileForm.java
+|           |   |-- BotListDocFileMetadataForm.java
+|           |   |-- BotListEntityLinksForm.java
+|           |   |-- BotListEntityLinksRemoteSyncForm.java
+|           |   |-- BotListForumGroupForm.java
+|           |   |-- BotListGenericForm.java
+|           |   |-- BotListGenericPagingForm.java
+|           |   |-- BotListGroupControlForm.java
+|           |   |-- BotListGroupLinksForm.java
+|           |   |-- BotListGroupManagerForm.java
+|           |   |-- BotListLinkGroupsForm.java
+|           |   |-- BotListMediaFeedsForm.java
+|           |   |-- BotListPostImageMetadataForm.java
+|           |   |-- BotListPostListingForm.java
+|           |   |-- BotListPostSectionsForm.java
+|           |   |-- BotListProfileSettingsForm.java
+|           |   |-- BotListSearchQueryFiltersForm.java
+|           |   |-- BotListSessionRequestLogForm.java
+|           |   |-- BotListSystemAuditLogForm.java
+|           |   |-- BotListUserCommentsForm.java
+|           |   |-- BotListUserLinksForm.java
+|           |   |-- BotListUserSearchForm.java
+|           |   |-- BotListUserVisitLogForm.java
+|           |   |-- BotListVisitLogStatsForm.java
+|           |   |-- base
+|           |   |   |-- BotListBaseCalcVerify.java
+|           |   |   `-- BotListBaseForm.java
+|           |   `-- ext
+|           |       `-- BotListMapEntityLink.java
+|           |-- parse
+|           |   `-- remotedef
+|           |       |-- RemoteDef.tokens
+|           |       |-- RemoteDefLexer.java
+|           |       |-- RemoteDefParser.java
+|           |       `-- RemoteDef__.g
+|           |-- servlet
+|           |   |-- bean
+|           |   |   `-- BotListConcatValue.java
+|           |   |-- chart
+|           |   |   `-- DayStatChart.java
+|           |   |-- filters
+|           |   |   `-- BotListHomeFilter.java
+|           |   `-- tags
+|           |       |-- BotListEncodeHtml.java
+|           |       |-- BotListExpressionBaseTag.java
+|           |       |-- BotListHostnameTag.java
+|           |       `-- BotListTimePastTag.java
+|           |-- spring
+|           |   |-- BotListAdminController.java
+|           |   |-- BotListIndexController.java
+|           |   |-- BotListRubyController.java
+|           |   |-- BotListRubyDAOHandler.java
+|           |   |-- BotListUserSessionListener.java
+|           |   |-- client
+|           |   |   |-- GenerateUserDDL.java
+|           |   |   |-- ViewMD5Encoding.java
+|           |   |   `-- ViewUniqueId.java
+|           |   |-- errors
+|           |   |   `-- InvalidBusinessObjectException.java
+|           |   |-- handler
+|           |   |   |-- BotListAdminHandler.java
+|           |   |   `-- BotListDocFileProcessor.java
+|           |   |-- search
+|           |   |   |-- EntityLinkSearchHandler.java
+|           |   |   |-- GlobalSearchHandler.java
+|           |   |   `-- IndexSearchHandler.java
+|           |   |-- util
+|           |   |   `-- BotListGenericHandler.java
+|           |   `-- validate
+|           |       |-- BotListAddTopicValidator.java
+|           |       |-- BotListAdminBannerValidator.java
+|           |       |-- BotListCoreUsersLoginValidator.java
+|           |       |-- BotListCoreUsersValidator.java
+|           |       |-- BotListDocFileValidator.java
+|           |       |-- BotListEntityLinksGroupValidator.java
+|           |       |-- BotListEntityLinksRoverValidator.java
+|           |       |-- BotListEntityLinksValidator.java
+|           |       |-- BotListForumRoverValidator.java
+|           |       |-- BotListGenericValidator.java
+|           |       |-- BotListPostContactValidator.java
+|           |       |-- BotListPostListingValidator.java
+|           |       |-- BotListRemoteSyncValidator.java
+|           |       |-- BotListTopicValidator.java
+|           |       `-- BotListUserCommentsValidator.java
+|           `-- util
+|               |-- BotListConsts.java
+|               |-- BotListCookieManager.java
+|               |-- BotListFileUploadType.java
+|               |-- BotListFileUploadUtil.java
+|               |-- BotListGenericUtils.java
+|               |-- BotListSessionManager.java
+|               |-- BotListSpringCleanFilter.java
+|               |-- BotListUniqueId.java
+|               |-- GenericJRubyLoader.java
+|               |-- io
+|               |   `-- JRubyIOHelper.java
+|               |-- markdown
+|               |   |-- BotListMarkUtil.java
+|               |   |-- BotListReplacement.java
+|               |   |-- BotlistMarkStringUtil.java
+|               |   `-- doc
+|               |       `-- BotListDocWriteUtil.java
+|               |-- text
+|               |   |-- KeywordProcessor.java
+|               |   `-- TextUtils.java
+|               |-- version
+|               |   `-- BotListVersionReader.java
+|               `-- xml
+|                   `-- EscapeHTML.java
+|-- svnversion.log
+|-- templates-hidden
+|   `-- default.htm
+|-- tests
+|   |-- build.xml
+|   |-- integration
+|   |   |-- WEB-INF
+|   |   |   `-- botlist_config.properties
+|   |   |-- build.properties
+|   |   |-- build.xml
+|   |   |-- java
+|   |   |-- resources
+|   |   |   `-- log4j.properties
+|   |   |-- ruby
+|   |   |   `-- rspec
+|   |   |       |-- bowling_exampl.rb
+|   |   |       |-- create_mock_tests.rb
+|   |   |       |-- entity_type_foaf_spec.rb
+|   |   |       |-- example2_spec.rb
+|   |   |       |-- example_spec.rb
+|   |   |       |-- io_processor.rb
+|   |   |       |-- io_processor_spec.rb
+|   |   |       `-- spec_helper.rb
+|   |   |-- scala
+|   |   |   `-- spirit
+|   |   |       `-- tests
+|   |   |           |-- CheckTestExamples.scala
+|   |   |           |-- CheckTestLiftMisc.scala
+|   |   |           `-- CheckTestSuite.scala
+|   |   `-- util
+|   |       `-- logs
+|   |           |-- openbotlist.log
+|   |           |-- openbotlist_hibernate.log
+|   |           `-- openbotlist_ruby.log
+|   |-- misc
+|   |   |-- README.txt
+|   |   |-- build.properties
+|   |   |-- build.xml
+|   |   |-- py
+|   |   |   |-- all_single_test.py
+|   |   |   |-- all_tests.py
+|   |   |   |-- all_tests_prod.py
+|   |   |   |-- config.py
+|   |   |   |-- example.py
+|   |   |   |-- test_escape_xml.py
+|   |   |   |-- test_group_links.py
+|   |   |   |-- test_http_available.py
+|   |   |   |-- test_http_sections.py
+|   |   |   |-- test_keywords.py
+|   |   |   |-- test_post_listing.py
+|   |   |   `-- test_sections.py
+|   |   |-- ruby
+|   |   |   |-- BaseStatisticTest.rb
+|   |   |   |-- README.txt
+|   |   |   |-- TestCreateChart.rb
+|   |   |   |-- TestCreateLineChart.rb
+|   |   |   |-- TestGroupLinks.rb
+|   |   |   |-- TestSections.rb
+|   |   |   |-- TestTemplate.rb
+|   |   |   |-- TestUserAccess.rb
+|   |   |   `-- TestWithStatistics.rb
+|   |   `-- src
+|   |       `-- org
+|   |           `-- spirit
+|   |               `-- test
+|   |                   |-- JRubyTestCase.java
+|   |                   |-- MainJavaTestSuite.java
+|   |                   |-- MainSingleTestSuite.java
+|   |                   |-- MainTestSuite.java
+|   |                   |-- MarkdownRegexTestCase.java
+|   |                   |-- chart
+|   |                   |   `-- MainTestCreateChart.java
+|   |                   |-- io
+|   |                   |   `-- JRubyIOHelper.java
+|   |                   `-- java
+|   |                       |-- bean
+|   |                       |   `-- EntityLinkTest.java
+|   |                       `-- util
+|   |                           `-- MapReduceTest.java
+|   `-- system
+|       `-- loadhttptest
+|           |-- cookies
+|           |   `-- REMOVE_COOKIE_FILES.txt
+|           |-- data
+|           |   |-- examples
+|           |   |   `-- EXAMPLE_REQUESTS.txt
+|           |   |-- scripts
+|           |   |   |-- loc_sequence_register_login.dat
+|           |   |   |-- sequence_add_comment_bug.dat
+|           |   |   |-- sequence_botverse_addcom.dat
+|           |   |   |-- sequence_botverse_linkview.dat
+|           |   |   |-- sequence_botverse_submit.dat
+|           |   |   |-- sequence_forums_view.dat
+|           |   |   `-- sequence_register_login.dat
+|           |   |-- sequence_requests.dat
+|           |   |-- template_footer.html
+|           |   |-- template_header.html
+|           |   |-- testurldata_local.dat
+|           |   `-- unittestdata_local.dat
+|           |-- output
+|           |   `-- README.txt
+|           |-- src
+|           |   `-- org
+|           |       `-- spirit
+|           |           `-- loadtest
+|           |               |-- LoadTestCookieManager.java
+|           |               |-- LoadTestHtmlOutput.java
+|           |               |-- LoadTestManager.java
+|           |               |-- LoadTestManagerThread.java
+|           |               |-- LoadTestSequenceParser.java
+|           |               |-- LoadTestServer.java
+|           |               |-- LoadTestServerThread.java
+|           |               `-- LoadTestWriteHtmlDoc.java
+|           |-- testclient_local.properties
+|           `-- testsrc_unittest.properties
+`-- version.properties
+
+-----------------------------
+ Total File Summary
+-----------------------------
+214 directories, 998 files
+

@@ -1,0 +1,7 @@
+##
+## 12/7/2006
+
+ - Issue, need to remove the validator from the controller.
+ 	Controller is represents a global namespace, need to remove
+ 	certain objects.
+ 

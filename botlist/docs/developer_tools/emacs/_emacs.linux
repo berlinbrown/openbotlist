@@ -1,0 +1,166 @@
+;;******************
+;; Filename: .emacs
+;; Emacs config (for linux botlist development):
+;;
+;; Berlin Brown - 9/3/2007
+;; Updated: 2/18/2008
+;; For Emacs version = 21.4.1+
+;;
+;; == Addtional Notes ==
+;;
+;; + Uses gnuserv for editing within an emacs instance
+;; you can also use emacsserver which works in a similar fashion.
+;;******************
+
+(custom-set-variables
+  ;; custom-set-variables was added by Custom -- don't edit or cut/paste it!
+  ;; Your init file should contain only one such instance.
+ '(case-fold-search t)
+ '(current-language-environment "UTF-8")
+ '(default-input-method "rfc1345")
+ '(global-font-lock-mode t nil (font-lock))
+ '(show-paren-mode t nil (paren)))
+(custom-set-faces
+  ;; custom-set-faces was added by Custom -- don't edit or cut/paste it!
+  ;; Your init file should contain only one such instance.
+ )
+
+;;------------------
+;; Enable columns
+;;------------------
+(column-number-mode 1)
+
+(setq-default truncate-lines 1)
+;;(setq truncate-partial-width-windows nil)
+;;(setq overflow-newline-into-fringe 1)
+
+;;******************
+;; Htmlize
+;;******************
+(load-file "~/lib/emacs/htmlize.el")
+(setq htmlize-output-type 'inline-css)
+
+;;------------------
+;; Key Bindings
+;;------------------
+(global-set-key "\C-c\C-g" 'goto-line)
+(global-set-key "\C-c\C-c" "\C-q\t")
+(global-set-key "\C-c\C-a" 'clipboard-kill-ring-save)
+(global-set-key "\C-c\C-v" 'clipboard-yank)
+
+;; Overwrite CTRL-K, note this may have issues in minor modes
+;; where this will get rebound.
+(global-set-key (kbd "C-k") (lambda () 
+							  (interactive) 
+							  (call-interactively 'kill-line) 
+							  (call-interactively 'clipboard-kill-ring-save)))
+
+(global-set-key [f4] 'shell)
+(global-set-key [f5] "\C-x\h")
+(global-set-key [f6] 'clipboard-kill-ring-save)
+(global-set-key [f7] 'clipboard-yank)
+
+;;;(global-set-key [f9] '(lambda () (interactive)
+;;;			(if (comint-after-pmark-p)
+;;;			    (comint-previous-input 1)
+;;;			  (previous-line 1))))
+
+(global-set-key [f9] (lambda () 
+					   (interactive)
+					   (comint-previous-input 1)))
+
+(global-set-key [f8] 'htmlize-buffer)
+
+;;; Description:
+;;;     So, to select-all and copy, do 'C-x h' 'C-c C-a'
+
+(global-set-key "\C-z" 'advertised-undo)
+
+;;******************
+;;disable backup and autosave
+;;******************
+(setq backup-inhibited t)
+(setq auto-save-default nil)
+
+;;******************
+;; Enable Haskell
+;;******************
+(load "~/lib/emacs/haskell-mode/haskell-site-file")
+
+(add-hook 'haskell-mode-hook 'turn-on-haskell-doc-mode)
+(add-hook 'haskell-mode-hook 'turn-on-haskell-indent)
+
+;;******************
+;; Enable erlang mode
+;;******************
+(setq load-path (cons  "/usr/local/lib/erlang/lib/tools-2.5.5/emacs/"
+    load-path))
+(setq erlang-root-dir "/usr/local/lib/erlang")
+(setq exec-path (cons "/usr/local/lib/erlang/bin" exec-path))
+(require 'erlang-start)
+
+;;******************
+;; Install Speed Project Bar
+;;******************
+;;(add-to-list 'load-path "~/lib/emacs/speedbar-0.14beta4")
+;;(autoload 'speedbar-frame-mode "speedbar" "Popup a speedbar frame" t)
+;;(autoload 'speedbar-get-focus "speedbar" "Jump to speedbar frame" t)
+
+
+;;*****************
+;; Enable scala mode
+;;*****************
+(add-to-list 'load-path "~/lib/emacs/scala")
+(require 'scala-mode-auto)
+
+;;******************
+;; Enable factor programming mode
+;;******************
+(load-file "/home/bbrown/downloads_main/downloads9/factor/misc/factor.el")
+(setq factor-binary "/home/bbrown/downloads_main/downloads9/factor/f")
+(setq factor-image "/home/bbrown/downloads_main/downloads9/factor/f.image")
+
+;;******************
+;; Ruby Mode (added 12/25/2007)
+;; source:
+;; http://svn.ruby-lang.org/cgi-bin/viewvc.cgi/trunk/misc/ruby-mode.el
+;;******************
+(load-file "~/lib/emacs/ruby-mode.el")
+(setq auto-mode-alist (cons '("\\.rb$" . ruby-mode) auto-mode-alist))
+(setq interpreter-mode-alist (cons '("ruby" . ruby-mode)
+                                       interpreter-mode-alist))
+(autoload 'python-mode "ruby-mode" "Ruby editing mode." t)
+
+;;******************
+;; Python Mode
+;;******************
+
+(add-to-list 'load-path "~/lib/emacs/python")
+(setq auto-mode-alist (cons '("\\.py$" . python-mode) auto-mode-alist))
+(setq interpreter-mode-alist (cons '("python" . python-mode)
+                                       interpreter-mode-alist))
+(autoload 'python-mode "python-mode" "Python editing mode." t)
+
+;;******************
+;; Set Tab for 4 spaces of indendation
+;;******************
+(setq c-basic-offset 4)
+(setq default-tab-width 4)
+(setq tab-width 4)
+
+;;******************
+;; Setup gnuserv
+;;******************
+(setq gnuserv-frame (selected-frame))
+(gnuserv-start)
+
+;; Add a hook to raise the frame when files are opened
+;; Bring (selected) frame to front and give it focus
+(defun raise-and-focus-frame ()
+  (raise-frame)
+  (recenter)
+  (focus-frame (selected-frame)))
+(add-hook 'gnuserv-visit-hook 'raise-and-focus-frame)
+;;******************
+
+;; end of edits

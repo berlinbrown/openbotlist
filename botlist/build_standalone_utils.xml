@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- ****************************************************** -->
+<!-- Copyright (c) 2006 - Berlin Brown -->
+<!-- Date: 11/1/2006 -->
+<!-- ****************************************************** -->
+<project name="Open Botlist Standalone Utility Applications" default="init" basedir=".">
+
+	<property file="build.properties" />
+	
+	<property name="build.dir"          value="${basedir}/build"/>
+	<property name="build.classes.dir"	value="${basedir}/build/classes"/>
+	<property name="src.dir"          	value="${basedir}/src"/>
+	
+	<property name="web.inf"          	value="${basedir}/WEB-INF" />
+	<property name="web.inf.tools"     	value="${basedir}/WEB-INF/tools" />
+
+	<!-- Web Apps Directory -->
+	<property name="default.tomcat.webapps" value="${tomcat.home}/webapps" />
+	
+	<target name="init" description="Initialization">
+		<tstamp/>
+		<echo message="Running with Tomcat Home=${tomcat.home}" />
+	</target>
+
+	<!-- Launch application (python beangen generate) -->
+	<target name="beangen.generate">
+		<echo message="Edit ${web.inf.tools}/py/beangen 'generate.ini' configuration to change beans generated" />
+		<exec executable="python" 
+				dir="${web.inf.tools}/py/beangen"
+				spawn="false" failonerror="false">
+			<arg value="beangen_client.py" />
+			<arg value="-f" />
+			<arg value="generate.ini" />
+		</exec>		
+	</target>
+	
+	<!-- Launch application to generate SQL feed list -->
+	<target name="generate.feedlist">
+			<echo message="Edit ${web.inf.tools}/py/bin 'urls.dat' to generate feedlist" />
+			<exec executable="python" 
+					dir="${web.inf.tools}/py/bin"
+					spawn="false" failonerror="false">
+				<arg value="build_feedlist.py" />
+				<arg value="-f" />
+				<arg value="../data/urls.dat" />
+				<arg value="../output/patch_more_feeds_99.sql" />
+			</exec>		
+	</target>
+		
+	<!-- **************************************** -->
+	<!-- Build Antlr Based Grammars (meta language) -->
+	<!-- **************************************** -->
+    <taskdef name="botantlr"
+        classname="org.spirit.ant.taskdef.ANTLR"
+		classpath="${basedir}/WEB-INF/classes" />
+	<target name="antlr.javac.remotedef">
+		<botantlr
+	    	target="${basedir}/WEB-INF/tools/antlr/remotedef/RemoteDef.g"
+	    		outputdirectory="${basedir}/src/org/spirit/parse/remotedef">
+			<classpath>
+				<pathelement location="${basedir}/WEB-INF/lib/antlr-2.7.7.jar" />
+				<pathelement location="${basedir}/WEB-INF/lib/antlr-3.0.1.jar" />
+				<pathelement location="${basedir}/WEB-INF/lib/antlr-runtime-3.0.1.jar" />
+				<pathelement location="${basedir}/WEB-INF/lib/stringtemplate-3.1b1.jar" />
+			</classpath>
+		</botantlr>
+	</target>
+	
+</project>
+<!-- End of the File -->

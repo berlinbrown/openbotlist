@@ -1,0 +1,13 @@
+<!--
+    Context configuration file
+-->
+
+
+<Context reloadable="true">
+
+  <Logger className="org.apache.catalina.logger.FileLogger"
+             prefix="localhost_botlist_log." suffix=".txt"
+          timestamp="true"/>
+
+  
+</Context>

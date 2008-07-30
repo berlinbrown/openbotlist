@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (c) 2006 - Berlin Brown -->
+<!-- Date: 11/1/2006 -->
+<project name="Botlist Test Framework (Integration Tests)" default="init" basedir=".">
+	
+	<property file="build.properties" />	
+	<property name="home.base.dir"     	value="${basedir}/../.." />
+	<property name="build.dir"          value="${basedir}/build"/>
+	<property name="build.classes.dir"	value="${basedir}/build/classes"/>
+	<property name="home.build.classes.dir"	value="${home.base.dir}/build/classes"/>		
+	<property name="scala.src.dir"      value="${home.base.dir}/apps_src/scala"/>
+	<property name="scala.test_src.dir" value="${basedir}/scala"/>
+	<property name="lib.dir"          	value="${home.base.dir}/WEB-INF/lib" />
+	<property name="lib.runtime.dir"    value="${home.base.dir}/runtime-lib" />
+	<property name="lib.servlet.dir"    value="${home.base.dir}/servlet-lib"/>	
+	<property file="${home.base.dir}/build_classpath.properties" />
+		      
+	<!-- **************************************** -->
+	<!-- Target: CLASSPATH -->
+	<!-- **************************************** -->
+	<!-- Import the classpath usage and variable names -->
+	<import file="${home.base.dir}/build_classpath_paths.xml" />
+	
+	<path id="classpath.tests">		
+		<!-- Include the CLASSES directory -->
+		<pathelement location="${build.classes.dir}" />
+		<pathelement location="${home.build.classes.dir}" />
+	</path>
+	
+	<path id="runtime.classpath">
+		<pathelement location="${xerces.jar}" />
+		<pathelement location="${servlet.jar}" />
+		<pathelement location="${commons-dbcp.jar}" />
+		<pathelement location="${commons-pool.jar}" />
+		<pathelement location="${commons-codec.jar}" />
+		<pathelement location="${ehcache.jar}" />
+		<pathelement location="${cglib.jar}" />
+		<pathelement location="${mysql.jar}" />
+		<pathelement location="${asm.jar}" />
+		<pathelement location="${asm-attrs.jar}" />
+		<pathelement location="${jta.jar}" />
+		<pathelement location="${c3p0.jar}" />
+		<pathelement location="${jython.jar}" />
+		<pathelement location="${tidy.jar}" />
+		
+		<pathelement location="${commons-upload.jar}" />
+		<pathelement location="${jsp-api.jar}" />
+		<pathelement location="${standard.jar}" />
+	</path>
+	
+	<path id="classpath.scala">
+		<pathelement location="${hibernate.jar}"/>
+		<pathelement location="${jta.jar}" />
+		<pathelement location="${spring.jar}" />
+		<pathelement location="${logging.jar}" />
+        <pathelement location="${scala.jar}" />
+    	<pathelement location="${scala-compiler.jar}" />
+        <pathelement location="${lift.jar}" />
+		<pathelement location="${scalacheck.jar}" />
+		<pathelement location="${servlet.jar}" />
+        <pathelement location="${jsp-api.jar}" />
+		<pathelement location="${build.classes.dir}" />
+		<pathelement location="${home.build.classes.dir}" />
+	</path>	
+	<target name="init" description="Initialization">
+	        <tstamp/>	       
+			<echo message="Classpth properties, lib.dir=${classpath.lib.dir}" />
+            <echo message="Home build classpath=${home.build.classes.dir}" />
+	    	<fail unless="classpath.include">Error loading build_classpath.property file.  Make sure it exists.</fail>
+<echo>
+ Valid test tasks:
+ setup_tests - Setup test routines used to create and commit mock objects to the database.
+ tests.ruby.rspec - Run all rspec tests in the rspec directory.
+ tests.ruby.rspec.single.nohelp - Run a single staging rspec test with no helper.
+ tests.ruby.rspec.single  - Run a single staging rspec test with no helper (spring connect, etc).
+</echo>
+	</target>
+	
+	<!-- Target: Prepare -->
+	<target name="prepare" depends="init">
+		<mkdir dir="${build.dir}"/>
+		<mkdir dir="${build.classes.dir}"/>
+	</target>
+			
+	<!-- Target: Build -->
+	<target name="package" depends="prepare">
+		<copy file="${home.base.dir}/WEB-INF/classes/Botlist.hbm.xml" 
+						todir="${build.classes.dir}" />
+		<copy file="${basedir}/resources/log4j.properties" 
+						todir="${build.classes.dir}" />
+	</target>
+	
+	<!-- **************************************** -->
+	<!-- Add support for scala compiles, used with liftweb apps -->
+	<!-- Date Created: 12/29/2007 -->
+	<!-- **************************************** -->
+	<taskdef resource="scala/tools/ant/antlib.xml">
+	      <classpath refid="classpath.scala" />
+	</taskdef>
+
+	<!-- Import the jruby test case target partial build file -->
+	<import file="${basedir}/build_jruby_tests.xml" />
+	
+	<!-- Import the jruby test case target partial build file -->
+	<import file="${basedir}/build_scala_tests.xml" />
+
+	<target name="setup_tests" depends="package">
+			<java classname="org.jruby.Main" >
+				<classpath refid="classpath" />
+				<classpath refid="classpath.tests" />
+				<classpath refid="runtime.classpath" />
+				<arg value="${lib.dir}/ruby/rspec/bin/spec" />			
+				<arg value="${basedir}/ruby/rspec/create_mock_tests.rb" />
+				<arg value="--require" />
+				<arg value="${basedir}/ruby/rspec/spec_helper.rb" />
+			</java>
+	</target>
+
+	<!-- Zip the development code base -->
+	<target name="zip.codebase" depends="clean,prepare">
+		<fail unless="appname.war">APPNAME.WAR must be set, see the build.properties file</fail>
+		<zip destfile="${basedir}/build/${appname.war}.zip" basedir="${basedir}" />
+	</target>
+	<!-- Main Clean -->
+	<target name="clean">
+		<delete dir="${build.dir}" />			
+	</target>
+	<!-- End of Main Clean -->
+
+</project>
+<!-- End of the File -->

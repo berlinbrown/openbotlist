@@ -1,0 +1,129 @@
+#summary Quick start setup guide for setting up the J2EE botlist web application.
+
+=Quick start setup=
+
+Date: 2/6/2008
+
+=Overview=
+
+The botlist J2EE web frontend might be considered a medium sized web
+application.  Make sure that you have a J2EE servlet container.  Tomcat 5.5+
+is recommended but not required.  MySQL database server is required (expect a Postgres configuration in the future).
+The java build tool Ant is also required for building the project.      
+
+*Test Environment and Recommended Configuration*
+  * Mysql  Ver 14.12 Distrib 5.0.51a, for Win32 (ia32) (db server)  
+  * Ant 1.7.0 (java build tool)  
+  * Tomcat 5.5.26 (application server)  
+  * Java SDK java version "1.5.0_11" (java compiler), 1.6 recommended
+  * Operating systems: WinXP and Ubuntu Linux 7.10   
+  * All other libraries are provided in the subversion source or download  
+
+=Check out source from subversion=
+
+*As of 2/2/2008*
+
+Checking out the botlist source is the recommended way to get build and run the
+application.  In the future, regular releases and snapshots will be available,
+for now you should retrieve the latest source code.
+
+----------------------
+I extracted tomcat to my home directory for development.
+
+tomcat_home = ~/projects/tomcat/tomcat5526
+
+cd ~/projects/tomcat/tomcat5526/webapps
+
+svn co http://openbotlist.googlecode.com/svn/trunk/openbotlist
+
+mv openbotlist botlist 
+
+The project name is called openbotlist, it is best to change the directory
+name to just botlist because of URI references to 'botlist' in the web
+application.
+
+----------------------
+
+=Run mysqld and setup the database=
+
+Start the mysql daemon and create the databases.
+
+  * mysqld  (leave the daemon running)
+  * Open a new shell environment and cd to the tomcat botlist directory
+  * example: cd ~/projects/tomcat/tomcat5526/webapps/botlist
+  * cd db 
+  * mysql -uroot (enter the mysql shell)
+  * source create_database.sql;  (create the databases) 
+  * source create_tables.sql; (create the tables)
+  * source insert_link_groups.sql; (addtional step to setup link group table)
+
+----------------------
+Example output:
+
+Query OK, 1 row affected (0.00 sec)
+
+Query OK, 1 row affected (0.00 sec)
+
+Query OK, 1 row affected (0.00 sec)
+
+Query OK, 1 row affected (0.00 sec)
+
+mysql> source insert_link_groups.sql;
+
+----------------------
+
+At this point, you have created the MySQL database.
+
+=Build the project=
+
+To build the project, you simply need to enter the botlist web app directory
+and invoke the ant command.
+
+  * cd the botlist web application directory
+  * example: cd ~/projects/tomcat/tomcat5526/webapps/botlist
+  * ant
+  * ant tomcat.deploy  (this will copy the java class files to the WEB-INF dir)  
+
+----------------------
+Example output:
+
+$ ant
+Buildfile: build.xml
+
+prepare:
+    [mkdir] Created dir: c:\projects\tools\home\projects\tomcat\tomcat5526\webap
+ps\botlist\build
+    [mkdir] Created dir: c:\projects\tools\home\projects\tomcat\tomcat5526\webap
+ps\botlist\build\classes
+...
+...
+----------------------
+
+=Web application database configuration=
+
+To configure the application, you need to set the database 
+parameters including username and password.
+
+----------------------
+cp example_botlist_config.properties botlist_config.properties
+
+Edit the botlist_config.properties file.
+
+botlist.db.url=jdbc:mysql:///openbotlist_development
+botlist.username=USER
+botlist.password=PASSWORD
+
+----------------------
+
+=Run tomcat and navigate to the botlist site=
+
+At this point, launch the tomcat server.
+
+  * example: cd ~/projects/tomcat/tomcat5526/bin
+  * ./startup.sh 
+  * navigate your browser to: http://127.0.0.1:8080/botlist/
+
+*Resources*
+
+  * http://tomcat.apache.org/tomcat-5.5-doc/index.html
+  * http://www.mysql.com/

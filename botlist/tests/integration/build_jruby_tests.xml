@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (c) 2006 - Berlin Brown -->
+<!-- Date: 11/1/2006 -->
+<project name="Botlist Test Framework (Integration Tests)|JRuby" default="init" basedir=".">	
+	<!-- ******************************* -->
+	<!-- ** JRuby Tests (helpers and no helper) -->
+	<!-- ** PROJECT SHARING:  this build script can be shared assuming the following variables are defined -->
+	<!-- ** @see botgems_remote for an example -->
+	<!--  + package' target = ensure there is a package target -->
+	<!--  + lib.dir = for example, WEB-INF/lib -->
+	<!--  + base.dir = with ruby/rspec/* and ruby/rspec/spec_helper.rb -->	
+	<!-- ******************************* -->
+	<target name="tests.ruby.rspec" depends="package">
+		<java classname="org.jruby.Main" >     
+			<classpath refid="classpath" />
+			<classpath refid="classpath.tests" />			
+			<classpath refid="runtime.classpath" />
+			<arg value="${lib.dir}/ruby/rspec/bin/spec" />			
+			<arg value="${basedir}/ruby/rspec" />
+			<arg value="--require" />
+			<arg value="${basedir}/ruby/rspec/spec_helper.rb" />
+		</java>
+	</target>
+	<target name="tests.ruby.rspec.single" depends="package">
+		<java classname="org.jruby.Main" >	         
+			<classpath refid="classpath" />
+			<classpath refid="classpath.tests" />
+			<classpath refid="runtime.classpath" />
+			<arg value="${lib.dir}/ruby/rspec/bin/spec" />			
+			<arg value="${basedir}/ruby/rspec/simple_test_single.rb" />
+			<arg value="--require" />
+			<arg value="${basedir}/ruby/rspec/spec_helper.rb" />
+		</java>
+	</target>	
+	<target name="tests.ruby.rspec.single.nohelp" depends="package">
+		<java classname="org.jruby.Main" >	         
+			<classpath refid="classpath" />
+			<classpath refid="classpath.tests" />
+			<classpath refid="runtime.classpath" />
+			<arg value="${lib.dir}/ruby/rspec/bin/spec" />			
+			<arg value="${basedir}/ruby/rspec/simple_test_single_nh.rb" />			
+		</java>
+	</target>
+	<!-- # End JRuby Tests -->
+</project>
+<!-- End of the File -->

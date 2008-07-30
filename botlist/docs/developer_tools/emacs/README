@@ -1,0 +1,17 @@
+#######################################
+# Emacs Configurations
+#######################################
+
+Emacs and Eclipse are tool of the main development
+tools for this project.
+
+Eclipse is used primarily for project management.  Emacs
+is used for development.
+
+These are example emacs configuration that are used
+with botlist development.
+
+Files:
+
+_emacs.linux - ~/.emacs configuration file (used on Ubuntu Linux)
+_emacs.win32 - ~/.emacs configuration file (used on Win32)

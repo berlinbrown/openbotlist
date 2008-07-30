@@ -1,0 +1,56 @@
+/**********************************************************
+ * Berlin Brown
+ * botlisthelp.css
+ * 1/2/2007
+ **********************************************************/
+
+#bot_helpcol {
+	position: absolute;
+	z-index: 0;
+	width: 290px;
+	top: 48;
+	left: 88;
+	margin: 120px 0px 0px 0px;	
+}
+
+/**********************************************************
+ *
+ * Help Content
+ *
+ **********************************************************/
+#bot_helpcontent {
+	margin: 0px 25% 0 220px;
+	font-size: 10pt;
+}
+#bot_helpcontent ul {
+
+}
+
+#bot_helpcontent li {
+	margin-left: 2px;
+	padding: 0px;
+}
+/**********************************************************
+ *
+ * Help Left Column
+ *
+ **********************************************************/
+table.helpleftcol th {
+	text-align: left; 
+	background-color: #FFFBD0; 
+	padding: 4px; 
+	border-top: 1px solid #D3BA49;	
+	font-weight: normal;	
+}
+
+table.helpleftcol ul {
+	margin-left: 2px;
+	padding: 0px;
+}
+
+table.helpleftcol li {
+	margin-left: 2px;
+	list-style-type: none;
+	padding: 0px;
+	white-space: nowrap;
+}

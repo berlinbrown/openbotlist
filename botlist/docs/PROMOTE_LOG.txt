@@ -1,0 +1,23 @@
+###
+### Description of modifications when promoting.
+###
+
+ 8/26/2007:
+ --------------------------------------
+ * Update botbert and URLs
+ 
+
+ 8/19/2007:
+ --------------------------------------
+ ant jar.webapp
+ stop tomcat
+ rm botlist
+ rm botlist.war
+ patch patch_hostnames.sql
+ ftp botbert_python.zip
+ rm python
+ mkdir python
+ unzip botbert_python.zip
+ ftp botlist
+ test jobs
+ start tomcat

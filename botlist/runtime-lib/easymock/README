@@ -1,0 +1,7 @@
+EasyMock 2.3 Readme
+
+Documentation for release 2.3 (July 10 2007)
+© 2001-2007 OFFIS, Tammo Freese.
+
+EasyMock 2 is a library that provides an easy way to use Mock Objects 
+for given interfaces. EasyMock 2 is available under the terms of the MIT license. 

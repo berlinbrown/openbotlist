@@ -1,0 +1,54 @@
+#######################################
+# Java Language Notes
+# Created: 3/31/2008
+#######################################
+
+------------------------
+Eclipse, I use eclipse.
+------------------------
+
+------------------------
+Spring - J2EE framework
+------------------------
+Mehmet Bilgi
+Spring is not normally known for the view piece but for simplifying
+the architecture.  The basic Spring MVC view library was used.
+
+Use of entity beans.
+
+The data access may be implemenated via a single or multiple database
+accesses.  Hibernate used to access a single data source
+
+------------------------
+Java Language:
+created 3/31/2008
+------------------------
+
+Language Spec: 
+Good, generic description of the java programming languages.
+Every variable has a type at compile time.
+two categories: primitive types and reference types.
+
+Scalable architectures, maintable, etc.
+------------------------
+
+The Java programming language is a strongly typed language, 
+which means that every variable and every expression has a 
+type that is known at compile time.
+
+It includes automatic storage management, typically using a 
+garbage collector, to avoid the safety problems of explicit 
+deallocation (as in C's free or C++'s delete).
+
+The Java programming language is strongly typed. This specification 
+clearly distinguishes between the compile-time errors that can 
+and must be detected at compile time, and those that occur at run time. 
+
+The Java programming language is a general-purpose, concurrent, 
+class-based, object-oriented language.
+
+The Java programming language is normally compiled to 
+the bytecoded instruction set and binary format defined 
+in The Java Virtual Machine Specification, Second Edition
+
+------------------------

@@ -1,0 +1,5 @@
+#
+# Also use the following to load scripts:
+# script://./data/scripts/sequence_add_comment_bug.dat
+#
+script://./data/scripts/sequence_register_login.dat

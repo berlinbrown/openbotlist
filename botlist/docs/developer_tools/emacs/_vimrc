@@ -1,0 +1,21 @@
+" Simple VIM configuration
+" Berlin Brown
+
+" ** ignore case while searching
+set ignorecase
+
+" ** syntax highlight
+syntax on
+
+" ** Always show the menu, insert longest match
+set completeopt=menuone,longest
+
+" ** highlight the searchterms
+set hlsearch
+
+" ** set the ruler to display row and column info
+set ruler
+
+set tabstop=4
+
+set nowrap

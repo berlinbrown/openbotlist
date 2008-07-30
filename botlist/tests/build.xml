@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- ****************************************************** -->
+<!-- Copyright (c) 2006 - Berlin Brown --> 
+<!-- ****************************************************** -->
+<project name="Integration Test (only clean)" default="init" basedir=".">
+    
+	<!-- ****************************************************** -->
+	<!-- You probably meant to navigate to the integration tests dir -->  
+	<!-- ****************************************************** -->
+	
+    <property name="build.dir"            value="${basedir}/build"/>
+    <property name="build.classes.dir"    value="${basedir}/build/classes"/>
+	    
+    <target name="init" description="Initialization">
+        <tstamp/>
+    	<echo message="Also see the integration tests dir" />
+    </target>
+
+    <!-- Main Clean -->
+    <target name="clean">
+        <delete dir="${build.dir}" />
+    	<delete dir="${basedir}/system/loadhttptest/data/html" />
+    	<delete dir="${basedir}/system/loadhttptest/data/logs" />
+        <delete>
+            <fileset dir="${basedir}/WEB-INF/classes">
+                <include name="**/*.class" />
+            	<include name="${basedir}/system/loadhttptest/cookies/*.dat" />
+                <exclude name="**/*.properties" />
+                <exclude name="**/*.xml" />
+            </fileset>
+        </delete>
+    </target>
+    <!-- End of Main Clean -->
+  
+</project>
+<!-- End of the File -->

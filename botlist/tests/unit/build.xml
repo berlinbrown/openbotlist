@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (c) 2006 - Berlin Brown -->
+<project name="Botlist Test Framework (Unit Tests)" default="scala.compile.tests" basedir=".">
+	
+	<property file="build.properties" />	
+	<property name="home.base.dir" value="${basedir}/../.." />
+	
+	<!-- **************************************** -->
+	<!-- Set distinct property names -->	
+	<!-- **************************************** -->
+	<property name="build.dir"          value="${basedir}/build"/>
+	<property name="build.classes.dir"	value="${basedir}/build/classes"/>
+	<property name="home.build.classes.dir"	value="${home.base.dir}/build/classes"/>	
+	<property name="scala.test_src.dir" value="${basedir}/scalacheck" />	
+	
+	<property name="loadtest.dir"		value="${home.base.dir}/tests/system/loadhttptest" />
+	<property name="loadtest.src.dir"	value="${loadtest.dir}/src" />
+	
+	<!-- **************************************** -->
+	<!-- Include the classpath property settings (jar path locations) from the main project HOME top directory -->
+	<!-- **************************************** -->
+	<property name="lib.dir"          	value="${home.base.dir}/WEB-INF/lib" />
+	<property name="lib.runtime.dir"    value="${home.base.dir}/runtime-lib" />
+	<property name="lib.servlet.dir"    value="${home.base.dir}/servlet-lib"/>
+	<property file="${home.base.dir}/build_classpath.properties" />
+		      
+	<!-- **************************************** -->
+	<!-- Target: CLASSPATH -->
+	<!-- **************************************** -->
+	<!-- Import the classpath usage and variable names -->
+	<import file="${home.base.dir}/build_classpath_paths.xml" />
+	
+	<path id="classpath.tests">		
+		<!-- Include the CLASSES directory -->
+		<pathelement location="${build.classes.dir}" />
+		<pathelement location="${home.build.classes.dir}" />
+	</path>
+	
+	<path id="classpath.scala">
+		<pathelement location="${hibernate.jar}"/>
+		<pathelement location="${jta.jar}" />
+		<pathelement location="${spring.jar}" />
+		<pathelement location="${logging.jar}" />
+        <pathelement location="${scala.jar}" />
+    	<pathelement location="${scala-compiler.jar}" />
+        <pathelement location="${lift.jar}" />
+		<pathelement location="${scalacheck.jar}" />
+		<pathelement location="${servlet.jar}" />
+        <pathelement location="${jsp-api.jar}" />
+		
+		<pathelement location="${build.classes.dir}" />
+		<pathelement location="${home.build.classes.dir}" />
+	</path>
+	
+	<target name="init" description="Initialization">
+	        <tstamp/>
+	    	<fail unless="classpath.include">Error loading build_classpath.property file.  Make sure it exists.</fail>
+<echo>
+ Valid test tasks:
+ compile - Compile the botlist project, from the HOME directory.
+ scala.compile.tests - Compile the scala check test suite.
+ unit.scala.tests - Run the unit test task.
+</echo>
+	</target>
+	
+	<!-- **************************************** -->
+	<!-- Main Task Targets -->
+	<!-- **************************************** -->
+	
+	<!-- Target: Prepare -->
+	<target name="prepare" depends="init">
+		<mkdir dir="${build.dir}"/>
+		<mkdir dir="${build.classes.dir}"/>
+	</target>
+	
+	<!-- **************************************** -->
+	<!-- Build the core botlist/HOME project including the beans and other POJOS -->
+	<!-- Use the ant 'ant' task to launch botlist build.xml file -->
+	<!-- **************************************** -->
+	<target name="compile" depends="prepare">
+		<ant antfile="${home.base.dir}/build.xml" target="compile" 
+				inheritAll="false" dir="${home.base.dir}" />
+		<javac deprecation="false"		
+				debug="true"
+				srcdir="${loadtest.src.dir}"
+				destdir="${build.classes.dir}"
+				target="1.5"
+				includes="**/*.java">
+			<classpath refid="classpath"/>
+		</javac>
+	</target>
+	
+	<!-- **************************************** -->
+	<!-- Add support for scala compiles, used with liftweb apps -->
+	<!-- Date Created: 12/29/2007 -->
+	<!-- **************************************** -->
+	<taskdef resource="scala/tools/ant/antlib.xml">
+	      <classpath refid="classpath.scala" />
+	</taskdef>
+
+	<!-- Import the test case target partial build file -->	
+	<import file="${basedir}/build_scala_tests.xml" />	
+
+	<!-- Main Clean -->
+	<target name="clean">
+		<delete dir="${build.dir}" />			
+	</target>
+
+</project>
+<!-- End of the File -->

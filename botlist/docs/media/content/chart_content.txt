@@ -1,0 +1,6 @@
+URL	a	b	blockquote	div	h1	h2	i	img	p	span	strong	table
+bad3	4	2	0	28	1	1	0	2	1	0	2	9
+good1	321	30	0	42	1	10	24	6	43	53	0	2
+bad4	54	31	0	0	0	0	0	2	34	0	26	5
+good2	1917	258	0	80	1	13	224	18	80	272	3	8
+good5	3572	268	0	226	1	14	236	104	114	682	11	28

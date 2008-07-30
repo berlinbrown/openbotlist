@@ -1,0 +1,8 @@
+<!--
+    Context configuration file for the BotList Web App
+    Use for development only.
+-->
+
+<Context reloadable="true">
+
+</Context>

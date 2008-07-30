@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+<!--	
+	Berlin Brown
+	Date: 1/2/2007
+-->
+
+<beans>
+	<bean id="fileUploadBeanAdmin" class="org.spirit.util.BotListFileUploadUtil">
+		<property name="uploadDir">
+			<value>/home/webadmin/botspiritcompany.com/html/docwritedocs</value>
+		</property>
+		<property name="maxFileSize" value="104448" />
+		<property name="maxMemorySize" value="4096" />
+		<property name="fileUploadEnabled" value="true" />
+	</bean>
+	
+	<bean id="adminController" class="org.spirit.spring.BotListAdminController">
+		<property name="sessionForm" value="false" />
+		<property name="springServletContext" value="botlistadmin" />
+		
+		<property name="cityListingDao">
+			<ref bean="cityListingDaoRadBean"/>
+		</property>
+		<property name="entityLinksDao">
+			<ref bean="entityLinksDaoBean"/>
+		</property>
+		<property name="userSearchDao">
+			<ref bean="userSearchDaoBean" />
+		</property>		
+		<property name="handler">
+			<ref bean="radController"/>
+		</property>
+		<property name="fileUploadUtil">
+			<ref bean="fileUploadBeanAdmin"/>
+		</property>
+		<property name="docFileDao">
+			<ref bean="docFileDaoBean"/>
+		</property>
+		<property name="docFileMetadataDao">
+			<ref bean="docFileMetadataDaoBean"/>
+		</property>
+	</bean>
+	
+</beans>

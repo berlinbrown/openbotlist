@@ -1,0 +1,114 @@
+----------------------
+
+Here are some example HTTP requests.  The first is typically the request and then followed by the
+response from the server.
+
+----------------------
+
+https://localhost:7443/ServletPath/TheServlet?ServletName=AuthenticateServlet
+
+GET /ServletPath/TheServlet?ServletName=AuthenticateServlet HTTP/1.1
+Host: localhost:7443
+User-Agent: Mozilla/5.0 (Windows; U; Windows NT 5.0; en-US; rv:1.8.0.7) Gecko/20060909 Firefox/1.5.0.7
+Accept: text/xml,application/xml,application/xhtml+xml,text/html;q=0.9,text/plain;q=0.8,image/png,*/*;q=0.5
+Accept-Language: en-us,en;q=0.5
+Accept-Encoding: gzip,deflate
+Accept-Charset: ISO-8859-1,utf-8;q=0.7,*;q=0.7
+Keep-Alive: 300
+Connection: keep-alive
+Referer: https://localhost:7443/ServletPath/TheServlet
+Cookie: WASReqURL=https://localhost:7443/theca/TheServlet; JUMPIT=thehome; JSESSIONID=0000gMpnBU4lVyqC27-rNKPrBQf:-1
+
+HTTP/1.x 200 OK
+Server: TheServer Application Server/5.1
+Content-Type: text/html
+Set-Cookie: WASReqURL=https://localhost:7443/theca/TheServlet;Path=/; Secure
+Set-Cookie: JUMPIT=thehome;Path=/; Secure
+Pragma: no-cache
+Cache-Control: no-cache
+Expires: Thu, 01 Jan 1970 00:00:00 GMT
+Content-Language: en-US
+Transfer-Encoding: chunked
+
+----------------------
+----------------------
+
+https://localhost:7443/ServletPath/TheServlet?ServletName=AuthenticateServlet
+
+GET /ServletPath/TheServlet?ServletName=AuthenticateServlet HTTP/1.1
+Host: localhost:7443
+User-Agent: Mozilla/5.0 (Windows; U; Windows NT 5.0; en-US; rv:1.8.0.7) Gecko/20060909 Firefox/1.5.0.7
+Accept: text/xml,application/xml,application/xhtml+xml,text/html;q=0.9,text/plain;q=0.8,image/png,*/*;q=0.5
+Accept-Language: en-us,en;q=0.5
+Accept-Encoding: gzip,deflate
+Accept-Charset: ISO-8859-1,utf-8;q=0.7,*;q=0.7
+Keep-Alive: 300Servlet
+Connection: keep-alive
+Referer: https://localhost:7443/ServletPath/TheServlet?ServletName=AuthenticateServlet
+Cookie: WASReqURL=https://localhost:7443/theca/TheServlet; JUMPIT=thehome; JSESSIONID=0000gMpnBU4lVyqC27-rNKPrBQf:-1
+
+HTTP/1.x 200 OK
+Server: TheServer Application Server/5.1
+Content-Type: text/html
+Set-Cookie: WASReqURL=https://localhost:7443/theca/TheServlet;Path=/; Secure
+Set-Cookie: JUMPIT=thehome;Path=/; Secure
+Pragma: no-cache
+Cache-Control: no-cache
+Expires: Thu, 01 Jan 1970 00:00:00 GMT
+Content-Language: en-US
+Transfer-Encoding: chunked
+
+----------------------
+----------------------
+
+https://localhost:7443/ServletPath/TheServlet?ServletName=AuthenticateServlet
+
+GET /ServletPath/TheServlet?ServletName=AuthenticateServlet HTTP/1.1
+Host: localhost:7443
+User-Agent: Mozilla/5.0 (Windows; U; Windows NT 5.0; en-US; rv:1.8.0.7) Gecko/20060909 Firefox/1.5.0.7
+Accept: text/xml,application/xml,application/xhtml+xml,text/html;q=0.9,text/plain;q=0.8,image/png,*/*;q=0.5
+Accept-Language: en-us,en;q=0.5
+Accept-Encoding: gzip,deflate
+Accept-Charset: ISO-8859-1,utf-8;q=0.7,*;q=0.7
+Keep-Alive: 300
+Connection: keep-alive
+Referer: https://localhost:7443/ServletPath/TheServlet
+Cookie: WASReqURL=https://localhost:7443/theca/TheServlet; JUMPIT=thehome; JSESSIONID=0000gMpnBU4lVyqC27-rNKPrBQf:-1
+
+HTTP/1.x 200 OK
+Server: TheServer Application Server/5.1
+Content-Type: text/html
+Set-Cookie: WASReqURL=https://localhost:7443/theca/TheServlet;Path=/; Secure
+Set-Cookie: JUMPIT=thehome;Path=/; Secure
+Pragma: no-cache
+Cache-Control: no-cache
+Expires: Thu, 01 Jan 1970 00:00:00 GMT
+Content-Language: en-US
+Transfer-Encoding: chunked
+
+----------------------
+----------------------
+
+http://localhost:9080/ServletPath/images/member_of_place.gif
+
+GET /ServletPath/images/member_of_place.gif HTTP/1.1
+Host: localhost:9080
+User-Agent: Mozilla/5.0 (Windows; U; Windows NT 5.0; en-US; rv:1.8.0.7) Gecko/20060909 Firefox/1.5.0.7
+Accept: image/png,*/*;q=0.5
+Accept-Language: en-us,en;q=0.5
+Accept-Encoding: gzip,deflate
+Accept-Charset: ISO-8859-1,utf-8;q=0.7,*;q=0.7
+Keep-Alive: 300
+Connection: keep-alive
+Referer: http://localhost:9080/signon/Login?jumpto=thehome
+Cookie: WASReqURL=http://localhost:9080/theca/TheServlet; JUMPIT=thehome
+If-Modified-Since: Wed, 03 Dec 2003 12:23:30 GMT
+Cache-Control: max-age=0
+
+HTTP/1.x 304 Not Modified
+Server: TheServer Application Server/5.1
+Content-Type: image/gif
+Content-Language: en-US
+
+----------------------
+----------------------

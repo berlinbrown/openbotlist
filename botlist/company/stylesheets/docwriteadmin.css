@@ -1,0 +1,34 @@
+/**********************************************************
+ * Berlin Brown
+ * botlistadmin.css
+ * 1/10/2007
+ **********************************************************/
+ 
+/**********************************************************
+ *
+ * Default Table - used for listings on main page
+ *
+ **********************************************************/
+table.recent_files {
+	border: 1px solid #99DD99;
+}
+table.recent_files td {
+    padding: 2px;
+    background-color: #E9FFE9;
+    border-right: 1px solid #99DD99;
+    border-bottom: 1px solid #99DD99;
+}
+table.recent_files th {
+	background-color: #E9FFE9;
+	text-align: left; 
+    padding: 2px; 
+   	border-right: 1px solid #99DD99;
+	border-bottom: 1px solid #99DD99;
+}
+table.recent_files a {
+	color: green;
+	font-size: 9pt;
+	text-decoration: none;
+}
+
+/** End of style for default table */

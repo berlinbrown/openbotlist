@@ -1,0 +1,181 @@
+/**********************************************************
+ * Berlin Brown
+ * botlist_general2.css
+ * new CSS document for general botlist pages
+ * 8/1/2007
+ **********************************************************/
+
+/** =============================================== */
+/** == home about description style  == */
+/** =============================================== */
+
+/** 
+ * The for url style is associated with the clickable entity link URL.
+ */
+.home_for_url_group {
+	margin-top: 4px;
+}
+
+.home_descr_left {
+	font-family: Georgia,'Times New Roman',Times,Serif;
+	margin-left: 6px; 
+	margin-top: 6px; 
+	margin-right: 6px; 
+	font-size: 12px; 
+	color: #333;
+}
+
+.home_descr_right {
+	font-family: Georgia,'Times New Roman',Times,Serif;
+	margin-left: 6px; 
+	margin-top: 6px; 
+	margin-right: 2px; 
+	font-size: 12px; 
+	color: #333;	
+}
+
+/** For the single link page, descrption */
+.single_link_descr {
+	font-family: Georgia,'Times New Roman',Times,Serif;
+	margin-left: 6px; 
+	margin-top: 4px; 
+	margin-right: 2px; 
+	font-size: 12px; 
+	color: #333;
+	width: 80%;
+}
+
+.home_source_label {
+	color: #2f8f15;
+	font-weight: bold;
+}
+
+.home_search_wrapper {
+	background-color: #effdac;
+}
+.botverse_search_wrapper {
+	background-color: #effdac;
+}
+
+/** =============================================== */
+/** == Small Link for user profiles  == */
+/** =============================================== */
+a.link_userprof:link {
+	font-family: "arial", verdana, helvetica, sans-serif;
+	font-size: 8pt;
+	font-weight: bold;
+	margin-bottom: 0px;
+	margin-top: 0px;
+	background-color: transparent;
+	text-decoration: underline;
+ 	color: #777;
+}
+
+/** Leave the visited link as darker than others */
+a.link_userprof:visited {
+	font-family: "arial", verdana, helvetica, sans-serif;
+	font-size: 8pt;
+	font-weight: bold;
+	margin-bottom: 0px;
+	margin-top: 0px;
+	background-color: transparent;
+	text-decoration: underline;
+ 	color: #777;
+}
+
+a.link_userprof:hover {
+	font-family: "arial", verdana, helvetica, sans-serif;
+	font-size: 8pt;
+	font-weight: bold;
+	margin-bottom: 0px;
+	margin-top: 0px;
+	background-color: transparent;
+	text-decoration: underline;
+ 	color: #777;
+}
+a.link_userprof:active {
+	font-family: "arial", verdana, helvetica, sans-serif;
+	font-size: 8pt;
+	font-weight: bold;
+	margin-bottom: 0px;
+	margin-top: 0px;
+	background-color: transparent;
+	text-decoration: underline;
+ 	color: #777;
+ 	outline: none;
+}
+
+/** =============================================== */
+/** == End of link for user links == */
+/** =============================================== */
+
+
+ 
+/** =============================================== */
+/** == Ajax / Pass or Fail CSS  == */
+/** =============================================== */
+div.ajx_msg_pass {
+	font-weight: bold; 
+	color: #0ab823;
+}
+
+div.ajx_msg_fail {
+	font-weight: bold;
+	color: #c00;
+}
+ 
+/** =============================================== */
+/** == Small Link List Data,  == */
+/** == Bold and Dark Blue / Purple == */
+/** =============================================== */
+a.linklist_small:link {
+	font-family: "arial", verdana, helvetica, sans-serif;
+	font-size: 8pt;
+	font-weight: bold;
+	margin-bottom: 0px;
+	margin-top: 0px;
+	background-color: transparent;
+	text-decoration: none;
+ 	color: #3838E5;
+}
+
+/** Leave the visited link as darker than others */
+a.linklist_small:visited {
+	font-family: "arial", verdana, helvetica, sans-serif;
+	font-size: 8pt;
+	font-weight: bold;
+	margin-bottom: 0px;
+	margin-top: 0px;
+	color: #460C7B;
+	text-decoration: none;
+	background-color: transparent;
+}
+
+a.linklist_small:hover {
+	font-family: "arial", verdana, helvetica, sans-serif;
+	font-size: 8pt;
+	font-weight: bold;
+	margin-bottom: 0px;
+	margin-top: 0px;
+	color: #3838E5;
+	text-decoration: none;
+	background-color: transparent;
+}
+a.linklist_small:active {
+	font-family: "arial", verdana, helvetica, sans-serif;
+	font-size: 8pt;
+	font-weight: bold;
+	margin-bottom: 0px;
+	margin-top: 0px;
+	color: #3838E5;
+	text-decoration: none;
+	background-color: transparent;
+	outline: none;
+}
+
+/** =============================================== */
+/** == End of Link List table == */
+/** =============================================== */
+
+/** End of File */
+ 

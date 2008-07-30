@@ -1,0 +1,55 @@
+##
+## Berlin Brown
+## Updated: 1/27/2008
+##
+ 
+ Overview:
+ ===================
+ 
+ Useful fools for the developer
+ 
+ Misc Tools:
+ ===================
+ 
+	Data browser from kirix
+ 	http://www.kirix.com/
+ 	
+ 	Diagramming Tools:
+ 	
+ 	* Inkscape
+ 	* Dia
+ 
+ Development:
+ ===================
+  
+ 	Eclipse IDE 3.3+ - Java development, project management
+ 	Emacs - Text editor for all source (haskell, scala, python, ruby, etc)
+ 			
+ 			The developer_tools directory contains an example emacs configuration
+ 			used with this project.  The win32 and linux emacs configuration files (.emacs)
+ 			can serve as a guide for configuring your emacs editor, including a listing of
+ 			the emacs programming modes (E.g. ruby-mode, python-mode, scala-mode, clojure-mode, erlang-mode)
+ 			
+ 	        See 'docs\developer_tools' 
+ 
+ More Notes and Resources:
+ ===================
+ 
+ Tabs and Spaces
+ ===================
+ It is highly recommended to use SPACES over TABS.
+ 
+ In Emacs, to remove hard tabs; select the entire buffer and enter the command:
+ 
+ M-x untabify  (ESC and then X untabify)
+ 
+ Force emacs to permanently use spaces instead of TABS:
+ (setq-default indent-tabs-mode nil)    # add this in your .emacs file
+ 
+ Emacs File-specific variables:
+ -*-  indent-tabs-mode:nil;  -*-
+ 
+ ===================
+ End of File
+ ===================
+ 

@@ -1,0 +1,59 @@
+##
+## Functional Capabilities
+## contains a list of requirements for the system
+##
+
+
+---------------------
+ Dec 25, Milestone:
+ 
+1. Cookie based anonymous posting and profile. (complete y/n)
+2. Profile experience system based on number of clicks throughout the system. (complete y/n)
+3. Add search (with tagging system) (complete y/n)
+4. Add 'edit' and 'preview' for all topics and then comments (complete y/n)
+5. Future, alpha test of text based advertising. (complete y/n)
+6. Add profiles (complete y/n)
+7. Add paging (spring / hibernate?) (complete y/n)
+8. Image upload and security verification process. (complete y/n)
+9. Fix unit testing framework. (complete y/n)
+10. Add deleting and loading of tables through easy script (complete y/n)
+11. Add help (complete y/n)
+12. Add the ability to increase/decrease rating of link
+13. Clean up web design.
+14. Add help
+
+15b. Add List of Links
+15c. Add the ability to submit a list of links from a CSV file
+
+Botlist � Christmas Alpha Release for Dec, 25.
+---------------------
+
+* Add markdown type language for comments and ad postings.
+
+* Possibly build project management software.
+
+* Add unit tests, http, some for production, etc.
+
+* Move the botverse pages to a seperate directory to seperate applications
+for cleaner directory structure.
+
+* Include a search system that also scans for keywords or modifiers, ie:
+	username:TheUser
+	keywords:Dog	
+
+* Image upload
+
+* Add Auditing of all requests
+
+* The system should contain a administration tool to edit specific
+aspects of the system.
+
+ For example, the admin should be able to add cities.
+ 
+* For every form that gets posted, must protect against double 
+ posting.
+ 
+* Write cookies that include:
+	- unique-ip ip only
+	- unique id identifying the user
+ 

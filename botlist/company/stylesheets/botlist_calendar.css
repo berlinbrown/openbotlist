@@ -1,0 +1,22 @@
+/**********************************************************
+ * Berlin Brown
+ * botlist.css
+ * 11/10/2006
+ **********************************************************/
+ 
+h3.calendar_header {
+	width: 50%;
+	background-color: #cbc6c6 ;
+	color: #FFFFFF;
+	font-size: 12pt;
+	font-family: Arial, Helvetica, Sans-Serif;
+	font-weight: bold;
+	margin-bottom: 4px;
+	margin-top: 6px;
+	padding-left: 6px;
+	padding-bottom: 2px;
+	padding-top: 2px;
+}
+
+/** End of File */
+ 

@@ -1,0 +1,272 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (c) 2006 - Berlin Brown -->
+<!-- Ant script that is located in the Tomcat webapp directory and -->
+<!-- writes classes to this particular directory -->
+<!-- Description: Testing ruby with with spring web application -->
+<!-- Date: 11/1/2006 -->
+<project name="Botlist Misc Test Framework" default="package" basedir=".">
+
+	<property file="build.properties" />
+	<property name="home.base.dir"     	value="${basedir}/../.." />
+	<property name="build.dir"          value="${basedir}/build"/>
+	<property name="build.classes.dir"	value="${basedir}/build/classes"/>
+	<property name="home.build.classes.dir"	value="${home.base.dir}/build/classes"/>	
+	<property name="src.dir"          	value="${basedir}/src"/>
+	<property name="lib.dir"          	value="${home.base.dir}/WEB-INF/lib" />
+	
+	<property name="loadtest.dir"		value="${home.base.dir}/tests/system/loadhttptest" />
+	<property name="loadtest.src.dir"	value="${loadtest.dir}/src" />
+	
+	<!-- Define the library files -->
+	<property name="acegi.jar"  	value="${lib.dir}/acegi-security-1.0.3.jar" />
+	<property name="hibernate.jar"  value="${lib.dir}/hibernate3.jar" />
+	<property name="log4j.jar"    	value="${lib.dir}/log4j-1.2.14.jar" />
+	<property name="dom4j.jar"     	value="${lib.dir}/dom4j-1.6.1.jar" />
+	<property name="logging.jar"    value="${lib.dir}/commons-logging-1.0.4.jar" />
+	<property name="collections.jar"	value="${lib.dir}/commons-collections-2.1.1.jar" />
+	<property name="cglib.jar"          value="${lib.dir}/cglib-nodep-2.1_3.jar" />
+	<property name="jta.jar"            value="${lib.dir}/jta.jar" />
+	<property name="mysql.jar"          value="${lib.dir}/mysql-connector-java-5.0.3-bin.jar" />
+	<property name="antlr.jar"          value="${lib.dir}/antlr-2.7.6rc1.jar" />
+	<property name="validator.jar" 		value="${lib.dir}/commons-validator-1.3.1.jar" />
+	
+	<property name="servlet.jar"		value="${home.base.dir}/runtime-lib/servlet-api.jar" />
+	<property name="spring.jar"		value="${lib.dir}/spring.jar" />
+	<property name="jruby.jar"		value="${lib.dir}/jruby.jar" />
+	<property name="bsf.jar"		value="${lib.dir}/bsf.jar" />
+	
+	<property name="jfreechart.jar"		value="${lib.dir}/jfreechart-1.0.5.jar" />
+	<property name="jcommon.jar"		value="${lib.dir}/jcommon-1.0.9.jar" />
+	
+	<property name="junit.jar"		value="${home.base.dir}/runtime-lib/junit-4.1.jar" />
+
+	<!-- client runtime classpath properties -->
+	<property name="xerces.jar"				value="${home.base.dir}/runtime-lib/xercesImpl.jar" />
+	<property name="jython.jar"				value="${home.base.dir}/runtime-lib/jython.jar" />
+	<property name="httpunit.jar"			value="${home.base.dir}/runtime-lib/httpunit.jar" />
+	<property name="tidy.jar"				value="${home.base.dir}/runtime-lib/Tidy.jar" />
+	
+	<property name="commons-dbcp.jar"		value="${lib.dir}/commons-dbcp.jar" />
+	<property name="commons-pool.jar"		value="${lib.dir}/commons-pool.jar" />
+	<property name="commons-upload.jar" 	value="${lib.dir}/commons-fileupload.jar" />
+	<property name="commons-codec.jar" 		value="${lib.dir}/commons-codec-1.3.jar" />	
+	
+	<property name="ehcache.jar"			value="${lib.dir}/ehcache-1.2.3.jar" />
+	<property name="cglib.jar"				value="${lib.dir}/cglib-2.1.3.jar" />
+	<property name="asm.jar"				value="${lib.dir}/asm.jar" />
+	<property name="asm-attrs.jar"			value="${lib.dir}/asm-attrs.jar" />
+	<property name="jta.jar"				value="${lib.dir}/jta.jar" />
+	<property name="c3p0.jar"				value="${lib.dir}/c3p0-0.9.0.jar" />
+		
+	<property name="servlet.jar"			value="${home.base.dir}/servlet-lib/servlet-api.jar" />    
+	<property name="jsp-api.jar"			value="${home.base.dir}/servlet-lib/jsp-api.jar" />    
+	
+	<target name="init" description="Initialization">
+		<tstamp/>
+		<echo>
+ Load Testing and Additional(Optional) Tests:
+ Key Targets:
+ ------------
+ 
+ run.loadtests.local - Run load test suite against the local server. 
+</echo>
+	</target>
+
+	<!-- Target: CLASSPATH -->
+	<path id="classpath">
+		<pathelement location="${acegi.jar}"/>
+		<pathelement location="${hibernate.jar}"/>
+		<pathelement location="${junit.jar}"/>
+		<pathelement location="${log4j.jar}"/>
+		<pathelement location="${dom4j.jar}"/>
+		<pathelement location="${logging.jar}"/>
+		<pathelement location="${collections.jar}"/>
+		<pathelement location="${mysql.jar}" />
+		<pathelement location="${cglib.jar}" />
+		<pathelement location="${jta.jar}" />
+		<pathelement location="${antlr.jar}" />
+		<pathelement location="${spring.jar}" />
+		<pathelement location="${servlet.jar}" />
+		<pathelement location="${jruby.jar}" />
+		<pathelement location="${bsf.jar}" />
+		<pathelement location="${validator.jar}" />
+		<pathelement location="${junit.jar}" />
+		<pathelement location="${httpunit.jar}" />
+	
+		<pathelement location="${jfreechart.jar}" />
+		<pathelement location="${jcommon.jar}" />
+		
+		<!-- Include the CLASSes directory -->
+		<pathelement location="${build.classes.dir}" />
+		<pathelement location="${home.build.classes.dir}" />
+	</path>
+	
+	<path id="runtime.classpath">
+		<pathelement location="${xerces.jar}" />
+		<pathelement location="${servlet.jar}" />
+		<pathelement location="${commons-dbcp.jar}" />
+		<pathelement location="${commons-pool.jar}" />
+		<pathelement location="${commons-codec.jar}" />
+		<pathelement location="${ehcache.jar}" />
+		<pathelement location="${cglib.jar}" />
+		<pathelement location="${mysql.jar}" />
+		<pathelement location="${asm.jar}" />
+		<pathelement location="${asm-attrs.jar}" />
+		<pathelement location="${jta.jar}" />
+		<pathelement location="${c3p0.jar}" />
+		<pathelement location="${jython.jar}" />
+		<pathelement location="${tidy.jar}" />
+		
+		<pathelement location="${commons-upload.jar}" />
+		<pathelement location="${jsp-api.jar}" />
+		<pathelement location="${standard.jar}" />
+	</path>
+	
+	<path id="grinder.classpath">
+		<pathelement location="${basedir}/../system/grinder/lib/grinder.jar" />
+		<pathelement location="${basedir}/../system/grinder" />
+	</path>
+
+	<!-- Target: Prepare -->
+	<target name="prepare" depends="init">
+		<mkdir dir="${build.dir}"/>
+		<mkdir dir="${build.classes.dir}"/>
+	</target>
+
+	<!-- Target: Compile -->
+	<target name="compile" depends="prepare">
+		<javac deprecation="false"		
+				debug="true"
+				srcdir="${src.dir}"
+                destdir="${build.classes.dir}"
+				target="1.5"
+                includes="**/*.java">
+			<classpath refid="classpath"/>
+		</javac>
+		<javac deprecation="false"		
+						debug="true"
+						srcdir="${loadtest.src.dir}"
+		                destdir="${build.classes.dir}"
+						target="1.5"
+		                includes="**/*.java">
+			<classpath refid="classpath"/>
+		</javac>
+	</target>
+	
+	<!-- Target: Build -->
+	<target name="package" depends="compile">
+		<copy file="${home.base.dir}/WEB-INF/classes/Botlist.hbm.xml" 
+						todir="${build.classes.dir}" />
+		<copy file="${home.base.dir}/WEB-INF/classes/log4j.properties" 
+						todir="${build.classes.dir}" />
+	</target>
+	
+	<!-- Default run tests -->
+	<target name="run.tests" depends="package">	
+		<!-- Fork == true must be enabled for jython -->
+		<java classname="org.python.util.jython"
+				fork="true">
+			<classpath refid="classpath" />
+			<classpath refid="runtime.classpath" />			
+			<sysproperty key="python.home" value="/tmp" />
+			<arg value="py/all_tests.py" />
+			<arg value="-f" />
+			<arg value="${home.base.dir}/WEB-INF/botlistings-servlet.xml"/>
+			<arg value="${home.base.dir}/WEB-INF/spring-botlist-util.xml"/>			
+		</java>
+	</target>	
+	<!-- ** Production run tests ** -->
+	<target name="run.tests.production" depends="package">
+		<!-- Fork == true must be enabled for jython -->
+		<java classname="org.python.util.jython"
+				fork="true">
+			<classpath refid="classpath" />
+			<classpath refid="runtime.classpath" />			
+			<sysproperty key="python.home" value="/tmp" />
+			<arg value="py/all_tests_prod.py" />
+			<arg value="-f" />
+			<arg value="${home.base.dir}/WEB-INF/botlistings-servlet.xml"/>			
+		</java>
+	</target>
+		
+	<target name="run.tests.ruby" depends="package">
+		<java classname="org.spirit.test.MainTestSuite">	         
+			<classpath refid="classpath" />
+			<classpath refid="runtime.classpath" />
+			<arg value="-f"/>
+			<arg value="/${home.base.dir}/WEB-INF/botlistings-servlet.xml"/>
+			<arg value="/${home.base.dir}/WEB-INF/spring-botlist-util.xml"/>
+		</java>
+	</target>
+	
+	<target name="run.single.ruby" depends="package">		
+		<java classname="org.spirit.test.MainSingleTestSuite">
+			<!-- Note: added catalina base for log4j or other settings -->
+			<sysproperty key="catalina.base" value="${tomcat.home}" />
+			<classpath refid="classpath" />
+			<classpath refid="runtime.classpath" />
+			<arg value="${single.ruby.test.spring}"/>
+			<arg value="/${home.base.dir}/WEB-INF/botlistings-servlet.xml"/>
+			<arg value="/${home.base.dir}/WEB-INF/spring-botlist-util.xml"/>
+			<arg value="${single.ruby.test}" />
+		</java>
+	</target>
+	
+	<!-- Run load test to check if pages are available -->
+	<target name="run.loadtests.local" depends="package">			
+		<java classname="org.spirit.loadtest.LoadTestManager"
+				fork="true" dir="${loadtest.dir}">
+			<classpath refid="classpath" />
+			<classpath refid="runtime.classpath" />
+			<arg value="-f"/>
+			<arg value="${loadtest.dir}/testclient_local.properties" />				
+		</java>
+	</target>
+	
+	<!-- Run load test to check if pages are available -->
+	<target name="run.loadtests.production" depends="package">			
+		<java classname="org.spirit.loadtest.LoadTestManager"
+					fork="true" dir="${loadtest.dir}">
+				<classpath refid="classpath" />
+				<classpath refid="runtime.classpath" />
+				<arg value="-f"/>
+				<arg value="${loadtest.dir}/testclient_production.properties" />				
+		</java>
+	</target>
+	
+	<!-- Test the actual load tester -->
+	<target name="run.loadtests.singleunit" depends="package">			
+		<java classname="org.spirit.loadtest.LoadTestManager"
+					fork="true" dir="${loadtest.dir}">
+				<classpath refid="classpath" />
+				<classpath refid="runtime.classpath" />
+				<arg value="-f"/>
+				<arg value="${loadtest.dir}/testsrc_unittest.properties" />				
+		</java>
+	</target>
+	
+	<!-- Build jar -->
+	<target name="jar.loadtest" depends="compile">
+		<jar jarfile="${build.dir}/botlistloadtest.jar">
+			<fileset dir="${build.classes.dir}" >
+				<include name="**/*.class"/>
+			</fileset>
+		</jar>
+	</target>
+	
+	<!-- Zip the development code base -->
+	<target name="zip.codebase" depends="clean,prepare">
+		<fail unless="appname.war">APPNAME.WAR must be set, see the build.properties file</fail>
+		<zip destfile="${basedir}/build/${appname.war}.zip" basedir="${basedir}" />
+	</target>
+
+	<!-- Main Clean -->
+	<target name="clean">
+		<delete dir="${build.dir}" />
+		<delete dir="${basedir}/bin" />
+		
+	</target>
+	<!-- End of Main Clean -->
+
+</project>
+<!-- End of the File -->

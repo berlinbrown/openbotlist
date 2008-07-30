@@ -1,0 +1,10 @@
+#------------------------------------------------ 
+# Sequence Format File should contain the following format:
+# 
+# METHOD_TYPE, URL, <DATA if POST enabled, separated by ';' semicolon [key=value]>
+#------------------------------------------------
+GET, http://localhost:8080/botlist/
+GET, http://localhost:8080/botlist/spring/botverse/botverse.html
+#POST, http://localhost:8080/botlist/spring/profile/register.html, userName=abcabc555; userPassword=abcabc; verifyPassword=abcabc;
+POST, http://localhost:8080/botlist/spring/profile/login.html, userName=abcabc444; userPassword=abcabc;
+GET, http://localhost:8080/botlist/spring/profile/settings.html
