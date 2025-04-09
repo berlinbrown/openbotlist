@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/botlist/WEB-INF/WEB-INF.iml" filepath="$PROJECT_DIR$/botlist/WEB-INF/WEB-INF.iml" />
+      <module fileurl="file://$PROJECT_DIR$/botlist/botlist.iml" filepath="$PROJECT_DIR$/botlist/botlist.iml" />
+      <module fileurl="file://$PROJECT_DIR$/botlist/tests/misc/misc.iml" filepath="$PROJECT_DIR$/botlist/tests/misc/misc.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/openbotlist.iml" filepath="$PROJECT_DIR$/.idea/openbotlist.iml" />
+      <module fileurl="file://$PROJECT_DIR$/botlist/tests/system/system.iml" filepath="$PROJECT_DIR$/botlist/tests/system/system.iml" />
+      <module fileurl="file://$PROJECT_DIR$/botlist/tests/unit/unit.iml" filepath="$PROJECT_DIR$/botlist/tests/unit/unit.iml" />
+    </modules>
+  </component>
+</project>

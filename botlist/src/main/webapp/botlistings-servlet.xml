@@ -1,0 +1,506 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+<!--
+    *******************************************************
+	** Application context definition for "botlist" DispatcherServlet **
+	** 
+	** Copyright 2006-2007 botnode.com
+	** 
+	** This SOURCE FILE is licensed to NEWSPIRITCOMPANY.COM.  Unless
+	** otherwise stated, use or distribution of this program 
+	** for commercial purpose is prohibited.
+	** 
+	** [License modified], See LICENSE.BOTLIST for more information.
+    *******************************************************
+	Application: botlist
+	Berlin Brown
+	Date: 11/6/2006
+-->
+<beans>	
+	<!-- *************************** -->
+	<!-- Include the following spring property settings -->
+	<!-- Default location: /WEB-INF/botlist_config.properties -->
+	<!-- *************************** -->
+	<bean id="propertyConfigurer" 
+			class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="location">
+			<value>/WEB-INF/botlist_config.properties</value>
+		</property>
+	</bean>
+
+	<!-- *************************** -->
+	<!-- Datasource Bean Definitions -->
+	<!-- *************************** -->
+	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
+		<property name="driverClassName">
+			<value>com.mysql.jdbc.Driver</value>
+		</property>
+		<property name="url">
+			<value>${botlist.db.url}</value>
+		</property>
+		<property name="username">
+			<value>${botlist.username}</value>
+		</property>
+		<property name="password">
+			<value>${botlist.password}</value>			
+		</property>
+	</bean>
+
+	<bean id="sessionFactory" class="org.springframework.orm.hibernate3.LocalSessionFactoryBean">
+		<property name="dataSource">
+			<ref local="dataSource" />
+		</property>
+		<property name="mappingResources">
+			<list>
+				<value>Botlist.hbm.xml</value>
+			</list>
+		</property>
+		<property name="hibernateProperties">
+			<props>
+				<prop key="hibernate.dialect">org.hibernate.dialect.MySQLDialect</prop>
+				
+				<!-- Botlist default for show_sql should be 'false' -->
+				<!-- You may also have to disable the "FORMAT SQL" in the log4j settings -->
+				<!-- ============================================= -->
+				<prop key="hibernate.show_sql">false</prop>
+				<!-- Botlist default for format_sql should be 'false' -->
+				<prop key="hibernate.format_sql">false</prop>
+				<prop key="hibernate.generate_statistics">false</prop>
+				<!-- ============================================= -->
+				
+				<!-- Caching Properties -->
+				<prop key="hibernate.cache">true</prop>
+				<prop key="hibernate.cache.use_query_cache">true</prop>
+				<prop key="hibernate.cache.provider_class">net.sf.ehcache.hibernate.EhCacheProvider</prop>	
+				<!-- Connection Pooling Properties -->
+				<prop key="hibernate.c3p0.minPoolSize">3</prop>
+				<prop key="hibernate.c3p0.maxPoolSize">10</prop>
+				<prop key="hibernate.timeout">1800</prop>
+			</props>
+		</property>
+	</bean>
+
+	
+	<!-- Transaction manager for a single Hibernate SessionFactory (alternative to JTA) -->
+	<bean id="transactionManager" class="org.springframework.orm.hibernate3.HibernateTransactionManager">
+		<property name="sessionFactory">
+			<ref local="sessionFactory" />
+		</property>
+	</bean>
+	
+	<!-- ********************* -->
+	<!-- ** JDBC DAO -->
+	<!-- ** JDBC DAO can be used with generic runtime operations that don't need a POJO bean -->
+	<!-- ** An example use of this bean could be for spring backed runtime client applications (e.g. for test cases) -->
+	<!-- ** Note: This is a dangerous, volatile DAO, use with caution (outside of the J2EE space) -->
+	<!-- ********************* -->
+	<bean id="genericRuntimeJDBCDao" class="org.spirit.apps.jdbc.GenericRuntimeJDBCDao">
+		<property name="dataSource" ref="dataSource"/>
+    </bean>	
+	
+	<!-- Note: use of implementation -->
+	<bean id="userLinkDaoBean" class="org.spirit.dao.impl.BotListUserLinkDAOImpl">
+		<property name="sessionFactory">
+			<ref local="sessionFactory" />
+		</property>
+	</bean>		
+		
+	<bean id="postListingDaoBean" class="org.spirit.dao.impl.BotListPostListingDAOImpl">
+		<property name="sessionFactory">
+			<ref local="sessionFactory" />
+		</property>
+	</bean>
+	
+	<bean id="cityListingDaoBean" class="org.spirit.dao.impl.BotListCityListingDAOImpl">
+		<property name="sessionFactory">
+			<ref local="sessionFactory" />
+		</property>
+	</bean>
+	
+	<bean id="cityListingDaoRadBean" class="org.spirit.dao.impl.BotListCityListingDAOImpl">
+		<property name="sessionFactory">
+			<ref local="sessionFactory" />
+		</property>
+	</bean>
+	
+	<bean id="userVisitLogDaoBean" class="org.spirit.dao.impl.BotListUserVisitLogDAOImpl">
+        <property name="sessionFactory">
+			<ref local="sessionFactory" />
+		</property>
+	</bean>	
+		
+	<bean id="forumGroupDaoBean" class="org.spirit.dao.impl.BotListForumGroupDAOImpl">
+        <property name="sessionFactory">
+			<ref local="sessionFactory" />
+		</property>
+	</bean>	
+	
+	<bean id="userCommentsDaoBean" class="org.spirit.dao.impl.BotListUserCommentsDAOImpl">
+        <property name="sessionFactory">
+			<ref local="sessionFactory" />
+		</property>
+	</bean>
+	
+	<bean id="postSectionsDaoBean" class="org.spirit.dao.impl.BotListPostSectionsDAOImpl">
+        <property name="sessionFactory">
+			<ref local="sessionFactory" />
+		</property>
+	</bean>
+	
+	<bean id="userSearchDaoBean" class="org.spirit.dao.impl.BotListUserSearchDAOImpl">	
+		<property name="sessionFactory">
+			<ref local="sessionFactory" />
+		</property>
+	</bean>
+		
+	<bean id="postImageMetadataDaoBean" class="org.spirit.dao.impl.BotListPostImageMetadataDAOImpl">
+        <property name="sessionFactory">
+			<ref local="sessionFactory" />
+		</property>
+	</bean>
+		
+	<!-- User Level Access Beans / Added 4/1/2007 -->
+	<bean id="aclControlDaoBean" class="org.spirit.dao.impl.BotListAclControlDAOImpl">
+        <property name="sessionFactory">
+			<ref local="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="aclManagerDaoBean" class="org.spirit.dao.impl.BotListAclManagerDAOImpl">
+        <property name="sessionFactory">
+			<ref local="sessionFactory" />
+		</property>
+	</bean>	
+	<bean id="groupControlDaoBean" class="org.spirit.dao.impl.BotListGroupControlDAOImpl">
+        <property name="sessionFactory">
+			<ref local="sessionFactory" />
+		</property>
+	</bean>	
+	<bean id="groupManagerDaoBean" class="org.spirit.dao.impl.BotListGroupManagerDAOImpl">
+        <property name="sessionFactory">
+			<ref local="sessionFactory" />
+		</property>
+	</bean>
+	
+	<bean id="searchQueryFiltersDaoBean" class="org.spirit.dao.impl.BotListSearchQueryFiltersDAOImpl">
+        <property name="sessionFactory">
+			<ref local="sessionFactory" />
+		</property>
+	</bean>
+
+	<bean id="sessionRequestLogDaoBean" class="org.spirit.dao.impl.BotListSessionRequestLogDAOImpl">
+        <property name="sessionFactory">
+			<ref local="sessionFactory" />
+		</property>
+	</bean>	
+	
+	<bean id="entityLinksDaoBean" class="org.spirit.dao.impl.BotListEntityLinksDAOImpl">
+        <property name="sessionFactory">
+			<ref local="sessionFactory" />
+		</property>
+		<property name="userDao">
+			<ref local="coreUsersDaoBean" />
+		</property>
+	</bean>
+	
+	<!-- **************************************** -->
+	<!-- End of User Beans -->
+	<!-- **************************************** -->
+	
+	<bean id="fileUploadBean" class="org.spirit.util.BotListFileUploadUtil">
+		<property name="uploadDir">
+			<value>/home/webadmin/botspiritcompany.com/html/botimgs</value>
+		</property>
+		<property name="maxFileSize" value="104448" />
+		<property name="maxMemorySize" value="4096" />
+		<property name="fileUploadEnabled" value="true" />
+	</bean>
+		
+	<bean id="docFileDaoBean" class="org.spirit.dao.impl.BotListDocFileDAOImpl">
+        <property name="sessionFactory">
+			<ref local="sessionFactory" />
+		</property>
+	</bean>
+		
+	<bean id="docFileMetadataDaoBean" class="org.spirit.dao.impl.BotListDocFileMetadataDAOImpl">
+        <property name="sessionFactory">
+			<ref local="sessionFactory" />
+		</property>
+	</bean>
+	
+	<bean id="coreUsersDaoBean" class="org.spirit.dao.impl.BotListCoreUsersDAOImpl">
+        <property name="sessionFactory">
+			<ref local="sessionFactory" />
+		</property>
+	</bean>
+	
+	<bean id="groupLinksDaoBean" class="org.spirit.dao.impl.BotListGroupLinksDAOImpl">
+        <property name="sessionFactory">
+			<ref local="sessionFactory" />
+		</property>
+	</bean>	
+	<bean id="linkGroupsDaoBean" class="org.spirit.dao.impl.BotListLinkGroupsDAOImpl">
+        <property name="sessionFactory">
+			<ref local="sessionFactory" />
+		</property>
+	</bean>	
+	
+	<bean id="profileSettingsDaoBean" class="org.spirit.dao.impl.BotListProfileSettingsDAOImpl">
+        <property name="sessionFactory">
+			<ref local="sessionFactory" />
+		</property>
+	</bean>
+	
+	<bean id="adminMainBannerDaoBean" class="org.spirit.dao.impl.BotListAdminMainBannerDAOImpl">
+        <property name="sessionFactory">
+			<ref local="sessionFactory" />
+		</property>
+	</bean>
+	
+	<bean id="mediaFeedsDaoBean" class="org.spirit.dao.impl.BotListMediaFeedsDAOImpl">
+        <property name="sessionFactory">
+			<ref local="sessionFactory" />
+		</property>
+	</bean>
+	
+	<bean id="activeMediaFeedsDaoBean" class="org.spirit.dao.impl.BotListActiveMediaFeedsDAOImpl">
+        <property name="sessionFactory">
+			<ref local="sessionFactory" />
+		</property>
+	</bean>	
+	<bean id="developerUsersDaoBean" class="org.spirit.dao.impl.BotListDeveloperUsersDAOImpl">
+        <property name="sessionFactory">
+			<ref local="sessionFactory" />
+		</property>
+	</bean>	
+	<bean id="userLinksDaoBean" class="org.spirit.dao.impl.BotListUserLinksDAOImpl">
+        <property name="sessionFactory">
+			<ref local="sessionFactory" />
+		</property>
+	</bean>
+	
+	<bean id="catGroupTermsDaoBean" class="org.spirit.dao.impl.BotListCatGroupTermsDAOImpl">
+        <property name="sessionFactory">
+			<ref local="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="catLinkGroupsDaoBean" class="org.spirit.dao.impl.BotListCatLinkGroupsDAOImpl">
+        <property name="sessionFactory">
+			<ref local="sessionFactory" />
+		</property>
+	</bean>
+	
+	<bean id="entityTypeFoafDaoBean" class="org.spirit.apps.foaf.BotListEntityTypeFoafDAOImpl">
+		<property name="sessionFactory">
+			<ref local="sessionFactory" />
+		</property>
+	</bean>	
+	
+	<!-- ******************************** -->
+	<!-- Spring Controller and View Beans -->
+	<!-- ******************************** -->
+	<bean id="radController" class="org.spirit.spring.BotListRubyController">
+		<property name="sessionForm" value="false"/>
+		<property name="jspDir" value="WEB-INF/jsps" />
+		<property name="initScript" value="WEB-INF/jsps/INIT.rb" />
+		<property name="springServletContext" value="spring" />
+				
+		<!-- Capture the Data Access Object -->
+		<property name="userLinkDao">
+			<ref bean="userLinkDaoBean"/>
+		</property>		
+		<property name="postListingDao">
+			<ref bean="postListingDaoBean"/>
+		</property>
+		<property name="cityListingDao">
+			<ref bean="cityListingDaoBean"/>
+		</property>
+		<property name="userVisitLogDao">
+			<ref bean="userVisitLogDaoBean"/>
+		</property>
+		<property name="entityLinksDao">
+			<ref bean="entityLinksDaoBean"/>
+		</property>
+		<property name="userCommentsDao">
+			<ref bean="userCommentsDaoBean"/>
+		</property>
+		<property name="forumGroupDao">
+			<ref bean="forumGroupDaoBean"/>
+		</property>
+		<property name="postSectionsDao">
+			<ref bean="postSectionsDaoBean"/>
+		</property>
+		<property name="postImageMetadataDao">
+			<ref bean="postImageMetadataDaoBean"/>
+		</property>
+		<property name="fileUploadUtil">
+			<ref bean="fileUploadBean"/>
+		</property>
+		<property name="coreUsersDao">
+			<ref bean="coreUsersDaoBean"/>
+		</property>
+		<property name="groupLinksDao">
+			<ref bean="groupLinksDaoBean"/>
+		</property>
+		<property name="linkGroupsDao">
+			<ref bean="linkGroupsDaoBean"/>
+		</property>
+		
+		<property name="catGroupTermsDao">
+			<ref bean="catGroupTermsDaoBean"/>
+		</property>
+		<property name="catLinkGroupsDao">
+			<ref bean="catLinkGroupsDaoBean"/>
+		</property>
+		<!-- User Level DAO Beans / Added: 4/1/2007 -->
+		<property name="aclControlDao">
+			<ref bean="aclControlDaoBean"/>
+		</property>
+		<property name="aclManagerDao">
+			<ref bean="aclManagerDaoBean"/>
+		</property>
+		<property name="groupControlDao">
+			<ref bean="groupControlDaoBean"/>
+		</property>	
+		<property name="groupManagerDao">
+			<ref bean="groupManagerDaoBean"/>
+		</property>
+		<property name="profileSettingsDao">
+			<ref bean="profileSettingsDaoBean"/>
+		</property>
+		<property name="entityTypeFoafDao">
+			<ref bean="entityTypeFoafDaoBean"/>
+		</property>
+		<!-- End User Level DAO Beans -->
+		<!-- Admin Tools -->
+		<property name="adminMainBannerDao">
+			<ref bean="adminMainBannerDaoBean"/>
+		</property>
+		<!-- Beans Cont -->
+		<property name="mediaFeedsDao">
+			<ref bean="mediaFeedsDaoBean"/>
+		</property>
+		<property name="activeMediaFeedsDao">
+			<ref bean="activeMediaFeedsDaoBean"/>
+		</property>
+		<property name="searchQueryFiltersDao">
+			<ref bean="searchQueryFiltersDaoBean"/>
+		</property>
+		<property name="developerUsersDao">
+			<ref bean="developerUsersDaoBean"/>
+		</property>	
+		<!-- User links dao -->
+		<property name="userLinksDao">
+			<ref bean="userLinksDaoBean"/>
+		</property>
+		
+		<!-- Core Settings -->
+		<property name="coreSettings">
+			<ref bean="coreSettings"/>
+		</property>
+	</bean>
+	<!-- ******************************** -->
+	<!-- End of RAD Controller -->
+	<!-- ******************************** -->
+	
+	<!-- ******************************** -->
+	<!-- Index Controller -->
+	<!-- ******************************** -->		
+	<bean id="indexController" class="org.spirit.spring.BotListIndexController">
+		<property name="sessionForm" value="true"/>
+		<property name="cityListingDao">
+			<ref bean="cityListingDaoRadBean"/>
+		</property>
+		<property name="entityLinksDao">
+			<ref bean="entityLinksDaoBean"/>
+		</property>
+		<property name="userSearchDao">
+			<ref bean="userSearchDaoBean" />
+		</property>		
+		<property name="handler">
+			<ref bean="radController"/>
+		</property>
+		<property name="adminMainBannerDao">
+			<ref bean="adminMainBannerDaoBean"/>
+		</property>		
+		<property name="mediaFeedsDao">
+			<ref bean="mediaFeedsDaoBean"/>
+		</property>
+		<property name="activeMediaFeedsDao">
+			<ref bean="activeMediaFeedsDaoBean"/>
+		</property>		
+		<property name="searchQueryFiltersDao">
+			<ref bean="searchQueryFiltersDaoBean"/>
+		</property>
+		
+		<!-- User and Profile DAOs for the index controller -->
+		<property name="coreUsersDao">
+			<ref bean="coreUsersDaoBean"/>
+		</property>
+		<property name="profileSettingsDao">
+			<ref bean="profileSettingsDaoBean"/>
+		</property>
+		
+		<!-- Command Settings for Search (index controller)-->
+		<property name="commandClass">
+			<value>org.spirit.form.BotListUserSearchForm</value>
+		</property>
+		<!-- Core Settings -->
+		<property name="coreSettings">
+			<ref bean="coreSettings"/>
+		</property>
+	</bean>
+	
+	<!-- Settings for Cache Mechanism -->
+	<bean id="cacheManager"
+			class="org.spirit.cache.BotListCacheManager">
+		<property name="enableCaching" value="true" />
+	</bean>
+		
+	<!-- Settings for the BotList Application -->
+	<bean id="coreSettings"
+			class="org.spirit.dao.BotListCoreSettings">
+		<property name="searchIndexDir" value="/opt/tomcat5/webapps/botlist_search/WEB-INF/index_home/index" />
+		<property name="globalIndexDir" value="/opt/tomcat5/webapps/botlist_search/WEB-INF/index_home/global_index" />
+		<property name="mediaEnabled" value="true" />
+	</bean>  	
+	
+	<bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<property name="viewClass" value="org.springframework.web.servlet.view.JstlView" />
+		<property name="contentType" value="text/html; charset=UTF-8" />
+		<property name="prefix" value="/WEB-INF/jsps/" />
+		<property name="suffix" value=".jsp" />
+	</bean>
+	
+	<bean id="multipartResolver"
+        class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+        <property name="maxUploadSize">
+			<value>104448</value>
+		</property>
+        <property name="maxInMemorySize">
+	        <value>4096</value>
+        </property>
+	</bean>	
+	<bean id="radDefaultHandlerMapping" class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
+		<property name="mappings">
+			<props>
+				<prop key="/spring/**">radController</prop>
+				<prop key="/index.jsp">indexController</prop>
+				<prop key="/botlistadmin/**">adminController</prop>
+			</props>
+		</property>
+	</bean>
+	
+	<!-- ****************************************-->	
+	<!-- *** Message Configuration -->
+	<!-- *** Default Message Properties: use to define custom text labels and values in your view pages -->
+	<!-- ****************************************-->
+	<bean id="messageSource" class="org.springframework.context.support.ResourceBundleMessageSource">
+		<property name="basenames">
+		<list>
+		 <value>version</value>
+		 <value>messages</value>
+		</list>
+	 	</property>
+	 </bean>
+	 
+</beans> <!-- End of Script -->
