@@ -24,7 +24,6 @@ import org.spirit.bean.impl.base.BotListEntity;
  *	String urlTitle;	
  *
  * @author Berlin Brown
- * 
  */
 public class SystemFeedItemsType extends BotListEntity implements Serializable {
 

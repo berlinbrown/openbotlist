@@ -56,9 +56,6 @@ import org.spirit.form.base.BotListBaseForm;
 public class BotListEntityTypeFoafForm extends BotListBaseForm 
 			implements BotListBaseCalcVerify {
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = -8997986929977823041L;
 	
 	private String foafInterestDescr;

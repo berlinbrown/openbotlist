@@ -3,7 +3,6 @@
 --
 -- updated: 11/12/2006
 --
-
 CREATE TABLE doc_file (
 	id			int(11) NOT NULL auto_increment,
 	child_id	int(11),
@@ -26,6 +25,5 @@ CREATE TABLE doc_file_metadata (
 	constraint fk_file_document
 		foreign key (document_id) references doc_file(id)
 );
-
 
 -- End of file

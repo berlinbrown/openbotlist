@@ -27,9 +27,7 @@ import org.spirit.bean.impl.base.BotListBeanBase;
  * This is class is used by botverse.
  * 
  * @author Berlin Brown
- * 
  */
-
 public class BotListAclControl extends BotListBeanBase implements Serializable {
 
 	/**

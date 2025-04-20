@@ -62,10 +62,7 @@ import org.spirit.bean.impl.base.BotListEntity;
  * 
  */
 public class BotListEntityTypeFoaf extends BotListEntity implements Serializable {
-
-	/**
-	 * 
-	 */
+	
 	private static final long serialVersionUID = -2800491702537719907L;	                            	        
 	
 	private String foafInterestDescr;

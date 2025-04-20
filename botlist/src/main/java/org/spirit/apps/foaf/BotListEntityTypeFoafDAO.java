@@ -41,8 +41,6 @@
 
 package org.spirit.apps.foaf;
 
-import java.io.Serializable;
-import java.util.Calendar;
 import java.util.List;
 
 /**
@@ -51,7 +49,6 @@ import java.util.List;
  * @author Berlin Brown
  * 
  */
-
 public interface BotListEntityTypeFoafDAO {
 
 	public List listEntityLinks(final String queryStr);
