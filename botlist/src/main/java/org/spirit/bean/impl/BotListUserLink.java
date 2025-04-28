@@ -10,8 +10,6 @@ import org.spirit.bean.impl.base.BotListBeanBase;
 
 /**
  * This class is deprecated, @see BotListEntityLinks.
- * 
- * @author AP417
  */
 public class BotListUserLink extends BotListBeanBase 
 implements java.io.Serializable {

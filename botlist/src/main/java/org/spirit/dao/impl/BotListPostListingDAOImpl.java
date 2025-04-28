@@ -17,8 +17,6 @@ import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
 
 
 /**
- * @author AP417
- *
  */
 public class BotListPostListingDAOImpl extends HibernateDaoSupport 
 			implements BotListPostListingDAO {

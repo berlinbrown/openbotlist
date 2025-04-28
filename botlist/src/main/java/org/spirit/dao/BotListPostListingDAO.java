@@ -9,8 +9,6 @@ import java.util.List;
 import org.spirit.bean.impl.BotListPostListing;
 
 /**
- * @author AP417
- *
  */
 public interface BotListPostListingDAO {
 	
