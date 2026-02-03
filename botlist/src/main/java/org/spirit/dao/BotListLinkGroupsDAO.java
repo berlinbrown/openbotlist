@@ -10,9 +10,8 @@ import java.util.Calendar;
 
 /**
  * This is class is used by botverse.
- * 
+ *
  * @author Berlin Brown
- * 
  */
 
 public interface BotListLinkGroupsDAO {

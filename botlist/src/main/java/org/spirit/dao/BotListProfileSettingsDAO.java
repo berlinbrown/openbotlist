@@ -10,13 +10,12 @@ import org.springframework.dao.DataAccessException;
 
 /**
  * This is class is used by botverse.
- * 
+ *
  * @author Berlin Brown
- * 
  */
 
 public interface BotListProfileSettingsDAO {
 
-	public BotListProfileSettings readProfile(final int id) throws DataAccessException;
-	
+    public BotListProfileSettings readProfile(final int id) throws DataAccessException;
+
 }

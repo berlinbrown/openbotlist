@@ -21,7 +21,7 @@
 			<form:errors path="mainUrl" cssClass="general_field_error" />
 		</td>
 	</tr>
-	
+
 	<!-- Subject -->
 	<tr>
 		<td valign="top">Title:</td>
@@ -34,24 +34,24 @@
 			<form:errors path="urlTitle" cssClass="general_field_error" />
 		</td>
 	</tr>
-	
+
 	<tr><td valign="top">Keywords (space separated, optional)</td></tr>
 	<tr>
 		<td>
 		<form:input path="keywords" size="40" />
-		</td>		
+		</td>
 	</tr>
-	
+
 	<tr><td valign="top">Verify</td></tr>
 	<tr>
 		<td>
 		<form:input path="roverVerify" size="40" />
-		</td>		
+		</td>
 	</tr>
-		
+
 	<tr>
 		<td><input type="submit" value=" Submit Link " /></td>
-	</tr>		
+	</tr>
 </table>
 <!-- End of the table -->
 </form:form>

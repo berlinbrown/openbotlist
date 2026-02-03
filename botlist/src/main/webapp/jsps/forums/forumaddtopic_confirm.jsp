@@ -22,8 +22,8 @@
  </div>
 <h1 class="bot_titlelogo">BotList - Add Comment</h1>
 			<%-- Navigation Header --%>
-			<%@include file="/WEB-INF/jsps/general/default_navigation.jsp" %>			
-			<%-- End of Navigation Header --%>					
+			<%@include file="/WEB-INF/jsps/general/default_navigation.jsp" %>
+			<%-- End of Navigation Header --%>
 
 <div style="margin: 20px;">
 
@@ -33,11 +33,11 @@
 
 	<!-- Build the table for entering the new department information -->
 	<div style="margin: 30px;">
-				
+
 		<b>Topic Saved, click to return to the forum listing</b>
 		<br>
 		<a href="<c:url value="/spring/forums/forums.html" />" >Forums</a>
-	
+
 	</div>
 
 <!-- End of the table -->

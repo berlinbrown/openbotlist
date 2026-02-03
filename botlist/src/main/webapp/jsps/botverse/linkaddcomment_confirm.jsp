@@ -22,21 +22,20 @@
  </div>
 <h1 class="bot_titlelogo">BotList - Add Comment</h1>
 			<%-- Navigation Header --%>
-			<%@include file="/WEB-INF/jsps/general/default_navigation.jsp" %>			
-			<%-- End of Navigation Header --%>					
-
+			<%@include file="/WEB-INF/jsps/general/default_navigation.jsp" %>
+			<%-- End of Navigation Header --%>
 
 <div style="margin: 20px;">
 
 <div style="border: 1px solid #DDD;">
 <!-- Display the error message -->
 <div class="bot_profile_sect_add_link ">
-	
-	<div style="margin: 30px;">				
+
+	<div style="margin: 30px;">
 		<b>Comment Saved, click to return to the link listings</b>
 		<br>
 		<a href="<c:url value="/spring/botverse/botverse.html" />" >Botverse Links</a>
-	
+
 	</div>
 
 <!-- End of the table -->

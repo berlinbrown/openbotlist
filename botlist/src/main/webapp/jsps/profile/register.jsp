@@ -22,23 +22,23 @@
  </div>
 <h1 class="bot_titlelogo">Botlist - Register</h1>
 	<%-- Navigation Header --%>
-	<%@include file="/WEB-INF/jsps/general/default_navigation.jsp" %>	
+	<%@include file="/WEB-INF/jsps/general/default_navigation.jsp" %>
 	<%-- End of Navigation Header --%>
-	
+
 <div style="margin: 20px;">
 
 		<%-- Add Welcome user message and login content (above content border line) --%>
 		<%@include file="/WEB-INF/jsps/general/forreg_profile_nav.jsp" %>
-		<%-- End of Welcome Header --%>		
+		<%-- End of Welcome Header --%>
 
 <div style="border: 1px solid #DDD; padding: 20px;">
 <!-- Display the error message -->
 <div class="bot_profile_sect_add_link">
-	
+
 <div style="margin-top: 6px; width: 500px">
-	<span style="color: #888888;"><b>Register</b> in order to gain access to the all of botlist.</span>    
+	<span style="color: #888888;"><b>Register</b> in order to gain access to the all of botlist.</span>
 </div>
-	
+
 <form:form method="post">
 <form:errors path="*" cssClass="general_field_error" />
 <table>
@@ -46,7 +46,7 @@
 	<!-- UserName -->
 	<tr>
 		<td valign="top"><b>User Name:</b></td>
-	</tr>	
+	</tr>
 	<tr>
 		<td>
 		<form:input path="userName" size="30" />
@@ -55,17 +55,17 @@
 			<form:errors path="userName" cssClass="general_field_error" />
 		</td>
 	</tr>
-	
+
 	<!-- Email -->
 	<tr>
 		<td valign="top">
-			<b>Email:</b> 
+			<b>Email:</b>
 			<br>
 			<span style="color: #888888;">
 				(Allows other people to email you through our web site. Your address is never revealed)
 			</span>
 		</td>
-	</tr>	
+	</tr>
 	<tr>
 		<td>
 		  <form:input path="userEmail" size="30" maxlength="30" />
@@ -74,17 +74,17 @@
 			<form:errors path="userEmail" cssClass="general_field_error" />
 		</td>
 	</tr>
-	
+
 	<!-- User URL -->
 	<tr>
 		<td valign="top">
-			<b>Website:</b> 
+			<b>Website:</b>
 			<br>
 			<span style="color: #888888;">
 				(optional: allow users to find about more about you)
 			</span>
 		</td>
-	</tr>	
+	</tr>
 	<tr>
 		<td>
 		  <form:input path="userUrl" size="30" maxlength="254" />
@@ -93,7 +93,7 @@
 			<form:errors path="userUrl" cssClass="general_field_error" />
 		</td>
 	</tr>
-		
+
 	<!-- Password -->
 	<tr>
 		<td valign="top">
@@ -101,20 +101,20 @@
 			<br>
 			<span style="color: #888888;">(Enter an alphanumeric password between 6 and 20 characters)</span>
 		</td>
-	</tr>	
+	</tr>
 	<tr>
 		<td>
-		 <form:password path="userPassword" size="30" />		 
+		 <form:password path="userPassword" size="30" />
 		</td>
 		<td>
 			<form:errors path="userPassword" cssClass="general_field_error" />
-		</td>	
+		</td>
 	</tr>
-		
+
 	<!-- Verify Password -->
 	<tr>
 		<td valign="top"><b>Verify Password:</b></td>
-	</tr>	
+	</tr>
 	<tr>
 		<td>
 		<form:password path="verifyPassword" size="30" />
@@ -122,14 +122,14 @@
 		<td>
 			<form:errors path="verifyPassword" cssClass="general_field_error" />
 		</td>
-	</tr>	
-			
+	</tr>
+
 </table>
 <!-- End of the table -->
-<div style="margin-top: 10px"> 
+<div style="margin-top: 10px">
   <IFRAME SRC="<c:url value="/company/spirit_user_reg_agreement.htm" />" NAME="userAgreement" WIDTH="560" HEIGHT="320" >
 	Sorry, your browser doesn't support iframes.
-  </IFRAME> 
+  </IFRAME>
 </div>
 <%-- Button to confirm registration --%>
 <div style="margin-top: 6px; width: 500px">

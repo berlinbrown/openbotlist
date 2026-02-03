@@ -6,17 +6,17 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
  	<title><c:out value="${command.link.urlTitle}" /> - (Botlist)</title>
- 
+
   	<META NAME="DESCRIPTION" CONTENT="Botverse - View Comments">
  	<META NAME="keywords" CONTENT="comments, postings, listing, bot, botlist, botlisting, bot's list, list, ads, advertising">
-  
+
 	<link href="<c:url value="/company/stylesheets/scaffold.css" />" media="screen" rel="Stylesheet" type="text/css" >
-  	<link href="<c:url value="/company/stylesheets/newspirit.css" />" media="screen" rel="Stylesheet" type="text/css" > 
+  	<link href="<c:url value="/company/stylesheets/newspirit.css" />" media="screen" rel="Stylesheet" type="text/css" >
   	<link href="<c:url value="/company/stylesheets/botlist.css" />" media="screen" rel="Stylesheet" type="text/css" >
-  	<link href="<c:url value="/company/stylesheets/botlist_general2.css" />" media="screen" rel="Stylesheet" type="text/css" > 
-  	
+  	<link href="<c:url value="/company/stylesheets/botlist_general2.css" />" media="screen" rel="Stylesheet" type="text/css" >
+
 <style type="text/css">
- <%@include file="/WEB-INF/jsps/general/botverse_link_css.jsp" %>	
+ <%@include file="/WEB-INF/jsps/general/botverse_link_css.jsp" %>
 </style>
 
 </head>
@@ -27,17 +27,17 @@
  			</div>
 			<h1 class="bot_titlelogo">
 				Botverse - Details and Comments
-			</h1>							
+			</h1>
 			<%-- Navigation Header --%>
-			<%@include file="/WEB-INF/jsps/general/default_navigation.jsp" %>			
-			<%-- End of Navigation Header --%>											
-			<br>						
+			<%@include file="/WEB-INF/jsps/general/default_navigation.jsp" %>
+			<%-- End of Navigation Header --%>
+			<br>
 			<!-- Section with City Listing -->
 			<div style="margin: 10px;">
 				<div style="border: 1px solid #DDD; padding: 10px;">
 					<a href="<c:url value="/spring/botverse/botverse.html" />" class="linklist_botnav">Botverse.Home</a>
 					| <a href="<c:url value="/spring/botverse/linkaddcomment.html?viewid=${command.link.id}" />" class="linklist_botnav">Add Comment</a>
-					<p>												
+					<p>
 					<div>
 						<span class="rating_area">
 							 <c:out value="${command.link.rating}" /> pts
@@ -52,28 +52,28 @@
 						</span>
 					</div>
 					<div class="linklist_comments_txt">
-						 <span class="linklist_comments_date">							
+						 <span class="linklist_comments_date">
 							<botlistutil:timePast dateValue="${command.link.createdOn.time}" />
 							on <fmt:formatDate pattern="EE MMM, dd" value="${command.link.createdOn.time}" />
 						 </span>
 					</div>
 					<div>
 							<%-- == Keywords == --%>
-							<span class="linklist_keywords">							 
+							<span class="linklist_keywords">
 							 <span style="background-color: white">
 							  link keywords / <c:out value="${botlistutil:tagViewKeywords(command.link.keywords, 'linklist_keywords_lnk', '/botlist/spring/search/search.html?querymode=enabled&query=', ' ')}" escapeXml="false" />
 							 </span>
 							</span>
-							
-							<c:if test="${not empty command.link.urlDescription}">															
+
+							<c:if test="${not empty command.link.urlDescription}">
 									<%-- ======================== --%>
 									<%-- == Updated: 2/2/2008; Add URL description text --%>
 									<%-- ======================== --%>
 									<div class="single_link_descr">
 										<span style="background-color: #ffcc66"><b>about:</b></span> <c:out value="${command.link.urlDescription}" />
-									</div>								
+									</div>
 							</c:if>
-							
+
 							<%-- *************************** --%>
 							<%-- ==== Section with misc web analytical data (views, objectid) ==== --%>
 							<%-- *************************** --%>
@@ -94,7 +94,7 @@
 			                         </div>
 		                         </div>
 							</div>
-					</div>					
+					</div>
 					<p />
 					<h2 class="bot_splashinfo">
 						Comments
@@ -105,16 +105,16 @@
 						<%-- *************************** --%>
 						<c:choose>
 							<c:when test="${fn:length(command.listings) > 0}" >
-								<%-- ==== List with Comments ==== --%>						
-								<c:forEach items="${command.listings}" var="childComments" varStatus="status"> 
-									<tr>							
+								<%-- ==== List with Comments ==== --%>
+								<c:forEach items="${command.listings}" var="childComments" varStatus="status">
+									<tr>
 										<td style="border-top: 1px solid #DDD;">
-											<div class="single_view_forum">					
+											<div class="single_view_forum">
 												<c:out value="${childComments.message}" escapeXml="false" />
 											</div>
 										</td>
 									</tr>
-									<tr>					
+									<tr>
 										<td align="right">
 										  <div style="margin-left: 20px;">
 											 <strong>by <c:out value="${childComments.fullName}" /></strong><br />
@@ -134,17 +134,17 @@
 								</div>
 								<div style="background-color: #e2e5fd; padding: 6px; border-top: 1px solid #777; width: 50%;">&nbsp;</div>
 							</c:otherwise>
-						</c:choose>			
+						</c:choose>
 						<%-- *************************** --%>
 						<%-- End Section with Comments --%>
 						<%-- *************************** --%>
 					</table>
-							
+
 				</div>
 			</div>
-			
+
 			<%@include file="/WEB-INF/jsps/general/default_footer.jsp" %>
-		</div>	
-  
+		</div>
+
 </body>
 </html>

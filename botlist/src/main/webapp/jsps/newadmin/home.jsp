@@ -22,22 +22,22 @@
 	<img src="<c:url value="/company/images/building_orange_roof.jpg" />">
  </div>
 <h1 class="bot_titlelogo">Botverse - Admin</h1>
-			
+
 			<%-- Navigation Header --%>
-			<%@include file="/WEB-INF/jsps/general/default_navigation.jsp" %>			
+			<%@include file="/WEB-INF/jsps/general/default_navigation.jsp" %>
 			<%-- End of Navigation Header --%>
 
 <div style="margin: 10px;">
 
 <div style="border: 1px solid #DDD; padding: 10px; margin-right: 10px;">
 <!-- Display the error message -->
-<div class="bot_profile_sect_add_link ">			
-	
+<div class="bot_profile_sect_add_link ">
+
 	<%--Text Description of Pipe Api --%>
 	<div style="color: #777; font-size: 12pt; width: 80%">
 	Admin
 	</div>
-	
+
 	<table class="sample">
 	<tr>
 		<th>
@@ -45,7 +45,7 @@
 			&nbsp;
 			Botverse Admin Tools
 			&nbsp;&nbsp;&nbsp;&nbsp;
-		</th>						
+		</th>
 	</tr>
 	<tr>
 		<td>
@@ -55,10 +55,10 @@
 				Set default header displayed on botverse home page.<br />
 			</div>
 		</td>
-	</tr>	
+	</tr>
 	</table>
 	<%-- End of Table, Pipe Link Content --%>
-	
+
 </div>
 
 </div>
@@ -67,6 +67,6 @@
 
 <%@include file="/WEB-INF/jsps/general/default_footer.jsp"%>
 </div>
-  
+
 </body>
 </html>

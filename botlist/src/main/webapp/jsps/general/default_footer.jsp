@@ -11,7 +11,7 @@
 				| <a href="<c:url value="/spring/search/global.html" />">global search</a>
 				| <a href="<c:url value="/spring/pipes/pipes.html" />">for developers</a>
 				| <a href="<c:url value="/spring/help/source.html" />">botlist source</a>
-				| <a href="<c:url value="http://code.google.com/p/openbotlist/" />">at googlecode</a>			
+				| <a href="<c:url value="http://code.google.com/p/openbotlist/" />">at googlecode</a>
 				| <a href="<c:url value="/company/botlist_faq.htm" />">faq</a>
 				| <a href="http://berlinbrowndev.blogspot.com/">blog</a>
 			</td>
@@ -31,7 +31,7 @@
 				<a href="<c:url value="/spring/help/help.html" />" class="footer">Help</a>
 				<br />
 				Copyright &copy; Botnode.com 2006. All rights reserved.
-				<br />				
+				<br />
 				<!-- Print the Bot List Version -->
 				<div style="font-size: 8pt;">
 				OpenBotlist <spring:message code="versMajor" />.<spring:message code="versMinor" />.b<spring:message code="versBuild" />

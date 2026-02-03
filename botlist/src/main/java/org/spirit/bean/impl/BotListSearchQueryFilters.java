@@ -14,86 +14,87 @@ import org.spirit.servlet.bean.BotListConcatValue;
 
 /**
  * This is class is used by botverse.
- * 
+ *
  * @author Berlin Brown
- * 
  */
 
 public class BotListSearchQueryFilters extends BotListBeanBase implements Serializable {
 
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = -2732718650854212662L;
+    /**
+     *
+     */
+    private static final long serialVersionUID = -2732718650854212662L;
 
-	private Long rating;
+    private Long rating;
 
-	private Long userId;
+    private Long userId;
 
-	private String description;
+    private String description;
 
-	private Long views;
+    private Long views;
 
-	private String searchTerm;
+    private String searchTerm;
 
-	private String userName;
+    private String userName;
 
-	public String getDescription() {
-		return description;
-	}
+    public String getDescription() {
+        return description;
+    }
 
-	public void setDescription(String description) {
-		this.description = description;
-	}
+    public void setDescription(String description) {
+        this.description = description;
+    }
 
-	public Long getRating() {
-		return rating;
-	}
+    public Long getRating() {
+        return rating;
+    }
 
-	public void setRating(Long rating) {
-		this.rating = rating;
-	}
+    public void setRating(Long rating) {
+        this.rating = rating;
+    }
 
-	public String getSearchTerm() {
-		return searchTerm;
-	}
-	public String getSearchTermEncoded() {		
-		try {
-			return URLEncoder.encode(searchTerm, "UTF-8");
-		} catch (UnsupportedEncodingException e) {		
-		}
-		return searchTerm;
-	}
-	public String getSearchTermShorten() {
-		return BotListConcatValue.getMaxWord(this.searchTerm, new Integer(22));		
-	}
+    public String getSearchTerm() {
+        return searchTerm;
+    }
 
-	public void setSearchTerm(String searchTerm) {
-		this.searchTerm = searchTerm;
-	}
+    public String getSearchTermEncoded() {
+        try {
+            return URLEncoder.encode(searchTerm, "UTF-8");
+        } catch (UnsupportedEncodingException e) {
+        }
+        return searchTerm;
+    }
 
-	public Long getUserId() {
-		return userId;
-	}
+    public String getSearchTermShorten() {
+        return BotListConcatValue.getMaxWord(this.searchTerm, new Integer(22));
+    }
 
-	public void setUserId(Long userId) {
-		this.userId = userId;
-	}
+    public void setSearchTerm(String searchTerm) {
+        this.searchTerm = searchTerm;
+    }
 
-	public String getUserName() {
-		return userName;
-	}
+    public Long getUserId() {
+        return userId;
+    }
 
-	public void setUserName(String userName) {
-		this.userName = userName;
-	}
+    public void setUserId(Long userId) {
+        this.userId = userId;
+    }
 
-	public Long getViews() {
-		return views;
-	}
+    public String getUserName() {
+        return userName;
+    }
 
-	public void setViews(Long views) {
-		this.views = views;
-	}
+    public void setUserName(String userName) {
+        this.userName = userName;
+    }
+
+    public Long getViews() {
+        return views;
+    }
+
+    public void setViews(Long views) {
+        this.views = views;
+    }
 
 }

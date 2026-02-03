@@ -13,11 +13,11 @@
 <link href="<c:url value="/company/stylesheets/botlist.css" />" media="screen" rel="Stylesheet" type="text/css" />
 
 <style type="text/css">
- <%@include file="/WEB-INF/jsps/general/botverse_link_css.jsp" %>	
+ <%@include file="/WEB-INF/jsps/general/botverse_link_css.jsp" %>
 </style>
 
 <script type="text/javascript">
-	
+
 </script>
 
 </head>
@@ -29,9 +29,9 @@
 	<img src="<c:url value="/company/images/building_orange_roof.jpg" />">
  </div>
 <h1 class="bot_titlelogo">Botverse - Interesting things online | Post Popular Links, it is ok!</h1>
-			
+
 			<%-- Navigation Header --%>
-			<%@include file="/WEB-INF/jsps/general/default_navigation.jsp" %>			
+			<%@include file="/WEB-INF/jsps/general/default_navigation.jsp" %>
 			<%-- End of Navigation Header --%>
 
 <div style="margin: 10px;">
@@ -42,8 +42,8 @@
 
 <div style="border: 1px solid #DDD; padding: 10px; margin-right: 10px;">
 <!-- Display the error message -->
-<div class="bot_profile_sect_add_link ">			
-	
+<div class="bot_profile_sect_add_link ">
+
 	<%--Text Description of Pipe Api --%>
 	<div style="color: #777; font-size: 12pt; width: 80%">
 	Nutch is an open-source web-search tool written purely in Java.  Combined with the RDF data dump
@@ -51,20 +51,20 @@
 	<br />
 	<i>(The following document is based on the Nutch (document 0.8-9x) documentation)</i>
 	</div>
-	
+
 	<table class="sample" width="70%">
-	
+
 	<tr>
 		<th>
 			<%-- Header --%>
 			&nbsp;
 			Requirements
 			&nbsp;&nbsp;&nbsp;&nbsp;
-		</th>						
+		</th>
 	</tr>
 	<tr>
 		<td>
-			<div style="margin-left: 20px;">			
+			<div style="margin-left: 20px;">
 				<ul>
 				 <li> Java 1.4.x, either from Sun or IBM on Linux is preferred. Set NUTCH_JAVA_HOME to the root of your JVM installation.
 				 <li> Nutch version 0.9 (Apr 2007 vers).  This document is based on Nutch vers 0.9 (7/10/2007) but may
@@ -74,76 +74,75 @@
    				<br />
    				<a href="http://lucene.apache.org/nutch/index.html">Nutch Home and Download</a>
    				<p />
-   				Also, download the Botlist rdf content if you haven't already done so:<br/>   				
+   				Also, download the Botlist rdf content if you haven't already done so:<br/>
 				<a href="<c:url value="http://botspiritcompany.com/botdata/botlist_rdfcontent.tar.gz" />" >botlist_rdfcontent.tar.gz</a>
-				<br />				
+				<br />
 				(right-click and "save-as" on the link above to download the rdf content)
 			</div>
 		</td>
 	</tr>
-	
-	
+
 	<tr>
 		<th>
 			<%-- Header --%>
 			&nbsp;
 			Botlist RDF Output and crawling with Nutch
 			&nbsp;&nbsp;&nbsp;&nbsp;
-		</th>						
+		</th>
 	</tr>
 	<tr>
 		<td>
-			<div style="margin-left: 20px;">				
+			<div style="margin-left: 20px;">
 			After you downloaded and unpacked nutch.  You need to run the following commands.  You start
 			by extracting the URLs from the Botlist RDF dump, then injecting the crawler database, fetching
 			the URLs and then indexing the data.
 
  <p ><b>mkdir dmoz</b>
-			
+
  <p ><b>bin/nutch</b> org.apache.nutch.tools.DmozParser botlist_rdfcontent.xml > dmoz/urls
- 
+
  <p >
  <i>Initialize the crawl db with the selected urls.</i>
  <br />
  <p ><b>bin/nutch</b> inject crawl/crawldb dmoz
- 
+
  <p>
  <i>Generate a fetchlist from the database:</i><br />
  <p ><b>bin/nutch</b> generate crawl/crawldb crawl/segments
- 
+
  <p >s1=`ls -d crawl/segments/2* | tail -1`
- 
+
  <p>
  Now run the fetcher on this segment with:
  <p>
- 
+
  <p ><b>bin/nutch</b> fetch $s1
- 
+
  <p ><b>bin/nutch</b> updatedb crawl/crawldb $s1
- 
+
  <p ><b>bin/nutch</b> invertlinks crawl/linkdb crawl/segments/*
- 
+
  <p ><b>bin/nutch index</b> crawl/indexes crawl/crawldb crawl/linkdb crawl/segments/*
- 
+
  <div style="color: #777; font-size: 12pt; width: 80%">
 		After the index has been created, the search tool has been built and you can use the
 		nutch provided web-application (built for the Tomcat servlet engine), use Lucene, or use
 		for example the simple search command below to perform searchs:
 </div>
- 
- <p ><b>bin/nutch</b> org.apache.nutch.searcher.NutchBean cats			
-			
+
+ <p ><b>bin/nutch</b> org.apache.nutch.searcher.NutchBean cats
+
 			</div>
 		</td>
-	</tr>	
-		
+	</tr>
+
 	<tr>
 		<th>
 			<%-- Header --%>
 			&nbsp;
 			Data Licensing
 			&nbsp;&nbsp;&nbsp;&nbsp;
-		</th>						
+		</th>
 	</tr>
 	<tr>
 		<td>
@@ -156,10 +155,10 @@
 		 </div>
 		</td>
 	</tr>
-	
+
 	</table>
 	<%-- End of Table, Pipe Link Content --%>
-	
+
 </div>
 
 </div>
@@ -173,6 +172,6 @@
  <div style="font-size: 10px; color: #888;text-align: right">
  <i>(process in <c:out value="${processingtime}" />s)</i>
  </div>
-  
+
 </body>
 </html>

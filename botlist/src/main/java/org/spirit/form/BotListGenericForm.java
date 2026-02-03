@@ -8,18 +8,18 @@ import org.spirit.form.base.BotListBaseForm;
 
 /**
  * This is class is used by botverse.
- * @author Berlin Brown
  *
+ * @author Berlin Brown
  */
 public class BotListGenericForm extends BotListBaseForm {
 
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = -6242789192971771987L;
+    /**
+     *
+     */
+    private static final long serialVersionUID = -6242789192971771987L;
 
-	public BotListGenericForm() {
-		super();
-	}
-	
+    public BotListGenericForm() {
+        super();
+    }
+
 }

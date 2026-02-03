@@ -14,7 +14,7 @@
 <link href="<c:url value="/company/stylesheets/botlist.css" />" media="screen" rel="Stylesheet" type="text/css" />
 
 <style type="text/css">
- <%@include file="/WEB-INF/jsps/general/botverse_link_css.jsp" %>	
+ <%@include file="/WEB-INF/jsps/general/botverse_link_css.jsp" %>
 </style>
 
 </head>
@@ -26,9 +26,9 @@
 	<img src="<c:url value="/company/images/building_orange_roof.jpg" />">
  </div>
 <h1 class="bot_titlelogo">Botverse - Interesting things online</h1>
-			
+
 			<%-- Navigation Header --%>
-			<%@include file="/WEB-INF/jsps/general/default_navigation.jsp" %>			
+			<%@include file="/WEB-INF/jsps/general/default_navigation.jsp" %>
 			<%-- End of Navigation Header --%>
 
 <div style="margin: 10px;">
@@ -39,15 +39,15 @@
 
 <div style="border: 1px solid #DDD; padding: 10px; margin-right: 10px;">
 <!-- Display the error message -->
-<div class="bot_profile_sect_add_link ">			
-	
+<div class="bot_profile_sect_add_link ">
+
 	<%--Text Description of Pipe Api --%>
 	<div style="color: #777; font-size: 12pt; width: 80%">
 	The Pipes API allows you to pipe into data generated from Botlist.  Basically, use the pipe
 	access points to extract Botlist data through the simple, text or XML output.  Use this REST
 	API with your browser or favorite programming language to retrieve data.
 	</div>
-	
+
 	<table class="sample">
 	<tr>
 		<th>
@@ -55,7 +55,7 @@
 			&nbsp;
 			Botverse Text Pipe
 			&nbsp;&nbsp;&nbsp;&nbsp;
-		</th>						
+		</th>
 	</tr>
 	<tr>
 		<td>
@@ -78,7 +78,7 @@
 			&nbsp;
 			Botverse Search Pipe (enter query term to return search results)
 			&nbsp;&nbsp;&nbsp;&nbsp;
-		</th>						
+		</th>
 	</tr>
 	<tr>
 		<td>
@@ -93,41 +93,40 @@
 			</div>
 		</td>
 	</tr>
-	
+
 	<tr>
 		<th>
 			<%-- Header --%>
 			&nbsp;
 			Botverse Global Search Pipe
 			&nbsp;&nbsp;&nbsp;&nbsp;
-		</th>						
+		</th>
 	</tr>
 	<tr>
 		<td>
 			<div style="margin-left: 20px; color: #777; font-size: 12pt;">
 				Global search returns search results from urls outside of the<br/>
 				Botlist application.<br/>
-				<a href="<c:url value="/spring/pipes/global_pipes.html?querymode=enabled&query=python" />" >botverse search pipe (text view)</a>				
-			</div>			
+				<a href="<c:url value="/spring/pipes/global_pipes.html?querymode=enabled&query=python" />" >botverse search pipe (text view)</a>
+			</div>
 			<div style="margin-left: 20px;">
 			 <c:url value="/spring/pipes/global_pipes.html?querymode=enabled&query=python" />
 			</div>
 		</td>
 	</tr>
-	
-	
+
 	<tr>
 		<th>
 			<%-- Header --%>
 			&nbsp;
 			Examples
 			&nbsp;&nbsp;&nbsp;&nbsp;
-		</th>						
+		</th>
 	</tr>
 	<tr>
 		<td>
 			<div style="margin-left: 20px; color: #777; font-size: 12pt;">
-				Python Developer Example.  Simple GET Requests <br />				
+				Python Developer Example.  Simple GET Requests <br />
 				<a href="<c:url value="/company/examples/pipes_sample01.py" />" >simple python example (01)</a>
 			</div>
 			<div>
@@ -135,15 +134,14 @@
 			</div>
 		</td>
 	</tr>
-	
-		
+
 	<tr>
 		<th>
 			<%-- Header --%>
 			&nbsp;
 			Data Licensing
 			&nbsp;&nbsp;&nbsp;&nbsp;
-		</th>						
+		</th>
 	</tr>
 	<tr>
 		<td>
@@ -156,25 +154,24 @@
 		 </div>
 		</td>
 	</tr>
-	
-	
+
 	<tr>
 		<th>
 			<%-- Header --%>
 			&nbsp;
 			Botlist RDF Data Output
 			&nbsp;&nbsp;&nbsp;&nbsp;
-		</th>						
+		</th>
 	</tr>
 	<tr>
 		<td>
 			<a href="<c:url value="/spring/pipes/rdf.html" />" >rdf data</a>
 		</td>
 	</tr>
-	
+
 	</table>
 	<%-- End of Table, Pipe Link Content --%>
-	
+
 </div>
 
 </div>
@@ -188,6 +185,6 @@
  <div style="font-size: 10px; color: #888;text-align: right">
  <i>(process in <c:out value="${processingtime}" />s)</i>
  </div>
-  
+
 </body>
 </html>

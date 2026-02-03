@@ -8,27 +8,27 @@ import java.io.Serializable;
 
 /**
  * This is class is used by botverse.
- * @author Berlin Brown
  *
+ * @author Berlin Brown
  */
-public class BotListEncodeHtml  implements Serializable {
+public class BotListEncodeHtml implements Serializable {
 
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = -4007269620924320835L;
-	
-	public static String encodeUrl(String input) {	
-		
-		String str = input;
-		if (str == null) {
-			return str;
-		}
-		
-		str = str.replaceAll("&", "&amp;");
-		str = str.replaceAll("<", "&lt;");
-		str = str.replaceAll(">", "&gt;");
-		return str;
-	}
+    /**
+     *
+     */
+    private static final long serialVersionUID = -4007269620924320835L;
+
+    public static String encodeUrl(String input) {
+
+        String str = input;
+        if (str == null) {
+            return str;
+        }
+
+        str = str.replaceAll("&", "&amp;");
+        str = str.replaceAll("<", "&lt;");
+        str = str.replaceAll(">", "&gt;");
+        return str;
+    }
 
 }

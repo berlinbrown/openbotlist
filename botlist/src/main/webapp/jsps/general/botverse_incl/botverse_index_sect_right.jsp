@@ -1,8 +1,8 @@
 <%@ page contentType="text/html" %>
-<%@include file="/WEB-INF/jsps/general/default_includes.jsp" %>								
+<%@include file="/WEB-INF/jsps/general/default_includes.jsp" %>
 										<table cellspacing="0" cellpadding="0">
 										<c:forEach items="${linklistings_set2}"
-													var="listing" varStatus="status">													
+													var="listing" varStatus="status">
 											<%-- ********************** --%>
 											<%-- Begin row production for botverse links --%>
 											<%-- ********************** --%>
@@ -36,11 +36,11 @@
 											<td>
 												<!-- Inner table for data/status information -->
 												<table>
-												<tr>					
+												<tr>
 												<td>
-													<div class="linklist_comments_txt">						 	
-													 <span class="linklist_comments_date">						
-														<botlistutil:timePast dateValue="${listing.createdOn.time}" />							
+													<div class="linklist_comments_txt">
+													 <span class="linklist_comments_date">
+														<botlistutil:timePast dateValue="${listing.createdOn.time}" />
 													 </span>
 													</div>
 												</td>
@@ -53,17 +53,17 @@
 												</td>
 												</tr>
 												</table>
-												<!-- End of inner table (loop) -->				
+												<!-- End of inner table (loop) -->
 											</td>
 											</tr>
 											<%-- ********************** --%>
 											<%-- End row production for botverse links --%>
 											<%-- ********************** --%>
-										</c:forEach>							
+										</c:forEach>
 										</table>
 										<%-- ================= --%>
 										<%-- End of table for botverse links --%>
 										<%-- ================= --%>
 										<div style="margin-top: 6px; background-color: #f3f3f3; padding: 6px; width: 30%">
-											<a href="<c:url value="/spring/botverse/botverse.html?filterset=mostrecent" />" class="linklist_botnav">view more</a> 
+											<a href="<c:url value="/spring/botverse/botverse.html?filterset=mostrecent" />" class="linklist_botnav">view more</a>
 										</div>

@@ -8,7 +8,7 @@
 			var="section" varStatus="status">
 		<a href="<c:url value="/spring/mocktestslist/mocktest_listings.html?viewid=${section.generatedId}" />" >
 			<c:out value="${section.sectionName}" /><br>
-		</a>			
+		</a>
 	</c:forEach>
  </body>
 </html>

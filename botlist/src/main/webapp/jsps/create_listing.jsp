@@ -22,18 +22,16 @@
  </div>
 <h1 class="bot_titlelogo">BotList - Create Listing | Home</h1>
 			<%-- Navigation Header --%>
-			<%@include file="/WEB-INF/jsps/general/default_navigation.jsp" %>			
-			<%-- End of Navigation Header --%>					
-
+			<%@include file="/WEB-INF/jsps/general/default_navigation.jsp" %>
+			<%-- End of Navigation Header --%>
 
 	<br>
 	<div style="color: #777; font-size: 12pt;">
 				Area: <c:out value="${command.cityListing.cityName}" />
 				| <c:out value="${command.postSection.sectionName}" />
-	</div> 
+	</div>
 
-
-<div style="margin: 20px;">			
+<div style="margin: 20px;">
 
 <div style="border: 1px solid #DDD; padding: 10px;">
 <!-- Display the error message -->
@@ -41,7 +39,7 @@
 
 	<!-- Build the table for entering the new department information -->
 	<a href="<c:url value="/spring/citylist.html" />" class="linklist_botnav">/ Home</a>
-	
+
 <form:form method="post" enctype="multipart/form-data">
 <form:errors path="*" cssClass="general_field_error" />
 <table>
@@ -84,29 +82,28 @@
 			<form:errors path="email" cssClass="general_field_error" />
 		</td>
 	</tr>
-	
+
 	<tr><td valign="top"><b>Listing URL:</b></td></tr>
 	<tr>
 		<td>
 		<form:input path="mainUrl" size="40" />
-		</td>		
+		</td>
 	</tr>
-	
+
 	<tr><td valign="top"><b>Keywords (space separated):</b></td></tr>
 	<tr>
 		<td>
 		<form:input path="keywords" size="40" />
-		</td>		
+		</td>
 	</tr>
-	
-	
+
 	<tr>
 		<td>
 			<input type="submit" id="save" value=" Save Topic " />
 			<input type="submit" id="preview" value=" Preview " />
 		</td>
 	</tr>
-	
+
 	<tr>
 	<td valign="top">
 		<!-- Additional Section for Spam Prevition Simple Addition -->
@@ -138,7 +135,7 @@
 				<form:errors path="userSolution" cssClass="general_field_error" />
 			</div>
 		</td>
-	</tr>	
+	</tr>
 	<%-- Next Row for adding images --%>
 	<tr>
 		<td>
@@ -154,7 +151,7 @@
 						</td>
 						<td>
 							<spring:bind path="command.uploadFilenameFirst">
-								<input type="file" name="<c:out value="${status.expression}" />" size="35">	
+								<input type="file" name="<c:out value="${status.expression}" />" size="35">
 							</spring:bind>
 						</td>
 					</tr>
@@ -164,19 +161,19 @@
 						</td>
 						<td>
 							<spring:bind path="command.uploadFilenameSecond">
-								<input type="file" name="<c:out value="${status.expression}" />" size="35">	
+								<input type="file" name="<c:out value="${status.expression}" />" size="35">
 							</spring:bind>
 						</td>
 					</tr>
 					</table>
-					</div>				
+					</div>
 			</fieldset>
 		   </div>
 		   <!-- End of Div around field set -->
 		</td>
 	</tr>
 	<!-- End of Row -->
-	
+
 </table>
 <!-- End of the table -->
 </form:form>

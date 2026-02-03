@@ -14,9 +14,8 @@
 <link href="<c:url value="/company/stylesheets/botlist.css" />" media="screen" rel="Stylesheet" type="text/css" />
 
 <style type="text/css">
- <%@include file="/WEB-INF/jsps/general/botverse_link_css.jsp" %>	
+ <%@include file="/WEB-INF/jsps/general/botverse_link_css.jsp" %>
 </style>
-
 
 </head>
 <body>
@@ -27,9 +26,9 @@
 	<img src="<c:url value="/company/images/building_orange_roof.jpg" />">
  </div>
 <h1 class="bot_titlelogo">Botverse - Interesting things online | Post Popular Links, it is ok!</h1>
-			
+
 			<%-- Navigation Header --%>
-			<%@include file="/WEB-INF/jsps/general/default_navigation.jsp" %>			
+			<%@include file="/WEB-INF/jsps/general/default_navigation.jsp" %>
 			<%-- End of Navigation Header --%>
 
 <div style="margin: 10px;">
@@ -40,13 +39,13 @@
 
 <div style="border: 1px solid #DDD; padding: 10px; margin-right: 10px;">
 <!-- Display the error message -->
-<div class="bot_profile_sect_add_link ">			
-	
+<div class="bot_profile_sect_add_link ">
+
 	<%--Text Description of Pipe Api --%>
 	<div style="color: #777; font-size: 12pt; width: 80%">
 	Botlist data is provided through a RDF dump that is published regularly.
 	</div>
-	
+
 	<table class="sample" width="70%">
 	<tr>
 		<th>
@@ -54,13 +53,13 @@
 			&nbsp;
 			Botverse RDF Download
 			&nbsp;&nbsp;&nbsp;&nbsp;
-		</th>						
+		</th>
 	</tr>
 	<tr>
 		<td>
 			<div style="margin-left: 20px;">
 				<a href="<c:url value="http://botspiritcompany.com/botdata/botlist_rdfcontent.tar.gz" />" >botlist_rdfcontent.tar.gz</a>
-				<br />				
+				<br />
 				(right-click and "save-as" on the link above to download the rdf content)
 				<p>
 				Use the rdf data dump with nutch in order to build a search tool based on the
@@ -68,15 +67,15 @@
 				</p>
 			</div>
 		</td>
-	</tr>	
-		
+	</tr>
+
 	<tr>
 		<th>
 			<%-- Header --%>
 			&nbsp;
 			Data Licensing
 			&nbsp;&nbsp;&nbsp;&nbsp;
-		</th>						
+		</th>
 	</tr>
 	<tr>
 		<td>
@@ -89,10 +88,10 @@
 		 </div>
 		</td>
 	</tr>
-	
+
 	</table>
 	<%-- End of Table, Pipe Link Content --%>
-	
+
 </div>
 
 </div>
@@ -106,6 +105,6 @@
  <div style="font-size: 10px; color: #888;text-align: right">
  <i>(process in <c:out value="${processingtime}" />s)</i>
  </div>
-  
+
 </body>
 </html>

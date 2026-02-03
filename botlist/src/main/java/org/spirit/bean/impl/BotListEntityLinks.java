@@ -25,12 +25,10 @@ import java.util.List;
 
 import org.spirit.bean.impl.base.BotListEntity;
 
-
 /**
  * This is class is used by botverse.
  *
  * @author Berlin Brown
- *
  */
 public class BotListEntityLinks extends BotListEntity {
 
@@ -68,12 +66,15 @@ public class BotListEntityLinks extends BotListEntity {
     public Long getViews() {
         return views;
     }
+
     /**
-     * @param views the views to set
+     * @param views
+     *            the views to set
      */
     public void setViews(Long views) {
         this.views = views;
     }
+
     /**
      * @return the linkCount
      */
@@ -83,12 +84,15 @@ public class BotListEntityLinks extends BotListEntity {
         }
         return linkCount;
     }
+
     /**
-     * @param linkCount the linkCount to set
+     * @param linkCount
+     *            the linkCount to set
      */
     public void setLinkCount(Long linkCount) {
         this.linkCount = linkCount;
     }
+
     /**
      * @return the commentsCount
      */
@@ -98,20 +102,25 @@ public class BotListEntityLinks extends BotListEntity {
         }
         return commentsCount;
     }
+
     /**
-     * @param commentsCount the commentsCount to set
+     * @param commentsCount
+     *            the commentsCount to set
      */
     public void setCommentsCount(Long commentsCount) {
         this.commentsCount = commentsCount;
     }
+
     /**
      * @return the listings
      */
     public List getListings() {
         return listings;
     }
+
     /**
-     * @param listings the listings to set
+     * @param listings
+     *            the listings to set
      */
     public void setListings(List listings) {
         this.listings = listings;
@@ -123,117 +132,149 @@ public class BotListEntityLinks extends BotListEntity {
     public Long getRating() {
         return rating;
     }
+
     /**
-     * @param rating the rating to set
+     * @param rating
+     *            the rating to set
      */
     public void setRating(Long rating) {
         this.rating = rating;
     }
+
     /**
      * @return the fullName
      */
     public String getFullName() {
         return fullName;
     }
+
     /**
-     * @param fullName the fullName to set
+     * @param fullName
+     *            the fullName to set
      */
     public void setFullName(String fullName) {
         this.fullName = fullName;
     }
+
     /**
      * @return the userId
      */
     public Long getUserId() {
         return userId;
     }
+
     /**
-     * @param userId the userId to set
+     * @param userId
+     *            the userId to set
      */
     public void setUserId(Long userId) {
         this.userId = userId;
     }
+
     /**
      * @return the searchScore
      */
     public String getSearchScore() {
         return searchScore;
     }
+
     /**
-     * @param searchScore the searchScore to set
+     * @param searchScore
+     *            the searchScore to set
      */
     public void setSearchScore(String searchScore) {
         this.searchScore = searchScore;
     }
+
     public Date getCreatedOnDate() {
         return createdOnDate;
     }
+
     public void setCreatedOnDate(Date createdOnDate) {
         this.createdOnDate = createdOnDate;
     }
+
     /**
-     * The core user name is the name associated with the
-     * profile user link.
+     * The core user name is the name associated with the profile user link.
      *
      * @return
      */
     public String getCoreUsername() {
         return coreUsername;
     }
+
     public void setCoreUsername(String coreUsername) {
         this.coreUsername = coreUsername;
     }
+
     public BotListCatLinkGroups getLinkCategory() {
         return linkCategory;
     }
+
     public void setLinkCategory(BotListCatLinkGroups linkCategory) {
         this.linkCategory = linkCategory;
     }
+
     public String getLinkType() {
         return linkType;
     }
+
     public void setLinkType(String linkType) {
         this.linkType = linkType;
     }
+
     public Long getImageCt() {
         return imageCt;
     }
+
     public void setImageCt(Long imageCt) {
         this.imageCt = imageCt;
     }
+
     public Long getLinksCt() {
         return linksCt;
     }
+
     public void setLinksCt(Long linksCt) {
         this.linksCt = linksCt;
     }
+
     public Long getMetaDescrLen() {
         return metaDescrLen;
     }
+
     public void setMetaDescrLen(Long metaDescrLen) {
         this.metaDescrLen = metaDescrLen;
     }
+
     public Long getParaTagCt() {
         return paraTagCt;
     }
+
     public void setParaTagCt(Long paraTagCt) {
         this.paraTagCt = paraTagCt;
     }
+
     public Long getRequestTime() {
         return requestTime;
     }
+
     public void setRequestTime(Long requestTime) {
         this.requestTime = requestTime;
     }
+
     public Long getDocumentSize() {
         return documentSize;
     }
+
     public void setDocumentSize(Long documentSize) {
         this.documentSize = documentSize;
     }
+
     public Long getMetaKeywordsLen() {
         return metaKeywordsLen;
     }
+
     public void setMetaKeywordsLen(Long metaKeywordsLen) {
         this.metaKeywordsLen = metaKeywordsLen;
     }

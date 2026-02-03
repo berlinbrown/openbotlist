@@ -17,25 +17,23 @@ import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
 
 /**
  * This is class is used by botverse.
- * 
+ *
  * @author Berlin Brown
- * 
  */
 
 public class BotListPostImageMetadataDAOImpl extends HibernateDaoSupport implements BotListPostImageMetadataDAO {
-	
-	/**
-	 * @see org.spirit.dao.BotListCityListingDAO#readCityListing(int)
-	 */
-	public List readPostListingImages(final int id) throws DataAccessException {			
-		return (List) getHibernateTemplate().execute(
-				new HibernateCallback() {
-					public Object doInHibernate(Session session) throws HibernateException {
-						Query query = 
-							session.createQuery("from org.spirit.bean.impl.BotListPostImageMetadata image where image.adlistId = " + id);						
-						return query.list();
-					}
-				});		
-	}
-	
+
+    /**
+     * @see org.spirit.dao.BotListCityListingDAO#readCityListing(int)
+     */
+    public List readPostListingImages(final int id) throws DataAccessException {
+        return (List) getHibernateTemplate().execute(new HibernateCallback() {
+            public Object doInHibernate(Session session) throws HibernateException {
+                Query query = session.createQuery(
+                        "from org.spirit.bean.impl.BotListPostImageMetadata image where image.adlistId = " + id);
+                return query.list();
+            }
+        });
+    }
+
 }

@@ -18,55 +18,54 @@ import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
 
 /**
  * This is class is used by botverse.
- * 
- * @author Berlin Brown 
+ *
+ * @author Berlin Brown
  */
 
 public class BotListCatLinkGroupsDAOImpl extends HibernateDaoSupport implements BotListCatLinkGroupsDAO {
-	
-	/**
-	 * List the Entity Links including paging the results
-	 */
-	public BotListCatLinkGroups readGroup(final String group) {
-		return (BotListCatLinkGroups) getHibernateTemplate().execute(
-				new HibernateCallback() {
-					public Object doInHibernate(Session session) throws HibernateException {
-						Query query = session.createQuery("from org.spirit.bean.impl.BotListCatLinkGroups groups where groups.categoryName = :group");
-						query.setMaxResults(1);
-						query.setString("group", group);											
-						BotListCatLinkGroups groups = (BotListCatLinkGroups) query.uniqueResult();
-						if (groups != null) {
-							List list = groups.getTerms();
-							// Ensure lazy - load is initialized
-							for (Iterator it = list.iterator(); it.hasNext();) {
-								it.next();
-							}
-						}
-						return groups;
-					}
-				});		
-	}
-	public List readGroups() {
-		return getHibernateTemplate().executeFind(
-				new HibernateCallback() {
-					public Object doInHibernate(Session session) throws HibernateException {
-						Query query = session.createQuery("from org.spirit.bean.impl.BotListCatLinkGroups groups");
-						query.setMaxResults(100);																						
-						return query.list();
-					}
-				});		
-	}
-	
-	public List listTerms(final BotListCatLinkGroups group) {
-		return getHibernateTemplate().executeFind(
-				new HibernateCallback() {
-					public Object doInHibernate(Session session) throws HibernateException {
-						Query query = session.createQuery("from org.spirit.bean.impl.BotListCatGroupTerms terms where terms.category_name = :group");						
-						query.setParameter("group", group);											
-						return query.list();
-					}
-				});		
-	}
-	
-	
+
+    /**
+     * List the Entity Links including paging the results
+     */
+    public BotListCatLinkGroups readGroup(final String group) {
+        return (BotListCatLinkGroups) getHibernateTemplate().execute(new HibernateCallback() {
+            public Object doInHibernate(Session session) throws HibernateException {
+                Query query = session.createQuery(
+                        "from org.spirit.bean.impl.BotListCatLinkGroups groups where groups.categoryName = :group");
+                query.setMaxResults(1);
+                query.setString("group", group);
+                BotListCatLinkGroups groups = (BotListCatLinkGroups) query.uniqueResult();
+                if (groups != null) {
+                    List list = groups.getTerms();
+                    // Ensure lazy - load is initialized
+                    for (Iterator it = list.iterator(); it.hasNext();) {
+                        it.next();
+                    }
+                }
+                return groups;
+            }
+        });
+    }
+
+    public List readGroups() {
+        return getHibernateTemplate().executeFind(new HibernateCallback() {
+            public Object doInHibernate(Session session) throws HibernateException {
+                Query query = session.createQuery("from org.spirit.bean.impl.BotListCatLinkGroups groups");
+                query.setMaxResults(100);
+                return query.list();
+            }
+        });
+    }
+
+    public List listTerms(final BotListCatLinkGroups group) {
+        return getHibernateTemplate().executeFind(new HibernateCallback() {
+            public Object doInHibernate(Session session) throws HibernateException {
+                Query query = session.createQuery(
+                        "from org.spirit.bean.impl.BotListCatGroupTerms terms where terms.category_name = :group");
+                query.setParameter("group", group);
+                return query.list();
+            }
+        });
+    }
+
 }

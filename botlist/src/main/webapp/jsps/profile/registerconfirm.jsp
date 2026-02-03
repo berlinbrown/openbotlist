@@ -4,14 +4,14 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
  	<title>Botlist - Register Confirm</title>
- 
+
   	<META NAME="DESCRIPTION" CONTENT="BotList - Promote yourself or something else interesting">
  	<META NAME="keywords" CONTENT="listing, bot, botlist, botlisting, bot's list, list, ads, advertising">
-  
+
 	<link href="<c:url value="/company/stylesheets/scaffold.css" />" media="screen" rel="Stylesheet" type="text/css" />
-  	<link href="<c:url value="/company/stylesheets/newspirit.css" />" media="screen" rel="Stylesheet" type="text/css" /> 
-  	<link href="<c:url value="/company/stylesheets/botlist.css" />" media="screen" rel="Stylesheet" type="text/css" /> 
-  	
+  	<link href="<c:url value="/company/stylesheets/newspirit.css" />" media="screen" rel="Stylesheet" type="text/css" />
+  	<link href="<c:url value="/company/stylesheets/botlist.css" />" media="screen" rel="Stylesheet" type="text/css" />
+
 </head>
 <body>
 		<div id="body_content_center">
@@ -20,39 +20,38 @@
  			</div>
 			<h1 class="bot_titlelogo">
 				BotList | Registration
-			</h1>							
+			</h1>
 			<%-- Navigation Header --%>
-			<%@include file="/WEB-INF/jsps/general/default_navigation.jsp" %>			
-			<%-- End of Navigation Header --%>					
-			
-			
+			<%@include file="/WEB-INF/jsps/general/default_navigation.jsp" %>
+			<%-- End of Navigation Header --%>
+
 			<!-- Section with City Listing -->
 			<div style="margin: 40px;">
 				<div style="border: 1px solid #DDD; padding: 10px;">
-										
+
 					<b>Your account has been created.  You can update your profile settings at anytime.</b>
-					
-					<div style="margin-top: 10px">					
+
+					<div style="margin-top: 10px">
 						<%-- User Info Table  --%>
-						<table>							 
+						<table>
 						 <tr>
 						  <td>
 						    <b>User Name:</b>
 						  </td>
 						  <td>
-					 		<c:out value="${command.userName}" />					
+					 		<c:out value="${command.userName}" />
 					 	  </td>
 					 	 </tr>
-					 	 
+
 					 	 <tr>
 						  <td>
 						    <b>Account Number:</b>
 						  </td>
 						  <td>
-					 		<c:out value="${command.accountNumber}" />					
+					 		<c:out value="${command.accountNumber}" />
 					 	  </td>
 					 	 </tr>
-					 	 
+
 					 	 <tr>
 						  <td>
 						    <b>Account Created On:</b>
@@ -61,11 +60,11 @@
 					 		<fmt:formatDate pattern="EE MMM, dd" value="${command.createdOn.time}" />
 					 	  </td>
 					 	 </tr>
-					 	 
+
 					 	</table>
 					 	<%-- End of User Table  --%>
-					</div>			
-					
+					</div>
+
 					<br />
 					Welcome to botlist.
 					<p>
@@ -73,9 +72,9 @@
 					</p>
 				</div>
 			</div>
-			
+
 			<%@include file="/WEB-INF/jsps/general/default_footer.jsp" %>
-		</div>	
-  
+		</div>
+
 </body>
 </html>

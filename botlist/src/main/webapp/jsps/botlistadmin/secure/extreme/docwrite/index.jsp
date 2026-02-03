@@ -4,15 +4,15 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
  	<title>Botlist - Ad Listings</title>
- 
+
   	<META NAME="DESCRIPTION" CONTENT="BotList - Promote yourself or something else interesting">
  	<META NAME="keywords" CONTENT="listing, bot, botlist, botlisting, bot's list, list, ads, advertising">
-  
+
 	<link href="<c:url value="/company/stylesheets/scaffold.css" />" media="screen" rel="Stylesheet" type="text/css" />
-  	<link href="<c:url value="/company/stylesheets/newspirit.css" />" media="screen" rel="Stylesheet" type="text/css" /> 
-  	<link href="<c:url value="/company/stylesheets/botlist.css" />" media="screen" rel="Stylesheet" type="text/css" /> 
-  	<link href="<c:url value="/company/stylesheets/docwriteadmin.css" />" media="screen" rel="Stylesheet" type="text/css" /> 
-  	
+  	<link href="<c:url value="/company/stylesheets/newspirit.css" />" media="screen" rel="Stylesheet" type="text/css" />
+  	<link href="<c:url value="/company/stylesheets/botlist.css" />" media="screen" rel="Stylesheet" type="text/css" />
+  	<link href="<c:url value="/company/stylesheets/docwriteadmin.css" />" media="screen" rel="Stylesheet" type="text/css" />
+
 </head>
 <body>
 
@@ -22,26 +22,26 @@
  			</div>
 			<h1 class="bot_titlelogo">
 				Admin Home
-			</h1>	
-			
+			</h1>
+
 			<div style="margin: 10px;">
 				<h3 class="bot_headerinfo">
 				BotList Administration | docwrite
 				</h3>
 			</div>
-			
+
 			<!-- Section with City Listing -->
 			<div style="margin: 10px;">
 				<div style="border: 1px solid #DDD; padding: 10px;">
-				
+
 					<a href="<c:url value="/botlistadmin/secure/index.html" />" >
 						Admin Login
 					</a>
 					| <a href="<c:url value="/botlistadmin/j_acegi_logout" />">Logout</a>
-													
+
 					<%-- Content --%>
-					<div style="margin-left: 20px; margin-top: 10px;">					
-												
+					<div style="margin-left: 20px; margin-top: 10px;">
+
 <form:form method="post" enctype="multipart/form-data">
 <form:errors path="*" cssClass="general_field_error" />
 
@@ -56,18 +56,18 @@
   		date
 	</th>
   </tr>
-  <c:forEach items="${command.files}"  
+  <c:forEach items="${command.files}"
 		var="file" varStatus="status">
 	<tr>
-		<td>				
-			<c:out value="${file.title}" />			
+		<td>
+			<c:out value="${file.title}" />
 		</td>
 		<td>
 			<botlistutil:timePast dateValue="${file.createdOn.time}" />
 			on <fmt:formatDate pattern="EE MMM, dd" value="${file.createdOn.time}" />
 		</td>
 	</tr>
- </c:forEach>					
+ </c:forEach>
 </table>
 
 <%-- Table with only submission form --%>
@@ -86,14 +86,14 @@
 			<form:errors path="title" cssClass="general_field_error" />
 		</td>
 	</tr>
-	
+
 	<tr>
 		<td>
 			<input type="submit" name="save" id="save" value=" Save Document " />
 			<input type="submit" name="generate" id="generate" value=" Generate " />
 		</td>
 	</tr>
-	
+
 	<tr>
 	<td valign="top">
 		<!-- Additional Section for Spam Prevition Simple Addition -->
@@ -125,7 +125,7 @@
 				<form:errors path="userSolution" cssClass="general_field_error" />
 			</div>
 		</td>
-	</tr>	
+	</tr>
 	<%-- Next Row for adding images --%>
 	<tr>
 		<td>
@@ -141,31 +141,31 @@
 						</td>
 						<td>
 							<spring:bind path="command.uploadFilenameFirst">
-								<input type="file" name="<c:out value="${status.expression}" />" size="35">	
+								<input type="file" name="<c:out value="${status.expression}" />" size="35">
 							</spring:bind>
 						</td>
-					</tr>					
+					</tr>
 					</table>
-					</div>				
+					</div>
 			</fieldset>
 		   </div>
 		   <!-- End of Div around field set -->
 		</td>
 	</tr>
 	<!-- End of Row -->
-	
+
 </table>
 <!-- End of the table -->
 </form:form>
-												
+
 					</div>
 					<%-- Content --%>
-													
+
 				</div>
 			</div>
-			
+
 			<%@include file="/WEB-INF/jsps/general/default_footer.jsp" %>
-		</div>	
-  
+		</div>
+
 </body>
 </html>

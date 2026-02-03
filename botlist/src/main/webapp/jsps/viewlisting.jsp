@@ -21,9 +21,8 @@
  </div>
 <h1 class="bot_titlelogo">Botlist - View Listing | Home</h1>
 			<%-- Navigation Header --%>
-			<%@include file="/WEB-INF/jsps/general/default_navigation.jsp" %>			
-			<%-- End of Navigation Header --%>					
-			
+			<%@include file="/WEB-INF/jsps/general/default_navigation.jsp" %>
+			<%-- End of Navigation Header --%>
 
 <div style="margin: 20px;">
 
@@ -33,23 +32,23 @@
 
 	<!-- Build the table for entering the new department information -->
 	<a href="<c:url value="/" />" >Home</a>
-	
+
 	<p>
-	
+
 	<a href="<c:url value="/spring/contactlisting.html?viewid=${command.id}" />">Contact Ad Poster</a>
 	<br>
 <table width="85%" class="viewlisting" cellspacing="2" cellpadding="0">
-	
+
 	<!-- First Name -->
 	<tr>
 		<td>
 			<span style="color: #777;">
-			<i>Created - <fmt:formatDate pattern="EE dd, MMM yyyy hh:mm" 
-					value="${command.createdOn.time}" /></i>								
+			<i>Created - <fmt:formatDate pattern="EE dd, MMM yyyy hh:mm"
+					value="${command.createdOn.time}" /></i>
 			</span>
-		</td>		
+		</td>
 	</tr>
-	
+
 	<!-- First Name -->
 	<tr>
 		<td valign="top">
@@ -61,7 +60,7 @@
 			<c:out value="${command.title}" />
 		</td>
 	</tr>
-	
+
 	<tr>
 		<td valign="top">
 			<b>Topic Listing:</b>
@@ -78,13 +77,13 @@
 	<%-- If available, display  url and keywords --%>
 	<c:if test="${not empty command.mainUrl}">
 	<tr><td><b>Ad Listing URL (click for more)</b></td></tr>
-	<tr>		
+	<tr>
 		<td>
-			<a href="<c:out value="${command.mainUrl}" />" ><c:out value="${command.mainUrl}" /></a>		
+			<a href="<c:out value="${command.mainUrl}" />" ><c:out value="${command.mainUrl}" /></a>
 		</td>
 	</tr>
 	</c:if>
-	
+
 	<c:if test="${not empty command.keywords}">
 		<tr><td><b>tags: </b></td></tr>
 		<tr>
@@ -93,11 +92,11 @@
 			</td>
 		</tr>
 	</c:if>
-	
+
 	<%-- If available, display images --%>
 	<c:if test="${not empty command.images}">
 	<tr><td><b>Images</b></td></tr>
-	<tr>		
+	<tr>
 		<td>
 			<c:forEach items="${command.images}"
 					var="image" varStatus="status">
@@ -106,7 +105,7 @@
 		</td>
 	</tr>
 	</c:if>
-	
+
 </table>
 <!-- End of the table -->
 

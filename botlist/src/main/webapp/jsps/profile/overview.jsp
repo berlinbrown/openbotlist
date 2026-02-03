@@ -4,11 +4,11 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
  	<title>Botlist - User Overview</title>
-  
+
 	<link href="<c:url value="/company/stylesheets/scaffold.css" />" media="screen" rel="Stylesheet" type="text/css" />
-  	<link href="<c:url value="/company/stylesheets/newspirit.css" />" media="screen" rel="Stylesheet" type="text/css" /> 
-  	<link href="<c:url value="/company/stylesheets/botlist.css" />" media="screen" rel="Stylesheet" type="text/css" /> 
-  	
+  	<link href="<c:url value="/company/stylesheets/newspirit.css" />" media="screen" rel="Stylesheet" type="text/css" />
+  	<link href="<c:url value="/company/stylesheets/botlist.css" />" media="screen" rel="Stylesheet" type="text/css" />
+
 </head>
 <body>
 		<div id="body_content_center">
@@ -17,33 +17,33 @@
  			</div>
 			<h1 class="bot_titlelogo">
 				BotList | User Overview
-			</h1>							
+			</h1>
 			<%-- Navigation Header --%>
-			<%@include file="/WEB-INF/jsps/general/default_navigation.jsp" %>			
-			<%-- End of Navigation Header --%>					
-						
+			<%@include file="/WEB-INF/jsps/general/default_navigation.jsp" %>
+			<%-- End of Navigation Header --%>
+
 			<!-- Section with City Listing -->
 			<div style="margin: 10px;">
-			
+
 				<%-- Add Welcome user message and login content (above content border line) --%>
 				<%@include file="/WEB-INF/jsps/general/botverse_profile_nav.jsp" %>
 				<%-- End of Welcome Header --%>
-			
-				<div style="border-top: 1px solid #DDD; padding: 4px;">															
+
+				<div style="border-top: 1px solid #DDD; padding: 4px;">
 					<div style="margin-top: 4px">
-															
+
 						<h1 class="bot_settingsinfo">
 							User Public Profile
 						</h1>
-												
+
 						<%-- User Info Table  --%>
-						<table>							 
+						<table>
 						 <tr>
 						  <td>
 						    <b>User Name:</b>
 						  </td>
 						  <td>
-					 		<c:out value="${command.coreUser.userName}" />					
+					 		<c:out value="${command.coreUser.userName}" />
 					 	  </td>
 					 	 </tr>
 					 	 <tr>
@@ -53,19 +53,19 @@
 						  <td>
 					 		<fmt:formatDate pattern="EE MMM, dd HH:mm" value="${command.coreUser.createdOn.time}" />
 					 	  </td>
-					 	 </tr>					 	 
+					 	 </tr>
 					 	</table>
 					 	<%-- End of User Table  --%>
-					 	
+
 					 	<%-- ==== Next section with user links --%>
 					 	<h1 class="bot_settingsinfo">
 							Submitted Links
 						</h1>
-						
+
 						<table class="linklist_data" cellspacing="2" cellpadding="0">
 							<c:forEach items="${command.linkListings}"  var="listing" varStatus="status">
 									<%-- Begin row production for botverse links --%>
-									<tr>					
+									<tr>
 										<td colspan="3">
 												<span class="rating_area">
 												 <c:out value="${listing.rating}" /> pts
@@ -82,17 +82,17 @@
 									</tr>
 							</c:forEach>
 						</table>
-						
+
 						<%-- ==== End section with user links --%>
-					 	
+
 					 	<%-- End of Full Content --%>
-					</div>			
-										
+					</div>
+
 				</div>
 			</div>
-			
+
 			<%@include file="/WEB-INF/jsps/general/default_footer.jsp" %>
-		</div>	
-  
+		</div>
+
 </body>
 </html>

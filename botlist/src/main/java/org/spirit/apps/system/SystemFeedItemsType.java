@@ -10,57 +10,48 @@ import java.io.Serializable;
 import org.spirit.bean.impl.base.BotListEntity;
 
 /**
- * This is class is used by botverse.
- * 
- * Fields included from the Entity base class.
- * -------------------------- 
- *  String generatedUniqueId;    
- *	Calendar createdOn;
- *	Calendar updatedOn;
- *	Long id;	
- *	String mainUrl;
- *	String keywords;
- *	String urlDescription;
- *	String urlTitle;	
+ * This is class is used by botverse. Fields included from the Entity base class. -------------------------- String
+ * generatedUniqueId; Calendar createdOn; Calendar updatedOn; Long id; String mainUrl; String keywords; String
+ * urlDescription; String urlTitle;
  *
  * @author Berlin Brown
  */
 public class SystemFeedItemsType extends BotListEntity implements Serializable {
 
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = -2800491702537719907L;	                            	        
-	
-	private String urlSource;
-	private String enumProcType;
-	
-	private final String defaultQuerySQL = "insert into system_feed_items (main_url,url_title,url_description,url_source,created_on,hostname) values(?,?,?,?,?,?)";
+    /**
+     *
+     */
+    private static final long serialVersionUID = -2800491702537719907L;
 
-	public String toString() {
-		StringBuffer buf = new StringBuffer();
-		buf.append("#SystemFeedItems");
-		return buf.toString();
-	}
+    private String urlSource;
+    private String enumProcType;
 
-	public String getUrlSource() {
-		return urlSource;
-	}
+    private final String defaultQuerySQL = "insert into system_feed_items (main_url,url_title,url_description,url_source,created_on,hostname) values(?,?,?,?,?,?)";
 
-	public void setUrlSource(String urlSource) {
-		this.urlSource = urlSource;
-	}
+    public String toString() {
+        StringBuffer buf = new StringBuffer();
+        buf.append("#SystemFeedItems");
+        return buf.toString();
+    }
 
-	public String getEnumProcType() {
-		return enumProcType;
-	}
+    public String getUrlSource() {
+        return urlSource;
+    }
 
-	public void setEnumProcType(String enumProcType) {
-		this.enumProcType = enumProcType;
-	}
+    public void setUrlSource(String urlSource) {
+        this.urlSource = urlSource;
+    }
 
-	public String getDefaultQuerySQL() {
-		return defaultQuerySQL;
-	}
+    public String getEnumProcType() {
+        return enumProcType;
+    }
+
+    public void setEnumProcType(String enumProcType) {
+        this.enumProcType = enumProcType;
+    }
+
+    public String getDefaultQuerySQL() {
+        return defaultQuerySQL;
+    }
 
 }

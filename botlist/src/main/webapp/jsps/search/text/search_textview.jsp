@@ -15,18 +15,18 @@
 </head>
 <body>
 <a href="<c:url value="/" />" >Home</a>
-<div style="margin-top: 40px; margin-left: 60px; border-top: 1px solid #ccc;">	
+<div style="margin-top: 40px; margin-left: 60px; border-top: 1px solid #ccc;">
 
 		<c:forEach items="${command.listings}"  var="listing" varStatus="status">
 			<c:set var="curStatusCount" value="${status.count}" />
 			<c:set var="curPageOffset" value="${command.pagingform.pageOffset}" />
 			<c:out value="${curStatusCount + curPageOffset}" />)
-			<a href="<c:url value="${listing.mainUrl}" />" ><c:out value="${listing.mainUrl}" /></a>	
-			&nbsp;/ <c:out value="${listing.urlTitle}" />												
-			&nbsp;/ tags: <c:out value="${listing.keywords}" />						
+			<a href="<c:url value="${listing.mainUrl}" />" ><c:out value="${listing.mainUrl}" /></a>
+			&nbsp;/ <c:out value="${listing.urlTitle}" />
+			&nbsp;/ tags: <c:out value="${listing.keywords}" />
 			&nbsp;/ <fmt:formatDate pattern="EE MMM, dd hh:mm" value="${listing.createdOn.time}" />
 			<br>
-		</c:forEach>	
+		</c:forEach>
 </div>
 </body>
 </html>

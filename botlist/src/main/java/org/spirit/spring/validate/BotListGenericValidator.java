@@ -9,23 +9,23 @@ import org.springframework.validation.Validator;
 
 /**
  * This is class is used by botverse (used for rover updates).
- * @author Berlin Brown
  *
+ * @author Berlin Brown
  */
 public class BotListGenericValidator implements Validator {
-		
-	/**
-	 * @see org.springframework.validation.Validator#supports(java.lang.Class)
-	 */
-	public boolean supports(Class post) {
-		return true;
-	}
-		
-	/**
-	 * @see org.springframework.validation.Validator#validate(java.lang.Object, org.springframework.validation.Errors)
-	 */
-	public void validate(Object obj, Errors errors) {
-				
-	}
+
+    /**
+     * @see org.springframework.validation.Validator#supports(java.lang.Class)
+     */
+    public boolean supports(Class post) {
+        return true;
+    }
+
+    /**
+     * @see org.springframework.validation.Validator#validate(java.lang.Object, org.springframework.validation.Errors)
+     */
+    public void validate(Object obj, Errors errors) {
+
+    }
 
 }

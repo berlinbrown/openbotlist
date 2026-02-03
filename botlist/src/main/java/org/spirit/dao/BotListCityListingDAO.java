@@ -13,18 +13,16 @@ import org.springframework.dao.DataAccessException;
 
 /**
  * This is class is used by botverse.
- * 
+ *
  * @author Berlin Brown
- * 
  */
 
 public interface BotListCityListingDAO extends Serializable {
-	
-	public Collection findCityListings();
-	
-	public BotListCityListing readCityListing(int id) throws
-		DataAccessException;
-	
-	public long getCityPostCount(final int id);
-	
+
+    public Collection findCityListings();
+
+    public BotListCityListing readCityListing(int id) throws DataAccessException;
+
+    public long getCityPostCount(final int id);
+
 }

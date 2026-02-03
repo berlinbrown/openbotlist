@@ -18,23 +18,21 @@ import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
 
 /**
  * This is class is used by botverse.
- * 
+ *
  * @author Berlin Brown
- * 
  */
 
 public class BotListUserLinksDAOImpl extends HibernateDaoSupport implements BotListUserLinksDAO {
 
-	public List listUserLinks(final BotListCoreUsers coreUser) throws DataAccessException {			
-		return (List) getHibernateTemplate().execute(
-				new HibernateCallback() {
-					public Object doInHibernate(Session session) throws HibernateException {
-						Query query = 
-							session.createQuery("from org.spirit.bean.impl.BotListUserLinks links where links.userId = :userId");		
-						query.setLong("userId", coreUser.getId().longValue());
-						return query.list();
-					}
-				});
-	}
-	
+    public List listUserLinks(final BotListCoreUsers coreUser) throws DataAccessException {
+        return (List) getHibernateTemplate().execute(new HibernateCallback() {
+            public Object doInHibernate(Session session) throws HibernateException {
+                Query query = session
+                        .createQuery("from org.spirit.bean.impl.BotListUserLinks links where links.userId = :userId");
+                query.setLong("userId", coreUser.getId().longValue());
+                return query.list();
+            }
+        });
+    }
+
 }

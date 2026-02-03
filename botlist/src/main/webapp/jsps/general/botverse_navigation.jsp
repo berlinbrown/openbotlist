@@ -4,8 +4,8 @@
 		<td>
 			<a href="<c:url value="/spring/botverse/botverse.html" />" class="linklist_botnav" >Botverse.Home</a>
 			| <a href="<c:url value="/spring/botverse/botverse_submit.html" />" class="linklist_botnav">Submit New Link</a>
-			| <a href="<c:url value="/spring/botverse/botverse.html?filterset=mostrecent" />" class="linklist_botnav">Most Recent</a>			
-			| <a href="<c:url value="/spring/botverse/calendar/botverse_calendar.html" />" class="linklist_botnav">Calendar View</a>			
+			| <a href="<c:url value="/spring/botverse/botverse.html?filterset=mostrecent" />" class="linklist_botnav">Most Recent</a>
+			| <a href="<c:url value="/spring/botverse/calendar/botverse_calendar.html" />" class="linklist_botnav">Calendar View</a>
 			| <a href="<c:url value="/spring/semantic/foaf/foaf.html" />" class="linklist_botnav">&lt;FOAF&gt;</a>
 			| <a href="<c:url value="/spring/botverse/text/botverse_light.html" />" class="linklist_botnav">Text Vers</a>
 			| <a href="<c:url value="/spring/pipes/botverse_pipes.html" />" class="linklist_botnav">Pipes Vers</a>

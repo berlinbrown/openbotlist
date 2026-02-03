@@ -11,14 +11,14 @@ a.linklist_objlinks:link {
 	margin-top: 0px;
 	background-color: transparent;
 	text-decoration: none;
-	/** New entity link foreground color */	
+	/** New entity link foreground color */
 	<c:choose>
-   	 <c:when test="${command.userInfo != null}" >														  
+   	 <c:when test="${command.userInfo != null}" >
 	  color: <c:out value='#${command.userInfo.linkColor};' />
 	 </c:when>
 	 <c:otherwise>
 		color: #2327ae;
-     </c:otherwise> 
+     </c:otherwise>
 	</c:choose>
 }
 

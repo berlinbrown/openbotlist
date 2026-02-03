@@ -22,9 +22,8 @@
  </div>
 <h1 class="bot_titlelogo">BotList - Contact Ad Poster | Home</h1>
 			<%-- Navigation Header --%>
-			<%@include file="/WEB-INF/jsps/general/default_navigation.jsp" %>			
-			<%-- End of Navigation Header --%>					
-
+			<%@include file="/WEB-INF/jsps/general/default_navigation.jsp" %>
+			<%-- End of Navigation Header --%>
 
 <div style="margin: 20px;">
 
@@ -34,15 +33,15 @@
 
 	<!-- Build the table for entering the new department information -->
 	<a href="<c:url value="/spring/listings.html" />" >Listings</a>
-	
+
 	<p>
-		
+
 	<i>Contact Information</i>
 	<br>
 	<c:url value="${command.title}" />
 	<br>
-	Send Mail To: 
-		<a href="<c:url value="mailto:${command.email}" />" >Ad Poster</a>					
+	Send Mail To:
+		<a href="<c:url value="mailto:${command.email}" />" >Ad Poster</a>
 
 </div>
 

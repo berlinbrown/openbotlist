@@ -12,41 +12,42 @@ import java.util.Map;
 
 /**
  * This is class is used by botverse.
- * @author Berlin Brown
  *
+ * @author Berlin Brown
  */
 public class BotListCacheManager implements Serializable {
 
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = -2429448168123373618L;
-	
-	private boolean enableCaching = false;
-	private Map cacheStore = new HashMap();
+    /**
+     *
+     */
+    private static final long serialVersionUID = -2429448168123373618L;
 
-	/**
-	 * @return the enableCaching
-	 */
-	public boolean isEnableCaching() {
-		return enableCaching;
-	}
+    private boolean enableCaching = false;
+    private Map cacheStore = new HashMap();
 
-	/**
-	 * @param enableCaching the enableCaching to set
-	 */
-	public void setEnableCaching(boolean enableCaching) {
-		this.enableCaching = enableCaching;
-	}
-	
-	public String toString() {
-		return "BotListCacheManager: Cache Enabled=" + this.enableCaching;
-	}
+    /**
+     * @return the enableCaching
+     */
+    public boolean isEnableCaching() {
+        return enableCaching;
+    }
 
-	/**
-	 * @return the cacheStore
-	 */
-	public Map getCacheStore() {
-		return cacheStore;
-	}
+    /**
+     * @param enableCaching
+     *            the enableCaching to set
+     */
+    public void setEnableCaching(boolean enableCaching) {
+        this.enableCaching = enableCaching;
+    }
+
+    public String toString() {
+        return "BotListCacheManager: Cache Enabled=" + this.enableCaching;
+    }
+
+    /**
+     * @return the cacheStore
+     */
+    public Map getCacheStore() {
+        return cacheStore;
+    }
 }

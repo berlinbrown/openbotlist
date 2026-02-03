@@ -3,9 +3,9 @@
  * Nov 9, 2006
  *
  * -------------------------- COPYRIGHT_AND_LICENSE --
- * Botlist contains an open source suite of software applications for 
- * social bookmarking and collecting online news content for use on the web.  
- * Multiple web front-ends exist for Django, Rails, and J2EE.  
+ * Botlist contains an open source suite of software applications for
+ * social bookmarking and collecting online news content for use on the web.
+ * Multiple web front-ends exist for Django, Rails, and J2EE.
  * Users and remote agents are allowed to submit interesting articles.
  *
  * Copyright (c) 2007, Botnode.com (Berlin Brown)
@@ -13,18 +13,18 @@
  *
  * All rights reserved.
  *
- * Redistribution and use in source and binary forms, with or without modification, 
+ * Redistribution and use in source and binary forms, with or without modification,
  * are permitted provided that the following conditions are met:
  *
- *	    * Redistributions of source code must retain the above copyright notice, 
+ *	    * Redistributions of source code must retain the above copyright notice,
  *	    this list of conditions and the following disclaimer.
- *	    * Redistributions in binary form must reproduce the above copyright notice, 
- *	    this list of conditions and the following disclaimer in the documentation 
+ *	    * Redistributions in binary form must reproduce the above copyright notice,
+ *	    this list of conditions and the following disclaimer in the documentation
  *	    and/or other materials provided with the distribution.
- *	    * Neither the name of the Newspiritcompany.com (Berlin Brown) nor 
- *	    the names of its contributors may be used to endorse or promote 
+ *	    * Neither the name of the Newspiritcompany.com (Berlin Brown) nor
+ *	    the names of its contributors may be used to endorse or promote
  *	    products derived from this software without specific prior written permission.
- *	
+ *
  * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
  * "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
  * LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
@@ -45,13 +45,13 @@ import java.util.List;
 
 /**
  * This is class is used by botverse.
- * 
+ *
  * @author Berlin Brown
- * 
  */
 public interface BotListEntityTypeFoafDAO {
 
-	public List listEntityLinks(final String queryStr);
-	public List pageEntityLinks(final String queryStr, final int page, final int pageSize);
-	
+    public List listEntityLinks(final String queryStr);
+
+    public List pageEntityLinks(final String queryStr, final int page, final int pageSize);
+
 }

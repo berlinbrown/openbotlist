@@ -5,4 +5,3 @@
 		Global ruby variables have been reinitialized. (file is deprecated)
 	</div>
 </html>
-

@@ -4,14 +4,14 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
  	<title>Botlist - Error</title>
- 
+
   	<META NAME="DESCRIPTION" CONTENT="BotList - Promote yourself or something else interesting">
  	<META NAME="keywords" CONTENT="listing, bot, botlist, botlisting, bot's list, list, ads, advertising">
-  
+
 	<link href="<c:url value="/company/stylesheets/scaffold.css" />" media="screen" rel="Stylesheet" type="text/css" />
-  	<link href="<c:url value="/company/stylesheets/newspirit.css" />" media="screen" rel="Stylesheet" type="text/css" /> 
-  	<link href="<c:url value="/company/stylesheets/botlist.css" />" media="screen" rel="Stylesheet" type="text/css" /> 
-  	
+  	<link href="<c:url value="/company/stylesheets/newspirit.css" />" media="screen" rel="Stylesheet" type="text/css" />
+  	<link href="<c:url value="/company/stylesheets/botlist.css" />" media="screen" rel="Stylesheet" type="text/css" />
+
 </head>
 <body>
 
@@ -21,31 +21,30 @@
  			</div>
 			<h1 class="bot_titlelogo">
 				BotList - Ad Listings | Home
-			</h1>				
-			
+			</h1>
+
 			<%-- Navigation Header --%>
-			<%@include file="/WEB-INF/jsps/general/default_navigation.jsp" %>			
-			<%-- End of Navigation Header --%>					
-			
-			
+			<%@include file="/WEB-INF/jsps/general/default_navigation.jsp" %>
+			<%-- End of Navigation Header --%>
+
 			<!-- Section with City Listing -->
 			<div style="margin: 40px;">
 				<div style="border: 1px solid #DDD; padding: 10px;">
-				
+
 					<span style="color: red; font-weight: bold;">
 						You have reached an invalid page
 						<p>
 						<a href="<c:url value="/" />" >Return Home</a>
 					</span>
-										
+
 				</div>
 			</div>
-			
+
 			<p>
 			<!-- Source listing, remove late -->
-			
+
 			<%@include file="/WEB-INF/jsps/general/default_footer.jsp" %>
-		</div>	
-  
+		</div>
+
 </body>
 </html>

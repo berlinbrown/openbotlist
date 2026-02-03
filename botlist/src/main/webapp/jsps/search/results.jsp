@@ -72,8 +72,8 @@ a.linklist_objlinks:active {
  </div>
 <h1 class="bot_titlelogo">Botlist | Search Results</h1>
 			<%-- Navigation Header --%>
-			<%@include file="/WEB-INF/jsps/general/default_navigation.jsp" %>			
-			<%-- End of Navigation Header --%>					
+			<%@include file="/WEB-INF/jsps/general/default_navigation.jsp" %>
+			<%-- End of Navigation Header --%>
 
 <div style="margin: 20px;">
 
@@ -84,19 +84,19 @@ a.linklist_objlinks:active {
 	<!-- Build the table for entering the new department information -->
 	<a href="<c:url value="/" />" >Home</a>
 	| <a href="<c:url value="/spring/search/text/search_textview.html" />" >Text View</a>
-	<p>	
-	
+	<p>
+
 	<table class="linklist_data">
 		<c:forEach items="${command.listings}"  var="listing" varStatus="status">
-				<tr>					
-					<td colspan="3">							
+				<tr>
+					<td colspan="3">
 							<a class="linklist_objlinks" href="<c:url value="${listing.mainUrl}" />" >
 									<c:out value="${listing.urlTitle}" />
 							</a>
 							<%-- Add custom tag here, find hostname --%>
 							<span class="linklist_comments_host">
 							&nbsp;(<botlistutil:hostname value="${listing.mainUrl}" />)
-							</span>							
+							</span>
 					</td>
 				</tr>
 				<tr>
@@ -111,14 +111,14 @@ a.linklist_objlinks:active {
 					</td>
 					<td>
 						<div class="linklist_comments_txt">
-						 <span class="linklist_comments_date">							
+						 <span class="linklist_comments_date">
 							<botlistutil:timePast dateValue="${listing.createdOn.time}" />
 							on <fmt:formatDate pattern="EE MMM, dd" value="${listing.createdOn.time}" />
 						 </span>
 						</div>
-					</td>										
+					</td>
 					</tr>
-					
+
 					<tr>
 						<td colspan="3">
 							<!-- == Keywords == -->
@@ -129,14 +129,14 @@ a.linklist_objlinks:active {
 							</span>
 						</td>
 					</tr>
-					
+
 					</table>
-					<!-- End of inner table -->				
+					<!-- End of inner table -->
 				</td>
 				</tr>
 		</c:forEach>
 	</table>
-	
+
 </div>
 
 </div>

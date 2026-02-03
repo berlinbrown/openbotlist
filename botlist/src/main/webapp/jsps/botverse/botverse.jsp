@@ -14,21 +14,21 @@
 <link href="<c:url value="/company/stylesheets/botlist.css" />" media="screen" rel="Stylesheet" type="text/css" ></link>
 <link href="<c:url value="/company/stylesheets/botlist_general2.css" />" media="screen" rel="Stylesheet" type="text/css" ></link>
 <style type="text/css">
- <%@include file="/WEB-INF/jsps/general/botverse_link_css.jsp" %>	
+ <%@include file="/WEB-INF/jsps/general/botverse_link_css.jsp" %>
 </style>
 
 <%-- Include jquery javascript library --%>
 <script type="text/javascript" src="<c:url value="/company/js/jq/jquery-1.1.4.pack.js" />" ></script>
 
 <script type="text/javascript">
-	
-	$(document).ready(function() {	
+
+	$(document).ready(function() {
 	});
-	
+
 	function submitForm(operation, linkid) {
-		// deprecated	
+		// deprecated
 	}
-		
+
 	function submitAjaxVote(oper_action, linkid) {
 		// Submit vote information up/down vote based on linkid
 		$(document).ready(function() {
@@ -50,36 +50,36 @@
 			    }
 			}); // End ajax call
 		}); // End of call to "isReady"
-		
-	} // End of submit ajax 
-	
+
+	} // End of submit ajax
+
 	function setBotVoteMessage(msg, resp_status) {
-	
+
 		var css_msg_class = "ajx_msg_pass";
 		if (resp_status == 'pass') {
 			css_msg_class = "ajx_msg_pass"
 		} else {
 			css_msg_class = "ajx_msg_fail"
 		}
-	
+
 		// set the message and green/red css class
 		$('div#bot_msg_vote').html('! message: ' + msg)
 			.addClass(css_msg_class);
-		
-	}	
+
+	}
 	function setXmlMessage(xml) {
-	
+
 		var message_text = "invalid message";
 		var resp_status;
 		$(xml).find('message').each(function() {
 			message_text = $(this).text();
     	}); // End of find call
-    	
+
     	$(xml).find('status').each(function() {
 			resp_status = $(this).text();
-    	}); // End of find call    	
+    	}); // End of find call
     	setBotVoteMessage(message_text, resp_status);
-    }	
+    }
 </script>
 </head>
 <body>
@@ -90,9 +90,9 @@
 	<img src="<c:url value="/company/images/building_orange_roof.jpg" />" width="720" height="51" alt="Roof Logo" />
  </div>
 <h1 class="bot_titlelogo">Botverse - find interesting things online</h1>
-			
+
 			<%-- Navigation Header --%>
-			<%@include file="/WEB-INF/jsps/general/default_navigation.jsp" %>			
+			<%@include file="/WEB-INF/jsps/general/default_navigation.jsp" %>
 			<%-- End of Navigation Header --%>
 
 <div style="margin: 10px;">
@@ -106,10 +106,10 @@
 <div class="bot_profile_sect_add_link">
 
 	<%-- Build the table for entering the new department information --%>
-	<%@include file="/WEB-INF/jsps/general/botverse_navigation.jsp" %>	
+	<%@include file="/WEB-INF/jsps/general/botverse_navigation.jsp" %>
 	<%-- End of Table for Botverse Navigation Links --%>
-		
-	<%-- Table Section including banner and search  --%>	
+
+	<%-- Table Section including banner and search  --%>
 	<table width="100%" cellspacing="0" cellpadding="0">
 	<tr>
 	<td>
@@ -125,11 +125,11 @@
 	</td>
 	<td align="right" valign="top">
 		<!-- Begin Search Form -->
-		<div align="right">		  
+		<div align="right">
 			<form method="get" action="<c:url value="/spring/search/search.html" />" name="newsearch">
 				<table class="botverse_search_wrapper">
 				<tr>
-				<td> 
+				<td>
 					<input name="query" size="26" />
 				</td>
 				<td>
@@ -138,10 +138,10 @@
 				</tr>
 				</table>
 				<input type="hidden" name="querymode" value="enabled" />
-			</form>		  
-		</div><!-- End of Form -->		
+			</form>
+		</div><!-- End of Form -->
 	</td>
-	</tr>	
+	</tr>
 	<tr>
 		<td colspan="2">
 					<%-- ============================== --%>
@@ -161,12 +161,12 @@
 						<td >
 						 <%-- Additional Row to Hold Table Horizontal Media Section --%>
 						 <table style="width: 100%; height: 100%;" cellspacing="0" cellpadding="0" border="0"><tr><td>
-							<c:forEach items="${command.mediaList}" var="curmedia" varStatus="status">							
+							<c:forEach items="${command.mediaList}" var="curmedia" varStatus="status">
 									<td>
 										<%-- Media Section is made up table (image, title) --%>
 										<table cellspacing="0" cellpadding="12" width="100%" height="100%">
 											<tr><td style="background-color: #e7f0f1;">
-											   <a href="<c:out value="${curmedia.media.mediaUrl}" />" 
+											   <a href="<c:out value="${curmedia.media.mediaUrl}" />"
 											   	   class="index_img">
 												<img src="<c:out value="${curmedia.media.imageThumbnail}" />" border="0" width="130" />
 											   </a>
@@ -176,32 +176,32 @@
 											</td></tr>
 										</table>
 										<%-- End of Media Table --%>
-									</td>							
+									</td>
 							</c:forEach>
 						  </td></tr></table>
 						  <%-- (end) Additional Row to Hold Table Horizontal Media Section --%>
 						</td>
 						</tr>
 						</table>
-					  </div>					
+					  </div>
 					</c:if>
 					<%-- ============================== --%>
 					<%-- End of Display Media table --%>
 					<%-- ============================== --%>
 		</td>
-	</tr>	
+	</tr>
 	</table>
-	<%-- End of Table search/banner --%>	
+	<%-- End of Table search/banner --%>
 	<form:form method="post" name="botverse_form">
 	<form:errors path="*" cssClass="general_field_error" />
 	<%-- === Ajax vote message === --%>
 	<div id="bot_msg_vote">
-		&nbsp;		
+		&nbsp;
 	</div>
 	<table class="linklist_data" cellspacing="2" cellpadding="0">
 		<c:forEach items="${command.listings}"  var="listing" varStatus="status">
 				<%-- Begin row production for botverse links --%>
-				<tr>					
+				<tr>
 					<td colspan="3">
 							<span class="rating_area">
 							 <c:out value="${listing.rating}" /> pts
@@ -243,7 +243,7 @@
 							     <b><c:out value="${curStatusCount + curPageOffset}" /># &nbsp;</b>
 							  </td>
 							  <td valign="top" style="padding-right: 4px;">
-							     <%-- Temp location for ranking --%>							   
+							     <%-- Temp location for ranking --%>
 								 <b><span class="linklist_comments_date">mod</span></b> <span style="color: green; font-size: 10px"></span>
 							  </td>
 							  <td style="padding-right: 4px;" valign="bottom">
@@ -262,8 +262,8 @@
 						</div>
 					</td>
 					<td>
-						<div class="linklist_comments_txt">						 	
-						 <span class="linklist_comments_date">						
+						<div class="linklist_comments_txt">
+						 <span class="linklist_comments_date">
 							<botlistutil:timePast dateValue="${listing.createdOn.time}" />
 							on <fmt:formatDate pattern="EE MMM, dd" value="${listing.createdOn.time}" />
 						 </span>
@@ -272,7 +272,7 @@
 					<td>
 					  <span class="linklist_comments">
 					     <a class="linklist_comments" href="<c:url value="/spring/botverse/linkviewcomments.html?viewid=${listing.id}&amp;commentsct=${fn:length(listing.listings)}" />">[!] comments (<c:out value="${fn:length(listing.listings)}" />)</a>
-					  </span>						
+					  </span>
 					  | <span class="linklist_comments"><a class="linklist_comments" href="<c:url value="/spring/botverse/linkaddcomment.html?viewid=${listing.id}" />">add comment</a></span>
 					  <%-- Print the UserName --%>
 					  <span style="margin-left: 2px; font-size: 10px">
@@ -280,7 +280,7 @@
 								<%-- ================================= --%>
 								<%-- Display username if anonymous user %>
 								<%-- Otherwise display 'link' to user's links --%>
-								<%-- ================================= --%>								
+								<%-- ================================= --%>
 								<c:choose>
    	 								<c:when test="${listing.coreUsername != null}" >
 	  									<a href="<c:url value="/spring/profile/overview.html?username=${listing.coreUsername}" />" class="link_userprof">
@@ -289,10 +289,10 @@
 	 								</c:when>
 	 								<c:otherwise>
 	  									<c:out value="${listing.fullName}" />
-     								</c:otherwise> 
-								</c:choose>								
+     								</c:otherwise>
+								</c:choose>
 								<%-- ==== End of user links --%>
-							</strong>							
+							</strong>
 							</span>
 							<%-- ================================= --%>
 							<%-- Display category name, eg 'politics' --%>
@@ -308,32 +308,32 @@
 					</td>
 					</tr>
 					</table>
-					<!-- End of inner table (loop) -->				
+					<!-- End of inner table (loop) -->
 				</td>
 				</tr>
 				<%-- End row production for botverse links --%>
 		</c:forEach>
 	</table>
-	
+
 	<form:hidden path="operation" />
 	<form:hidden path="ratingId" />
-	
+
 	</form:form>
-	
+
 	<%-- ==== Section for paging ==== --%>
-	<div id="linklist_paging"> 
+	<div id="linklist_paging">
 		(view more) /
 		<a href="<c:url value="/spring/botverse/botverse.html?offsetpage=0" />">first</a>
-		<c:forEach begin="${command.pagingform.begin}" 
+		<c:forEach begin="${command.pagingform.begin}"
 					end="${command.pagingform.end}" var="page" varStatus="status">
 			&nbsp;/ [<span class="linklist_paging_pg">
-				<a href="<c:url value="/spring/botverse/botverse.html?offsetpage=${page}" />">pg <c:out value="${page+1}" /></a> 
+				<a href="<c:url value="/spring/botverse/botverse.html?offsetpage=${page}" />">pg <c:out value="${page+1}" /></a>
 			</span>]
 		</c:forEach> /
 		<a href="<c:url value="/spring/botverse/botverse.html?offsetpage=${command.pagingform.begin+2}" />">next</a>
 	</div>
 	<%-- ==== End of Paging ==== --%>
-	
+
 <%-- End DIV (bot_profile_sect_add_link) --%>
 </div>
 
@@ -348,7 +348,7 @@
  <div style="font-size: 10px; color: #888;text-align: right">
  <i>(process in <c:out value="${processingtime}" />s)</i>
  </div>
- 
+
 <div>
  <script src="http://www.google-analytics.com/urchin.js" type="text/javascript">
  </script>
@@ -357,6 +357,6 @@
  urchinTracker();
  </script>
 </div>
-  
+
 </body>
 </html>
