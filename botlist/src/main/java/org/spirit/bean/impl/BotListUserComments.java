@@ -13,240 +13,252 @@ import org.spirit.bean.impl.base.BotListBeanBase;
 
 /**
  * This is class is used by botverse.
- * 
+ *
  * @author Berlin Brown
- * 
  */
 
-public class BotListUserComments extends BotListBeanBase 
-	implements Serializable {
+public class BotListUserComments extends BotListBeanBase implements Serializable {
 
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 6382166190547017958L;
+    /**
+     *
+     */
+    private static final long serialVersionUID = 6382166190547017958L;
 
-	private String mainUrl;
-	private String zipcode;
-	private Long linkId;
-	private String email;
-	private Calendar createdOn;
-	private Long adlistId;
-	private Long forumId;
-	private String fullName;
-	private String keywords;	
-	private String subject;
-	private String message;
-	private Long commentId;
-	private String generatedId;
-	private List childComments;
-	
-	private BotListEntityLinks entityLink;
-	
-	/**
-	 * @return the message
-	 */
-	public String getMessage() {
-		return message;
-	}
+    private String mainUrl;
+    private String zipcode;
+    private Long linkId;
+    private String email;
+    private Calendar createdOn;
+    private Long adlistId;
+    private Long forumId;
+    private String fullName;
+    private String keywords;
+    private String subject;
+    private String message;
+    private Long commentId;
+    private String generatedId;
+    private List childComments;
 
-	/**
-	 * @param message the message to set
-	 */
-	public void setMessage(String message) {
-		this.message = message;
-	}
+    private BotListEntityLinks entityLink;
 
-	/**
-	 * @return the adlistId
-	 */
-	public Long getAdlistId() {
-		return adlistId;
-	}
+    /**
+     * @return the message
+     */
+    public String getMessage() {
+        return message;
+    }
 
-	/**
-	 * @param adlistId the adlistId to set
-	 */
-	public void setAdlistId(Long adlistId) {
-		this.adlistId = adlistId;
-	}
+    /**
+     * @param message
+     *            the message to set
+     */
+    public void setMessage(String message) {
+        this.message = message;
+    }
 
-	/**
-	 * @return the createdOn
-	 */
-	public Calendar getCreatedOn() {
-		if (createdOn == null) {
-			createdOn = Calendar.getInstance();
-		}
-		return createdOn;
-	}
+    /**
+     * @return the adlistId
+     */
+    public Long getAdlistId() {
+        return adlistId;
+    }
 
-	/**
-	 * @param createdOn the createdOn to set
-	 */
-	public void setCreatedOn(Calendar createdOn) {
-		this.createdOn = createdOn;
-	}
+    /**
+     * @param adlistId
+     *            the adlistId to set
+     */
+    public void setAdlistId(Long adlistId) {
+        this.adlistId = adlistId;
+    }
 
-	/**
-	 * @return the email
-	 */
-	public String getEmail() {
-		return email;
-	}
+    /**
+     * @return the createdOn
+     */
+    public Calendar getCreatedOn() {
+        if (createdOn == null) {
+            createdOn = Calendar.getInstance();
+        }
+        return createdOn;
+    }
 
-	/**
-	 * @param email the email to set
-	 */
-	public void setEmail(String email) {
-		this.email = email;
-	}
+    /**
+     * @param createdOn
+     *            the createdOn to set
+     */
+    public void setCreatedOn(Calendar createdOn) {
+        this.createdOn = createdOn;
+    }
 
-	/**
-	 * @return the fullName
-	 */
-	public String getFullName() {
-		return fullName;
-	}
+    /**
+     * @return the email
+     */
+    public String getEmail() {
+        return email;
+    }
 
-	/**
-	 * @param fullName the fullName to set
-	 */
-	public void setFullName(String fullName) {
-		this.fullName = fullName;
-	}	
+    /**
+     * @param email
+     *            the email to set
+     */
+    public void setEmail(String email) {
+        this.email = email;
+    }
 
-	/**
-	 * @return the keywords
-	 */
-	public String getKeywords() {
-		return keywords;
-	}
+    /**
+     * @return the fullName
+     */
+    public String getFullName() {
+        return fullName;
+    }
 
-	/**
-	 * @param keywords the keywords to set
-	 */
-	public void setKeywords(String keywords) {
-		this.keywords = keywords;
-	}
+    /**
+     * @param fullName
+     *            the fullName to set
+     */
+    public void setFullName(String fullName) {
+        this.fullName = fullName;
+    }
 
-	/**
-	 * @return the linkId
-	 */
-	public Long getLinkId() {
-		return linkId;
-	}
+    /**
+     * @return the keywords
+     */
+    public String getKeywords() {
+        return keywords;
+    }
 
-	/**
-	 * @param linkId the linkId to set
-	 */
-	public void setLinkId(Long linkId) {
-		this.linkId = linkId;
-	}
+    /**
+     * @param keywords
+     *            the keywords to set
+     */
+    public void setKeywords(String keywords) {
+        this.keywords = keywords;
+    }
 
-	/**
-	 * @return the mainUrl
-	 */
-	public String getMainUrl() {
-		return mainUrl;
-	}
+    /**
+     * @return the linkId
+     */
+    public Long getLinkId() {
+        return linkId;
+    }
 
-	/**
-	 * @param mainUrl the mainUrl to set
-	 */
-	public void setMainUrl(String mainUrl) {
-		this.mainUrl = mainUrl;
-	}
+    /**
+     * @param linkId
+     *            the linkId to set
+     */
+    public void setLinkId(Long linkId) {
+        this.linkId = linkId;
+    }
 
-	/**
-	 * @return the subject
-	 */
-	public String getSubject() {
-		return subject;
-	}
+    /**
+     * @return the mainUrl
+     */
+    public String getMainUrl() {
+        return mainUrl;
+    }
 
-	/**
-	 * @param subject the subject to set
-	 */
-	public void setSubject(String subject) {
-		this.subject = subject;
-	}
+    /**
+     * @param mainUrl
+     *            the mainUrl to set
+     */
+    public void setMainUrl(String mainUrl) {
+        this.mainUrl = mainUrl;
+    }
 
-	/**
-	 * @return the zipcode
-	 */
-	public String getZipcode() {
-		return zipcode;
-	}
+    /**
+     * @return the subject
+     */
+    public String getSubject() {
+        return subject;
+    }
 
-	/**
-	 * @param zipcode the zipcode to set
-	 */
-	public void setZipcode(String zipcode) {
-		this.zipcode = zipcode;
-	}
+    /**
+     * @param subject
+     *            the subject to set
+     */
+    public void setSubject(String subject) {
+        this.subject = subject;
+    }
 
-	/**
-	 * @return the forumId
-	 */
-	public Long getForumId() {
-		return forumId;
-	}
+    /**
+     * @return the zipcode
+     */
+    public String getZipcode() {
+        return zipcode;
+    }
 
-	/**
-	 * @param forumId the forumId to set
-	 */
-	public void setForumId(Long forumId) {
-		this.forumId = forumId;
-	}
+    /**
+     * @param zipcode
+     *            the zipcode to set
+     */
+    public void setZipcode(String zipcode) {
+        this.zipcode = zipcode;
+    }
 
-	/**
-	 * @return the commentId
-	 */
-	public Long getCommentId() {
-		return commentId;
-	}
+    /**
+     * @return the forumId
+     */
+    public Long getForumId() {
+        return forumId;
+    }
 
-	/**
-	 * @param commentId the commentId to set
-	 */
-	public void setCommentId(Long commentId) {
-		this.commentId = commentId;
-	}
+    /**
+     * @param forumId
+     *            the forumId to set
+     */
+    public void setForumId(Long forumId) {
+        this.forumId = forumId;
+    }
 
-	/**
-	 * @return the childComments
-	 */
-	public List getChildComments() {
-		return childComments;
-	}
+    /**
+     * @return the commentId
+     */
+    public Long getCommentId() {
+        return commentId;
+    }
 
-	/**
-	 * @param childComments the childComments to set
-	 */
-	public void setChildComments(List childComments) {
-		this.childComments = childComments;
-	}
+    /**
+     * @param commentId
+     *            the commentId to set
+     */
+    public void setCommentId(Long commentId) {
+        this.commentId = commentId;
+    }
 
-	/**
-	 * @return the generatedId
-	 */
-	public String getGeneratedId() {
-		return generatedId;
-	}
+    /**
+     * @return the childComments
+     */
+    public List getChildComments() {
+        return childComments;
+    }
 
-	/**
-	 * @param generatedId the generatedId to set
-	 */
-	public void setGeneratedId(String generatedId) {
-		this.generatedId = generatedId;
-	}
+    /**
+     * @param childComments
+     *            the childComments to set
+     */
+    public void setChildComments(List childComments) {
+        this.childComments = childComments;
+    }
 
-	public BotListEntityLinks getEntityLink() {
-		return entityLink;
-	}
+    /**
+     * @return the generatedId
+     */
+    public String getGeneratedId() {
+        return generatedId;
+    }
 
-	public void setEntityLink(BotListEntityLinks entityLink) {
-		this.entityLink = entityLink;
-	}
+    /**
+     * @param generatedId
+     *            the generatedId to set
+     */
+    public void setGeneratedId(String generatedId) {
+        this.generatedId = generatedId;
+    }
+
+    public BotListEntityLinks getEntityLink() {
+        return entityLink;
+    }
+
+    public void setEntityLink(BotListEntityLinks entityLink) {
+        this.entityLink = entityLink;
+    }
 }

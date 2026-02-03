@@ -22,8 +22,8 @@
  </div>
 <h1 class="bot_titlelogo">Botlist - Statistics | Home</h1>
 			<%-- Navigation Header --%>
-			<%@include file="/WEB-INF/jsps/general/default_navigation.jsp" %>			
-			<%-- End of Navigation Header --%>					
+			<%@include file="/WEB-INF/jsps/general/default_navigation.jsp" %>
+			<%-- End of Navigation Header --%>
 
 <div style="margin: 2px;">
 <div style="padding: 2px; margin-right: 4px;">
@@ -31,40 +31,40 @@
 <div class="bot_profile_sect_add_link ">
 
 	<!-- Build the table for entering the new department information -->
-	<br />	
+	<br />
 	<table width="100%">
 	<tr>
 	<td valign="top">
-		
+
 		<div style="border-top: 1px solid #CCC; padding: 6px; margin-top: 6px;">
-			
+
 			<%-- Present the Date by a particular Day --%>
 			<div>
 				Stats have been disabled.
 			<div>
 			<%-- End of Date Totals --%>
-			
-			<%-- Section to display stat image --%>			
+
+			<%-- Section to display stat image --%>
 			<div style="margin-top: 6px; margin-left: 10px;">
 				<%-- **************************** --%>
 				<%-- Build image chart based on freechart, on request --%>
 				<%-- **************************** --%>
-				<%-- 
+				<%--
 				 (TODO: removed for more testing
 				 <img src="<c:url value="/dayStatChart.png" />" border="0"/>
 				 --%>
-			
+
 			</div>
-			
-		</div>				
+
+		</div>
 	</td>
 	<td valign="top" align="right" width="40%">
 			<!-- New DIV with orange background -->
-			<div>					
+			<div>
 				<div>
 					<img src="<c:url value="/company/images/BoxLogoVertical1.jpg" />" />
 				</div>
-			</div>												
+			</div>
 	</td>
 	</tr>
 	</table>

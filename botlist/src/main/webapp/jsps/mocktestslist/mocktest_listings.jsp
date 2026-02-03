@@ -11,7 +11,7 @@
 		<tr>
 			<td><c:out value="${status.count}" />)</td>
 			<td>
-			<a href="<c:url value="/spring/viewlisting.html?viewid${listing.id}" />"> 
+			<a href="<c:url value="/spring/viewlisting.html?viewid${listing.id}" />">
 				<c:out value="${listing.title}" />
 			</a>
 			</td>

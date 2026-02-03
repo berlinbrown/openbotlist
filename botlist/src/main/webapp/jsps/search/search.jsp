@@ -15,7 +15,7 @@
 <link href="<c:url value="/company/stylesheets/botlist.css" />" media="screen" rel="Stylesheet" type="text/css" />
 
 <style type="text/css">
- <%@include file="/WEB-INF/jsps/general/botverse_link_css.jsp" %>	
+ <%@include file="/WEB-INF/jsps/general/botverse_link_css.jsp" %>
 </style>
 
 </head>
@@ -27,9 +27,9 @@
 	<img src="<c:url value="/company/images/building_orange_roof.jpg" />">
  </div>
 <h1 class="bot_titlelogo">Botverse - Interesting things online</h1>
-			
+
 			<%-- Navigation Header --%>
-			<%@include file="/WEB-INF/jsps/general/default_navigation.jsp" %>			
+			<%@include file="/WEB-INF/jsps/general/default_navigation.jsp" %>
 			<%-- End of Navigation Header --%>
 
 <div style="margin: 10px;">
@@ -41,8 +41,8 @@
 <div style="border: 1px solid #DDD; padding: 10px; margin-right: 10px;">
 <!-- Display the error message -->
 <div class="bot_profile_sect_add_link ">
-			
-	<%-- Table Section including banner and search  --%>	
+
+	<%-- Table Section including banner and search  --%>
 	<table width="100%" cellspacing="0" cellpadding="0">
 	<tr>
 	<td valign="top">
@@ -62,13 +62,13 @@
 			<form method="get" action="<c:url value="/spring/search/search.html" />" name="newsearch">
 			<table>
 				<tr>
-					<td> 
+					<td>
 						<input name="query" size="26" />
 					</td>
 					<td>
 						<input type="submit" value=" Search " />
 					</td>
-				</tr>	
+				</tr>
 				<tr>
 					<%-- Row with 'addtopic' button --%>
 					<td>
@@ -79,28 +79,28 @@
 	 						</c:when>
 	 						<c:otherwise>
 								<a href="/botlist/spring/profile/login.html" class="linklist_sample">login</a> in to add hot topic
-     						</c:otherwise> 
+     						</c:otherwise>
 						</c:choose>
 					   </span>
 					</td>
 					<%-- End of row, add topic --%>
-				</tr>		
+				</tr>
 			</table>
 			<input type="hidden" name="querymode" value="enabled" />
 			</form>
 		</div>
-		<!-- End of Form -->		
+		<!-- End of Form -->
 	</td>
 	</tr>
 	</table>
 	<%-- End of Table search/banner --%>
-			
+
 	<form:form method="post">
-	<form:errors path="*" cssClass="general_field_error" />	
-	<p>		
+	<form:errors path="*" cssClass="general_field_error" />
+	<p>
 	<table class="linklist_data" cellspacing="2" cellpadding="0">
 		<c:forEach items="${command.listings}"  var="listing" varStatus="status">
-				<tr>					
+				<tr>
 					<td colspan="3">
 							<span class="rating_area">
 							 <c:out value="${listing.rating}" /> pts
@@ -127,8 +127,8 @@
 						</div>
 					</td>
 					<td>
-						<div class="linklist_comments_txt">						 	
-						 <span class="linklist_comments_date">						
+						<div class="linklist_comments_txt">
+						 <span class="linklist_comments_date">
 							<botlistutil:timePast dateValue="${listing.createdOn.time}" />
 							on <fmt:formatDate pattern="EE MMM, dd" value="${listing.createdOn.time}" />
 						 </span>
@@ -136,16 +136,16 @@
 					</td>
 					<td>
 					  <span class="linklist_comments">
-					  <a class="linklist_comments" href="<c:url value="/spring/botverse/linkviewcomments.html?viewid=${listing.id}" />">details / comments (<c:out value="${listing.commentsCount}" />)</a> 					  
-					  </span>						
-					  | <span class="linklist_comments"><a class="linklist_comments" href="<c:url value="/spring/botverse/linkaddcomment.html?viewid=${listing.id}" />">add comment</a></span>						
+					  <a class="linklist_comments" href="<c:url value="/spring/botverse/linkviewcomments.html?viewid=${listing.id}" />">details / comments (<c:out value="${listing.commentsCount}" />)</a>
+					  </span>
+					  | <span class="linklist_comments"><a class="linklist_comments" href="<c:url value="/spring/botverse/linkaddcomment.html?viewid=${listing.id}" />">add comment</a></span>
 					</td>
 					</tr>
 					<tr>
 						<td colspan="3">
-							<!-- == Keywords == -->														
-							<span class="linklist_keywords">								
-											
+							<!-- == Keywords == -->
+							<span class="linklist_keywords">
+
 							 <c:set var="keywordValue" value="${listing.keywords}" />
 							 <b>relevancy</b>=<c:out value="${listing.searchScore}" />
 							</span>
@@ -158,15 +158,15 @@
 						</td>
 					</tr>
 					</table>
-					<!-- End of inner table (loop) -->				
+					<!-- End of inner table (loop) -->
 				</td>
 				</tr>
 		</c:forEach>
 	</table>
-	
+
 	<form:hidden path="operation" />
 	<form:hidden path="ratingId" />
-	
+
 	</form:form>
 </div>
 
@@ -181,14 +181,13 @@
  <div style="font-size: 10px; color: #888;text-align: right">
  <i>(process in <c:out value="${processingtime}" />s)</i>
  </div>
-  
-  
+
 <script src="http://www.google-analytics.com/urchin.js" type="text/javascript">
 </script>
 <script type="text/javascript">
 _uacct = "UA-286501-2";
 urchinTracker();
-</script>  
-  
+</script>
+
 </body>
 </html>

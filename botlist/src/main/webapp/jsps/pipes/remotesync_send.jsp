@@ -8,7 +8,7 @@
 <body>
 <form:form method="post">
 <form:errors path="*" cssClass="general_field_error" />
-<table>	
+<table>
 	<tr>
 		<td valign="top">Key</td>
 	</tr>
@@ -20,7 +20,7 @@
 			<form:errors path="developerKey" cssClass="general_field_error" />
 		</td>
 	</tr>
-	
+
 	<tr>
 		<td valign="top">Data</td>
 	</tr>
@@ -32,10 +32,10 @@
 			<form:errors path="remoteData" cssClass="general_field_error" />
 		</td>
 	</tr>
-				
+
 	<tr>
 		<td><input type="submit" value=" Submit Data " /></td>
-	</tr>		
+	</tr>
 </table>
 <form:hidden path="remoteSyncKey" />
 <!-- End of the table -->

@@ -8,81 +8,83 @@ import org.spirit.form.base.BotListBaseForm;
 
 /**
  * This is class is used by botverse.
- * @author Berlin Brown
  *
+ * @author Berlin Brown
  */
 public class BotListGenericPagingForm extends BotListBaseForm {
 
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = -6242789192971771987L;
+    /**
+     *
+     */
+    private static final long serialVersionUID = -6242789192971771987L;
 
-	private int pageOffset = 0;
-	private int curPage = 0;
-	private int begin = 0;
-	private int end = 0;
-	
-	/**
-	 * @return the curPage
-	 */
-	public int getCurPage() {
-		return curPage;
-	}
+    private int pageOffset = 0;
+    private int curPage = 0;
+    private int begin = 0;
+    private int end = 0;
 
-	/**
-	 * @param curPage the curPage to set
-	 */
-	public void setCurPage(int curPage) {
-		this.curPage = curPage;
-	}
+    /**
+     * @return the curPage
+     */
+    public int getCurPage() {
+        return curPage;
+    }
 
-	/**
-	 * @return the pageOffset
-	 */
-	public int getPageOffset() {
-		return pageOffset;
-	}
+    /**
+     * @param curPage
+     *            the curPage to set
+     */
+    public void setCurPage(int curPage) {
+        this.curPage = curPage;
+    }
 
-	/**
-	 * @param pageOffset the pageOffset to set
-	 */
-	public void setPageOffset(int pageOffset) {
-		this.pageOffset = pageOffset;
-	}
+    /**
+     * @return the pageOffset
+     */
+    public int getPageOffset() {
+        return pageOffset;
+    }
 
-	public BotListGenericPagingForm() {
-		super();
-	}
+    /**
+     * @param pageOffset
+     *            the pageOffset to set
+     */
+    public void setPageOffset(int pageOffset) {
+        this.pageOffset = pageOffset;
+    }
 
-	/**
-	 * @return the begin
-	 */
-	public int getBegin() {
-		return begin;
-	}
+    public BotListGenericPagingForm() {
+        super();
+    }
 
-	/**
-	 * @param begin the begin to set
-	 */
-	public void setBegin(int begin) {
-		this.begin = begin;
-	}
+    /**
+     * @return the begin
+     */
+    public int getBegin() {
+        return begin;
+    }
 
-	/**
-	 * @return the end
-	 */
-	public int getEnd() {
-		return end;
-	}
+    /**
+     * @param begin
+     *            the begin to set
+     */
+    public void setBegin(int begin) {
+        this.begin = begin;
+    }
 
-	/**
-	 * @param end the end to set
-	 */
-	public void setEnd(int end) {
-		this.end = end;
-	}
-	
+    /**
+     * @return the end
+     */
+    public int getEnd() {
+        return end;
+    }
 
-	
+    /**
+     * @param end
+     *            the end to set
+     */
+    public void setEnd(int end) {
+        this.end = end;
+    }
+
 }

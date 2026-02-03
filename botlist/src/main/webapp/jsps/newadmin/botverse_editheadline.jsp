@@ -22,15 +22,15 @@
  </div>
 <h1 class="bot_titlelogo">BotList - Admin Edit Headline</h1>
 	<%-- Navigation Header --%>
-	<%@include file="/WEB-INF/jsps/general/default_navigation.jsp" %>			
+	<%@include file="/WEB-INF/jsps/general/default_navigation.jsp" %>
 	<%-- End of Navigation Header --%>
-	
+
 <div style="margin: 20px;">
 
 <div style="border: 1px solid #DDD; padding: 10px;">
 <!-- Display the error message -->
 <div class="bot_profile_sect_add_link">
-			
+
 <form:form method="post">
 <form:errors path="*" cssClass="general_field_error" />
 <table>
@@ -50,7 +50,7 @@
 	<tr>
 		<td><input type="submit" value=" Submit Headline " /></td>
 	</tr>
-	
+
 </table>
 <!-- End of the table -->
 </form:form>

@@ -3,9 +3,9 @@
  * Nov 9, 2006
  *
  * -------------------------- COPYRIGHT_AND_LICENSE --
- * Botlist contains an open source suite of software applications for 
- * social bookmarking and collecting online news content for use on the web.  
- * Multiple web front-ends exist for Django, Rails, and J2EE.  
+ * Botlist contains an open source suite of software applications for
+ * social bookmarking and collecting online news content for use on the web.
+ * Multiple web front-ends exist for Django, Rails, and J2EE.
  * Users and remote agents are allowed to submit interesting articles.
  *
  * Copyright (c) 2007, Botnode.com (Berlin Brown)
@@ -13,18 +13,18 @@
  *
  * All rights reserved.
  *
- * Redistribution and use in source and binary forms, with or without modification, 
+ * Redistribution and use in source and binary forms, with or without modification,
  * are permitted provided that the following conditions are met:
  *
- *	    * Redistributions of source code must retain the above copyright notice, 
+ *	    * Redistributions of source code must retain the above copyright notice,
  *	    this list of conditions and the following disclaimer.
- *	    * Redistributions in binary form must reproduce the above copyright notice, 
- *	    this list of conditions and the following disclaimer in the documentation 
+ *	    * Redistributions in binary form must reproduce the above copyright notice,
+ *	    this list of conditions and the following disclaimer in the documentation
  *	    and/or other materials provided with the distribution.
- *	    * Neither the name of the Newspiritcompany.com (Berlin Brown) nor 
- *	    the names of its contributors may be used to endorse or promote 
+ *	    * Neither the name of the Newspiritcompany.com (Berlin Brown) nor
+ *	    the names of its contributors may be used to endorse or promote
  *	    products derived from this software without specific prior written permission.
- *	
+ *
  * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
  * "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
  * LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
@@ -48,210 +48,229 @@ import org.spirit.form.base.BotListBaseForm;
 
 /**
  * This is class is used by botverse.
- * 
+ *
  * @author Berlin Brown
- * 
  */
 
-public class BotListEntityTypeFoafForm extends BotListBaseForm 
-			implements BotListBaseCalcVerify {
+public class BotListEntityTypeFoafForm extends BotListBaseForm implements BotListBaseCalcVerify {
 
-	private static final long serialVersionUID = -8997986929977823041L;
-	
-	private String foafInterestDescr;
-	private Long rating;
-	private String fullName;
-	private String foafMbox;
-	private Date dateOfBirth;
-	private String friendSetUid;
-	private String foafPageDocUrl;
-	private String foafImg;
-	private Long processCount;
-	private String nickname;
-	
-	private Long firstInput;
-	private Long secondInput;
-	private Long solution;
-	private Long userSolution;
-	private Long prevSolution;
-	
-	private String mainUrl;	
-	private Calendar createdOn;
-	private String keywords;
-	private String urlDescription;
-	private String urlTitle;
-	
-	public Calendar getCreatedOn() {
-		if (createdOn == null) {
-			createdOn = Calendar.getInstance();
-		}
-		return createdOn;
-	}
-	
-	public String getFoafInterestDescr() {
-		return foafInterestDescr;
-	}
-	public void setFoafInterestDescr(String foafInterestDescr) {
-		this.foafInterestDescr = foafInterestDescr;
-	}
-	public Long getRating() {
-		return rating;
-	}
-	public void setRating(Long rating) {
-		this.rating = rating;
-	}
-	public String getFullName() {
-		return fullName;
-	}
-	public void setFullName(String fullName) {
-		this.fullName = fullName;
-	}
-	public String getFoafMbox() {
-		return foafMbox;
-	}
-	public void setFoafMbox(String foafMbox) {
-		this.foafMbox = foafMbox;
-	}
-	public Date getDateOfBirth() {
-		return dateOfBirth;
-	}
-	public void setDateOfBirth(Date dateOfBirth) {
-		this.dateOfBirth = dateOfBirth;
-	}
-	public String getFriendSetUid() {
-		return friendSetUid;
-	}
-	public void setFriendSetUid(String friendSetUid) {
-		this.friendSetUid = friendSetUid;
-	}
-	public String getFoafPageDocUrl() {
-		return foafPageDocUrl;
-	}
-	public void setFoafPageDocUrl(String foafPageDocUrl) {
-		this.foafPageDocUrl = foafPageDocUrl;
-	}
-	public String getFoafImg() {
-		return foafImg;
-	}
-	public void setFoafImg(String foafImg) {
-		this.foafImg = foafImg;
-	}
-	public Long getProcessCount() {
-		return processCount;
-	}
-	public void setProcessCount(Long processCount) {
-		this.processCount = processCount;
-	}
-	public String getNickname() {
-		return nickname;
-	}
-	public void setNickname(String nickname) {
-		this.nickname = nickname;
-	}
-	
-	/**
-	 * @return the firstInput
-	 */
-	public Long getFirstInput() {
-		return firstInput;
-	}
+    private static final long serialVersionUID = -8997986929977823041L;
 
-	/**
-	 * @param firstInput the firstInput to set
-	 */
-	public void setFirstInput(Long firstInput) {
-		this.firstInput = firstInput;
-	}
+    private String foafInterestDescr;
+    private Long rating;
+    private String fullName;
+    private String foafMbox;
+    private Date dateOfBirth;
+    private String friendSetUid;
+    private String foafPageDocUrl;
+    private String foafImg;
+    private Long processCount;
+    private String nickname;
 
-	/**
-	 * @return the prevSolution
-	 */
-	public Long getPrevSolution() {
-		return prevSolution;
-	}
+    private Long firstInput;
+    private Long secondInput;
+    private Long solution;
+    private Long userSolution;
+    private Long prevSolution;
 
-	/**
-	 * @param prevSolution the prevSolution to set
-	 */
-	public void setPrevSolution(Long prevSolution) {
-		this.prevSolution = prevSolution;
-	}
+    private String mainUrl;
+    private Calendar createdOn;
+    private String keywords;
+    private String urlDescription;
+    private String urlTitle;
 
-	/**
-	 * @return the secondInput
-	 */
-	public Long getSecondInput() {
-		return secondInput;
-	}
+    public Calendar getCreatedOn() {
+        if (createdOn == null) {
+            createdOn = Calendar.getInstance();
+        }
+        return createdOn;
+    }
 
-	/**
-	 * @param secondInput the secondInput to set
-	 */
-	public void setSecondInput(Long secondInput) {
-		this.secondInput = secondInput;
-	}
+    public String getFoafInterestDescr() {
+        return foafInterestDescr;
+    }
 
-	/**
-	 * @return the solution
-	 */
-	public Long getSolution() {
-		return solution;
-	}
+    public void setFoafInterestDescr(String foafInterestDescr) {
+        this.foafInterestDescr = foafInterestDescr;
+    }
 
-	/**
-	 * @param solution the solution to set
-	 */
-	public void setSolution(Long solution) {
-		this.solution = solution;
-	}
+    public Long getRating() {
+        return rating;
+    }
 
-	/**
-	 * @return the userSolution
-	 */
-	public Long getUserSolution() {
-		return userSolution;
-	}
+    public void setRating(Long rating) {
+        this.rating = rating;
+    }
 
-	/**
-	 * @param userSolution the userSolution to set
-	 */
-	public void setUserSolution(Long userSolution) {
-		this.userSolution = userSolution;
-	}
+    public String getFullName() {
+        return fullName;
+    }
 
-	public String getMainUrl() {
-		return mainUrl;
-	}
+    public void setFullName(String fullName) {
+        this.fullName = fullName;
+    }
 
-	public void setMainUrl(String mainUrl) {
-		this.mainUrl = mainUrl;
-	}
+    public String getFoafMbox() {
+        return foafMbox;
+    }
 
-	public String getKeywords() {
-		return keywords;
-	}
+    public void setFoafMbox(String foafMbox) {
+        this.foafMbox = foafMbox;
+    }
 
-	public void setKeywords(String keywords) {
-		this.keywords = keywords;
-	}
+    public Date getDateOfBirth() {
+        return dateOfBirth;
+    }
 
-	public String getUrlDescription() {
-		return urlDescription;
-	}
+    public void setDateOfBirth(Date dateOfBirth) {
+        this.dateOfBirth = dateOfBirth;
+    }
 
-	public void setUrlDescription(String urlDescription) {
-		this.urlDescription = urlDescription;
-	}
+    public String getFriendSetUid() {
+        return friendSetUid;
+    }
 
-	public String getUrlTitle() {
-		return urlTitle;
-	}
+    public void setFriendSetUid(String friendSetUid) {
+        this.friendSetUid = friendSetUid;
+    }
 
-	public void setUrlTitle(String urlTitle) {
-		this.urlTitle = urlTitle;
-	}
-	
-	
-	
+    public String getFoafPageDocUrl() {
+        return foafPageDocUrl;
+    }
+
+    public void setFoafPageDocUrl(String foafPageDocUrl) {
+        this.foafPageDocUrl = foafPageDocUrl;
+    }
+
+    public String getFoafImg() {
+        return foafImg;
+    }
+
+    public void setFoafImg(String foafImg) {
+        this.foafImg = foafImg;
+    }
+
+    public Long getProcessCount() {
+        return processCount;
+    }
+
+    public void setProcessCount(Long processCount) {
+        this.processCount = processCount;
+    }
+
+    public String getNickname() {
+        return nickname;
+    }
+
+    public void setNickname(String nickname) {
+        this.nickname = nickname;
+    }
+
+    /**
+     * @return the firstInput
+     */
+    public Long getFirstInput() {
+        return firstInput;
+    }
+
+    /**
+     * @param firstInput
+     *            the firstInput to set
+     */
+    public void setFirstInput(Long firstInput) {
+        this.firstInput = firstInput;
+    }
+
+    /**
+     * @return the prevSolution
+     */
+    public Long getPrevSolution() {
+        return prevSolution;
+    }
+
+    /**
+     * @param prevSolution
+     *            the prevSolution to set
+     */
+    public void setPrevSolution(Long prevSolution) {
+        this.prevSolution = prevSolution;
+    }
+
+    /**
+     * @return the secondInput
+     */
+    public Long getSecondInput() {
+        return secondInput;
+    }
+
+    /**
+     * @param secondInput
+     *            the secondInput to set
+     */
+    public void setSecondInput(Long secondInput) {
+        this.secondInput = secondInput;
+    }
+
+    /**
+     * @return the solution
+     */
+    public Long getSolution() {
+        return solution;
+    }
+
+    /**
+     * @param solution
+     *            the solution to set
+     */
+    public void setSolution(Long solution) {
+        this.solution = solution;
+    }
+
+    /**
+     * @return the userSolution
+     */
+    public Long getUserSolution() {
+        return userSolution;
+    }
+
+    /**
+     * @param userSolution
+     *            the userSolution to set
+     */
+    public void setUserSolution(Long userSolution) {
+        this.userSolution = userSolution;
+    }
+
+    public String getMainUrl() {
+        return mainUrl;
+    }
+
+    public void setMainUrl(String mainUrl) {
+        this.mainUrl = mainUrl;
+    }
+
+    public String getKeywords() {
+        return keywords;
+    }
+
+    public void setKeywords(String keywords) {
+        this.keywords = keywords;
+    }
+
+    public String getUrlDescription() {
+        return urlDescription;
+    }
+
+    public void setUrlDescription(String urlDescription) {
+        this.urlDescription = urlDescription;
+    }
+
+    public String getUrlTitle() {
+        return urlTitle;
+    }
+
+    public void setUrlTitle(String urlTitle) {
+        this.urlTitle = urlTitle;
+    }
 
 }

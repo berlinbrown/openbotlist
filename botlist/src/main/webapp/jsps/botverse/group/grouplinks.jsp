@@ -64,7 +64,6 @@ a.linklist_objlinks:active {
 /** =============================================== */
 </style>
 
-
 </head>
 <body>
 
@@ -74,39 +73,38 @@ a.linklist_objlinks:active {
 	<img src="<c:url value="/company/images/building_orange_roof.jpg" />">
  </div>
 <h1 class="bot_titlelogo">Botverse - Info Articles | Information Resource</h1>
-			
+
 			<%-- Navigation Header --%>
-			<%@include file="/WEB-INF/jsps/general/default_navigation.jsp" %>			
+			<%@include file="/WEB-INF/jsps/general/default_navigation.jsp" %>
 			<%-- End of Navigation Header --%>
 
 <div style="margin: 10px;">
-	
+
 	<%-- Add Welcome user message and login content (above content border line) --%>
 	<%@include file="/WEB-INF/jsps/general/botverse_profile_nav.jsp" %>
 	<%-- End of Welcome Header --%>
-
 
 <div style="border: 1px solid #DDD; padding: 10px; margin-right: 10px;">
 <!-- Display the error message -->
 <div class="bot_profile_sect_add_link ">
 
 	<%-- Build the table for entering the new department information --%>
-	<%@include file="/WEB-INF/jsps/general/botverse_navigation.jsp" %>	
-	<%-- End of Table for Botverse Navigation Links --%>	
+	<%@include file="/WEB-INF/jsps/general/botverse_navigation.jsp" %>
+	<%-- End of Table for Botverse Navigation Links --%>
 	<div style="color: #888;">
-		Group Links / 
+		Group Links /
 		<a href="<c:url value="/spring/botverse/group/grouplinks_submit.html?groupgenid=${command.linkGroup.generatedId}" />" >Submit</a>
 		<p>
 		 NSFW - stands for "Not Safe For Work"; this area is used
 		 for various links that might fall outside of typical political article or picture of a cute kitten.
 		 Please be advised that submissions that fall outside of the editor's criteria of NSFW will be deleted.
 		</p>
-		
-	</div>		
+
+	</div>
 	<table class="linklist_data" cellspacing="0" cellpadding="0">
 		<c:forEach items="${command.coreLinks}"  var="listing" varStatus="status">
-				<tr>					
-					<td colspan="3">							
+				<tr>
+					<td colspan="3">
 							<a class="linklist_objlinks" href="<c:url value="${listing.mainUrl}" />" >
 									<c:out value="${listing.urlTitle}" />
 							</a>
@@ -130,12 +128,12 @@ a.linklist_objlinks:active {
 					</td>
 					<td>
 						<div class="linklist_comments_txt">
-						 <span class="linklist_comments_date">							
+						 <span class="linklist_comments_date">
 							<botlistutil:timePast dateValue="${listing.createdOn.time}" />
 							on <fmt:formatDate pattern="EE MMM, dd" value="${listing.createdOn.time}" />
 						 </span>
 						</div>
-					</td>					
+					</td>
 					</tr>
 					<tr>
 						<td colspan="3">
@@ -147,25 +145,25 @@ a.linklist_objlinks:active {
 						</td>
 					</tr>
 					</table>
-					<!-- End of inner table (loop) -->				
+					<!-- End of inner table (loop) -->
 				</td>
 				</tr>
 		</c:forEach>
 	</table>
-	
+
 	<%-- ==== Section for paging ==== --%>
-	<div id="linklist_paging"> 
+	<div id="linklist_paging">
 		(view more) /
 		<a href="<c:url value="/spring/botverse/group/grouplinks.html?groupgenid=${command.linkGroup.generatedId}&offsetpage=0" />">first</a>
-		<c:forEach begin="${command.pagingform.begin}" 
+		<c:forEach begin="${command.pagingform.begin}"
 					end="${command.pagingform.end}" var="page" varStatus="status">
 			&nbsp;/ [<span class="linklist_paging_pg">
-				<a href="<c:url value="/spring/botverse/group/grouplinks.html?groupgenid=${command.linkGroup.generatedId}&offsetpage=${page}" />">pg <c:out value="${page+1}" /></a> 
+				<a href="<c:url value="/spring/botverse/group/grouplinks.html?groupgenid=${command.linkGroup.generatedId}&offsetpage=${page}" />">pg <c:out value="${page+1}" /></a>
 			</span>]
 		</c:forEach>
 	</div>
 	<%-- ==== End of Paging ==== --%>
-	
+
 </div>
 
 </div>
@@ -179,6 +177,6 @@ a.linklist_objlinks:active {
  <div style="font-size: 10px; color: #888;text-align: right">
  <i>(process in <c:out value="${processingtime}" />s)</i>
  </div>
- 
+
 </body>
 </html>

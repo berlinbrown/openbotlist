@@ -11,48 +11,49 @@ import org.spirit.form.base.BotListBaseForm;
 
 /**
  * This is class is used by botverse.
- * 
+ *
  * @author Berlin Brown
- * 
  */
 
 public class BotListUserSearchForm extends BotListBaseForm {
 
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 52860635664779701L;
-	
-	private String searchEntry;
-	
-	private List listings;
+    /**
+     *
+     */
+    private static final long serialVersionUID = 52860635664779701L;
 
-	/**
-	 * @return the listings
-	 */
-	public List getListings() {
-		return listings;
-	}
+    private String searchEntry;
 
-	/**
-	 * @param listings the listings to set
-	 */
-	public void setListings(List listings) {
-		this.listings = listings;
-	}
+    private List listings;
 
-	/**
-	 * @return the searchEntry
-	 */
-	public String getSearchEntry() {
-		return searchEntry;
-	}
+    /**
+     * @return the listings
+     */
+    public List getListings() {
+        return listings;
+    }
 
-	/**
-	 * @param searchEntry the searchEntry to set
-	 */
-	public void setSearchEntry(String searchEntry) {
-		this.searchEntry = searchEntry;
-	}
+    /**
+     * @param listings
+     *            the listings to set
+     */
+    public void setListings(List listings) {
+        this.listings = listings;
+    }
+
+    /**
+     * @return the searchEntry
+     */
+    public String getSearchEntry() {
+        return searchEntry;
+    }
+
+    /**
+     * @param searchEntry
+     *            the searchEntry to set
+     */
+    public void setSearchEntry(String searchEntry) {
+        this.searchEntry = searchEntry;
+    }
 
 }

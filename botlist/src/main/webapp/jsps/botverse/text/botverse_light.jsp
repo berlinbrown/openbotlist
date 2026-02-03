@@ -18,22 +18,22 @@
 	Light View - Use the light view in order to view, highlight, or copy the most recent links
 	<table class="linklist_data">
 		<c:forEach items="${command.listings}"  var="listing" varStatus="status">
-				<tr>					
+				<tr>
 					<td colspan="3">
 							<span class="linklist_comments_date">_</span>
 							<a href="<c:url value="${listing.mainUrl}" />" >
 									<c:out value="${listing.urlTitle}" />
-							</a>							
+							</a>
 					</td>
 				</tr>
-				<tr>					
-					<td colspan="3">							
+				<tr>
+					<td colspan="3">
 							<a href="<c:url value="${listing.mainUrl}" />" >
 									<c:out value="${listing.mainUrl}" />
-							</a>							
+							</a>
 					</td>
 				</tr>
-				<tr>					
+				<tr>
 					<td colspan="3">
 					<div style="font-size: 10px;">
 						keywords: <c:out value="${listing.keywords}" />
@@ -54,21 +54,21 @@
 					</td>
 					<td>
 						<div class="linklist_comments_txt">
-						 <span class="linklist_comments_date">							
+						 <span class="linklist_comments_date">
 							<botlistutil:timePast dateValue="${listing.createdOn.time}" />
 							on <fmt:formatDate pattern="EE MMM, dd hh:mm" value="${listing.createdOn.time}" />
-							by <c:out value="${listing.fullName}" />					
+							by <c:out value="${listing.fullName}" />
 						 </span>
 						</div>
-					</td>					
+					</td>
 					</tr>
 					</table>
-					<!-- End of inner table -->				
+					<!-- End of inner table -->
 				</td>
 				</tr>
 		</c:forEach>
 	</table>
 </div>
-	
+
 </body>
 </html>

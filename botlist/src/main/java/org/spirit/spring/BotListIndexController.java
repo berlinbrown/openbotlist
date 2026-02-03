@@ -54,8 +54,8 @@ import org.springframework.web.servlet.mvc.SimpleFormController;
 
 /**
  * This is class is used by botverse.
- * @author Berlin Brown
  *
+ * @author Berlin Brown
  */
 public class BotListIndexController extends SimpleFormController {
 
@@ -111,14 +111,13 @@ public class BotListIndexController extends SimpleFormController {
         return handler;
     }
 
-
     /**
-     * @param handler the handler to set
+     * @param handler
+     *            the handler to set
      */
     public final void setHandler(final BotListRubyDAOHandler handlerVal) {
         this.handler = handlerVal;
     }
-
 
     /**
      * @return the cityListingDao
@@ -127,9 +126,9 @@ public class BotListIndexController extends SimpleFormController {
         return cityListingDao;
     }
 
-
     /**
-     * @param cityListingDao the cityListingDao to set.
+     * @param cityListingDao
+     *            the cityListingDao to set.
      */
     public final void setCityListingDao(final BotListCityListingDAO cityListingDaoVal) {
         this.cityListingDao = cityListingDaoVal;
@@ -145,7 +144,9 @@ public class BotListIndexController extends SimpleFormController {
 
     /**
      * Default Database Search.
+     *
      * @Deprecated Deprecated
+     *
      * @return
      */
     private ModelAndView defaultDatabaseSearch(final HttpServletRequest request, final HttpServletResponse response,
@@ -168,8 +169,8 @@ public class BotListIndexController extends SimpleFormController {
         return mvc;
     }
 
-    private ModelAndView defaultIndexSearch(final HttpServletRequest request,
-            final HttpServletResponse response, final Object command, final BindException errors) throws Exception {
+    private ModelAndView defaultIndexSearch(final HttpServletRequest request, final HttpServletResponse response,
+            final Object command, final BindException errors) throws Exception {
 
         BotListUserSearchForm userSearch = (BotListUserSearchForm) command;
         if (userSearch.getSearchEntry() == null || (userSearch.getSearchEntry().length() == 0)) {
@@ -191,15 +192,14 @@ public class BotListIndexController extends SimpleFormController {
     }
 
     protected final ModelAndView processFormSubmission(final HttpServletRequest request,
-                final HttpServletResponse response,
-                final Object command,
-                final BindException errors) throws Exception {
+            final HttpServletResponse response, final Object command, final BindException errors) throws Exception {
 
         return defaultIndexSearch(request, response, command, errors);
     }
 
     /**
-     * @Deprecated   Deprecated
+     * @Deprecated Deprecated
+     *
      * @return
      */
     private Collection findCityListings() {
@@ -218,6 +218,7 @@ public class BotListIndexController extends SimpleFormController {
         String queryStr = "from org.spirit.bean.impl.BotListEntityLinks as links order by links.id desc";
         return this.getEntityLinksDao().pageEntityLinksUsers(queryStr, current_page, MAX_HOME_LINKS);
     }
+
     private List getHomeLinkList() {
         String queryStr = "from org.spirit.bean.impl.BotListEntityLinks as links order by links.id desc";
         return this.getEntityLinksDao().pageEntityLinksUsers(queryStr, 0, MAX_HOME_LINKS);
@@ -253,11 +254,8 @@ public class BotListIndexController extends SimpleFormController {
         BotListCookieManager.systemGetUserCookieParams(request, this.getCoreUsersDao(), this.getProfileSettingsDao());
     }
 
-
     /**
-     * Routine to free memory to avoid out of memory errors.
-     *
-     * (note, bad practice)
+     * Routine to free memory to avoid out of memory errors. (note, bad practice)
      */
     private void cheapFreeHeapMemory() {
         long totalMemory = Runtime.getRuntime().totalMemory();
@@ -277,10 +275,11 @@ public class BotListIndexController extends SimpleFormController {
     }
 
     /**
-     * @see org.springframework.web.servlet.mvc.AbstractController#handleRequestInternal(javax.servlet.http.HttpServletRequest, javax.servlet.http.HttpServletResponse)
+     * @see org.springframework.web.servlet.mvc.AbstractController#handleRequestInternal(javax.servlet.http.HttpServletRequest,
+     *      javax.servlet.http.HttpServletResponse)
      */
-    protected final ModelAndView showForm(final HttpServletRequest request,
-                final HttpServletResponse response, final BindException errors) {
+    protected final ModelAndView showForm(final HttpServletRequest request, final HttpServletResponse response,
+            final BindException errors) {
 
         cheapFreeHeapMemory();
 
@@ -306,20 +305,20 @@ public class BotListIndexController extends SimpleFormController {
         mvc.addObject("linkCount", new Long(this.getEntityLinksDao().getLinkCount()));
         mvc.addObject("userInfo", BotListContractManager.getUserInfo(request));
 
-        //*******************
+        // *******************
         // Display entity links for output to the user on the main page, set one on the left
         // and set two on the right side of the screen
-        //*******************
+        // *******************
         mvc.addObject("linklistings", this.getHomeLinkList());
         mvc.addObject("linklistings_set2", this.getHomeLinkList(1));
         // Updated: 2/2/2008; removed search hot topics
-        //mvc.addObject("hotTopics", this.getHotTopics());
+        // mvc.addObject("hotTopics", this.getHotTopics());
 
         // Display the video media list section
         mvc.addObject("mediaListEnabled", new Boolean(this.getCoreSettings().isMediaEnabled()));
         mvc.addObject("mediaList", this.getMediaList());
 
-        //mvc.addObject("popularwordmap", EntityLinkManager.mapReduceLinkKeywords(this.getEntityLinksDao()));
+        // mvc.addObject("popularwordmap", EntityLinkManager.mapReduceLinkKeywords(this.getEntityLinksDao()));
 
         // Set the form object (search form)
         mvc.addObject("command", new BotListUserSearchForm());
@@ -338,14 +337,13 @@ public class BotListIndexController extends SimpleFormController {
         return entityLinksDao;
     }
 
-
     /**
-     * @param entityLinksDao the entityLinksDao to set
+     * @param entityLinksDao
+     *            the entityLinksDao to set
      */
     public final void setEntityLinksDao(final BotListEntityLinksDAO entityLinksDao_val) {
         this.entityLinksDao = entityLinksDao_val;
     }
-
 
     /**
      * @return the userSearchDao
@@ -354,80 +352,65 @@ public class BotListIndexController extends SimpleFormController {
         return userSearchDao;
     }
 
-
     /**
-     * @param userSearchDao the userSearchDao to set
+     * @param userSearchDao
+     *            the userSearchDao to set
      */
     public void setUserSearchDao(final BotListUserSearchDAO userSearchDao_val) {
         this.userSearchDao = userSearchDao_val;
     }
 
-
     public BotListAdminMainBannerDAO getAdminMainBannerDao() {
         return adminMainBannerDao;
     }
-
 
     public void setAdminMainBannerDao(final BotListAdminMainBannerDAO adminMainBannerDao_val) {
         this.adminMainBannerDao = adminMainBannerDao_val;
     }
 
-
     public BotListCoreSettings getCoreSettings() {
         return coreSettings;
     }
-
 
     public void setCoreSettings(final BotListCoreSettings coreSettings_val) {
         this.coreSettings = coreSettings_val;
     }
 
-
     public BotListActiveMediaFeedsDAO getActiveMediaFeedsDao() {
         return activeMediaFeedsDao;
     }
 
-
-    public void setActiveMediaFeedsDao(
-            final BotListActiveMediaFeedsDAO activeMediaFeedsDao_val) {
+    public void setActiveMediaFeedsDao(final BotListActiveMediaFeedsDAO activeMediaFeedsDao_val) {
         this.activeMediaFeedsDao = activeMediaFeedsDao_val;
     }
-
 
     public BotListMediaFeedsDAO getMediaFeedsDao() {
         return mediaFeedsDao;
     }
 
-
     public void setMediaFeedsDao(final BotListMediaFeedsDAO mediaFeedsDao_val) {
         this.mediaFeedsDao = mediaFeedsDao_val;
     }
-
 
     public BotListSearchQueryFiltersDAO getSearchQueryFiltersDao() {
         return searchQueryFiltersDao;
     }
 
-
     public void setSearchQueryFiltersDao(final BotListSearchQueryFiltersDAO searchQueryFiltersDao_val) {
         this.searchQueryFiltersDao = searchQueryFiltersDao_val;
     }
-
 
     public BotListCoreUsersDAO getCoreUsersDao() {
         return coreUsersDao;
     }
 
-
     public void setCoreUsersDao(final BotListCoreUsersDAO coreUsersDao_val) {
         this.coreUsersDao = coreUsersDao_val;
     }
 
-
     public final BotListProfileSettingsDAO getProfileSettingsDao() {
         return profileSettingsDao;
     }
-
 
     public final void setProfileSettingsDao(final BotListProfileSettingsDAO profileSettingsDao_val) {
         this.profileSettingsDao = profileSettingsDao_val;

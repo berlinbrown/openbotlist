@@ -12,235 +12,246 @@ import org.spirit.form.base.BotListBaseForm;
 
 /**
  * This is class is used by botverse.
- * 
+ *
  * @author Berlin Brown
- * 
  */
 
-public class BotListEntityLinksForm extends BotListBaseForm implements
-		BotListBaseCalcVerify {
+public class BotListEntityLinksForm extends BotListBaseForm implements BotListBaseCalcVerify {
 
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 8658902729040659129L;
+    /**
+     *
+     */
+    private static final long serialVersionUID = 8658902729040659129L;
 
-	private String mainUrl;	
+    private String mainUrl;
 
-	private Calendar createdOn;
+    private Calendar createdOn;
 
-	private String keywords;
+    private String keywords;
 
-	private String urlDescription;
+    private String urlDescription;
 
-	private String urlTitle;
+    private String urlTitle;
 
-	private Long firstInput;
+    private Long firstInput;
 
-	private Long secondInput;
+    private Long secondInput;
 
-	private Long solution;
+    private Long solution;
 
-	private Long userSolution;
+    private Long userSolution;
 
-	private Long prevSolution;
+    private Long prevSolution;
 
-	private String roverVerify;
-	
-	private String generatedId;
-	
-	private String fullName;
-	
-	private boolean isGroupLink;
-	
-	public String getRoverVerify() {
-		return roverVerify;
-	}
+    private String roverVerify;
 
-	public void setRoverVerify(String roverVerify) {
-		this.roverVerify = roverVerify;
-	}
+    private String generatedId;
 
-	/**
-	 * @return the firstInput
-	 */
-	public Long getFirstInput() {
-		return firstInput;
-	}
+    private String fullName;
 
-	/**
-	 * @param firstInput the firstInput to set
-	 */
-	public void setFirstInput(Long firstInput) {
-		this.firstInput = firstInput;
-	}
+    private boolean isGroupLink;
 
-	/**
-	 * @return the prevSolution
-	 */
-	public Long getPrevSolution() {
-		return prevSolution;
-	}
+    public String getRoverVerify() {
+        return roverVerify;
+    }
 
-	/**
-	 * @param prevSolution the prevSolution to set
-	 */
-	public void setPrevSolution(Long prevSolution) {
-		this.prevSolution = prevSolution;
-	}
+    public void setRoverVerify(String roverVerify) {
+        this.roverVerify = roverVerify;
+    }
 
-	/**
-	 * @return the secondInput
-	 */
-	public Long getSecondInput() {
-		return secondInput;
-	}
+    /**
+     * @return the firstInput
+     */
+    public Long getFirstInput() {
+        return firstInput;
+    }
 
-	/**
-	 * @param secondInput the secondInput to set
-	 */
-	public void setSecondInput(Long secondInput) {
-		this.secondInput = secondInput;
-	}
+    /**
+     * @param firstInput
+     *            the firstInput to set
+     */
+    public void setFirstInput(Long firstInput) {
+        this.firstInput = firstInput;
+    }
 
-	/**
-	 * @return the solution
-	 */
-	public Long getSolution() {
-		return solution;
-	}
+    /**
+     * @return the prevSolution
+     */
+    public Long getPrevSolution() {
+        return prevSolution;
+    }
 
-	/**
-	 * @param solution the solution to set
-	 */
-	public void setSolution(Long solution) {
-		this.solution = solution;
-	}
+    /**
+     * @param prevSolution
+     *            the prevSolution to set
+     */
+    public void setPrevSolution(Long prevSolution) {
+        this.prevSolution = prevSolution;
+    }
 
-	/**
-	 * @return the userSolution
-	 */
-	public Long getUserSolution() {
-		return userSolution;
-	}
+    /**
+     * @return the secondInput
+     */
+    public Long getSecondInput() {
+        return secondInput;
+    }
 
-	/**
-	 * @param userSolution the userSolution to set
-	 */
-	public void setUserSolution(Long userSolution) {
-		this.userSolution = userSolution;
-	}
+    /**
+     * @param secondInput
+     *            the secondInput to set
+     */
+    public void setSecondInput(Long secondInput) {
+        this.secondInput = secondInput;
+    }
 
-	public Calendar getCreatedOn() {
-		if (createdOn == null) {
-			createdOn = Calendar.getInstance();
-		}
-		return createdOn;
-	}
-	
-	/**
-	 * @return the keywords
-	 */
-	public String getKeywords() {
-		return keywords;
-	}
+    /**
+     * @return the solution
+     */
+    public Long getSolution() {
+        return solution;
+    }
 
-	/**
-	 * @param keywords the keywords to set
-	 */
-	public void setKeywords(String keywords) {
-		this.keywords = keywords;
-	}
+    /**
+     * @param solution
+     *            the solution to set
+     */
+    public void setSolution(Long solution) {
+        this.solution = solution;
+    }
 
-	/**
-	 * @return the mainUrl
-	 */
-	public String getMainUrl() {
-		return mainUrl;
-	}
+    /**
+     * @return the userSolution
+     */
+    public Long getUserSolution() {
+        return userSolution;
+    }
 
-	/**
-	 * @param mainUrl the mainUrl to set
-	 */
-	public void setMainUrl(String mainUrl) {
-		this.mainUrl = mainUrl;
-	}
+    /**
+     * @param userSolution
+     *            the userSolution to set
+     */
+    public void setUserSolution(Long userSolution) {
+        this.userSolution = userSolution;
+    }
 
-	/**
-	 * @return the urlDescription
-	 */
-	public String getUrlDescription() {
-		return urlDescription;
-	}
+    public Calendar getCreatedOn() {
+        if (createdOn == null) {
+            createdOn = Calendar.getInstance();
+        }
+        return createdOn;
+    }
 
-	/**
-	 * @param urlDescription the urlDescription to set
-	 */
-	public void setUrlDescription(String urlDescription) {
-		this.urlDescription = urlDescription;
-	}
+    /**
+     * @return the keywords
+     */
+    public String getKeywords() {
+        return keywords;
+    }
 
-	/**
-	 * @return the urlTitle
-	 */
-	public String getUrlTitle() {
-		return urlTitle;
-	}
+    /**
+     * @param keywords
+     *            the keywords to set
+     */
+    public void setKeywords(String keywords) {
+        this.keywords = keywords;
+    }
 
-	/**
-	 * @param urlTitle the urlTitle to set
-	 */
-	public void setUrlTitle(String urlTitle) {
-		this.urlTitle = urlTitle;
-	}
+    /**
+     * @return the mainUrl
+     */
+    public String getMainUrl() {
+        return mainUrl;
+    }
 
-	/**
-	 * @param createdOn the createdOn to set
-	 */
-	public void setCreatedOn(Calendar createdOn) {
-		this.createdOn = createdOn;
-	}
+    /**
+     * @param mainUrl
+     *            the mainUrl to set
+     */
+    public void setMainUrl(String mainUrl) {
+        this.mainUrl = mainUrl;
+    }
 
-	/**
-	 * @return the generatedId
-	 */
-	public String getGeneratedId() {
-		return generatedId;
-	}
+    /**
+     * @return the urlDescription
+     */
+    public String getUrlDescription() {
+        return urlDescription;
+    }
 
-	/**
-	 * @param generatedId the generatedId to set
-	 */
-	public void setGeneratedId(String generatedId) {
-		this.generatedId = generatedId;
-	}
+    /**
+     * @param urlDescription
+     *            the urlDescription to set
+     */
+    public void setUrlDescription(String urlDescription) {
+        this.urlDescription = urlDescription;
+    }
 
-	/**
-	 * @return the fullName
-	 */
-	public String getFullName() {
-		return fullName;
-	}
+    /**
+     * @return the urlTitle
+     */
+    public String getUrlTitle() {
+        return urlTitle;
+    }
 
-	/**
-	 * @param fullName the fullName to set
-	 */
-	public void setFullName(String fullName) {
-		this.fullName = fullName;
-	}
+    /**
+     * @param urlTitle
+     *            the urlTitle to set
+     */
+    public void setUrlTitle(String urlTitle) {
+        this.urlTitle = urlTitle;
+    }
 
-	/**
-	 * @return the isGroupLink
-	 */
-	public boolean isGroupLink() {
-		return isGroupLink;
-	}
+    /**
+     * @param createdOn
+     *            the createdOn to set
+     */
+    public void setCreatedOn(Calendar createdOn) {
+        this.createdOn = createdOn;
+    }
 
-	/**
-	 * @param isGroupLink the isGroupLink to set
-	 */
-	public void setGroupLink(boolean isGroupLink) {
-		this.isGroupLink = isGroupLink;
-	}
+    /**
+     * @return the generatedId
+     */
+    public String getGeneratedId() {
+        return generatedId;
+    }
+
+    /**
+     * @param generatedId
+     *            the generatedId to set
+     */
+    public void setGeneratedId(String generatedId) {
+        this.generatedId = generatedId;
+    }
+
+    /**
+     * @return the fullName
+     */
+    public String getFullName() {
+        return fullName;
+    }
+
+    /**
+     * @param fullName
+     *            the fullName to set
+     */
+    public void setFullName(String fullName) {
+        this.fullName = fullName;
+    }
+
+    /**
+     * @return the isGroupLink
+     */
+    public boolean isGroupLink() {
+        return isGroupLink;
+    }
+
+    /**
+     * @param isGroupLink
+     *            the isGroupLink to set
+     */
+    public void setGroupLink(boolean isGroupLink) {
+        this.isGroupLink = isGroupLink;
+    }
 
 }

@@ -1,12 +1,12 @@
 /*
  * Berlin Brown
  * Created on Nov 2, 2006
- * 
+ *
  *
  * -------------------------- COPYRIGHT_AND_LICENSE --
- * Botlist contains an open source suite of software applications for 
- * social bookmarking and collecting online news content for use on the web.  
- * Multiple web front-ends exist for Django, Rails, and J2EE.  
+ * Botlist contains an open source suite of software applications for
+ * social bookmarking and collecting online news content for use on the web.
+ * Multiple web front-ends exist for Django, Rails, and J2EE.
  * Users and remote agents are allowed to submit interesting articles.
  *
  * Copyright (c) 2007, Botnode.com (Berlin Brown)
@@ -14,18 +14,18 @@
  *
  * All rights reserved.
  *
- * Redistribution and use in source and binary forms, with or without modification, 
+ * Redistribution and use in source and binary forms, with or without modification,
  * are permitted provided that the following conditions are met:
  *
- *	    * Redistributions of source code must retain the above copyright notice, 
+ *	    * Redistributions of source code must retain the above copyright notice,
  *	    this list of conditions and the following disclaimer.
- *	    * Redistributions in binary form must reproduce the above copyright notice, 
- *	    this list of conditions and the following disclaimer in the documentation 
+ *	    * Redistributions in binary form must reproduce the above copyright notice,
+ *	    this list of conditions and the following disclaimer in the documentation
  *	    and/or other materials provided with the distribution.
- *	    * Neither the name of the Botnode.com (Berlin Brown) nor 
- *	    the names of its contributors may be used to endorse or promote 
+ *	    * Neither the name of the Botnode.com (Berlin Brown) nor
+ *	    the names of its contributors may be used to endorse or promote
  *	    products derived from this software without specific prior written permission.
- *	
+ *
  * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
  * "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
  * LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
@@ -54,220 +54,228 @@ import org.spirit.util.io.JRubyIOHelper;
 import org.springframework.context.ApplicationContext;
 
 /**
- * Spring Controller that interfaces between spring and jruby; reads the ruby script and invokes the
- * correct model and view.
- * 
- * @author Berlin Brown 
+ * Spring Controller that interfaces between spring and jruby; reads the ruby script and invokes the correct model and
+ * view.
+ *
+ * @author Berlin Brown
  */
-public class GenericJRubyLoader  {
+public class GenericJRubyLoader {
 
-	private Log log = LogFactory.getLog(getClass());
+    private Log log = LogFactory.getLog(getClass());
 
-	private static int classInvokedId = 0;
-	private static final String _CLASS_IDENTIFIER = "BotListRubyController: ";
+    private static int classInvokedId = 0;
+    private static final String _CLASS_IDENTIFIER = "BotListRubyController: ";
 
-	/**
-	 * Ruby and BSF Managers.
-	 */
-	private BSFManager mManager;
-	private JRubyEngine mEngine;
-	
-	private ApplicationContext applicationContext;
+    /**
+     * Ruby and BSF Managers.
+     */
+    private BSFManager mManager;
+    private JRubyEngine mEngine;
 
-	// configuration parametes and defaults
-	private String mScriptEngineClass = "org.jruby.javasupport.bsf.JRubyEngine";
-	
-	private String mScriptEngineName = "ruby";
-	private String mScriptExtension = "rb";
+    private ApplicationContext applicationContext;
 
-	/** 
-	 * Record keeping, when the script starts and ends.
-	 */
-	private long scriptStartTime = 0;
-	private long scriptEndTime = 0;
+    // configuration parametes and defaults
+    private String mScriptEngineClass = "org.jruby.javasupport.bsf.JRubyEngine";
 
-	/**
-	 * Default Constructor.	 
-	 */
-	public GenericJRubyLoader() {		
-	}
+    private String mScriptEngineName = "ruby";
+    private String mScriptExtension = "rb";
 
-	public static int getClassInvoked() {
-		classInvokedId++;
-		return classInvokedId; 
-	}
+    /**
+     * Record keeping, when the script starts and ends.
+     */
+    private long scriptStartTime = 0;
+    private long scriptEndTime = 0;
 
-	private static String CLASS_IDENTIFIER() {
-		return getClassInvoked() + "| " + _CLASS_IDENTIFIER;
-	}
-	
-	/**
-	 * Establish bean objects for Ruby environment.
-	 * 
-	 * @throws BSFException
-	 */
-	protected final void initializeManagerBeans() throws BSFException {
+    /**
+     * Default Constructor.
+     */
+    public GenericJRubyLoader() {
+    }
 
-		// Define the hibernate database objects for later use
-		if (getApplicationContext() != null)
-			mManager.declareBean("context", getApplicationContext(), ApplicationContext.class);
-					
-	}
+    public static int getClassInvoked() {
+        classInvokedId++;
+        return classInvokedId;
+    }
 
-	protected void initializeManager() throws BSFException {
+    private static String CLASS_IDENTIFIER() {
+        return getClassInvoked() + "| " + _CLASS_IDENTIFIER;
+    }
 
-		BSFManager.registerScriptingEngine(getScriptEngineName(), 
-						getScriptEngineClass(), new String[] { getScriptExtension()});
-		mManager = new BSFManager();
-		setEngine((JRubyEngine) (mManager.loadScriptingEngine(getScriptEngineName())));
-		initializeManagerBeans();								
-		onInitializeManager();
-		
-	}
+    /**
+     * Establish bean objects for Ruby environment.
+     *
+     * @throws BSFException
+     */
+    protected final void initializeManagerBeans() throws BSFException {
 
-	public BSFManager getManager() throws BSFException {
-		if (mManager == null) {
-			initializeManager();
-		}
-		return mManager;
-	}
+        // Define the hibernate database objects for later use
+        if (getApplicationContext() != null)
+            mManager.declareBean("context", getApplicationContext(), ApplicationContext.class);
 
-	/**
-	 * Read a Ruby Script into a String.
-	 */
-	public static String readRubyScript(String filename) {
-		String rubyCode = "";
-		FileInputStream fis = null;
-		BufferedInputStream bis = null;
-		
-		try {
-			fis = new FileInputStream(filename);
-			bis = new BufferedInputStream(fis);			
-			rubyCode = JRubyIOHelper.inputStreamToString(bis);
-		} catch (IOException e) { 
-			System.err.println("********* Error Loading Ruby Script *********");
-			System.err.println(e.getMessage());
-			e.printStackTrace();		
-		} finally {
-			JRubyIOHelper.close(bis);
-			JRubyIOHelper.close(fis);
-		}
-		return rubyCode;
-	}
-	
-	/**
-	 * Run Ruby Script.
-	 * 		 
-	 * @param request
-	 * @return
-	 * @throws BSFException
-	 */
-	public Object runRubyScript(String filename) throws BSFException {
-		BSFManager manager = this.getManager();
-		Object controller = null;				
-		FileInputStream fis = null;
-		BufferedInputStream bis = null;
-		try {
-			this.scriptStartTime = System.currentTimeMillis();
-			log.info(CLASS_IDENTIFIER() + "Loading ruby script=" + filename);			
-			fis = new FileInputStream(filename);
-			bis = new BufferedInputStream(fis);			
-			String rubyCode = JRubyIOHelper.inputStreamToString(bis);			
-			controller = manager.eval(getScriptEngineName(), "(java)", 1, 1, rubyCode);				
-		} catch (IOException e) { 
-			System.err.println("********* Controller File Does Not Exist *********");
-			System.err.println(e.getMessage());
-			e.printStackTrace();		
-		} catch (BSFException e) {
-			e.printStackTrace();
-			// rethrow the exception with a detailed error message.
-			Throwable targetException = e.getTargetException();
-			// BSFManager likes to get in a bad state when errors happen
-			setManager(null);
-			throw new BSFException(e.getReason(), targetException.getMessage(), targetException);
-		} finally {			
-			JRubyIOHelper.close(bis);
-			JRubyIOHelper.close(fis);			
-		}
-		return controller;
-	}
+    }
 
-	/**
-	 * Invoke Ruby Controller Method.
-	 * 
-	 * @param rubyController
-	 * @param methodName
-	 * @param args
-	 * @return
-	 * @throws BSFException
-	 */
-	protected Object invokeRubyControllerMethod(Object rubyController, String methodName, Object[] args) throws BSFException {
-		if (rubyController == null) {
-			return null;
-		}
-		return getEngine().call(rubyController, methodName, args);
-	}
-	
-	/**************************************************************************
-	 *  Setter and Getter Utility Methods
-	 **************************************************************************/
-	protected void onInitializeManager() {
-	}
+    protected void initializeManager() throws BSFException {
 
-	private void setEngine(JRubyEngine jRubyEngine) {
-		mEngine = jRubyEngine;
-	}
+        BSFManager.registerScriptingEngine(getScriptEngineName(), getScriptEngineClass(),
+                new String[] { getScriptExtension() });
+        mManager = new BSFManager();
+        setEngine((JRubyEngine) (mManager.loadScriptingEngine(getScriptEngineName())));
+        initializeManagerBeans();
+        onInitializeManager();
 
-	public Log getLogger() {
-		return log;
-	}
-	public void setLogger(Log logger) {
-		log = logger;
-	}
+    }
 
-	public void setManager(BSFManager manager) {
-		mManager = manager;
-	}
-	public JRubyEngine getEngine() {
-		return mEngine;
-	}
+    public BSFManager getManager() throws BSFException {
+        if (mManager == null) {
+            initializeManager();
+        }
+        return mManager;
+    }
 
-	public String getScriptEngineClass() {
-		return mScriptEngineClass;
-	}
+    /**
+     * Read a Ruby Script into a String.
+     */
+    public static String readRubyScript(String filename) {
+        String rubyCode = "";
+        FileInputStream fis = null;
+        BufferedInputStream bis = null;
 
-	public void setScriptEngineClass(String scriptEngineClass) {
-		mScriptEngineClass = scriptEngineClass;
-	}
+        try {
+            fis = new FileInputStream(filename);
+            bis = new BufferedInputStream(fis);
+            rubyCode = JRubyIOHelper.inputStreamToString(bis);
+        } catch (IOException e) {
+            System.err.println("********* Error Loading Ruby Script *********");
+            System.err.println(e.getMessage());
+            e.printStackTrace();
+        } finally {
+            JRubyIOHelper.close(bis);
+            JRubyIOHelper.close(fis);
+        }
+        return rubyCode;
+    }
 
-	public String getScriptEngineName() {
-		return mScriptEngineName;
-	}
+    /**
+     * Run Ruby Script.
+     *
+     * @param request
+     *
+     * @return
+     *
+     * @throws BSFException
+     */
+    public Object runRubyScript(String filename) throws BSFException {
+        BSFManager manager = this.getManager();
+        Object controller = null;
+        FileInputStream fis = null;
+        BufferedInputStream bis = null;
+        try {
+            this.scriptStartTime = System.currentTimeMillis();
+            log.info(CLASS_IDENTIFIER() + "Loading ruby script=" + filename);
+            fis = new FileInputStream(filename);
+            bis = new BufferedInputStream(fis);
+            String rubyCode = JRubyIOHelper.inputStreamToString(bis);
+            controller = manager.eval(getScriptEngineName(), "(java)", 1, 1, rubyCode);
+        } catch (IOException e) {
+            System.err.println("********* Controller File Does Not Exist *********");
+            System.err.println(e.getMessage());
+            e.printStackTrace();
+        } catch (BSFException e) {
+            e.printStackTrace();
+            // rethrow the exception with a detailed error message.
+            Throwable targetException = e.getTargetException();
+            // BSFManager likes to get in a bad state when errors happen
+            setManager(null);
+            throw new BSFException(e.getReason(), targetException.getMessage(), targetException);
+        } finally {
+            JRubyIOHelper.close(bis);
+            JRubyIOHelper.close(fis);
+        }
+        return controller;
+    }
 
-	public void setScriptEngineName(String scriptEngineName) {
-		mScriptEngineName = scriptEngineName;
-	}
+    /**
+     * Invoke Ruby Controller Method.
+     *
+     * @param rubyController
+     * @param methodName
+     * @param args
+     *
+     * @return
+     *
+     * @throws BSFException
+     */
+    protected Object invokeRubyControllerMethod(Object rubyController, String methodName, Object[] args)
+            throws BSFException {
+        if (rubyController == null) {
+            return null;
+        }
+        return getEngine().call(rubyController, methodName, args);
+    }
 
-	public String getScriptExtension() {
-		return mScriptExtension;
-	}
+    /**************************************************************************
+     * Setter and Getter Utility Methods
+     **************************************************************************/
+    protected void onInitializeManager() {
+    }
 
-	public void setScriptExtension(String scriptExtension) {
-		mScriptExtension = scriptExtension;
-	}
+    private void setEngine(JRubyEngine jRubyEngine) {
+        mEngine = jRubyEngine;
+    }
 
-	/**
-	 * @return the applicationContext
-	 */
-	public ApplicationContext getApplicationContext() {
-		return applicationContext;
-	}
+    public Log getLogger() {
+        return log;
+    }
 
-	/**
-	 * @param applicationContext the applicationContext to set
-	 */
-	public void setApplicationContext(ApplicationContext applicationContext) {
-		this.applicationContext = applicationContext;
-	}	
+    public void setLogger(Log logger) {
+        log = logger;
+    }
+
+    public void setManager(BSFManager manager) {
+        mManager = manager;
+    }
+
+    public JRubyEngine getEngine() {
+        return mEngine;
+    }
+
+    public String getScriptEngineClass() {
+        return mScriptEngineClass;
+    }
+
+    public void setScriptEngineClass(String scriptEngineClass) {
+        mScriptEngineClass = scriptEngineClass;
+    }
+
+    public String getScriptEngineName() {
+        return mScriptEngineName;
+    }
+
+    public void setScriptEngineName(String scriptEngineName) {
+        mScriptEngineName = scriptEngineName;
+    }
+
+    public String getScriptExtension() {
+        return mScriptExtension;
+    }
+
+    public void setScriptExtension(String scriptExtension) {
+        mScriptExtension = scriptExtension;
+    }
+
+    /**
+     * @return the applicationContext
+     */
+    public ApplicationContext getApplicationContext() {
+        return applicationContext;
+    }
+
+    /**
+     * @param applicationContext
+     *            the applicationContext to set
+     */
+    public void setApplicationContext(ApplicationContext applicationContext) {
+        this.applicationContext = applicationContext;
+    }
 
 }

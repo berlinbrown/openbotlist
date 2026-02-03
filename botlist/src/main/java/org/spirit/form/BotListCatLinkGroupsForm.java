@@ -12,16 +12,14 @@ import java.util.Calendar;
 
 /**
  * This is class is used by botverse.
- * 
+ *
  * @author Berlin Brown
- * 
  */
 
 public class BotListCatLinkGroupsForm extends BotListBaseForm {
 
-		private String categoryDescr;
-		private String categoryColor;
-		private String categoryName;
-
+    private String categoryDescr;
+    private String categoryColor;
+    private String categoryName;
 
 }

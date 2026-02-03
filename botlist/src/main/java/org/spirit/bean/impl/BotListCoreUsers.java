@@ -13,272 +13,287 @@ import org.spirit.bean.impl.base.BotListBeanBase;
 
 /**
  * This is class is used by botverse.
- * 
+ *
  * @author Berlin Brown
- * 
  */
 
 public class BotListCoreUsers extends BotListBeanBase implements Serializable {
 
-	private static final long serialVersionUID = 113928473079456583L;
+    private static final long serialVersionUID = 113928473079456583L;
 
-	private Calendar lastLoginSuccess;
-	private Calendar lastLoginFailure; 
-	private Calendar updatedOn;	
-	private Calendar dateOfBirth;
-	
-	private Long secretquesCode;
-	private String secretAnswer;
-	private String accountNumber;	
-	private Long activeCode;
-	private Long failedAttempts;
-	
-	private String userPassword;
+    private Calendar lastLoginSuccess;
+    private Calendar lastLoginFailure;
+    private Calendar updatedOn;
+    private Calendar dateOfBirth;
 
-	private Long karma;
+    private Long secretquesCode;
+    private String secretAnswer;
+    private String accountNumber;
+    private Long activeCode;
+    private Long failedAttempts;
 
-	private String userRights;
+    private String userPassword;
 
-	private Long experiencePoints;
+    private Long karma;
 
-	private String userName;
+    private String userRights;
 
-	private String userEmail;
-	
-	private String userUrl;
-	
-	private List links;
+    private Long experiencePoints;
 
-	/**
-	 * @return the userUrl
-	 */
-	public String getUserUrl() {
-		return userUrl;
-	}
+    private String userName;
 
-	/**
-	 * @param userUrl the userUrl to set
-	 */
-	public void setUserUrl(String userUrl) {
-		this.userUrl = userUrl;
-	}
+    private String userEmail;
 
-	/**
-	 * @return the experiencePoints
-	 */
-	public Long getExperiencePoints() {
-		return experiencePoints;
-	}
+    private String userUrl;
 
-	/**
-	 * @param experiencePoints the experiencePoints to set
-	 */
-	public void setExperiencePoints(Long experiencePoints) {
-		this.experiencePoints = experiencePoints;
-	}
+    private List links;
 
-	/**
-	 * @return the karma
-	 */
-	public Long getKarma() {
-		return karma;
-	}
+    /**
+     * @return the userUrl
+     */
+    public String getUserUrl() {
+        return userUrl;
+    }
 
-	/**
-	 * @param karma the karma to set
-	 */
-	public void setKarma(Long karma) {
-		this.karma = karma;
-	}
+    /**
+     * @param userUrl
+     *            the userUrl to set
+     */
+    public void setUserUrl(String userUrl) {
+        this.userUrl = userUrl;
+    }
 
-	/**
-	 * @return the userEmail
-	 */
-	public String getUserEmail() {
-		return userEmail;
-	}
+    /**
+     * @return the experiencePoints
+     */
+    public Long getExperiencePoints() {
+        return experiencePoints;
+    }
 
-	/**
-	 * @param userEmail the userEmail to set
-	 */
-	public void setUserEmail(String userEmail) {
-		this.userEmail = userEmail;
-	}
+    /**
+     * @param experiencePoints
+     *            the experiencePoints to set
+     */
+    public void setExperiencePoints(Long experiencePoints) {
+        this.experiencePoints = experiencePoints;
+    }
 
-	/**
-	 * @return the userName
-	 */
-	public String getUserName() {
-		return userName;
-	}
+    /**
+     * @return the karma
+     */
+    public Long getKarma() {
+        return karma;
+    }
 
-	/**
-	 * @param userName the userName to set
-	 */
-	public void setUserName(String userName) {
-		this.userName = userName;
-	}
+    /**
+     * @param karma
+     *            the karma to set
+     */
+    public void setKarma(Long karma) {
+        this.karma = karma;
+    }
 
-	/**
-	 * @return the userPassword
-	 */
-	public String getUserPassword() {
-		return userPassword;
-	}
+    /**
+     * @return the userEmail
+     */
+    public String getUserEmail() {
+        return userEmail;
+    }
 
-	/**
-	 * @param userPassword the userPassword to set
-	 */
-	public void setUserPassword(String userPassword) {
-		this.userPassword = userPassword;
-	}
+    /**
+     * @param userEmail
+     *            the userEmail to set
+     */
+    public void setUserEmail(String userEmail) {
+        this.userEmail = userEmail;
+    }
 
-	/**
-	 * @return the userRights
-	 */
-	public String getUserRights() {
-		return userRights;
-	}
+    /**
+     * @return the userName
+     */
+    public String getUserName() {
+        return userName;
+    }
 
-	/**
-	 * @param userRights the userRights to set
-	 */
-	public void setUserRights(String userRights) {
-		this.userRights = userRights;
-	}
+    /**
+     * @param userName
+     *            the userName to set
+     */
+    public void setUserName(String userName) {
+        this.userName = userName;
+    }
 
-	/**
-	 * @return the accountNumber
-	 */
-	public String getAccountNumber() {
-		return accountNumber;
-	}
+    /**
+     * @return the userPassword
+     */
+    public String getUserPassword() {
+        return userPassword;
+    }
 
-	/**
-	 * @param accountNumber the accountNumber to set
-	 */
-	public void setAccountNumber(String accountNumber) {
-		this.accountNumber = accountNumber;
-	}
+    /**
+     * @param userPassword
+     *            the userPassword to set
+     */
+    public void setUserPassword(String userPassword) {
+        this.userPassword = userPassword;
+    }
 
-	/**
-	 * @return the activeCode
-	 */
-	public Long getActiveCode() {
-		return activeCode;
-	}
+    /**
+     * @return the userRights
+     */
+    public String getUserRights() {
+        return userRights;
+    }
 
-	/**
-	 * @param activeCode the activeCode to set
-	 */
-	public void setActiveCode(Long activeCode) {
-		this.activeCode = activeCode;
-	}
+    /**
+     * @param userRights
+     *            the userRights to set
+     */
+    public void setUserRights(String userRights) {
+        this.userRights = userRights;
+    }
 
-	/**
-	 * @return the failedAttempts
-	 */
-	public Long getFailedAttempts() {
-		return failedAttempts;
-	}
+    /**
+     * @return the accountNumber
+     */
+    public String getAccountNumber() {
+        return accountNumber;
+    }
 
-	/**
-	 * @param failedAttempts the failedAttempts to set
-	 */
-	public void setFailedAttempts(Long failedAttempts) {
-		this.failedAttempts = failedAttempts;
-	}
+    /**
+     * @param accountNumber
+     *            the accountNumber to set
+     */
+    public void setAccountNumber(String accountNumber) {
+        this.accountNumber = accountNumber;
+    }
 
-	/**
-	 * @return the lastLoginFailure
-	 */
-	public Calendar getLastLoginFailure() {
-		return lastLoginFailure;
-	}
+    /**
+     * @return the activeCode
+     */
+    public Long getActiveCode() {
+        return activeCode;
+    }
 
-	/**
-	 * @param lastLoginFailure the lastLoginFailure to set
-	 */
-	public void setLastLoginFailure(Calendar lastLoginFailure) {
-		this.lastLoginFailure = lastLoginFailure;
-	}
+    /**
+     * @param activeCode
+     *            the activeCode to set
+     */
+    public void setActiveCode(Long activeCode) {
+        this.activeCode = activeCode;
+    }
 
-	/**
-	 * @return the lastLoginSuccess
-	 */
-	public Calendar getLastLoginSuccess() {
-		return lastLoginSuccess;
-	}
+    /**
+     * @return the failedAttempts
+     */
+    public Long getFailedAttempts() {
+        return failedAttempts;
+    }
 
-	/**
-	 * @param lastLoginSuccess the lastLoginSuccess to set
-	 */
-	public void setLastLoginSuccess(Calendar lastLoginSuccess) {
-		this.lastLoginSuccess = lastLoginSuccess;
-	}
+    /**
+     * @param failedAttempts
+     *            the failedAttempts to set
+     */
+    public void setFailedAttempts(Long failedAttempts) {
+        this.failedAttempts = failedAttempts;
+    }
 
-	/**
-	 * @return the secretAnswer
-	 */
-	public String getSecretAnswer() {
-		return secretAnswer;
-	}
+    /**
+     * @return the lastLoginFailure
+     */
+    public Calendar getLastLoginFailure() {
+        return lastLoginFailure;
+    }
 
-	/**
-	 * @param secretAnswer the secretAnswer to set
-	 */
-	public void setSecretAnswer(String secretAnswer) {
-		this.secretAnswer = secretAnswer;
-	}
+    /**
+     * @param lastLoginFailure
+     *            the lastLoginFailure to set
+     */
+    public void setLastLoginFailure(Calendar lastLoginFailure) {
+        this.lastLoginFailure = lastLoginFailure;
+    }
 
-	/**
-	 * @return the secretquesCode
-	 */
-	public Long getSecretquesCode() {
-		return secretquesCode;
-	}
+    /**
+     * @return the lastLoginSuccess
+     */
+    public Calendar getLastLoginSuccess() {
+        return lastLoginSuccess;
+    }
 
-	/**
-	 * @param secretquesCode the secretquesCode to set
-	 */
-	public void setSecretquesCode(Long secretquesCode) {
-		this.secretquesCode = secretquesCode;
-	}
+    /**
+     * @param lastLoginSuccess
+     *            the lastLoginSuccess to set
+     */
+    public void setLastLoginSuccess(Calendar lastLoginSuccess) {
+        this.lastLoginSuccess = lastLoginSuccess;
+    }
 
-	/**
-	 * @return the updatedOn
-	 */
-	public Calendar getUpdatedOn() {
-		return updatedOn;
-	}
+    /**
+     * @return the secretAnswer
+     */
+    public String getSecretAnswer() {
+        return secretAnswer;
+    }
 
-	/**
-	 * @param updatedOn the updatedOn to set
-	 */
-	public void setUpdatedOn(Calendar updatedOn) {
-		this.updatedOn = updatedOn;
-	}
+    /**
+     * @param secretAnswer
+     *            the secretAnswer to set
+     */
+    public void setSecretAnswer(String secretAnswer) {
+        this.secretAnswer = secretAnswer;
+    }
 
-	/**
-	 * @return the dateOfBirth
-	 */
-	public Calendar getDateOfBirth() {
-		return dateOfBirth;
-	}
+    /**
+     * @return the secretquesCode
+     */
+    public Long getSecretquesCode() {
+        return secretquesCode;
+    }
 
-	/**
-	 * @param dateOfBirth the dateOfBirth to set
-	 */
-	public void setDateOfBirth(Calendar dateOfBirth) {
-		this.dateOfBirth = dateOfBirth;
-	}
+    /**
+     * @param secretquesCode
+     *            the secretquesCode to set
+     */
+    public void setSecretquesCode(Long secretquesCode) {
+        this.secretquesCode = secretquesCode;
+    }
 
-	public List getLinks() {
-		return links;
-	}
+    /**
+     * @return the updatedOn
+     */
+    public Calendar getUpdatedOn() {
+        return updatedOn;
+    }
 
-	public void setLinks(List links) {
-		this.links = links;
-	}
+    /**
+     * @param updatedOn
+     *            the updatedOn to set
+     */
+    public void setUpdatedOn(Calendar updatedOn) {
+        this.updatedOn = updatedOn;
+    }
+
+    /**
+     * @return the dateOfBirth
+     */
+    public Calendar getDateOfBirth() {
+        return dateOfBirth;
+    }
+
+    /**
+     * @param dateOfBirth
+     *            the dateOfBirth to set
+     */
+    public void setDateOfBirth(Calendar dateOfBirth) {
+        this.dateOfBirth = dateOfBirth;
+    }
+
+    public List getLinks() {
+        return links;
+    }
+
+    public void setLinks(List links) {
+        this.links = links;
+    }
 
 }

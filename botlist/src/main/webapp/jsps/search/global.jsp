@@ -15,18 +15,18 @@
 <link href="<c:url value="/company/stylesheets/botlist.css" />" media="screen" rel="Stylesheet" type="text/css" />
 
 <style type="text/css">
- <%@include file="/WEB-INF/jsps/general/botverse_link_css.jsp" %>	
+ <%@include file="/WEB-INF/jsps/general/botverse_link_css.jsp" %>
 </style>
 
 <script type="text/javascript">
-	
+
 	function submitForm(operation, linkid) {
 		var theForm = document.forms[0];
 		theForm.ratingId.value = linkid;
 		theForm.operation.value = operation;
 		theForm.submit();
 	}
-	
+
 </script>
 
 </head>
@@ -38,9 +38,9 @@
 	<img src="<c:url value="/company/images/building_orange_roof.jpg" />">
  </div>
 <h1 class="bot_titlelogo">Botverse - Interesting things online | Post Popular Links, it is ok!</h1>
-			
+
 			<%-- Navigation Header --%>
-			<%@include file="/WEB-INF/jsps/general/default_navigation.jsp" %>			
+			<%@include file="/WEB-INF/jsps/general/default_navigation.jsp" %>
 			<%-- End of Navigation Header --%>
 
 <div style="margin: 10px;">
@@ -51,14 +51,14 @@
 
 <div style="border: 1px solid #DDD; padding: 10px; margin-right: 10px;">
 <!-- Display the error message -->
-<div class="bot_profile_sect_add_link ">			
-	<p>		
+<div class="bot_profile_sect_add_link ">
+	<p>
 	<!-- table just for search -->
 	<table class="sample">
 	<tr>
 		<th>
 			&nbsp;Search
-		</th>						
+		</th>
 	</tr>
 	<tr>
 	<td>
@@ -66,7 +66,7 @@
 			<form method="get" action="<c:url value="/spring/search/global_search.html" />">
 				<table>
 				<tr>
-				<td> 
+				<td>
 					<input name="query" size="26" />
 				</td>
 				<td>
@@ -76,7 +76,7 @@
 				</table>
 				<input type="hidden" name="querymode" value="enabled" />
 			</form>
-			<!-- End of Form -->			
+			<!-- End of Form -->
 	</td>
 	</tr>
 	</table>
@@ -94,6 +94,6 @@
  <div style="font-size: 10px; color: #888;text-align: right">
  <i>(process in <c:out value="${processingtime}" />s)</i>
  </div>
-  
+
 </body>
 </html>

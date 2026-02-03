@@ -22,13 +22,13 @@
 			<c:set var="curStatusCount" value="${status.count}" />
 			<c:set var="curPageOffset" value="${command.pagingform.pageOffset}" />
 			<c:out value="${curStatusCount + curPageOffset}" />)
-			<a href="<c:url value="${listing.mainUrl}" />" ><c:out value="${listing.mainUrl}" /></a>	
-			&nbsp;/ <c:out value="${listing.urlTitle}" />												
-			&nbsp;/ tags: <c:out value="${listing.keywords}" />						
+			<a href="<c:url value="${listing.mainUrl}" />" ><c:out value="${listing.mainUrl}" /></a>
+			&nbsp;/ <c:out value="${listing.urlTitle}" />
+			&nbsp;/ tags: <c:out value="${listing.keywords}" />
 			&nbsp;/ <fmt:formatDate pattern="EE MMM, dd hh:mm" value="${listing.createdOn.time}" />
 			<br>
-		</c:forEach>	
+		</c:forEach>
 </div>
-	
+
 </body>
 </html>

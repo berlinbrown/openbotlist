@@ -12,60 +12,63 @@ import org.spirit.form.base.BotListBaseForm;
 
 /**
  * This is class is used by botverse.
- * @author Berlin Brown
  *
+ * @author Berlin Brown
  */
-public class BotListVisitLogStatsForm  extends BotListBaseForm {
-	
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 5392393572244933059L;
-	
-	private Long weekVisits;
-	private Map weekStats;
-	private Map weekStatsDates;
-	
-	/**
-	 * @return the weekStatsDates
-	 */
-	public Map getWeekStatsDates() {
-		return weekStatsDates;
-	}
+public class BotListVisitLogStatsForm extends BotListBaseForm {
 
-	/**
-	 * @param weekStatsDates the weekStatsDates to set
-	 */
-	public void setWeekStatsDates(Map weekStatsDates) {
-		this.weekStatsDates = weekStatsDates;
-	}
+    /**
+     *
+     */
+    private static final long serialVersionUID = 5392393572244933059L;
 
-	/**
-	 * @return the weekStats
-	 */
-	public Map getWeekStats() {
-		return weekStats;
-	}
+    private Long weekVisits;
+    private Map weekStats;
+    private Map weekStatsDates;
 
-	/**
-	 * @param weekStats the weekStats to set
-	 */
-	public void setWeekStats(Map weekStats) {
-		this.weekStats = weekStats;
-	}
+    /**
+     * @return the weekStatsDates
+     */
+    public Map getWeekStatsDates() {
+        return weekStatsDates;
+    }
 
-	/**
-	 * @return the weekVisits
-	 */
-	public Long getWeekVisits() {
-		return weekVisits;
-	}
+    /**
+     * @param weekStatsDates
+     *            the weekStatsDates to set
+     */
+    public void setWeekStatsDates(Map weekStatsDates) {
+        this.weekStatsDates = weekStatsDates;
+    }
 
-	/**
-	 * @param weekVisits the weekVisits to set
-	 */
-	public void setWeekVisits(Long weekVisits) {
-		this.weekVisits = weekVisits;
-	}
+    /**
+     * @return the weekStats
+     */
+    public Map getWeekStats() {
+        return weekStats;
+    }
+
+    /**
+     * @param weekStats
+     *            the weekStats to set
+     */
+    public void setWeekStats(Map weekStats) {
+        this.weekStats = weekStats;
+    }
+
+    /**
+     * @return the weekVisits
+     */
+    public Long getWeekVisits() {
+        return weekVisits;
+    }
+
+    /**
+     * @param weekVisits
+     *            the weekVisits to set
+     */
+    public void setWeekVisits(Long weekVisits) {
+        this.weekVisits = weekVisits;
+    }
 
 }

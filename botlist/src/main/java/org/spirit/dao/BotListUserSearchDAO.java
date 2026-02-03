@@ -9,13 +9,12 @@ import java.util.List;
 
 /**
  * This is class is used by botverse.
- * 
+ *
  * @author Berlin Brown
- * 
  */
 
 public interface BotListUserSearchDAO {
-	
-	public List list(final String searchQueryStr);
-	
+
+    public List list(final String searchQueryStr);
+
 }

@@ -22,9 +22,8 @@
  </div>
 <h1 class="bot_titlelogo">BotList - Add Comment</h1>
 			<%-- Navigation Header --%>
-			<%@include file="/WEB-INF/jsps/general/default_navigation.jsp" %>			
-			<%-- End of Navigation Header --%>					
-
+			<%@include file="/WEB-INF/jsps/general/default_navigation.jsp" %>
+			<%-- End of Navigation Header --%>
 
 <div style="margin: 20px;">
 
@@ -34,7 +33,7 @@
 
 	<!-- Build the table for entering the new department information -->
 	<a href="<c:url value="/spring/botverse/botverse.html" />" >Botverse Links</a>
-	
+
 <form:form method="post">
 <form:errors path="*" cssClass="general_field_error" />
 <table>
@@ -51,7 +50,7 @@
 			<form:errors path="message" cssClass="general_field_error" />
 		</td>
 	</tr>
-		
+
 	<!-- Username -->
 	<tr>
 		<td valign="top">Username:</td>
@@ -64,8 +63,7 @@
 			<form:errors path="fullName" cssClass="general_field_error" />
 		</td>
 	</tr>
-		
-		
+
 	<tr>
 		<td valign="top">Email: (optional, will not be displayed)</td>
 	</tr>
@@ -77,18 +75,18 @@
 			<form:errors path="email" cssClass="general_field_error" />
 		</td>
 	</tr>
-		
+
 	<tr><td valign="top">Keywords (space separated, optional)</td></tr>
 	<tr>
 		<td>
 		<form:input path="keywords" size="40" />
-		</td>		
+		</td>
 	</tr>
-	
+
 	<tr>
 		<td><input type="submit" value=" Submit Comment " /></td>
 	</tr>
-	
+
 	<tr>
 	<td valign="top">
 		<!-- Additional Section for Spam Prevition Simple Addition -->

@@ -22,29 +22,29 @@
  </div>
 <h1 class="bot_titlelogo">Botlist - Add Hot Search Topic</h1>
 	<%-- Navigation Header --%>
-	<%@include file="/WEB-INF/jsps/general/default_navigation.jsp" %>	
+	<%@include file="/WEB-INF/jsps/general/default_navigation.jsp" %>
 	<%-- End of Navigation Header --%>
-	
+
 <div style="margin: 10px;">
-		
+
 <div style="border: 1px solid #DDD; padding: 10px;">
 <!-- Display the error message -->
 <div class="bot_profile_sect_add_link">
-	
+
 <div>
  <a href="<c:url value="/spring/search/search.html?querymode=enabled&query=${command.searchTerm}" />" class="linklist_botnav">+ Return to search results</a>
 </div>
 <div style="margin-top: 8px; width: 500px">
-	<span style="color: #888888;"><b>Add hot search topic</b>.</span>    
+	<span style="color: #888888;"><b>Add hot search topic</b>.</span>
 </div>
-	
+
 <form:form method="post">
 <form:errors path="*" cssClass="general_field_error" />
 <table>
 	<!-- Search Term -->
 	<tr>
 		<td valign="top"><b>Hot Topic Search Term:</b></td>
-	</tr>	
+	</tr>
 	<tr>
 		<td>
 		<form:input path="searchTerm" size="45" />
@@ -52,23 +52,23 @@
 		<td>
 			<form:errors path="searchTerm" cssClass="general_field_error" />
 		</td>
-	</tr>	
-		
+	</tr>
+
 	<!-- Description -->
 	<tr>
 		<td valign="top">
 			<b>Description:</b>
 		</td>
-	</tr>	
+	</tr>
 	<tr>
 		<td>
-		 <form:input path="description" size="45" />		 
+		 <form:input path="description" size="45" />
 		</td>
 		<td>
 			<form:errors path="description" cssClass="general_field_error" />
-		</td>	
+		</td>
 	</tr>
-		
+
 </table>
 
 <%-- Button to confirm registration --%>

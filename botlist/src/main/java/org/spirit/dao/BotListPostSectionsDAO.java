@@ -9,15 +9,13 @@ import java.util.List;
 
 import org.spirit.bean.impl.BotListCityListing;
 
-
 /**
  * This is class is used by botverse.
- * 
+ *
  * @author Berlin Brown
- * 
  */
 
 public interface BotListPostSectionsDAO {
 
-	public List listSections(final String queryStr, final BotListCityListing city);
+    public List listSections(final String queryStr, final BotListCityListing city);
 }

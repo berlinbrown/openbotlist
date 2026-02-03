@@ -1,6 +1,6 @@
 /**
  * Berlin Brown
- * 
+ *
  */
 package org.spirit.servlet.tags;
 
@@ -22,56 +22,54 @@ import org.apache.taglibs.standard.tag.common.core.Util;
  */
 public class BotListTimePastTag extends TagSupport {
 
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = -5887421688538819849L;
-	
-	private String value_;                      // stores EL-based property
-	private Date value;                      	// 'value' attribute
+    /**
+     *
+     */
+    private static final long serialVersionUID = -5887421688538819849L;
 
-	private String var;                       	// 'var' attribute
-	private int scope;                         	// 'scope' attribute
+    private String value_; // stores EL-based property
+    private Date value; // 'value' attribute
 
-	//*********************************************************************
-	// Constructor and initialization
-	//*********************************************************************
+    private String var; // 'var' attribute
+    private int scope; // 'scope' attribute
 
-	public BotListTimePastTag() {
-		super();
-		init();
-	}
+    // *********************************************************************
+    // Constructor and initialization
+    // *********************************************************************
 
-	private void init() {
-		value_ = null;
-		value = null;		
-		scope = PageContext.PAGE_SCOPE;
-	}
-	
-	public void setVar(String var) {
-		this.var = var;
-	}
-
-	public void setScope(String scope) {
-		this.scope = Util.getScope(scope);
-	}
-
-
-	//*********************************************************************
-	// Tag logic
-	//*********************************************************************
-	
-	/**
-	 * Evaluates expressions as necessary
-	 */
-    private void evaluateExpressions() throws JspException {
-    	// 'value' attribute (mandatory)
-    	if (value == null) {
-    		value = (Date) ExpressionEvaluatorManager.evaluate(
-    				"value", value_, Date.class, this, pageContext);
-    	}
+    public BotListTimePastTag() {
+        super();
+        init();
     }
-	
+
+    private void init() {
+        value_ = null;
+        value = null;
+        scope = PageContext.PAGE_SCOPE;
+    }
+
+    public void setVar(String var) {
+        this.var = var;
+    }
+
+    public void setScope(String scope) {
+        this.scope = Util.getScope(scope);
+    }
+
+    // *********************************************************************
+    // Tag logic
+    // *********************************************************************
+
+    /**
+     * Evaluates expressions as necessary
+     */
+    private void evaluateExpressions() throws JspException {
+        // 'value' attribute (mandatory)
+        if (value == null) {
+            value = (Date) ExpressionEvaluatorManager.evaluate("value", value_, Date.class, this, pageContext);
+        }
+    }
+
     /**
      * Evaluates expression and chains to parent
      */
@@ -84,78 +82,78 @@ public class BotListTimePastTag extends TagSupport {
         return super.doStartTag();
     }
 
-    
     /**
      * Find time past since NOW().
      */
     public String findTimePast() {
-    	long timeDiff = (new Date()).getTime() - value.getTime();
-    	long hours = 0;
-    	long days = 0;
-    	long minutes = 0;
-    	String formatted = "";
-    	if (timeDiff > 0) {
-    		days = timeDiff / (24 * 60 * 60 * 1000);
-    		if (days > 0) {
-    			return (days > 15) ? " after 15 days" : days + " days";    			
-    		} // End of if days
-    		hours = timeDiff / (60 * 60 * 1000);
-    		if (hours > 0) {
-    			return hours + " hours";
-    		}    		
-    		minutes = timeDiff / (60 * 1000);
-    		formatted = minutes + " minutes";    	
-    		
-    	} else {
-    		formatted = "0 minutes";
-    	}    	
-    	return formatted;
+        long timeDiff = (new Date()).getTime() - value.getTime();
+        long hours = 0;
+        long days = 0;
+        long minutes = 0;
+        String formatted = "";
+        if (timeDiff > 0) {
+            days = timeDiff / (24 * 60 * 60 * 1000);
+            if (days > 0) {
+                return (days > 15) ? " after 15 days" : days + " days";
+            } // End of if days
+            hours = timeDiff / (60 * 60 * 1000);
+            if (hours > 0) {
+                return hours + " hours";
+            }
+            minutes = timeDiff / (60 * 1000);
+            formatted = minutes + " minutes";
+
+        } else {
+            formatted = "0 minutes";
+        }
+        return formatted;
     }
-    
-	/**
-	 * Formats the given date and time.
-	 */
-	public int doEndTag() throws JspException {
 
-		String formatted = null;
+    /**
+     * Formats the given date and time.
+     */
+    public int doEndTag() throws JspException {
 
-		if (value == null) {
-			if (var != null) {
-				pageContext.removeAttribute(var, scope);
-			}
-			return EVAL_PAGE;
-		}
+        String formatted = null;
 
-		// no formatting locale available, use Date.toString()
-		formatted = "posted " + findTimePast() + " ago";
+        if (value == null) {
+            if (var != null) {
+                pageContext.removeAttribute(var, scope);
+            }
+            return EVAL_PAGE;
+        }
 
-		if (var != null) {
-			pageContext.setAttribute(var, formatted, scope);	
-		} else {
-			try {
-				pageContext.getOut().print(formatted);
-			} catch (IOException ioe) {
-				throw new JspTagException(ioe.toString(), ioe);
-			}
-		}
+        // no formatting locale available, use Date.toString()
+        formatted = "posted " + findTimePast() + " ago";
 
-		return EVAL_PAGE;
-	}
+        if (var != null) {
+            pageContext.setAttribute(var, formatted, scope);
+        } else {
+            try {
+                pageContext.getOut().print(formatted);
+            } catch (IOException ioe) {
+                throw new JspTagException(ioe.toString(), ioe);
+            }
+        }
 
-	// Releases any resources we may have (or inherit)
-	public void release() {
-		init();
-	}
+        return EVAL_PAGE;
+    }
 
-	/**
-	 * @param value the value to set
-	 */
-	public void setValue(String value) {
-		this.value_ = value;
-	}
-	
-	public void setDateValue(Date value) {
-		this.value = value;
-	}
+    // Releases any resources we may have (or inherit)
+    public void release() {
+        init();
+    }
+
+    /**
+     * @param value
+     *            the value to set
+     */
+    public void setValue(String value) {
+        this.value_ = value;
+    }
+
+    public void setDateValue(Date value) {
+        this.value = value;
+    }
 
 }

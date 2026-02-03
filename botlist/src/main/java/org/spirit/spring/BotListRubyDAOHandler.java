@@ -1,16 +1,16 @@
-/* Created on Nov 2, 2006 
+/* Created on Nov 2, 2006
  *** Copyright 2007 Berlin Brown
  *** Copyright 2006-2007 Newspiritcompany.com
- *** 
+ ***
  *** This SOURCE FILE is licensed to NEWSPIRITCOMPANY.COM.  Unless
- *** otherwise stated, use or distribution of this program 
+ *** otherwise stated, use or distribution of this program
  *** for commercial purpose is prohibited.
- *** 
+ ***
  *** See LICENSE.BOTLIST for more information.
  ***
- *** The SOFTWARE PRODUCT and CODE are protected by copyright and 
- *** other intellectual property laws and treaties. 
- ***  
+ *** The SOFTWARE PRODUCT and CODE are protected by copyright and
+ *** other intellectual property laws and treaties.
+ ***
  *** Unless required by applicable law or agreed to in writing, software
  *** distributed  under the  License is distributed on an "AS IS" BASIS,
  *** WITHOUT  WARRANTIES OR CONDITIONS  OF ANY KIND, either  express  or
@@ -52,414 +52,421 @@ import org.spirit.dao.BotListUserVisitLogDAO;
 import org.springframework.web.servlet.mvc.AbstractFormController;
 
 /**
- * Spring Controller that interfaces between spring and jruby; reads the ruby script and invokes the
- * correct model and view.
- * 
- * @author Berlin Brown 
+ * Spring Controller that interfaces between spring and jruby; reads the ruby script and invokes the correct model and
+ * view.
+ *
+ * @author Berlin Brown
  */
-public abstract class BotListRubyDAOHandler 
-		extends AbstractFormController {
+public abstract class BotListRubyDAOHandler extends AbstractFormController {
 
-	/**
-	 * User Link Data Access Object.
-	 */
-	private BotListUserLinkDAO userLinkDAO = null;
+    /**
+     * User Link Data Access Object.
+     */
+    private BotListUserLinkDAO userLinkDAO = null;
 
-	/**
-	 * User Visit Audit Object.
-	 */
-	private BotListUserVisitLogDAO userVisitAudit = null;
+    /**
+     * User Visit Audit Object.
+     */
+    private BotListUserVisitLogDAO userVisitAudit = null;
 
-	/**
-	 * Post Listing DAO.
-	 */
-	private BotListPostListingDAO postListingDAO = null;
-	
-	/**
-	 * City Listing.
-	 */
-	private BotListCityListingDAO cityListingDao = null;
-	
-	private BotListEntityLinksDAO entityLinksDAO = null;
-	
-	private BotListUserCommentsDAO userCommentsDao = null;
-	
-	private BotListForumGroupDAO forumGroupDao = null;
-	
-	private BotListPostSectionsDAO postSectionsDao = null;
-	
-	private BotListPostImageMetadataDAO postImageMetadataDao = null;
-	
-	private BotListCoreUsersDAO coreUsersDao = null;
-	
-	private BotListGroupLinksDAO groupLinksDao = null;
-	
-	private BotListLinkGroupsDAO linkGroupsDao = null;
-	
-	private BotListAclControlDAO aclControlDao = null;
-	
-	private BotListAclManagerDAO aclManagerDao = null;
-	
-	private BotListGroupControlDAO groupControlDao = null;
-	
-	private BotListGroupManagerDAO groupManagerDao = null;
-	
-	private BotListProfileSettingsDAO profileSettingsDao = null;
-	
-	private BotListAdminMainBannerDAO adminMainBannerDao = null;
-	
-	private BotListMediaFeedsDAO mediaFeedsDao = null;
-	
-	private BotListActiveMediaFeedsDAO activeMediaFeedsDao = null;
-	
-	private BotListCoreSettings coreSettings = null;
-	
-	private BotListSearchQueryFiltersDAO searchQueryFiltersDao = null;
-	
-	private BotListDeveloperUsersDAO developerUsersDao = null;
-	
-	private BotListUserLinksDAO userLinksDao = null;
-	
-	private BotListCatLinkGroupsDAO catLinkGroupsDao = null;
-	
-	private BotListCatGroupTermsDAO catGroupTermsDao = null;
-	
-	private BotListEntityTypeFoafDAO entityTypeFoafDao = null;
-	
-	/******************************************************
-	 * 
-	 *  Audit Utilities
-	 *  
-	 ******************************************************/
-	
-	/**
-	 * @return the aclControlDao
-	 */
-	public BotListAclControlDAO getAclControlDao() {
-		return aclControlDao;
-	}
+    /**
+     * Post Listing DAO.
+     */
+    private BotListPostListingDAO postListingDAO = null;
 
-	/**
-	 * @param aclControlDao the aclControlDao to set
-	 */
-	public void setAclControlDao(BotListAclControlDAO aclControlDao) {
-		this.aclControlDao = aclControlDao;
-	}
+    /**
+     * City Listing.
+     */
+    private BotListCityListingDAO cityListingDao = null;
 
-	/**
-	 * @return the aclManagerDao
-	 */
-	public BotListAclManagerDAO getAclManagerDao() {
-		return aclManagerDao;
-	}
+    private BotListEntityLinksDAO entityLinksDAO = null;
 
-	/**
-	 * @param aclManagerDao the aclManagerDao to set
-	 */
-	public void setAclManagerDao(BotListAclManagerDAO aclManagerDao) {
-		this.aclManagerDao = aclManagerDao;
-	}
+    private BotListUserCommentsDAO userCommentsDao = null;
 
-	/**
-	 * @return the groupControlDao
-	 */
-	public BotListGroupControlDAO getGroupControlDao() {
-		return groupControlDao;
-	}
+    private BotListForumGroupDAO forumGroupDao = null;
 
-	/**
-	 * @param groupControlDao the groupControlDao to set
-	 */
-	public void setGroupControlDao(BotListGroupControlDAO groupControlDao) {
-		this.groupControlDao = groupControlDao;
-	}
+    private BotListPostSectionsDAO postSectionsDao = null;
 
-	/**
-	 * @return the groupManagerDao
-	 */
-	public BotListGroupManagerDAO getGroupManagerDao() {
-		return groupManagerDao;
-	}
+    private BotListPostImageMetadataDAO postImageMetadataDao = null;
 
-	/**
-	 * @param groupManagerDao the groupManagerDao to set
-	 */
-	public void setGroupManagerDao(BotListGroupManagerDAO groupManagerDao) {
-		this.groupManagerDao = groupManagerDao;
-	}
+    private BotListCoreUsersDAO coreUsersDao = null;
 
-	/**
-	 * @return the coreUsersDao
-	 */
-	public BotListCoreUsersDAO getCoreUsersDao() {
-		return coreUsersDao;
-	}
+    private BotListGroupLinksDAO groupLinksDao = null;
 
-	/**
-	 * @param coreUsersDao the coreUsersDao to set
-	 */
-	public void setCoreUsersDao(BotListCoreUsersDAO coreUsersDao) {
-		this.coreUsersDao = coreUsersDao;
-	}
+    private BotListLinkGroupsDAO linkGroupsDao = null;
 
-	/**
-	 * @return the postSectionsDao
-	 */
-	public BotListPostSectionsDAO getPostSectionsDao() {
-		return postSectionsDao;
-	}
+    private BotListAclControlDAO aclControlDao = null;
 
-	/**
-	 * @param postSectionsDao the postSectionsDao to set
-	 */
-	public void setPostSectionsDao(BotListPostSectionsDAO postSectionsDao) {
-		this.postSectionsDao = postSectionsDao;
-	}
+    private BotListAclManagerDAO aclManagerDao = null;
 
-	/**
-	 * @return the userCommentsDao
-	 */
-	public BotListUserCommentsDAO getUserCommentsDao() {
-		return userCommentsDao;
-	}
+    private BotListGroupControlDAO groupControlDao = null;
 
-	/**
-	 * @param userCommentsDao the userCommentsDao to set
-	 */
-	public void setUserCommentsDao(BotListUserCommentsDAO userCommentsDao) {
-		this.userCommentsDao = userCommentsDao;
-	}
+    private BotListGroupManagerDAO groupManagerDao = null;
 
-	/**
-	 * To call, use:
-	 * 
-	 */
-	public void auditLogPage(HttpServletRequest request, String curPage) {
-		if (userVisitAudit != null) {
-			BotListUserVisitLog link = new BotListUserVisitLog();
-			link.setRequestUri(request.getRequestURI());
-			link.setRequestPage(curPage);
-			link.setHost(request.getHeader("host"));
-			link.setReferer(request.getHeader("referer"));
-			link.setRemoteHost(request.getRemoteAddr());
-			link.setUserAgent(request.getHeader("user-agent"));
-			userVisitAudit.createVisitLog(link);
-		}
-	}
-	
-	/******************************************************
-	 * 
-	 *  Set the Data Access Object
-	 *  
-	 ******************************************************/
-	public void setUserLinkDao(BotListUserLinkDAO dao) {
-		this.userLinkDAO = dao;
-	}
+    private BotListProfileSettingsDAO profileSettingsDao = null;
 
-	public BotListUserLinkDAO getUserLinkDao() {
-		return this.userLinkDAO;
-	}
+    private BotListAdminMainBannerDAO adminMainBannerDao = null;
 
-	public void setUserVisitLogDao(BotListUserVisitLogDAO dao) {
-		this.userVisitAudit = dao;
-	}
+    private BotListMediaFeedsDAO mediaFeedsDao = null;
 
-	public BotListUserVisitLogDAO getUserVisitLogDao() {
-		return this.userVisitAudit;
-	}
+    private BotListActiveMediaFeedsDAO activeMediaFeedsDao = null;
 
-	
-	/**
-	 * @return the postListingDAO
-	 */
-	public BotListPostListingDAO getPostListingDao() {
-		return postListingDAO;
-	}
+    private BotListCoreSettings coreSettings = null;
 
-	/**
-	 * @param postListingDAO the postListingDAO to set
-	 */
-	public void setPostListingDao(BotListPostListingDAO postListingDAO) {
-		this.postListingDAO = postListingDAO;
-	}
+    private BotListSearchQueryFiltersDAO searchQueryFiltersDao = null;
 
-	/**
-	 * @return the cityListingDao
-	 */
-	public BotListCityListingDAO getCityListingDao() {
-		return cityListingDao;
-	}
+    private BotListDeveloperUsersDAO developerUsersDao = null;
 
-	/**
-	 * @param cityListingDao the cityListingDao to set
-	 */
-	public void setCityListingDao(BotListCityListingDAO cityListingDao) {
-		this.cityListingDao = cityListingDao;
-	}
+    private BotListUserLinksDAO userLinksDao = null;
 
-	/**
-	 * @return the entityLinksDAO
-	 */
-	public BotListEntityLinksDAO getEntityLinksDao() {
-		return entityLinksDAO;
-	}
+    private BotListCatLinkGroupsDAO catLinkGroupsDao = null;
 
-	/**
-	 * @param entityLinksDAO the entityLinksDAO to set
-	 */
-	public void setEntityLinksDao(BotListEntityLinksDAO entityLinksDAO) {
-		this.entityLinksDAO = entityLinksDAO;
-	}
+    private BotListCatGroupTermsDAO catGroupTermsDao = null;
 
-	/**
-	 * @return the forumGroupDao
-	 */
-	public BotListForumGroupDAO getForumGroupDao() {
-		return forumGroupDao;
-	}
+    private BotListEntityTypeFoafDAO entityTypeFoafDao = null;
 
-	/**
-	 * @param forumGroupDao the forumGroupDao to set
-	 */
-	public void setForumGroupDao(BotListForumGroupDAO forumGroupDao) {
-		this.forumGroupDao = forumGroupDao;
-	}
+    /******************************************************
+     * Audit Utilities
+     ******************************************************/
 
-	/**
-	 * @return the postImageMetadataDao
-	 */
-	public BotListPostImageMetadataDAO getPostImageMetadataDao() {
-		return postImageMetadataDao;
-	}
+    /**
+     * @return the aclControlDao
+     */
+    public BotListAclControlDAO getAclControlDao() {
+        return aclControlDao;
+    }
 
-	/**
-	 * @param postImageMetadataDao the postImageMetadataDao to set
-	 */
-	public void setPostImageMetadataDao(BotListPostImageMetadataDAO postImageMetadataDao) {
-		this.postImageMetadataDao = postImageMetadataDao;
-	}
+    /**
+     * @param aclControlDao
+     *            the aclControlDao to set
+     */
+    public void setAclControlDao(BotListAclControlDAO aclControlDao) {
+        this.aclControlDao = aclControlDao;
+    }
 
-	/**
-	 * @return the groupLinksDao
-	 */
-	public BotListGroupLinksDAO getGroupLinksDao() {
-		return groupLinksDao;
-	}
+    /**
+     * @return the aclManagerDao
+     */
+    public BotListAclManagerDAO getAclManagerDao() {
+        return aclManagerDao;
+    }
 
-	/**
-	 * @param groupLinksDao the groupLinksDao to set
-	 */
-	public void setGroupLinksDao(BotListGroupLinksDAO groupLinksDao) {
-		this.groupLinksDao = groupLinksDao;
-	}
+    /**
+     * @param aclManagerDao
+     *            the aclManagerDao to set
+     */
+    public void setAclManagerDao(BotListAclManagerDAO aclManagerDao) {
+        this.aclManagerDao = aclManagerDao;
+    }
 
-	/**
-	 * @return the linkGroupsDao
-	 */
-	public BotListLinkGroupsDAO getLinkGroupsDao() {
-		return linkGroupsDao;
-	}
+    /**
+     * @return the groupControlDao
+     */
+    public BotListGroupControlDAO getGroupControlDao() {
+        return groupControlDao;
+    }
 
-	/**
-	 * @param linkGroupsDao the linkGroupsDao to set
-	 */
-	public void setLinkGroupsDao(BotListLinkGroupsDAO linkGroupsDao) {
-		this.linkGroupsDao = linkGroupsDao;
-	}
+    /**
+     * @param groupControlDao
+     *            the groupControlDao to set
+     */
+    public void setGroupControlDao(BotListGroupControlDAO groupControlDao) {
+        this.groupControlDao = groupControlDao;
+    }
 
-	/**
-	 * @return the profileSettingsDao
-	 */
-	public BotListProfileSettingsDAO getProfileSettingsDao() {
-		return profileSettingsDao;
-	}
+    /**
+     * @return the groupManagerDao
+     */
+    public BotListGroupManagerDAO getGroupManagerDao() {
+        return groupManagerDao;
+    }
 
-	/**
-	 * @param profileSettingsDao the profileSettingsDao to set
-	 */
-	public void setProfileSettingsDao(BotListProfileSettingsDAO profileSettingsDao) {
-		this.profileSettingsDao = profileSettingsDao;
-	}
+    /**
+     * @param groupManagerDao
+     *            the groupManagerDao to set
+     */
+    public void setGroupManagerDao(BotListGroupManagerDAO groupManagerDao) {
+        this.groupManagerDao = groupManagerDao;
+    }
 
-	public BotListAdminMainBannerDAO getAdminMainBannerDao() {
-		return adminMainBannerDao;
-	}
+    /**
+     * @return the coreUsersDao
+     */
+    public BotListCoreUsersDAO getCoreUsersDao() {
+        return coreUsersDao;
+    }
 
-	public void setAdminMainBannerDao(BotListAdminMainBannerDAO adminMainBannerDao) {
-		this.adminMainBannerDao = adminMainBannerDao;
-	}
+    /**
+     * @param coreUsersDao
+     *            the coreUsersDao to set
+     */
+    public void setCoreUsersDao(BotListCoreUsersDAO coreUsersDao) {
+        this.coreUsersDao = coreUsersDao;
+    }
 
-	public BotListMediaFeedsDAO getMediaFeedsDao() {
-		return mediaFeedsDao;
-	}
+    /**
+     * @return the postSectionsDao
+     */
+    public BotListPostSectionsDAO getPostSectionsDao() {
+        return postSectionsDao;
+    }
 
-	public void setMediaFeedsDao(BotListMediaFeedsDAO mediaFeedsDao) {
-		this.mediaFeedsDao = mediaFeedsDao;
-	}
+    /**
+     * @param postSectionsDao
+     *            the postSectionsDao to set
+     */
+    public void setPostSectionsDao(BotListPostSectionsDAO postSectionsDao) {
+        this.postSectionsDao = postSectionsDao;
+    }
 
-	public BotListActiveMediaFeedsDAO getActiveMediaFeedsDao() {
-		return activeMediaFeedsDao;
-	}
+    /**
+     * @return the userCommentsDao
+     */
+    public BotListUserCommentsDAO getUserCommentsDao() {
+        return userCommentsDao;
+    }
 
-	public void setActiveMediaFeedsDao(
-			BotListActiveMediaFeedsDAO activeMediaFeedsDao) {
-		this.activeMediaFeedsDao = activeMediaFeedsDao;
-	}
+    /**
+     * @param userCommentsDao
+     *            the userCommentsDao to set
+     */
+    public void setUserCommentsDao(BotListUserCommentsDAO userCommentsDao) {
+        this.userCommentsDao = userCommentsDao;
+    }
 
-	public BotListCoreSettings getCoreSettings() {
-		return coreSettings;
-	}
+    /**
+     * To call, use:
+     */
+    public void auditLogPage(HttpServletRequest request, String curPage) {
+        if (userVisitAudit != null) {
+            BotListUserVisitLog link = new BotListUserVisitLog();
+            link.setRequestUri(request.getRequestURI());
+            link.setRequestPage(curPage);
+            link.setHost(request.getHeader("host"));
+            link.setReferer(request.getHeader("referer"));
+            link.setRemoteHost(request.getRemoteAddr());
+            link.setUserAgent(request.getHeader("user-agent"));
+            userVisitAudit.createVisitLog(link);
+        }
+    }
 
-	public void setCoreSettings(BotListCoreSettings coreSettings) {
-		this.coreSettings = coreSettings;
-	}
+    /******************************************************
+     * Set the Data Access Object
+     ******************************************************/
+    public void setUserLinkDao(BotListUserLinkDAO dao) {
+        this.userLinkDAO = dao;
+    }
 
-	public BotListSearchQueryFiltersDAO getSearchQueryFiltersDao() {
-		return searchQueryFiltersDao;
-	}
+    public BotListUserLinkDAO getUserLinkDao() {
+        return this.userLinkDAO;
+    }
 
-	public void setSearchQueryFiltersDao(BotListSearchQueryFiltersDAO searchQueryFiltersDao) {
-		this.searchQueryFiltersDao = searchQueryFiltersDao;
-	}
+    public void setUserVisitLogDao(BotListUserVisitLogDAO dao) {
+        this.userVisitAudit = dao;
+    }
 
-	public BotListDeveloperUsersDAO getDeveloperUsersDao() {
-		return developerUsersDao;
-	}
+    public BotListUserVisitLogDAO getUserVisitLogDao() {
+        return this.userVisitAudit;
+    }
 
-	public void setDeveloperUsersDao(BotListDeveloperUsersDAO developerUsersDao) {
-		this.developerUsersDao = developerUsersDao;
-	}
+    /**
+     * @return the postListingDAO
+     */
+    public BotListPostListingDAO getPostListingDao() {
+        return postListingDAO;
+    }
 
-	public BotListUserLinksDAO getUserLinksDao() {
-		return userLinksDao;
-	}
+    /**
+     * @param postListingDAO
+     *            the postListingDAO to set
+     */
+    public void setPostListingDao(BotListPostListingDAO postListingDAO) {
+        this.postListingDAO = postListingDAO;
+    }
 
-	public void setUserLinksDao(BotListUserLinksDAO userLinksDao) {
-		this.userLinksDao = userLinksDao;
-	}
+    /**
+     * @return the cityListingDao
+     */
+    public BotListCityListingDAO getCityListingDao() {
+        return cityListingDao;
+    }
 
-	public BotListCatGroupTermsDAO getCatGroupTermsDao() {
-		return catGroupTermsDao;
-	}
+    /**
+     * @param cityListingDao
+     *            the cityListingDao to set
+     */
+    public void setCityListingDao(BotListCityListingDAO cityListingDao) {
+        this.cityListingDao = cityListingDao;
+    }
 
-	public void setCatGroupTermsDao(BotListCatGroupTermsDAO catGroupTermsDao) {
-		this.catGroupTermsDao = catGroupTermsDao;
-	}
+    /**
+     * @return the entityLinksDAO
+     */
+    public BotListEntityLinksDAO getEntityLinksDao() {
+        return entityLinksDAO;
+    }
 
-	public BotListCatLinkGroupsDAO getCatLinkGroupsDao() {
-		return catLinkGroupsDao;
-	}
+    /**
+     * @param entityLinksDAO
+     *            the entityLinksDAO to set
+     */
+    public void setEntityLinksDao(BotListEntityLinksDAO entityLinksDAO) {
+        this.entityLinksDAO = entityLinksDAO;
+    }
 
-	public void setCatLinkGroupsDao(BotListCatLinkGroupsDAO catLinkGroupsDao) {
-		this.catLinkGroupsDao = catLinkGroupsDao;
-	}
+    /**
+     * @return the forumGroupDao
+     */
+    public BotListForumGroupDAO getForumGroupDao() {
+        return forumGroupDao;
+    }
 
-	public BotListEntityTypeFoafDAO getEntityTypeFoafDao() {
-		return entityTypeFoafDao;
-	}
+    /**
+     * @param forumGroupDao
+     *            the forumGroupDao to set
+     */
+    public void setForumGroupDao(BotListForumGroupDAO forumGroupDao) {
+        this.forumGroupDao = forumGroupDao;
+    }
 
-	public void setEntityTypeFoafDao(BotListEntityTypeFoafDAO entityTypeFoafDao) {
-		this.entityTypeFoafDao = entityTypeFoafDao;
-	}
+    /**
+     * @return the postImageMetadataDao
+     */
+    public BotListPostImageMetadataDAO getPostImageMetadataDao() {
+        return postImageMetadataDao;
+    }
+
+    /**
+     * @param postImageMetadataDao
+     *            the postImageMetadataDao to set
+     */
+    public void setPostImageMetadataDao(BotListPostImageMetadataDAO postImageMetadataDao) {
+        this.postImageMetadataDao = postImageMetadataDao;
+    }
+
+    /**
+     * @return the groupLinksDao
+     */
+    public BotListGroupLinksDAO getGroupLinksDao() {
+        return groupLinksDao;
+    }
+
+    /**
+     * @param groupLinksDao
+     *            the groupLinksDao to set
+     */
+    public void setGroupLinksDao(BotListGroupLinksDAO groupLinksDao) {
+        this.groupLinksDao = groupLinksDao;
+    }
+
+    /**
+     * @return the linkGroupsDao
+     */
+    public BotListLinkGroupsDAO getLinkGroupsDao() {
+        return linkGroupsDao;
+    }
+
+    /**
+     * @param linkGroupsDao
+     *            the linkGroupsDao to set
+     */
+    public void setLinkGroupsDao(BotListLinkGroupsDAO linkGroupsDao) {
+        this.linkGroupsDao = linkGroupsDao;
+    }
+
+    /**
+     * @return the profileSettingsDao
+     */
+    public BotListProfileSettingsDAO getProfileSettingsDao() {
+        return profileSettingsDao;
+    }
+
+    /**
+     * @param profileSettingsDao
+     *            the profileSettingsDao to set
+     */
+    public void setProfileSettingsDao(BotListProfileSettingsDAO profileSettingsDao) {
+        this.profileSettingsDao = profileSettingsDao;
+    }
+
+    public BotListAdminMainBannerDAO getAdminMainBannerDao() {
+        return adminMainBannerDao;
+    }
+
+    public void setAdminMainBannerDao(BotListAdminMainBannerDAO adminMainBannerDao) {
+        this.adminMainBannerDao = adminMainBannerDao;
+    }
+
+    public BotListMediaFeedsDAO getMediaFeedsDao() {
+        return mediaFeedsDao;
+    }
+
+    public void setMediaFeedsDao(BotListMediaFeedsDAO mediaFeedsDao) {
+        this.mediaFeedsDao = mediaFeedsDao;
+    }
+
+    public BotListActiveMediaFeedsDAO getActiveMediaFeedsDao() {
+        return activeMediaFeedsDao;
+    }
+
+    public void setActiveMediaFeedsDao(BotListActiveMediaFeedsDAO activeMediaFeedsDao) {
+        this.activeMediaFeedsDao = activeMediaFeedsDao;
+    }
+
+    public BotListCoreSettings getCoreSettings() {
+        return coreSettings;
+    }
+
+    public void setCoreSettings(BotListCoreSettings coreSettings) {
+        this.coreSettings = coreSettings;
+    }
+
+    public BotListSearchQueryFiltersDAO getSearchQueryFiltersDao() {
+        return searchQueryFiltersDao;
+    }
+
+    public void setSearchQueryFiltersDao(BotListSearchQueryFiltersDAO searchQueryFiltersDao) {
+        this.searchQueryFiltersDao = searchQueryFiltersDao;
+    }
+
+    public BotListDeveloperUsersDAO getDeveloperUsersDao() {
+        return developerUsersDao;
+    }
+
+    public void setDeveloperUsersDao(BotListDeveloperUsersDAO developerUsersDao) {
+        this.developerUsersDao = developerUsersDao;
+    }
+
+    public BotListUserLinksDAO getUserLinksDao() {
+        return userLinksDao;
+    }
+
+    public void setUserLinksDao(BotListUserLinksDAO userLinksDao) {
+        this.userLinksDao = userLinksDao;
+    }
+
+    public BotListCatGroupTermsDAO getCatGroupTermsDao() {
+        return catGroupTermsDao;
+    }
+
+    public void setCatGroupTermsDao(BotListCatGroupTermsDAO catGroupTermsDao) {
+        this.catGroupTermsDao = catGroupTermsDao;
+    }
+
+    public BotListCatLinkGroupsDAO getCatLinkGroupsDao() {
+        return catLinkGroupsDao;
+    }
+
+    public void setCatLinkGroupsDao(BotListCatLinkGroupsDAO catLinkGroupsDao) {
+        this.catLinkGroupsDao = catLinkGroupsDao;
+    }
+
+    public BotListEntityTypeFoafDAO getEntityTypeFoafDao() {
+        return entityTypeFoafDao;
+    }
+
+    public void setEntityTypeFoafDao(BotListEntityTypeFoafDAO entityTypeFoafDao) {
+        this.entityTypeFoafDao = entityTypeFoafDao;
+    }
 
 }

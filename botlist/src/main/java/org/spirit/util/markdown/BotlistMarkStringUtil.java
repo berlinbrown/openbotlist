@@ -1,7 +1,7 @@
 /*
  * Original Authors: Pete Bevin, John Mutchek
  * http://www.martiansoftware.com/markdownj
- * 
+ *
  * Modified for BotList - Berlin Brown
  */
 
@@ -14,12 +14,11 @@ import java.util.regex.Pattern;
  * Mutable String with common operations used in Markdown processing.
  */
 public class BotlistMarkStringUtil {
-	
+
     private StringBuffer text;
 
     /**
-     * Create a new TextEditor based on the contents of a String or
-     * StringBuffer.
+     * Create a new TextEditor based on the contents of a String or StringBuffer.
      *
      * @param text
      */
@@ -29,6 +28,7 @@ public class BotlistMarkStringUtil {
 
     /**
      * Give up the contents of the TextEditor.
+     *
      * @return
      */
     public String toString() {
@@ -36,11 +36,12 @@ public class BotlistMarkStringUtil {
     }
 
     /**
-     * Replace all occurrences of the regular expression with the replacement.  The replacement string
-     * can contain $1, $2 etc. referring to matched groups in the regular expression.
+     * Replace all occurrences of the regular expression with the replacement. The replacement string can contain $1, $2
+     * etc. referring to matched groups in the regular expression.
      *
      * @param regex
      * @param replacement
+     *
      * @return
      */
     public BotlistMarkStringUtil replaceAll(String regex, String replacement) {
@@ -59,10 +60,11 @@ public class BotlistMarkStringUtil {
     }
 
     /**
-     * Same as replaceAll(String, String), but does not interpret
-     * $1, $2 etc. in the replacement string.
+     * Same as replaceAll(String, String), but does not interpret $1, $2 etc. in the replacement string.
+     *
      * @param regex
      * @param replacement
+     *
      * @return
      */
     public BotlistMarkStringUtil replaceAllLiteral(String regex, final String replacement) {
@@ -74,12 +76,12 @@ public class BotlistMarkStringUtil {
     }
 
     /**
-     * Replace all occurrences of the Pattern.  The Replacement object's replace() method is
-     * called on each match, and it provides a replacement, which is placed literally
-     * (i.e., without interpreting $1, $2 etc.)
+     * Replace all occurrences of the Pattern. The Replacement object's replace() method is called on each match, and it
+     * provides a replacement, which is placed literally (i.e., without interpreting $1, $2 etc.)
      *
      * @param pattern
      * @param replacement
+     *
      * @return
      */
     public BotlistMarkStringUtil replaceAll(Pattern pattern, BotListReplacement replacement) {
@@ -97,11 +99,13 @@ public class BotlistMarkStringUtil {
     }
 
     /**
-     * Remove all occurrences of the given regex pattern, replacing them
-     * with the empty string.
+     * Remove all occurrences of the given regex pattern, replacing them with the empty string.
      *
-     * @param pattern Regular expression
+     * @param pattern
+     *            Regular expression
+     *
      * @return
+     *
      * @see java.util.regex.Pattern
      */
     public BotlistMarkStringUtil deleteAll(String pattern) {
@@ -110,6 +114,7 @@ public class BotlistMarkStringUtil {
 
     /**
      * Convert tabs to spaces given the default tab width of 4 spaces.
+     *
      * @return
      */
     public BotlistMarkStringUtil detabify() {
@@ -119,7 +124,9 @@ public class BotlistMarkStringUtil {
     /**
      * Convert tabs to spaces.
      *
-     * @param tabWidth  Number of spaces per tab.
+     * @param tabWidth
+     *            Number of spaces per tab.
+     *
      * @return
      */
     public BotlistMarkStringUtil detabify(final int tabWidth) {
@@ -140,7 +147,9 @@ public class BotlistMarkStringUtil {
 
     /**
      * Remove a number of spaces at the start of each line.
+     *
      * @param spaces
+     *
      * @return
      */
     public BotlistMarkStringUtil outdent(int spaces) {
@@ -149,6 +158,7 @@ public class BotlistMarkStringUtil {
 
     /**
      * Remove one tab width (4 spaces) from the start of each line.
+     *
      * @return
      */
     public BotlistMarkStringUtil outdent() {
@@ -156,8 +166,8 @@ public class BotlistMarkStringUtil {
     }
 
     /**
-     * Remove leading and trailing space from the start and end of the buffer.  Intermediate
-     * lines are not affected.
+     * Remove leading and trailing space from the start and end of the buffer. Intermediate lines are not affected.
+     *
      * @return
      */
     public BotlistMarkStringUtil trim() {
@@ -167,7 +177,9 @@ public class BotlistMarkStringUtil {
 
     /**
      * Introduce a number of spaces at the start of each line.
+     *
      * @param spaces
+     *
      * @return
      */
     public BotlistMarkStringUtil indent(int spaces) {
@@ -180,6 +192,7 @@ public class BotlistMarkStringUtil {
 
     /**
      * Add a string to the end of the buffer.
+     *
      * @param s
      */
     public void append(CharSequence s) {
@@ -189,7 +202,8 @@ public class BotlistMarkStringUtil {
     /**
      * Regex to match a tag, possibly with nested tags such as <a href="<MTFoo>">.
      *
-     * @param depth - How many levels of tags-within-tags to allow.  The example <a href="<MTFoo>"> has depth 2.
+     * @param depth
+     *            - How many levels of tags-within-tags to allow. The example <a href="<MTFoo>"> has depth 2.
      */
     private String nestedTagsRegex(int depth) {
         if (depth == 0) {
@@ -201,6 +215,7 @@ public class BotlistMarkStringUtil {
 
     /**
      * Add a string to the start of the first line of the buffer.
+     *
      * @param s
      */
     public void prepend(CharSequence s) {
@@ -212,10 +227,10 @@ public class BotlistMarkStringUtil {
 
     /**
      * Find out whether the buffer is empty.
+     *
      * @return
      */
     public boolean isEmpty() {
         return text.length() == 0;
     }
 }
-

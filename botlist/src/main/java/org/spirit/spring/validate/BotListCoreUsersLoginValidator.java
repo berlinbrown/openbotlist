@@ -13,31 +13,31 @@ import org.springframework.validation.Validator;
 
 /**
  * This is class is used by botverse (used for rover updates).
- * @author Berlin Brown
  *
+ * @author Berlin Brown
  */
 public class BotListCoreUsersLoginValidator implements Validator {
-	
-	private Log log = LogFactory.getLog(getClass());
-	/**
-	 * @see org.springframework.validation.Validator#supports(java.lang.Class)
-	 */
-	public boolean supports(Class post) {
-		return BotListCoreUsersForm.class.isAssignableFrom(post);
-	}	
-		
-	/**
-	 * @see org.springframework.validation.Validator#validate(java.lang.Object, org.springframework.validation.Errors)
-	 */
-	public void validate(Object obj, Errors errors) {
-		
-		BotListCoreUsersForm form = (BotListCoreUsersForm) obj;
-		
-		ValidationUtils.rejectIfEmptyOrWhitespace(errors,
-				"userName", "required", "* Please Enter a valid User Name.");		
-		ValidationUtils.rejectIfEmptyOrWhitespace(errors,
-				"userPassword", "required", "* Please Enter a valid Password.");
-											
-	}
+
+    private Log log = LogFactory.getLog(getClass());
+
+    /**
+     * @see org.springframework.validation.Validator#supports(java.lang.Class)
+     */
+    public boolean supports(Class post) {
+        return BotListCoreUsersForm.class.isAssignableFrom(post);
+    }
+
+    /**
+     * @see org.springframework.validation.Validator#validate(java.lang.Object, org.springframework.validation.Errors)
+     */
+    public void validate(Object obj, Errors errors) {
+
+        BotListCoreUsersForm form = (BotListCoreUsersForm) obj;
+
+        ValidationUtils.rejectIfEmptyOrWhitespace(errors, "userName", "required", "* Please Enter a valid User Name.");
+        ValidationUtils.rejectIfEmptyOrWhitespace(errors, "userPassword", "required",
+                "* Please Enter a valid Password.");
+
+    }
 
 }

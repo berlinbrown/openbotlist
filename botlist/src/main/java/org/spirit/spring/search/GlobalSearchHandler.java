@@ -5,9 +5,9 @@
  * May 13, 2007
  *
  * -------------------------- COPYRIGHT_AND_LICENSE --
- * Botlist contains an open source suite of software applications for 
- * social bookmarking and collecting online news content for use on the web.  
- * Multiple web front-ends exist for Django, Rails, and J2EE.  
+ * Botlist contains an open source suite of software applications for
+ * social bookmarking and collecting online news content for use on the web.
+ * Multiple web front-ends exist for Django, Rails, and J2EE.
  * Users and remote agents are allowed to submit interesting articles.
  *
  * Copyright (c) 2007, Botnode.com (Berlin Brown)
@@ -15,18 +15,18 @@
  *
  * All rights reserved.
  *
- * Redistribution and use in source and binary forms, with or without modification, 
+ * Redistribution and use in source and binary forms, with or without modification,
  * are permitted provided that the following conditions are met:
  *
- *	    * Redistributions of source code must retain the above copyright notice, 
+ *	    * Redistributions of source code must retain the above copyright notice,
  *	    this list of conditions and the following disclaimer.
- *	    * Redistributions in binary form must reproduce the above copyright notice, 
- *	    this list of conditions and the following disclaimer in the documentation 
+ *	    * Redistributions in binary form must reproduce the above copyright notice,
+ *	    this list of conditions and the following disclaimer in the documentation
  *	    and/or other materials provided with the distribution.
- *	    * Neither the name of the Botnode.com (Berlin Brown) nor 
- *	    the names of its contributors may be used to endorse or promote 
+ *	    * Neither the name of the Botnode.com (Berlin Brown) nor
+ *	    the names of its contributors may be used to endorse or promote
  *	    products derived from this software without specific prior written permission.
- *	
+ *
  * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
  * "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
  * LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
@@ -58,56 +58,56 @@ import org.spirit.bean.impl.BotListEntityLinks;
 
 /**
  * This is class is used by botverse.
- * @author Berlin Brown
  *
+ * @author Berlin Brown
  */
 public class GlobalSearchHandler extends IndexSearchHandler {
-		
-	public static final String GLOBAL_URL = "url";
-	public static final String GLOBAL_TITLE = "title";
-	public static final String GLOBAL_CONTENT = "content";
-	
-	private String [] searchFields = { GLOBAL_CONTENT, GLOBAL_TITLE };
-		
-	private void setup() {
-		this.setNormsField(GLOBAL_CONTENT);
-		this.setSearchFields(searchFields);
-	}
-	
-	public List search(String queryLine) throws Exception {
-		
-		this.setup();
-		List res = new ArrayList();
-		
-		IndexReader reader = this.getNormsReader(this.getGlobalIndexDir());					
-		Searcher searcher = new IndexSearcher(reader);
-		Analyzer analyzer = new StandardAnalyzer();		
-		String [] fields = this.getSearchFields();
-		MultiFieldQueryParser parser = new MultiFieldQueryParser( fields, analyzer);
-		String finalQuery = queryLine + this.getSearchPostfix();
-		Query query = parser.parse(finalQuery);
-		Hits hits = searcher.search(query);
-		
-		//for (int start = 0; start < hits.length(); start += this.hitsPerPage) {
-		int start = 0;
-		int end = Math.min(hits.length(), start + this.getHitsPerPage());
-		for (int i = start; i < end; i++) {
-			Document doc = hits.doc(i);			         		    	 	        
-			String url = doc.get(GLOBAL_URL);
-			String title = doc.get(GLOBAL_TITLE);
-			String searchScore = "" + hits.score(i);
-			BotListEntityLinks link = new BotListEntityLinks();
-			// TODO: remove simple filter with something more robust
-			boolean validLink = true;
-			if (url != null && (url.toLowerCase().endsWith(".js") || url.toLowerCase().endsWith(".css")))
-				validLink = false;
-			if (validLink) {
-				link.setMainUrl(url);
-				link.setUrlTitle(title);
-				link.setSearchScore(searchScore);
-				res.add(link);
-			}
-		}	     
-		return res;
-	}	
+
+    public static final String GLOBAL_URL = "url";
+    public static final String GLOBAL_TITLE = "title";
+    public static final String GLOBAL_CONTENT = "content";
+
+    private String[] searchFields = { GLOBAL_CONTENT, GLOBAL_TITLE };
+
+    private void setup() {
+        this.setNormsField(GLOBAL_CONTENT);
+        this.setSearchFields(searchFields);
+    }
+
+    public List search(String queryLine) throws Exception {
+
+        this.setup();
+        List res = new ArrayList();
+
+        IndexReader reader = this.getNormsReader(this.getGlobalIndexDir());
+        Searcher searcher = new IndexSearcher(reader);
+        Analyzer analyzer = new StandardAnalyzer();
+        String[] fields = this.getSearchFields();
+        MultiFieldQueryParser parser = new MultiFieldQueryParser(fields, analyzer);
+        String finalQuery = queryLine + this.getSearchPostfix();
+        Query query = parser.parse(finalQuery);
+        Hits hits = searcher.search(query);
+
+        // for (int start = 0; start < hits.length(); start += this.hitsPerPage) {
+        int start = 0;
+        int end = Math.min(hits.length(), start + this.getHitsPerPage());
+        for (int i = start; i < end; i++) {
+            Document doc = hits.doc(i);
+            String url = doc.get(GLOBAL_URL);
+            String title = doc.get(GLOBAL_TITLE);
+            String searchScore = "" + hits.score(i);
+            BotListEntityLinks link = new BotListEntityLinks();
+            // TODO: remove simple filter with something more robust
+            boolean validLink = true;
+            if (url != null && (url.toLowerCase().endsWith(".js") || url.toLowerCase().endsWith(".css")))
+                validLink = false;
+            if (validLink) {
+                link.setMainUrl(url);
+                link.setUrlTitle(title);
+                link.setSearchScore(searchScore);
+                res.add(link);
+            }
+        }
+        return res;
+    }
 }

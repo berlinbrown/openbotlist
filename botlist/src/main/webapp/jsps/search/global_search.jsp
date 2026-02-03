@@ -15,20 +15,19 @@
 <link href="<c:url value="/company/stylesheets/botlist.css" />" media="screen" rel="Stylesheet" type="text/css" />
 
 <style type="text/css">
- <%@include file="/WEB-INF/jsps/general/botverse_link_css.jsp" %>	
+ <%@include file="/WEB-INF/jsps/general/botverse_link_css.jsp" %>
 </style>
 
 <script type="text/javascript">
-	
+
 	function submitForm(operation, linkid) {
 		var theForm = document.forms[0];
 		theForm.ratingId.value = linkid;
 		theForm.operation.value = operation;
 		theForm.submit();
 	}
-	
-</script>
 
+</script>
 
 </head>
 <body>
@@ -39,9 +38,9 @@
 	<img src="<c:url value="/company/images/building_orange_roof.jpg" />">
  </div>
 <h1 class="bot_titlelogo">Botverse - Interesting things online | Post Popular Links, it is ok!</h1>
-			
+
 			<%-- Navigation Header --%>
-			<%@include file="/WEB-INF/jsps/general/default_navigation.jsp" %>			
+			<%@include file="/WEB-INF/jsps/general/default_navigation.jsp" %>
 			<%-- End of Navigation Header --%>
 
 <div style="margin: 10px;">
@@ -59,7 +58,7 @@
 	<form method="get" action="<c:url value="/spring/search/global_search.html" />" name="newsearch">
 		<table>
 		<tr>
-		<td> 
+		<td>
 			<input name="query" size="26" />
 		</td>
 		<td>
@@ -69,12 +68,12 @@
 		</table>
 		<input type="hidden" name="querymode" value="enabled" />
 	</form>
-	<!-- End of Form -->		
-	
+	<!-- End of Form -->
+
 	<table class="linklist_data" cellspacing="2" cellpadding="0">
 		<c:forEach items="${command.listings}"  var="listing" varStatus="status">
-				<tr>					
-					<td colspan="3">							
+				<tr>
+					<td colspan="3">
 							<a class="linklist_objlinks" href="<c:url value="${listing.mainUrl}" />" >
 								<c:out value="${listing.urlTitle}" />
 							</a>
@@ -85,15 +84,15 @@
 					</td>
 				</tr>
 				<tr>
-				<td>				
-							<!-- == Keywords == -->														
-							<span class="linklist_keywords">																										
-							 <b>relevancy</b>=<c:out value="${listing.searchScore}" />							 
+				<td>
+							<!-- == Keywords == -->
+							<span class="linklist_keywords">
+							 <b>relevancy</b>=<c:out value="${listing.searchScore}" />
 							</span>
 				</td>
 				</tr>
 		</c:forEach>
-	</table>	
+	</table>
 </div>
 
 </div>
@@ -107,6 +106,6 @@
  <div style="font-size: 10px; color: #888;text-align: right">
  <i>(process in <c:out value="${processingtime}" />s)</i>
  </div>
-  
+
 </body>
 </html>

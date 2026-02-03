@@ -11,26 +11,26 @@ import org.springframework.validation.Validator;
 
 /**
  * This is class is used by botverse.
- * @author Berlin Brown 
+ *
+ * @author Berlin Brown
  */
 public class BotListAddTopicValidator implements Validator {
-	
-	/**
-	 * @see org.springframework.validation.Validator#supports(java.lang.Class)
-	 */
-	public boolean supports(Class post) {
-		return BotListSearchQueryFiltersForm.class.isAssignableFrom(post);
-	}	
-		
-	/**
-	 * @see org.springframework.validation.Validator#validate(java.lang.Object, org.springframework.validation.Errors)
-	 */
-	public void validate(Object obj, Errors errors) {
-		
-		BotListSearchQueryFiltersForm form = (BotListSearchQueryFiltersForm) obj;
-		ValidationUtils.rejectIfEmptyOrWhitespace(errors,
-				"description", "required", "* Description is required.");
-	
-	}
+
+    /**
+     * @see org.springframework.validation.Validator#supports(java.lang.Class)
+     */
+    public boolean supports(Class post) {
+        return BotListSearchQueryFiltersForm.class.isAssignableFrom(post);
+    }
+
+    /**
+     * @see org.springframework.validation.Validator#validate(java.lang.Object, org.springframework.validation.Errors)
+     */
+    public void validate(Object obj, Errors errors) {
+
+        BotListSearchQueryFiltersForm form = (BotListSearchQueryFiltersForm) obj;
+        ValidationUtils.rejectIfEmptyOrWhitespace(errors, "description", "required", "* Description is required.");
+
+    }
 
 }

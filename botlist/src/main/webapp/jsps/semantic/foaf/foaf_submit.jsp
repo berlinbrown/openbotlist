@@ -22,27 +22,26 @@
  </div>
 <h1 class="bot_titlelogo">BotList - Submit Link</h1>
 <%-- Navigation Header --%>
-<%@include file="/WEB-INF/jsps/general/default_navigation.jsp" %>			
+<%@include file="/WEB-INF/jsps/general/default_navigation.jsp" %>
 <%-- End of Navigation Header --%>
 
 <div style="margin: 4px;">
 	<h3 class="bot_headerinfo">
 			The Friend of a Friend project is a web of machine-readable pages describing people.  Submit a new
-			foaf profile.			
+			foaf profile.
 	</h3>
 </div>
 
-	
 <div style="margin: 14px;">
 
 <div style="border: 1px solid #DDD; padding: 10px;">
 <!-- Display the error message -->
 <div class="bot_profile_sect_add_link">
-	
+
 <%-- Build the table for entering the new department information --%>
-<%@include file="/WEB-INF/jsps/general/botverse_navigation.jsp" %>	
+<%@include file="/WEB-INF/jsps/general/botverse_navigation.jsp" %>
 <%-- End of Table for Botverse Navigation Links --%>
-		
+
 <form:form method="post">
 <form:errors path="*" cssClass="general_field_error" />
 <table>
@@ -59,7 +58,7 @@
 			<form:errors path="mainUrl" cssClass="general_field_error" />
 		</td>
 	</tr>
-	
+
 	<!-- Subject -->
 	<tr>
 		<td valign="top"><b>Title:</b></td>
@@ -72,14 +71,14 @@
 			<form:errors path="urlTitle" cssClass="general_field_error" />
 		</td>
 	</tr>
-	
+
 	<tr><td valign="top"><b>Keywords (space separated, required):</b></td></tr>
 	<tr>
 		<td>
 		<form:input path="keywords" size="40" />
-		</td>		
+		</td>
 	</tr>
-	
+
 	<!-- Username -->
 	<tr><td valign="top"><b>Username:</b></td></tr>
 	<tr>
@@ -88,14 +87,13 @@
 		</td>
 		<td valign="top">
 			<form:errors path="fullName" cssClass="general_field_error" />
-		</td>	
+		</td>
 	</tr>
-	
-	
+
 	<tr>
 		<td><input type="submit" value=" Submit Link " /></td>
 	</tr>
-	
+
 	<tr>
 	<td valign="top">
 		<!-- Additional Section for Spam Prevition Simple Addition -->

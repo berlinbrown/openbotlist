@@ -9,119 +9,124 @@ import java.util.Calendar;
 
 /**
  * This is class is used by botverse.
- * 
+ *
  * @author Berlin Brown
- * 
  */
-public abstract class BotListBaseForm  implements Serializable  {
-	
-	private String viewName;
-	private String uniqueId;
-	private String userNameDisplay;
-	private Calendar createdOn;
-	private Calendar updatedOn;
-	private String currentAction;
-	private Long actionId;
-	
-	private Long id;
+public abstract class BotListBaseForm implements Serializable {
 
-	/**
-	 * @return the userNameDisplay
-	 */
-	public String getUserNameDisplay() {
-		return userNameDisplay;
-	}
+    private String viewName;
+    private String uniqueId;
+    private String userNameDisplay;
+    private Calendar createdOn;
+    private Calendar updatedOn;
+    private String currentAction;
+    private Long actionId;
 
-	/**
-	 * @param userNameDisplay the userNameDisplay to set
-	 */
-	public void setUserNameDisplay(String userNameDisplay) {
-		this.userNameDisplay = userNameDisplay;
-	}
+    private Long id;
 
-	/**
-	 * @return the viewName
-	 */
-	public final String getViewName() {		
-		return viewName;
-	}
+    /**
+     * @return the userNameDisplay
+     */
+    public String getUserNameDisplay() {
+        return userNameDisplay;
+    }
 
-	/**
-	 * @param viewName the viewName to set
-	 */
-	public final void setViewName(String viewName) {
-		this.viewName = viewName;
-	}
+    /**
+     * @param userNameDisplay
+     *            the userNameDisplay to set
+     */
+    public void setUserNameDisplay(String userNameDisplay) {
+        this.userNameDisplay = userNameDisplay;
+    }
 
-	/**
-	 * @return the uniqueId
-	 */
-	public String getUniqueId() {
-		return uniqueId;
-	}
+    /**
+     * @return the viewName
+     */
+    public final String getViewName() {
+        return viewName;
+    }
 
-	/**
-	 * @param uniqueId the uniqueId to set
-	 */
-	public void setUniqueId(String uniqueId) {
-		this.uniqueId = uniqueId;
-	}
+    /**
+     * @param viewName
+     *            the viewName to set
+     */
+    public final void setViewName(String viewName) {
+        this.viewName = viewName;
+    }
 
-	/**
-	 * @return the createdOn
-	 */
-	public Calendar getCreatedOn() {
-		return createdOn;
-	}
+    /**
+     * @return the uniqueId
+     */
+    public String getUniqueId() {
+        return uniqueId;
+    }
 
-	/**
-	 * @param createdOn the createdOn to set
-	 */
-	public void setCreatedOn(Calendar createdOn) {
-		this.createdOn = createdOn;
-	}
+    /**
+     * @param uniqueId
+     *            the uniqueId to set
+     */
+    public void setUniqueId(String uniqueId) {
+        this.uniqueId = uniqueId;
+    }
 
-	/**
-	 * @return the currentAction
-	 */
-	public String getCurrentAction() {
-		return currentAction;
-	}
+    /**
+     * @return the createdOn
+     */
+    public Calendar getCreatedOn() {
+        return createdOn;
+    }
 
-	/**
-	 * @param currentAction the currentAction to set
-	 */
-	public void setCurrentAction(String currentAction) {
-		this.currentAction = currentAction;
-	}
+    /**
+     * @param createdOn
+     *            the createdOn to set
+     */
+    public void setCreatedOn(Calendar createdOn) {
+        this.createdOn = createdOn;
+    }
 
-	/**
-	 * @return the actionId
-	 */
-	public Long getActionId() {
-		return actionId;
-	}
+    /**
+     * @return the currentAction
+     */
+    public String getCurrentAction() {
+        return currentAction;
+    }
 
-	/**
-	 * @param actionId the actionId to set
-	 */
-	public void setActionId(Long actionId) {
-		this.actionId = actionId;
-	}
+    /**
+     * @param currentAction
+     *            the currentAction to set
+     */
+    public void setCurrentAction(String currentAction) {
+        this.currentAction = currentAction;
+    }
 
-	public Long getId() {
-		return id;
-	}
+    /**
+     * @return the actionId
+     */
+    public Long getActionId() {
+        return actionId;
+    }
 
-	public void setId(Long id) {
-		this.id = id;
-	}
+    /**
+     * @param actionId
+     *            the actionId to set
+     */
+    public void setActionId(Long actionId) {
+        this.actionId = actionId;
+    }
 
-	public Calendar getUpdatedOn() {
-		return updatedOn;
-	}
+    public Long getId() {
+        return id;
+    }
 
-	public void setUpdatedOn(Calendar updatedOn) {
-		this.updatedOn = updatedOn;
-	}
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public Calendar getUpdatedOn() {
+        return updatedOn;
+    }
+
+    public void setUpdatedOn(Calendar updatedOn) {
+        this.updatedOn = updatedOn;
+    }
 }

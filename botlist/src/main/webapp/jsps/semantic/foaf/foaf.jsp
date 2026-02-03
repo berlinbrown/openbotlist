@@ -7,14 +7,14 @@
 
 <%@include file="/WEB-INF/jsps/general/botverse_incl/botverse_default_meta.jsp" %>
 <style type="text/css">
- <%@include file="/WEB-INF/jsps/general/botverse_link_css.jsp" %>	
+ <%@include file="/WEB-INF/jsps/general/botverse_link_css.jsp" %>
 </style>
 
 <%-- Include jquery javascript library --%>
 <script type="text/javascript" src="<c:url value="/company/js/jq/jquery-1.1.4.pack.js" />" ></script>
 
 <script type="text/javascript">
-		
+
 </script>
 </head>
 <body>
@@ -25,19 +25,18 @@
 	<img src="<c:url value="/company/images/building_orange_roof.jpg" />" width="720" height="51" alt="Roof Logo" />
  </div>
 <h1 class="bot_titlelogo">Botverse - find interesting things online</h1>
-			
+
 <%-- Navigation Header --%>
-<%@include file="/WEB-INF/jsps/general/default_navigation.jsp" %>			
+<%@include file="/WEB-INF/jsps/general/default_navigation.jsp" %>
 <%-- End of Navigation Header --%>
 
 <div style="margin: 4px;">
 	<h3 class="bot_headerinfo">
-			The Friend of a Friend project is a web of machine-readable pages describing people, 
-			links between them and the things they create and do. 
+			The Friend of a Friend project is a web of machine-readable pages describing people,
+			links between them and the things they create and do.
 				<a href="http://www.foaf-project.org/">(foaf)</a>
 	</h3>
 </div>
-
 
 <div style="margin: 10px;">
 
@@ -50,10 +49,10 @@
 <div class="bot_profile_sect_add_link">
 
 	<%-- Build the table for entering the new department information --%>
-	<%@include file="/WEB-INF/jsps/general/foaf_quick_navigation.jsp" %>	
+	<%@include file="/WEB-INF/jsps/general/foaf_quick_navigation.jsp" %>
 	<%-- End of Table for Botverse Navigation Links --%>
-				
-	<%-- Table Section including banner and search  --%>	
+
+	<%-- Table Section including banner and search  --%>
 	<table width="100%" cellspacing="0" cellpadding="0">
 	<tr>
 	<td>
@@ -69,11 +68,11 @@
 	</td>
 	<td align="right" valign="top">
 		<!-- Begin Search Form -->
-		<div align="right">		  
+		<div align="right">
 			<form method="get" action="<c:url value="/spring/search/search.html" />" name="newsearch">
 			<table class="botverse_search_wrapper">
 			<tr>
-			<td> 
+			<td>
 				<input name="query" size="26" />
 			</td>
 			<td>
@@ -85,7 +84,7 @@
 			</form>
 		  </div>
 		</div>
-		<!-- End of Form -->		
+		<!-- End of Form -->
 	</td>
 	</tr>
 	</table>
@@ -93,8 +92,8 @@
 	<table class="linklist_data" cellspacing="2" cellpadding="0">
 		<c:forEach items="${command.listings}"  var="listing" varStatus="status">
 				<%-- Begin row production for botverse links --%>
-				<tr>					
-					<td colspan="3">							
+				<tr>
+					<td colspan="3">
 							<a class="linklist_objlinks" href="<c:url value="${listing.mainUrl}" />" >
 								<c:out value="${listing.urlTitle}" />
 							</a>
@@ -108,7 +107,7 @@
 			<%-- End row production for botverse links --%>
 		</c:forEach>
 	</table>
-	
+
 <%-- End DIV (bot_profile_sect_add_link) --%>
 </div>
 
@@ -124,6 +123,6 @@
  <div style="font-size: 10px; color: #888;text-align: right">
  <i>(process in <c:out value="${processingtime}" />s)</i>
  </div>
-  
+
 </body>
 </html>

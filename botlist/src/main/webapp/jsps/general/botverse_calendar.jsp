@@ -1,5 +1,5 @@
 	<tr>
-		<td colspan="3">							
+		<td colspan="3">
 					<a class="linklist_objlinks" href="<c:url value="${listing.mainUrl}" />" >
 							<c:out value="${listing.urlTitle}" />
 					</a>
@@ -23,7 +23,7 @@
 					</td>
 					<td>
 						<div class="linklist_comments_txt">
-						 <span class="linklist_comments_date">							
+						 <span class="linklist_comments_date">
 							<botlistutil:timePast dateValue="${listing.createdOn.time}" />
 							on <fmt:formatDate pattern="EE MMM, dd" value="${listing.createdOn.time}" />
 						 </span>
@@ -31,11 +31,11 @@
 					</td>
 					<td>
 					  <span class="linklist_comments">
-					  <a class="linklist_comments" href="<c:url value="/spring/botverse/linkviewcomments.html?viewid=${listing.id}" />">details / comments (<c:out value="${listing.commentsCount}" />)</a> 					  
-					  </span>						
-					  | <span class="linklist_comments"><a class="linklist_comments" href="<c:url value="/spring/botverse/linkaddcomment.html?viewid=${listing.id}" />">add comment</a></span>						
+					  <a class="linklist_comments" href="<c:url value="/spring/botverse/linkviewcomments.html?viewid=${listing.id}" />">details / comments (<c:out value="${listing.commentsCount}" />)</a>
+					  </span>
+					  | <span class="linklist_comments"><a class="linklist_comments" href="<c:url value="/spring/botverse/linkaddcomment.html?viewid=${listing.id}" />">add comment</a></span>
 					</td>
-				</tr>			
-			</table> <%-- End of inner table (loop) --%>					
+				</tr>
+			</table> <%-- End of inner table (loop) --%>
 		</td>
 	</tr>

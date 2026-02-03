@@ -22,9 +22,8 @@
  </div>
 <h1 class="bot_titlelogo">BotList - Contact Ad Poster | Home</h1>
 			<%-- Navigation Header --%>
-			<%@include file="/WEB-INF/jsps/general/default_navigation.jsp" %>			
-			<%-- End of Navigation Header --%>				
-			
+			<%@include file="/WEB-INF/jsps/general/default_navigation.jsp" %>
+			<%-- End of Navigation Header --%>
 
 <div style="margin: 20px;">
 
@@ -34,9 +33,9 @@
 
 	<!-- Build the table for entering the new department information -->
 	<a href="<c:url value="/spring/listings.html" />" >Listings</a>
-	
+
 	<p>
-		
+
 	<i>Contacting ad poster</i>
 	<br>
 	Please add the following values as verification
@@ -46,17 +45,17 @@
 <form:errors path="*" cssClass="general_field_error" />
 
 <table width="550" class="viewlisting">
-	
+
 	<!-- First Name -->
 	<tr>
 		<td>
 			<span style="color: #777;">
-			<i>Created - <fmt:formatDate pattern="EE dd, MMM yyyy hh:mm" 
-					value="${command.createdOn.time}" /></i>								
+			<i>Created - <fmt:formatDate pattern="EE dd, MMM yyyy hh:mm"
+					value="${command.createdOn.time}" /></i>
 			</span>
-		</td>		
+		</td>
 	</tr>
-	
+
 	<!-- First Name -->
 	<tr>
 		<td valign="top">
@@ -67,8 +66,8 @@
 		<td>
 			<c:out value="${command.title}" />
 		</td>
-	</tr>		
-	
+	</tr>
+
 	<c:if test="${not empty command.keywords}">
 		<tr><td><b>tags: </b></td></tr>
 		<tr>
@@ -77,11 +76,11 @@
 			</td>
 		</tr>
 	</c:if>
-			
+
 	<tr>
 		<td><input type="submit" value=" Contact Poster " /></td>
 	</tr>
-	
+
 	<tr>
 		<td>
 			<!--  Section for Addition Verification -->
@@ -110,7 +109,6 @@
 		</td>
 	</tr>
 
-		
 </table>
 <!-- End of the table -->
 

@@ -17,23 +17,21 @@ import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
 
 /**
  * This is class is used by botverse.
- * 
+ *
  * @author Berlin Brown
- * 
  */
 public class BotListActiveMediaFeedsDAOImpl extends HibernateDaoSupport implements BotListActiveMediaFeedsDAO {
-	
-	public List readActiveMediaList(final String type, final int maxFeeds) throws DataAccessException {		
-		return getHibernateTemplate().executeFind(
-				new HibernateCallback() {
-					public Object doInHibernate(Session session) throws HibernateException {
-						String queryStr = "from BotListActiveMediaFeeds where display_type = :type";						
-						Query query = session.createQuery(queryStr);
-						query.setString("type", type);
-						query.setMaxResults(maxFeeds);
-						List data = query.list();						
-						return data;
-					}
-				});		
-	}
+
+    public List readActiveMediaList(final String type, final int maxFeeds) throws DataAccessException {
+        return getHibernateTemplate().executeFind(new HibernateCallback() {
+            public Object doInHibernate(Session session) throws HibernateException {
+                String queryStr = "from BotListActiveMediaFeeds where display_type = :type";
+                Query query = session.createQuery(queryStr);
+                query.setString("type", type);
+                query.setMaxResults(maxFeeds);
+                List data = query.list();
+                return data;
+            }
+        });
+    }
 }
