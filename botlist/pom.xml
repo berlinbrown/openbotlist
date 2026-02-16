@@ -20,7 +20,7 @@
         <bsf.version>2.4.0</bsf.version>
         <lucene.version>2.9.4</lucene.version>
         <commons.validator.version>1.4.1</commons.validator.version>
-        <commons.fileupload.version>1.2.2</commons.fileupload.version>
+        <commons.fileupload.version>1.6.0</commons.fileupload.version>
         <commons.io.version>1.4</commons.io.version>
     </properties>
 
